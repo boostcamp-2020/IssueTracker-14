@@ -9,3 +9,6 @@
 ### iOS
 - S060 / 최동규
 - S065 / 홍동현
+
+## 브랜치
+![image (2)](https://user-images.githubusercontent.com/52521363/97140875-e5a60100-17a0-11eb-9e44-bf6c2e0b5b71.png)
