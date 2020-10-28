@@ -5,16 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
-const config = {
-  database: process.env.DB_DATABASE,
-  username: process.env.DB_USER_NAME,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  operatorAlias: false,
-  dialect: "mysql",
-  timezone: "+09:00",
-};
+const env = process.env.NODE_ENV || "development";
+const config = require("../../config/config")[env];
 const db = {};
 
 let sequelize;
@@ -53,5 +45,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-
-//npx sequlize-cli model:generate --name user --attributes userid:integer
