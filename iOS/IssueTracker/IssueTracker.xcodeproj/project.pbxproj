@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4403B40D25494B5400503E17 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403B40C25494B5400503E17 /* InputView.swift */; };
 		4403B41025494C1000503E17 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4403B40F25494C1000503E17 /* .swiftlint.yml */; };
+		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 		15A098913BEFD9C0C0308AED /* Pods-IssueTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.debug.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4403B40C25494B5400503E17 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		4403B40F25494C1000503E17 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		447C96F625497449008D326F /* SignUpScene */ = {
+			isa = PBXGroup;
+			children = (
+				447C96F72549745B008D326F /* SignUpViewController.swift */,
+			);
+			path = SignUpScene;
+			sourceTree = "<group>";
+		};
 		9E4FCDB20009D47AC3AF8E66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +68,7 @@
 		B923F01D2549597E004AD001 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
+				B980376025484A14002FF4BF /* LoginViewController.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -101,9 +112,9 @@
 			children = (
 				B923F01E254959D2004AD001 /* Common */,
 				B923F01D2549597E004AD001 /* LoginScene */,
+				447C96F625497449008D326F /* SignUpScene */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
-				B980376025484A14002FF4BF /* LoginViewController.swift */,
 				4403B40F25494C1000503E17 /* .swiftlint.yml */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
@@ -240,6 +251,7 @@
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
+				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
