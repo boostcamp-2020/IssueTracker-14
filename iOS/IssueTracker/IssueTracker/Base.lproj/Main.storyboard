@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PKM-a2-D7h">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXg-Cz-p16" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="189.5" width="300" height="44"/>
+                                <rect key="frame" x="57" y="195" width="300" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="8yG-7c-t2S"/>
@@ -28,7 +28,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
-                                <rect key="frame" x="130" y="92.5" width="154.5" height="42"/>
+                                <rect key="frame" x="130" y="98" width="154.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="inD-u4-X8z"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmz-1x-209" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="251.5" width="300" height="44"/>
+                                <rect key="frame" x="57" y="257" width="300" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F51-Hz-mLn"/>
@@ -48,12 +48,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-gW-lDU">
-                                <rect key="frame" x="57" y="313.5" width="300" height="47"/>
+                                <rect key="frame" x="57" y="319" width="300" height="47"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="132" id="DDN-fl-Zb0"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="DDN-fl-Zb0"/>
                                             <constraint firstAttribute="height" constant="47" id="Oj1-xI-0Ki"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,15 +63,21 @@
                                         <rect key="frame" x="168" y="0.0" width="132" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="9FQ-c5-87M"/>
-                                            <constraint firstAttribute="width" constant="132" id="uBW-dE-QXA"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="uBW-dE-QXA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="회원가입"/>
+                                        <connections>
+                                            <segue destination="pRe-xU-scx" kind="show" id="QNk-xG-mfS"/>
+                                        </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="nXG-bN-9lu"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-cI-3ZF">
-                                <rect key="frame" x="57" y="403.5" width="300" height="44"/>
+                                <rect key="frame" x="57" y="409" width="300" height="44"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cU2-4P-MLY"/>
@@ -105,11 +111,101 @@
                             <constraint firstItem="Ndb-gW-lDU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yNr-bm-2J2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1Yh-Jj-gaO"/>
                     <connections>
                         <outlet property="githubLoginButton" destination="2Zq-cI-3ZF" id="dh9-ig-ifJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044.9275362318842" y="134.59821428571428"/>
+        </scene>
+        <!--회원가입-->
+        <scene sceneID="Wbg-3T-zMB">
+            <objects>
+                <viewController id="pRe-xU-scx" customClass="SignUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KTg-zf-fQc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-t9-9WC">
+                                <rect key="frame" x="57" y="138" width="300" height="168"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-5B-W1v" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="YUa-46-vkJ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="아이디"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gny-mn-Zec" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="62" width="300" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="V0u-Zq-iGD"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igp-ws-xKd" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="124" width="300" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="UtX-eH-XTx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호 확인"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVR-vz-lFM">
+                                <rect key="frame" x="141" y="324" width="132" height="47"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="6a0-Ac-XKU"/>
+                                    <constraint firstAttribute="height" constant="47" id="gcW-Uu-FGJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="완료"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xaJ-CG-YQR"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="vVR-vz-lFM" firstAttribute="top" secondItem="rIV-t9-9WC" secondAttribute="bottom" constant="18" id="Ms5-Uo-mKc"/>
+                            <constraint firstItem="rIV-t9-9WC" firstAttribute="top" secondItem="xaJ-CG-YQR" secondAttribute="top" constant="50" id="XnQ-wT-IFc"/>
+                            <constraint firstItem="rIV-t9-9WC" firstAttribute="width" secondItem="KTg-zf-fQc" secondAttribute="width" multiplier="0.724638" id="iq1-Bj-lRI"/>
+                            <constraint firstItem="vVR-vz-lFM" firstAttribute="centerX" secondItem="KTg-zf-fQc" secondAttribute="centerX" id="l7i-qa-xuy"/>
+                            <constraint firstItem="rIV-t9-9WC" firstAttribute="centerX" secondItem="xaJ-CG-YQR" secondAttribute="centerX" id="xhz-ra-vNk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="회원가입" id="jvL-Su-0Sc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPs-VZ-9dI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1883" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fcZ-ND-OAF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PKM-a2-D7h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZFN-i9-8IQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6oc-2O-pcp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G7C-QF-oFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="134.59821428571428"/>
         </scene>
