@@ -11,16 +11,22 @@ final class InputView: UIView {
     
     private let label: UILabel = UILabel()
     private let textField: UITextField = UITextField()
-    var title: String? {
+    @IBInspectable var title: String? {
         get { label.text }
         set { label.text = newValue }
     }
-    
+    @IBInspectable var isSecureTextEntry: Bool {
+        get { textField.isSecureTextEntry }
+        set { textField.isSecureTextEntry = newValue }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configure()
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
@@ -54,6 +60,7 @@ private extension InputView {
     
     func configureTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.textContentType = .oneTimeCode
         addSubview(textField)
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 8),

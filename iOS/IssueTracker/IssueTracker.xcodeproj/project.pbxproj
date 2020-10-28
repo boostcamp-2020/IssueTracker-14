@@ -12,7 +12,7 @@
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
-		B980376125484A14002FF4BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* ViewController.swift */; };
+		B980376125484A14002FF4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* LoginViewController.swift */; };
 		B980376425484A14002FF4BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B980376225484A14002FF4BF /* Main.storyboard */; };
 		B980376625484A16002FF4BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B980376525484A16002FF4BF /* Assets.xcassets */; };
 		B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B980376725484A16002FF4BF /* LaunchScreen.storyboard */; };
@@ -27,7 +27,7 @@
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B980375C25484A14002FF4BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B980375E25484A14002FF4BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B980376025484A14002FF4BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B980376025484A14002FF4BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B980376325484A14002FF4BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B980376525484A16002FF4BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B980376825484A16002FF4BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B923F01D2549597E004AD001 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		B923F01E254959D2004AD001 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B923F01F254959DF004AD001 /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B923F01F254959DF004AD001 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4403B40C25494B5400503E17 /* InputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B980375025484A14002FF4BF = {
 			isa = PBXGroup;
 			children = (
@@ -76,10 +99,11 @@
 		B980375B25484A14002FF4BF /* IssueTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B923F01E254959D2004AD001 /* Common */,
+				B923F01D2549597E004AD001 /* LoginScene */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
-				B980376025484A14002FF4BF /* ViewController.swift */,
-				4403B40C25494B5400503E17 /* InputView.swift */,
+				B980376025484A14002FF4BF /* LoginViewController.swift */,
 				4403B40F25494C1000503E17 /* .swiftlint.yml */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
@@ -212,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B980376125484A14002FF4BF /* ViewController.swift in Sources */,
+				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,

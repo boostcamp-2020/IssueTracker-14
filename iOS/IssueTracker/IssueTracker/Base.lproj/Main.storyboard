@@ -1,24 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXg-Cz-p16" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                <rect key="frame" x="57" y="189.5" width="300" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="8yG-7c-t2S"/>
+                                    <constraint firstAttribute="height" constant="44" id="KiB-Mb-Hnc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="아이디"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
+                                <rect key="frame" x="130" y="92.5" width="154.5" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="inD-u4-X8z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmz-1x-209" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                <rect key="frame" x="57" y="251.5" width="300" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="F51-Hz-mLn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-gW-lDU">
+                                <rect key="frame" x="57" y="313.5" width="300" height="47"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="132" id="DDN-fl-Zb0"/>
+                                            <constraint firstAttribute="height" constant="47" id="Oj1-xI-0Ki"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="로그인"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-lW-iVP">
+                                        <rect key="frame" x="168" y="0.0" width="132" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="9FQ-c5-87M"/>
+                                            <constraint firstAttribute="width" constant="132" id="uBW-dE-QXA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="회원가입"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-cI-3ZF">
+                                <rect key="frame" x="57" y="403.5" width="300" height="44"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cU2-4P-MLY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Sign in with GitHub">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="rjr-Co-neD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.25" id="6p5-0q-7k8"/>
+                            <constraint firstItem="2Zq-cI-3ZF" firstAttribute="top" secondItem="Ndb-gW-lDU" secondAttribute="bottom" constant="43" id="7to-KR-v1k"/>
+                            <constraint firstItem="2Zq-cI-3ZF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B8K-Vv-9qF"/>
+                            <constraint firstItem="2Zq-cI-3ZF" firstAttribute="width" secondItem="dmz-1x-209" secondAttribute="width" id="OWj-h5-RG1"/>
+                            <constraint firstItem="dmz-1x-209" firstAttribute="width" secondItem="WXg-Cz-p16" secondAttribute="width" id="QXb-Gc-EnC"/>
+                            <constraint firstItem="dmz-1x-209" firstAttribute="top" secondItem="WXg-Cz-p16" secondAttribute="bottom" constant="18" id="VV0-0r-wft"/>
+                            <constraint firstItem="WXg-Cz-p16" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.724638" priority="999" id="Wpm-jV-PKC"/>
+                            <constraint firstItem="Ndb-gW-lDU" firstAttribute="top" secondItem="dmz-1x-209" secondAttribute="bottom" constant="18" id="YHm-kA-Yev"/>
+                            <constraint firstItem="rjr-Co-neD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="alK-e7-ZZi"/>
+                            <constraint firstItem="dmz-1x-209" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fr3-UM-IXd"/>
+                            <constraint firstItem="WXg-Cz-p16" firstAttribute="top" secondItem="rjr-Co-neD" secondAttribute="bottom" constant="55" id="fwQ-Hc-8Fb"/>
+                            <constraint firstItem="WXg-Cz-p16" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ljE-9C-kIk"/>
+                            <constraint firstItem="Ndb-gW-lDU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yNr-bm-2J2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="githubLoginButton" destination="2Zq-cI-3ZF" id="dh9-ig-ifJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
