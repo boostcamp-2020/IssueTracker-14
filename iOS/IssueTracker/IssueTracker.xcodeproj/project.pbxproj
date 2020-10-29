@@ -191,6 +191,7 @@
 		B980375025484A14002FF4BF = {
 			isa = PBXGroup;
 			children = (
+				4403B40F25494C1000503E17 /* .swiftlint.yml */,
 				B980375B25484A14002FF4BF /* IssueTracker */,
 				B95A6C8A254AE9E800D9EC66 /* SignUpUseCaseTests */,
 				4491F597254AEE6B00671C02 /* PatternCheckerTests */,
@@ -218,7 +219,6 @@
 				447C96F625497449008D326F /* SignUpScene */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
-				4403B40F25494C1000503E17 /* .swiftlint.yml */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
 				B980376725484A16002FF4BF /* LaunchScreen.storyboard */,
