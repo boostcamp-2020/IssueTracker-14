@@ -78,6 +78,7 @@
 		44E910A1254ACEB1000949A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+                B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
 				44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */,
 				44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */,
 				44E910A5254ACF2A000949A1 /* SignUpInfo.swift */,
@@ -128,14 +129,6 @@
 				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
 			);
 			path = Extention;
-			sourceTree = "<group>";
-		};
-		B95A6C7A254AD18500D9EC66 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B980375025484A14002FF4BF = {
