@@ -41,6 +41,7 @@ const localLogin = async (req, res) => {
     const currentUser = await UserModel.findOne({
       where: identifier,
     });
+    console.log(currentUser);
     const compareResult = bcrypt.compareSync(
       inputPassword,
       currentUser.password
