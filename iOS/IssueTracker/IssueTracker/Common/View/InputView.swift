@@ -19,14 +19,17 @@ final class InputView: UIView {
         get { textField.isSecureTextEntry }
         set { textField.isSecureTextEntry = newValue }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         configure()
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
@@ -47,6 +50,7 @@ private extension InputView {
         label.font = .systemFont(ofSize: 17)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.5
+        label.textAlignment = .right
         addSubview(label)
         NSLayoutConstraint.activate([
             label.heightAnchor.constraint(equalToConstant: 20),
