@@ -8,6 +8,6 @@
 extension String {
     func isPasswordPattern() -> Bool {
         let validCount = 5
-        return self.count == validCount
+        return count >= validCount
     }
 }
