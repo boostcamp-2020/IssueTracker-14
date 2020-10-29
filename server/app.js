@@ -9,6 +9,10 @@ const apiRouter = require("./routes/index");
 // 환경변수 설정
 require("dotenv").config();
 
+//passport
+const passport = require("passport");
+const passportConfig = require("./middlewares/passportConfig");
+
 const app = express();
 
 // 개발용으로 cors허용
@@ -23,6 +27,9 @@ app.use(logger("dev"));
 app.use(express.json());
 // 뭐하는 역할인지 확인.
 app.use(express.urlencoded({ extended: false }));
+
+app.use(passport.initialize());
+passportConfig();
 
 app.use("/api", apiRouter);
 
