@@ -12,6 +12,10 @@
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
 		B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */; };
+		B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */; };
+		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
+		B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */; };
+		B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
 		B980376125484A14002FF4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* LoginViewController.swift */; };
@@ -29,6 +33,10 @@
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmailPattern.swift"; sourceTree = "<group>"; };
+		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
+		B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternChecker.swift; sourceTree = "<group>"; };
+		B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNickNamePattern.swift"; sourceTree = "<group>"; };
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B980375C25484A14002FF4BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B980375E25484A14002FF4BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,7 @@
 		447C96F625497449008D326F /* SignUpScene */ = {
 			isa = PBXGroup;
 			children = (
+				B95A6C7A254AD18500D9EC66 /* Model */,
 				B9BF5A5E25499F640052910D /* Controller */,
 			);
 			path = SignUpScene;
@@ -80,6 +89,7 @@
 		B923F01E254959D2004AD001 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B95A6C72254ACE7300D9EC66 /* Extention */,
 				B9BF5A5F25499F850052910D /* Model */,
 				B923F01F254959DF004AD001 /* View */,
 			);
@@ -92,6 +102,24 @@
 				4403B40C25494B5400503E17 /* InputView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B95A6C72254ACE7300D9EC66 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */,
+				B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */,
+				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		B95A6C7A254AD18500D9EC66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B980375025484A14002FF4BF = {
@@ -277,8 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */,
+				B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */,
+				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
+				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
