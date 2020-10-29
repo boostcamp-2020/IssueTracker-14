@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.user, {
+        foreignKey: { name: "userid", allowNull: false },
+        sourceKey: models.user.id,
+      });
+
+      this.belongsTo(models.issue, {
+        foreignKey: { name: "userid", allowNull: false },
+        sourceKey: models.issue.id,
+      });
     }
   }
   assignee.init(

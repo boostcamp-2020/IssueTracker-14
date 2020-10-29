@@ -9,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsTo(models.issue, {
+        foreignKey: { name: "issueid", allowNull: false },
+        sourceKey: models.issue.id,
+      });
+
+      this.belongsTo(models.label, {
+        foreignKey: { name: "labelid", allowNull: false },
+        sourceKey: models.label.id,
+      });
     }
   }
   label_has_issue.init(

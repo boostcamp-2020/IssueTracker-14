@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.hasMany(models.issue, {
+        foreignKey: { name: "milestoneid", allowNull: false },
+        sourceKey: "id",
+      });
     }
   }
   milestone.init(
