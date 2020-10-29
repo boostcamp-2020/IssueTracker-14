@@ -36,11 +36,10 @@ const signup = async (req, res) => {
 
 const localLogin = async (req, res) => {
   try {
-    const { email, password: inputPassword } = req.body;
+    const { email, nickname, password: inputPassword } = req.body;
+    const identifier = email ? { email } : { nickname };
     const currentUser = await UserModel.findOne({
-      where: {
-        email,
-      },
+      where: identifier,
     });
     const compareResult = bcrypt.compareSync(
       inputPassword,
