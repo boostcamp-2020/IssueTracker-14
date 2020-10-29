@@ -129,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-t9-9WC">
-                                <rect key="frame" x="57" y="138" width="300" height="168"/>
+                                <rect key="frame" x="57" y="138" width="300" height="230"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-5B-W1v" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -163,10 +163,21 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="비밀번호 확인"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXl-k0-4B0" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="186" width="300" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="QAE-ly-5z0"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="닉네임"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVR-vz-lFM">
-                                <rect key="frame" x="141" y="324" width="132" height="47"/>
+                                <rect key="frame" x="141" y="386" width="132" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="6a0-Ac-XKU"/>
                                     <constraint firstAttribute="height" constant="47" id="gcW-Uu-FGJ"/>
