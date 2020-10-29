@@ -19,6 +19,7 @@
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
 		B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */; };
 		B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */; };
+		B95A6C8C254AE9E800D9EC66 /* SignUpUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C8B254AE9E800D9EC66 /* SignUpUseCaseTests.swift */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
 		B980376125484A14002FF4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* LoginViewController.swift */; };
@@ -27,6 +28,16 @@
 		B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B980376725484A16002FF4BF /* LaunchScreen.storyboard */; };
 		B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF5A6025499FA60052910D /* NetworkService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B95A6C8E254AE9E800D9EC66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B980375125484A14002FF4BF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B980375825484A14002FF4BF;
+			remoteInfo = IssueTracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		15A098913BEFD9C0C0308AED /* Pods-IssueTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.debug.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +54,9 @@
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
 		B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternChecker.swift; sourceTree = "<group>"; };
 		B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNickNamePattern.swift"; sourceTree = "<group>"; };
+		B95A6C89254AE9E800D9EC66 /* SignUpUseCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpUseCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B95A6C8B254AE9E800D9EC66 /* SignUpUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTests.swift; sourceTree = "<group>"; };
+		B95A6C8D254AE9E800D9EC66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B980375C25484A14002FF4BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B980375E25484A14002FF4BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B95A6C86254AE9E800D9EC66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B980375625484A14002FF4BF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,7 +99,7 @@
 		44E910A1254ACEB1000949A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-                B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
+				B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
 				44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */,
 				44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */,
 				44E910A5254ACF2A000949A1 /* SignUpInfo.swift */,
@@ -131,10 +152,20 @@
 			path = Extention;
 			sourceTree = "<group>";
 		};
+		B95A6C8A254AE9E800D9EC66 /* SignUpUseCaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				B95A6C8B254AE9E800D9EC66 /* SignUpUseCaseTests.swift */,
+				B95A6C8D254AE9E800D9EC66 /* Info.plist */,
+			);
+			path = SignUpUseCaseTests;
+			sourceTree = "<group>";
+		};
 		B980375025484A14002FF4BF = {
 			isa = PBXGroup;
 			children = (
 				B980375B25484A14002FF4BF /* IssueTracker */,
+				B95A6C8A254AE9E800D9EC66 /* SignUpUseCaseTests */,
 				B980375A25484A14002FF4BF /* Products */,
 				9E4FCDB20009D47AC3AF8E66 /* Pods */,
 				C0E82A140EF021EEFC5989DB /* Frameworks */,
@@ -145,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				B980375925484A14002FF4BF /* IssueTracker.app */,
+				B95A6C89254AE9E800D9EC66 /* SignUpUseCaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +234,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B95A6C88254AE9E800D9EC66 /* SignUpUseCaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B95A6C92254AE9E800D9EC66 /* Build configuration list for PBXNativeTarget "SignUpUseCaseTests" */;
+			buildPhases = (
+				B95A6C85254AE9E800D9EC66 /* Sources */,
+				B95A6C86254AE9E800D9EC66 /* Frameworks */,
+				B95A6C87254AE9E800D9EC66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B95A6C8F254AE9E800D9EC66 /* PBXTargetDependency */,
+			);
+			name = SignUpUseCaseTests;
+			productName = SignUpUseCaseTests;
+			productReference = B95A6C89254AE9E800D9EC66 /* SignUpUseCaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B980375825484A14002FF4BF /* IssueTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B980376D25484A16002FF4BF /* Build configuration list for PBXNativeTarget "IssueTracker" */;
@@ -230,6 +280,10 @@
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					B95A6C88254AE9E800D9EC66 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = B980375825484A14002FF4BF;
+					};
 					B980375825484A14002FF4BF = {
 						CreatedOnToolsVersion = 12.1;
 					};
@@ -249,11 +303,19 @@
 			projectRoot = "";
 			targets = (
 				B980375825484A14002FF4BF /* IssueTracker */,
+				B95A6C88254AE9E800D9EC66 /* SignUpUseCaseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B95A6C87254AE9E800D9EC66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B980375725484A14002FF4BF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +372,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B95A6C85254AE9E800D9EC66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B95A6C8C254AE9E800D9EC66 /* SignUpUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B980375525484A14002FF4BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +403,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B95A6C8F254AE9E800D9EC66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B980375825484A14002FF4BF /* IssueTracker */;
+			targetProxy = B95A6C8E254AE9E800D9EC66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B980376225484A14002FF4BF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -353,6 +431,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B95A6C90254AE9E800D9EC66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = SignUpUseCaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.dochoi.SignUpUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IssueTracker.app/IssueTracker";
+			};
+			name = Debug;
+		};
+		B95A6C91254AE9E800D9EC66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B3PWYBKFUK;
+				INFOPLIST_FILE = SignUpUseCaseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kr.dochoi.SignUpUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IssueTracker.app/IssueTracker";
+			};
+			name = Release;
+		};
 		B980376B25484A16002FF4BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -512,6 +630,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B95A6C92254AE9E800D9EC66 /* Build configuration list for PBXNativeTarget "SignUpUseCaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B95A6C90254AE9E800D9EC66 /* Debug */,
+				B95A6C91254AE9E800D9EC66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B980375425484A14002FF4BF /* Build configuration list for PBXProject "IssueTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
