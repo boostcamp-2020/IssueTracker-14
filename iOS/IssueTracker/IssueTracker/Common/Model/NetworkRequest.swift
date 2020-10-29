@@ -13,6 +13,7 @@ enum RequestMethod: String {
 }
 
 protocol RequestType {
-    var url: URL { get }
+    var url: URL? { get }
     var method: RequestMethod { get }
+    var body: Data? { get }
 }
