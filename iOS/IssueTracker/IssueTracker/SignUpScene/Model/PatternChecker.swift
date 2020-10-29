@@ -11,39 +11,19 @@ final class PatternChecker {
 
     var password: String = ""
     
-    enum Form {
-        case identifierName,
-             password,
-             passwordCheck,
-             nickName
-        }
+    public func isValid(id: String) -> Bool {
+        return id.isEmailPattern()
+    }
     
-    func isValid(str: String, form: PatternChecker.Form) -> Bool {
-        switch form {
-        case .identifierName:
-            return isValidID(str)
-        case .password:
-            return isValidPassWord(str)
-        case .passwordCheck:
-            return isValidPassWordCheck(str)
-        case .nickName:
-            return isValidNickName(str)
-        }
+    public func isValid(passWord: String) -> Bool {
+        return passWord.isPasswordPattern()
     }
-
-    private func isValidID(_ str: String) -> Bool {
-        return str.isEmailPattern()
+    
+    public func isValid(passWordCheck: String) -> Bool {
+        return passWordCheck == password
     }
-
-    private func isValidPassWord(_ str: String) -> Bool {
-        return str.isPasswordPattern()
-    }
-
-    private func isValidPassWordCheck(_ str: String) -> Bool {
-        return str == password
-    }
-
-    private func isValidNickName(_ str: String) -> Bool {
-        return str.isNickNamePattern()
+    
+    public func isValid(nickName: String) -> Bool {
+        return nickName.isNickNamePattern()
     }
 }
