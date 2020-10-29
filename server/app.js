@@ -3,6 +3,9 @@ const createError = require("http-errors");
 const express = require("express");
 const logger = require("morgan");
 
+// router
+const apiRouter = require("./routes/index");
+
 // 환경변수 설정
 require("dotenv").config();
 
@@ -20,6 +23,8 @@ app.use(logger("dev"));
 app.use(express.json());
 // 뭐하는 역할인지 확인.
 app.use(express.urlencoded({ extended: false }));
+
+app.use("/api", apiRouter);
 
 app.listen(process.env.SERVER_PORT, () => {
   console.log("Server listening");
