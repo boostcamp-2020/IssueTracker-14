@@ -27,9 +27,13 @@ final class NetworkService: NetworkServiceProviding {
     }
     
     func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
-        
-        var urlRequest = URLRequest(url: requestType.url)
+        guard let url = requestType.url else {
+            completionHandler(.failure(.invalidURL))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = requestType.method.rawValue
+        urlRequest.httpBody = requestType.body
         session.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 completionHandler(.failure(.requestFailed(msg: error.localizedDescription)))
