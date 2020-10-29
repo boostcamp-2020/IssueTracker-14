@@ -8,6 +8,6 @@
 extension String {
     func isNickNamePattern() -> Bool {
         let validCount = 2
-        return self.count == validCount
+        return count >= validCount
     }
 }
