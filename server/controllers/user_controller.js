@@ -41,7 +41,11 @@ const localLogin = async (req, res) => {
     const currentUser = await UserModel.findOne({
       where: identifier,
     });
-    console.log(currentUser);
+
+    if (!currentUser) {
+      return res.status(403).json({ message: "fail" });
+    }
+
     const compareResult = bcrypt.compareSync(
       inputPassword,
       currentUser.password
