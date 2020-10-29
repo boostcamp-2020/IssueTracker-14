@@ -33,7 +33,7 @@ const githubConfig = {
   callbackURL:
     process.env.NODE_ENV === "development"
       ? "http://127.0.0.1:3000/api/user/oauth/github/callback"
-      : "",
+      : "http://115.85.183.106:3000/api/user/oauth/github/callback",
 };
 
 const githubLoginVerify = async (accessToken, refreshToken, profile, done) => {
