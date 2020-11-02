@@ -10,14 +10,13 @@ import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
-    @IBOutlet weak var passwordInputView: InputView!
-    @IBOutlet weak var emailInputView: InputView!
-    @IBOutlet weak var localLoginButton: UIButton!
+    @IBOutlet private weak var passwordInputView: InputView!
+    @IBOutlet private weak var emailInputView: InputView!
+    @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
     private let patternChecker: PatternChecker = PatternChecker()
-    private let loginUseCase: LoginUseCase = LoginUseCase(networkService: NetworkService())
-    private let loginEndPoint: LoginEndPoint? = nil
+    private let loginUseCase: LoginUseCaseType = LoginUseCase(networkService: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +63,7 @@ private extension LoginViewController {
     }
 }
 
- extension LoginViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     private func configureInputViews() {
         passwordInputView.textField.delegate = self
         emailInputView.textField.delegate = self
@@ -79,14 +78,9 @@ private extension LoginViewController {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if let emailText = emailInputView.textField.text,
-           let passwordText = passwordInputView.textField.text {
-            if patternChecker.isValid(email: emailText),
-               patternChecker.isValid(passWord: passwordText) {
-                localLoginButton.isEnabled = true
-                return
-            }
-        }
-        localLoginButton.isEnabled = false
+        guard let emailText = emailInputView.textField.text,
+              let passwordText = passwordInputView.textField.text else { return }
+        localLoginButton.isEnabled = patternChecker.isValid(email: emailText)
+            && patternChecker.isValid(passWord: passwordText)
     }
 }
