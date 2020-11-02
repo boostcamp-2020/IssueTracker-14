@@ -18,6 +18,7 @@ router.get(
 router.post("/signup", userController.signup);
 router.post("/login", userController.localLogin);
 
+// TODO: object storage 사용해야됨.
 router.post("/upload");
 
 module.exports = router;

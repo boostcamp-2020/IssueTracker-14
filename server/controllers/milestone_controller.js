@@ -2,15 +2,17 @@ const { milestone: MilestoneModel } = require("../db/models");
 
 const createMilestone = async (req, res) => {
   try {
-    // TODO: duedate front에서 확인 + backend에서도 검증해주기.
     const { title, duedate, description } = req.body;
-    const NewMilestone = await MilestoneModel.create({
+    if (Date.now() - +new Date(duedate) > 0) {
+      return res.status(400).json({ message: "fail" });
+    }
+    const newMilestone = await MilestoneModel.create({
       title,
       duedate,
       description,
       status: "open",
     });
-    if (!NewMilestone) {
+    if (!newMilestone) {
       return res.status(400).json({ message: "fail" });
     }
     return res.status(200).json({ message: "success" });
@@ -19,7 +21,7 @@ const createMilestone = async (req, res) => {
   }
 };
 
-const readMilestone = async (req, res) => {
+const readMilestones = async (req, res) => {
   try {
     const { status } = req.query;
     const milestones = await MilestoneModel.findAll({ where: { status } });
@@ -33,10 +35,12 @@ const readMilestone = async (req, res) => {
 };
 
 const updateMilestone = async (req, res) => {
-  // TODO: duedate front에서 확인 + backend에서도 검증해주기.
   try {
     const { milestoneid: id } = req.params;
     const { title, duedate, description, status } = req.body;
+    if (Date.now() - +new Date(duedate) > 0) {
+      return res.status(400).json({ message: "fail" });
+    }
     await MilestoneModel.update(
       {
         title,
@@ -64,7 +68,7 @@ const deleteMilestone = async (req, res) => {
 
 module.exports = {
   createMilestone,
-  readMilestone,
+  readMilestones,
   updateMilestone,
   deleteMilestone,
 };

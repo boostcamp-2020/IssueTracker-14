@@ -11,7 +11,7 @@ require("dotenv").config();
 
 //passport
 const passport = require("passport");
-const passportConfig = require("./middlewares/passportConfig");
+const passportConfig = require("./middlewares/passport_config");
 
 const app = express();
 
