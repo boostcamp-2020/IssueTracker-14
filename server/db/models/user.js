@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: { name: "userid", allowNull: false },
         sourceKey: "id",
       });
+      this.hasMany(models.assignee, {
+        foreignKey: { name: "userid", allowNull: false },
+        sourceKey: "id",
+      });
     }
   }
   user.init(

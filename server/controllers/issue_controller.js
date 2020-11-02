@@ -1,4 +1,9 @@
 const { issue: IssueModel } = require("../db/models");
+const { user: UserModel } = require("../db/models");
+const { milestone: MilestoneModel } = require("../db/models");
+const { comment: CommentModel } = require("../db/models");
+const { label: LabelModel } = require("../db/models");
+const { label_has_issue: LabelHasIssueModel } = require("../db/models");
 
 const createIssue = async (req, res) => {
   try {
@@ -20,7 +25,22 @@ const createIssue = async (req, res) => {
 
 const readIssues = async (req, res) => {
   try {
-    //   TODO: 여기는 고민을 많이해야됨....
+    const { id: userid } = req.user;
+    const [{ issues }] = await UserModel.findAll({
+      include: [
+        {
+          model: IssueModel,
+          include: [
+            { model: UserModel },
+            { model: MilestoneModel },
+            { model: CommentModel, include: [{ model: UserModel }] },
+            { model: LabelHasIssueModel, include: [{ model: LabelModel }] },
+          ],
+        },
+      ],
+      where: { id: userid },
+    });
+    return res.status(200).json({ message: "success", issues });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

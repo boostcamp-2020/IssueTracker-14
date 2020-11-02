@@ -13,6 +13,26 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: { name: "issueid", allowNull: false },
         sourceKey: "id",
       });
+
+      this.hasMany(models.assignee, {
+        foreignKey: { name: "issueid", allowNull: false },
+        sourceKey: "id",
+      });
+
+      this.hasMany(models.label_has_issue, {
+        foreignKey: { name: "issueid", allowNull: false },
+        sourceKey: "id",
+      });
+
+      this.belongsTo(models.user, {
+        foreignKey: { name: "authorid", allowNull: false },
+        sourceKey: models.user.id,
+      });
+
+      this.belongsTo(models.milestone, {
+        foreignKey: { name: "milestoneid", allowNull: false },
+        sourceKey: models.milestone.id,
+      });
     }
   }
   issue.init(

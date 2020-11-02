@@ -1,4 +1,6 @@
 const { assignee: AssigneeModel } = require("../../db/models");
+const { user: UserModel } = require("../../db/models");
+const { issue: IssueModel } = require("../../db/models");
 
 const createAssignee = async (req, res) => {
   try {
@@ -19,7 +21,18 @@ const createAssignee = async (req, res) => {
 
 const readAssignees = async (req, res) => {
   try {
-    //   TODO: read assignee 할때 user, assignee, issue의 join 필요
+    const { issueid } = req.params;
+    const [{ assignees }] = await IssueModel.findAll({
+      include: [
+        {
+          model: AssigneeModel,
+          attributes: ["userid"],
+          include: [{ model: UserModel, attributes: ["nickname", "imageurl"] }],
+        },
+      ],
+      where: { id: issueid },
+    });
+    return res.status(200).json({ message: "success", assignees });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
