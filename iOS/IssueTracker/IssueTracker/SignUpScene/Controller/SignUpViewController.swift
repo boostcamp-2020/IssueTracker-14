@@ -34,6 +34,20 @@ final class SignUpViewController: UIViewController {
         super.viewDidLoad()
         configureInputViews()
     }
+    
+    @IBAction private func completeButtonTouchUp(_ sender: UIButton) {
+        signUpUseCase.signUp(with: patternChecker.info) { [weak self] error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self?.alert(message: error.localizedDescription)
+                    return
+                }
+                self?.alert(message: "회원가입 성공!", completion: { _ in
+                    self?.navigationController?.popViewController(animated: true)
+                })
+            }
+        }
+    }
 }
 
 extension SignUpViewController: InputViewDelegate {
