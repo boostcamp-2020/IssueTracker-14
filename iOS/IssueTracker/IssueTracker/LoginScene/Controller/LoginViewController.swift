@@ -10,12 +10,32 @@ import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
+    @IBOutlet private weak var passwordInputView: InputView!
+    @IBOutlet private weak var emailInputView: InputView!
+    @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
+    private let patternChecker: PatternChecker = PatternChecker()
+    private let loginUseCase: LoginUseCaseType = LoginUseCase(networkService: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureAppleLoginButton()
+        configureInputViews()
+    }
+    
+    @IBAction func loginButtonDidTouchUp(_ sender: Any) {
+        guard let email = emailInputView.textField.text,
+              let password = passwordInputView.textField.text else { return }
+        let loginInfo = LoginInfo(email: email, password: password)
+        loginUseCase.login(with: loginInfo) { result in
+            switch result {
+            case let .success(response):
+                print(response)//로그인 성공 화면전환
+            case let .failure(error):
+                print(error) // alert 띄우기
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +50,6 @@ final class LoginViewController: UIViewController {
 }
 
 private extension LoginViewController {
-    
     func configureAppleLoginButton() {
         appleLoginButton.translatesAutoresizingMaskIntoConstraints = false
         appleLoginButton.cornerRadius = 10
@@ -41,5 +60,27 @@ private extension LoginViewController {
             appleLoginButton.heightAnchor.constraint(equalTo: githubLoginButton.heightAnchor),
             appleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    private func configureInputViews() {
+        passwordInputView.textField.delegate = self
+        emailInputView.textField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 1
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderWidth = 0
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let emailText = emailInputView.textField.text,
+              let passwordText = passwordInputView.textField.text else { return }
+        localLoginButton.isEnabled = patternChecker.isValid(email: emailText)
+            && patternChecker.isValid(passWord: passwordText)
     }
 }

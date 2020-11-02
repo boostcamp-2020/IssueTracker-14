@@ -11,8 +11,8 @@ final class PatternChecker {
 
     var password: String = ""
     
-    public func isValid(id: String) -> Bool {
-        return id.isEmailPattern()
+    public func isValid(email: String) -> Bool {
+        return email.isEmailPattern()
     }
     
     public func isValid(passWord: String) -> Bool {

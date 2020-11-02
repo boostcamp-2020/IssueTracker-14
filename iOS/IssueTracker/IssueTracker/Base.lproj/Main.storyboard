@@ -50,7 +50,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-gW-lDU">
                                 <rect key="frame" x="57" y="319" width="300" height="47"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="DDN-fl-Zb0"/>
@@ -58,6 +58,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="로그인"/>
+                                        <connections>
+                                            <action selector="loginButtonDidTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cR5-qV-Kvy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-lW-iVP">
                                         <rect key="frame" x="168" y="0.0" width="132" height="47"/>
@@ -113,7 +116,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="1Yh-Jj-gaO"/>
                     <connections>
+                        <outlet property="emailInputView" destination="WXg-Cz-p16" id="aZo-sU-YPL"/>
                         <outlet property="githubLoginButton" destination="2Zq-cI-3ZF" id="dh9-ig-ifJ"/>
+                        <outlet property="localLoginButton" destination="TmH-qU-Pry" id="Xin-2V-lUi"/>
+                        <outlet property="passwordInputView" destination="dmz-1x-209" id="lGh-jI-fJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

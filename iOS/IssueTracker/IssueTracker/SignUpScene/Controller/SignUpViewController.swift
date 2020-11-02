@@ -9,6 +9,8 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     
+    private let signUpUseCase: SignUpUseCase = SignUpUseCase(networkService: NetworkService())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

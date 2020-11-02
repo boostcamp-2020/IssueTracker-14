@@ -15,6 +15,9 @@
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
+		B949F990254EFB9100477211 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F98F254EFB9100477211 /* LoginInfo.swift */; };
+		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
+		B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F99C254F085000477211 /* LoginEndPoint.swift */; };
 		B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */; };
 		B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */; };
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
@@ -27,6 +30,7 @@
 		B980376425484A14002FF4BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B980376225484A14002FF4BF /* Main.storyboard */; };
 		B980376625484A16002FF4BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B980376525484A16002FF4BF /* Assets.xcassets */; };
 		B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B980376725484A16002FF4BF /* LaunchScreen.storyboard */; };
+		B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */; };
 		B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF5A6025499FA60052910D /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,9 @@
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
+		B949F98F254EFB9100477211 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
+		B949F997254F07D900477211 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		B949F99C254F085000477211 /* LoginEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndPoint.swift; sourceTree = "<group>"; };
 		B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmailPattern.swift"; sourceTree = "<group>"; };
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
@@ -76,6 +83,7 @@
 		B980376525484A16002FF4BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B980376825484A16002FF4BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B980376A25484A16002FF4BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		B9BF5A6025499FA60052910D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +154,7 @@
 		B923F01D2549597E004AD001 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
+				B949F98E254EFB7A00477211 /* Model */,
 				B9BF5A5D25499F480052910D /* Controller */,
 			);
 			path = LoginScene;
@@ -167,6 +176,17 @@
 				4403B40C25494B5400503E17 /* InputView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B949F98E254EFB7A00477211 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B949F98F254EFB9100477211 /* LoginInfo.swift */,
+				B949F997254F07D900477211 /* LoginUseCase.swift */,
+				B949F99C254F085000477211 /* LoginEndPoint.swift */,
+				B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B95A6C72254ACE7300D9EC66 /* Extention */ = {
@@ -453,6 +473,7 @@
 			files = (
 				44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */,
 				B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */,
+				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
 				B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */,
 				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
@@ -460,11 +481,14 @@
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
+				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
 				B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */,
 				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
+				B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */,
+				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
