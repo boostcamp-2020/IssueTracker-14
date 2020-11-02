@@ -30,7 +30,7 @@ const signup = async (req, res) => {
       return res.status(400).json({ message: "fail" });
     }
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -64,7 +64,7 @@ const localLogin = async (req, res) => {
       return res.status(201).json({ message: "success", token: jwtoken });
     }
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -74,7 +74,7 @@ const githubLogin = (req, res) => {
     const jwtoken = getToken({ id, email, nickname });
     return res.status(201).json({ message: "success", token: jwtoken });
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -97,7 +97,7 @@ const appleLogin = async (req, res) => {
     });
     return res.status(201).json({ message: "success", token: jwtoken });
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
