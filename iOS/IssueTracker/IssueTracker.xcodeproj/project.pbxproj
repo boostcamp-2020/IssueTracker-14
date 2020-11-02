@@ -19,6 +19,7 @@
 		B949F990254EFB9100477211 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F98F254EFB9100477211 /* LoginInfo.swift */; };
 		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
 		B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F99C254F085000477211 /* LoginEndPoint.swift */; };
+		B94B3655255039E900369C59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B3654255039E900369C59 /* UIViewController+Alert.swift */; };
 		B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */; };
 		B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */; };
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
@@ -72,6 +73,7 @@
 		B949F98F254EFB9100477211 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		B949F997254F07D900477211 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B949F99C254F085000477211 /* LoginEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndPoint.swift; sourceTree = "<group>"; };
+		B94B3654255039E900369C59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmailPattern.swift"; sourceTree = "<group>"; };
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */,
 				B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */,
 				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
+				B94B3654255039E900369C59 /* UIViewController+Alert.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
 				B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */,
+				B94B3655255039E900369C59 /* UIViewController+Alert.swift in Sources */,
 				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
 				B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */,
 				B98C9C7E254FFB5F002B9CB9 /* Coordinator.swift in Sources */,
