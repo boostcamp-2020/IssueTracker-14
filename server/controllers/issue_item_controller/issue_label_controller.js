@@ -3,7 +3,7 @@ const { label_has_issue: LabelHasModel } = require("../../db/models");
 const createLabelToIssue = async (req, res) => {
   try {
     const { issueid } = req.params;
-    const { id: labelid } = req.body;
+    const { labelid } = req.body;
 
     const newLabelToIssue = await LabelHasModel.create({ issueid, labelid });
     if (!newLabelToIssue) {

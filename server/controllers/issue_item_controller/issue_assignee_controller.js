@@ -4,7 +4,10 @@ const createAssignee = async (req, res) => {
   try {
     const { issueid } = req.params;
     const { userid } = req.body;
-    const newAssignee = await AssigneeModel.create({ userid, issueid });
+    const newAssignee = await AssigneeModel.create({
+      userid,
+      issueid: issueid,
+    });
     if (!newAssignee) {
       return res.status(400).json({ message: "fail" });
     }
@@ -25,6 +28,7 @@ const readAssignees = async (req, res) => {
 const deleteAssignee = async (req, res) => {
   try {
     const { issueid, assineeid } = req.params;
+    console.log(issueid, assineeid);
     await AssigneeModel.destroy({ where: { issueid, assineeid } });
     return res.status(200).json({ message: "success" });
   } catch (error) {
