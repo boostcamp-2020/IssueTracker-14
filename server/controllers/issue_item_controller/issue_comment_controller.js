@@ -12,7 +12,7 @@ const createComment = async (req, res) => {
     }
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -20,7 +20,7 @@ const readComments = async (req, res) => {
   try {
     //   TODO: Join이 필요함
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -35,7 +35,7 @@ const updateComment = async (req, res) => {
     );
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -45,7 +45,7 @@ const deleteComment = async (req, res) => {
     await CommentModel.delete({ where: { id: commentid } });
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 

@@ -11,7 +11,7 @@ const toggleMilestoneToIssue = async (req, res) => {
     );
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
