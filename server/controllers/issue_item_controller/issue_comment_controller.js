@@ -42,7 +42,7 @@ const updateComment = async (req, res) => {
 const deleteComment = async (req, res) => {
   try {
     const { commentid } = req.params;
-    await CommentModel.delete({ where: { id: commentid } });
+    await CommentModel.destroy({ where: { id: commentid } });
     return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });

@@ -14,7 +14,7 @@ const createIssue = async (req, res) => {
     }
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -22,7 +22,7 @@ const readIssues = async (req, res) => {
   try {
     //   TODO: 여기는 고민을 많이해야됨....
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -39,7 +39,7 @@ const updateIssue = async (req, res) => {
     );
     return res.status(200).json({ message: "success" });
   } catch (error) {
-    return res.status(400).json({ message: "fail", erroror: error.message });
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
