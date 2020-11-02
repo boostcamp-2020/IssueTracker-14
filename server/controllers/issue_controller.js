@@ -4,6 +4,7 @@ const { milestone: MilestoneModel } = require("../db/models");
 const { comment: CommentModel } = require("../db/models");
 const { label: LabelModel } = require("../db/models");
 const { label_has_issue: LabelHasIssueModel } = require("../db/models");
+const { assignee: AssigneeModel } = require("../db/models");
 
 const createIssue = async (req, res) => {
   try {
@@ -25,21 +26,17 @@ const createIssue = async (req, res) => {
 
 const readIssues = async (req, res) => {
   try {
-    const { id: userid } = req.user;
-    const [{ issues }] = await UserModel.findAll({
+    // TODO: Query string을 어떻게 가지고 올것인지, 어떤 attributes를 가지고 올것인지.
+    const issues = await IssueModel.findAll({
       include: [
-        {
-          model: IssueModel,
-          include: [
-            { model: UserModel },
-            { model: MilestoneModel },
-            { model: CommentModel, include: [{ model: UserModel }] },
-            { model: LabelHasIssueModel, include: [{ model: LabelModel }] },
-          ],
-        },
+        { model: UserModel },
+        { model: MilestoneModel },
+        { model: AssigneeModel, include: [{ model: UserModel }] },
+        { model: CommentModel, include: [{ model: UserModel }] },
+        { model: LabelHasIssueModel, include: [{ model: LabelModel }] },
       ],
-      where: { id: userid },
     });
+    //TODO: 여기서 필터링해서 주면 될듯.
     return res.status(200).json({ message: "success", issues });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });

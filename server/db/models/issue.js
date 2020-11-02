@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       this.belongsTo(models.milestone, {
-        foreignKey: { name: "milestoneid", allowNull: false },
+        foreignKey: { name: "milestoneid", allowNull: true },
         sourceKey: models.milestone.id,
       });
     }
