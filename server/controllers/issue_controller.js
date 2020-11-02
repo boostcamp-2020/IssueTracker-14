@@ -3,7 +3,12 @@ const { issue: IssueModel } = require("../db/models");
 const createIssue = async (req, res) => {
   try {
     const { title } = req.body;
-    const newIssue = await IssueModel.create({ title, status: "open" });
+    const { id: authorid } = req.user;
+    const newIssue = await IssueModel.create({
+      title,
+      authorid,
+      status: "open",
+    });
     if (!newIssue) {
       return res.status(400).json({ message: "fail" });
     }
