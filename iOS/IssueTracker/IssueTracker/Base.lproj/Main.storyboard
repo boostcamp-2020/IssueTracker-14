@@ -203,6 +203,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="회원가입" id="jvL-Su-0Sc"/>
+                    <connections>
+                        <outlet property="completeButton" destination="vVR-vz-lFM" id="Ol4-h3-S0e"/>
+                        <outlet property="emailInputView" destination="Ozh-5B-W1v" id="GmU-gZ-CWD"/>
+                        <outlet property="nameInputView" destination="UXl-k0-4B0" id="1XC-Ez-pP4"/>
+                        <outlet property="passwordConfirmInputView" destination="Igp-ws-xKd" id="PAs-FV-3b4"/>
+                        <outlet property="passwordInputView" destination="Gny-mn-Zec" id="NkY-Hm-AOF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPs-VZ-9dI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

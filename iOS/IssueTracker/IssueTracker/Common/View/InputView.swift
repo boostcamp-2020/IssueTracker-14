@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol InputViewDelegate: class {
+    func textDidChanged(_ inputView: InputView, text: String)
+}
+
 final class InputView: UIView {
     
     private let label: UILabel = UILabel()
     let textField: UITextField = UITextField()
+    weak var delegate: InputViewDelegate?
+
     @IBInspectable var title: String? {
         get { label.text }
         set { label.text = newValue }
@@ -33,6 +39,13 @@ final class InputView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
+    }
+}
+
+extension InputView {
+    func render(with validation: Bool) {
+        layer.borderWidth = validation ? 0 : 1
+        layer.borderColor = validation ? UIColor.clear.cgColor : UIColor.systemRed.cgColor
     }
 }
 
@@ -66,6 +79,7 @@ private extension InputView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textContentType = .oneTimeCode
         textField.layer.borderColor = UIColor.systemBlue.cgColor
+        textField.addTarget(self, action: #selector(textFieldDidChanged), for: .editingChanged)
         addSubview(textField)
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 8),
@@ -73,5 +87,10 @@ private extension InputView {
             textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
+    }
+    
+    @objc func textFieldDidChanged(sender: UITextField) {
+        guard let text = sender.text else { return }
+        delegate?.textDidChanged(self, text: text)
     }
 }

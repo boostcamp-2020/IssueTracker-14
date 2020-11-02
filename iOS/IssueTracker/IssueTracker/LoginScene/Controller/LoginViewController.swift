@@ -97,7 +97,6 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let emailText = emailInputView.textField.text,
               let passwordText = passwordInputView.textField.text else { return }
-        localLoginButton.isEnabled = patternChecker.isValid(email: emailText)
-            && patternChecker.isValid(passWord: passwordText)
+        localLoginButton.isEnabled = !(emailText.isEmpty && passwordText.isEmpty)
     }
 }

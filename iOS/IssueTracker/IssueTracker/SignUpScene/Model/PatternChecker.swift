@@ -8,22 +8,34 @@
 import Foundation
 
 final class PatternChecker {
-
-    var password: String = ""
     
-    public func isValid(email: String) -> Bool {
-        return email.isEmailPattern()
+    private(set) var info: SignUpInfo? = SignUpInfo()
+    var isComplete: Bool {
+        return isValid(email: info?.email) &&
+            isValid(passWord: info?.password1) &&
+            isValid(passwordCheck: info?.password2) &&
+            isValid(nickName: info?.nickname)
     }
     
-    public func isValid(passWord: String) -> Bool {
-        return passWord.isPasswordPattern()
+    func isValid(email: String?) -> Bool {
+        info?.email = email
+        return email?.isEmailPattern() ?? false
     }
     
-    public func isValid(passWordCheck: String) -> Bool {
-        return passWordCheck == password
+    func isValid(passWord: String?) -> Bool {
+        info?.password1 = passWord
+        return passWord?.isPasswordPattern() ?? false
     }
     
-    public func isValid(nickName: String) -> Bool {
-        return nickName.isNickNamePattern()
+    func isValid(passwordCheck: String?) -> Bool {
+        if let passwordCheck = passwordCheck {
+            info?.password2 = passwordCheck
+        }
+        return info?.password2 == info?.password1
+    }
+    
+    func isValid(nickName: String?) -> Bool {
+        info?.nickname = nickName
+        return nickName?.isNickNamePattern() ?? false
     }
 }
