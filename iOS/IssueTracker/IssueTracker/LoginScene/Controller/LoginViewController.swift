@@ -45,12 +45,14 @@ final class LoginViewController: UIViewController {
         guard let email = emailInputView.textField.text,
               let password = passwordInputView.textField.text else { return }
         let loginInfo = LocalLoginInfo(email: email, password: password)
-        loginUseCase.login(with: loginInfo) { result in
-            switch result {
-            case let .success(response):
-                print(response)//로그인 성공 화면전환
-            case let .failure(error):
-                print(error) // alert 띄우기
+        loginUseCase.login(with: loginInfo) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
+                    self?.coordinator?.showIssueList()
+                case let .failure(error):
+                    self?.alert(message: error.localizedDescription)
+                }
             }
         }
     }
@@ -102,13 +104,13 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
               let hashcode = credential?.user else { return }
         let info = AppleLoginInfo(email: email, name: familyName + givenName, hashcode: hashcode)
         loginUseCase.login(with: info) { [weak self] result in
-            switch result {
-            case let .success(response):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(response):
                     self?.coordinator?.showIssueList()
+                case let .failure(error):
+                    self?.alert(message: error.localizedDescription)
                 }
-            case let .failure(error):
-                break
             }
         }
     }
@@ -141,6 +143,6 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let emailText = emailInputView.textField.text,
               let passwordText = passwordInputView.textField.text else { return }
-        localLoginButton.isEnabled = !(emailText.isEmpty && passwordText.isEmpty)
+        localLoginButton.isEnabled = (!emailText.isEmpty && !passwordText.isEmpty)
     }
 }
