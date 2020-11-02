@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PKM-a2-D7h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -11,13 +11,13 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXg-Cz-p16" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="195" width="300" height="44"/>
+                                <rect key="frame" x="57" y="189.5" width="300" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="8yG-7c-t2S"/>
@@ -28,7 +28,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
-                                <rect key="frame" x="130" y="98" width="154.5" height="42"/>
+                                <rect key="frame" x="130" y="92.5" width="154.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="inD-u4-X8z"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmz-1x-209" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="257" width="300" height="44"/>
+                                <rect key="frame" x="57" y="251.5" width="300" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F51-Hz-mLn"/>
@@ -48,7 +48,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-gW-lDU">
-                                <rect key="frame" x="57" y="319" width="300" height="47"/>
+                                <rect key="frame" x="57" y="313.5" width="300" height="47"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="47"/>
@@ -71,7 +71,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="회원가입"/>
                                         <connections>
-                                            <segue destination="pRe-xU-scx" kind="show" id="QNk-xG-mfS"/>
+                                            <action selector="signUpButtonDidTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="snA-Hz-Knb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -80,7 +80,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-cI-3ZF">
-                                <rect key="frame" x="57" y="409" width="300" height="44"/>
+                                <rect key="frame" x="57" y="403.5" width="300" height="44"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cU2-4P-MLY"/>
@@ -129,13 +129,13 @@
         <!--회원가입-->
         <scene sceneID="Wbg-3T-zMB">
             <objects>
-                <viewController id="pRe-xU-scx" customClass="SignUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="pRe-xU-scx" customClass="SignUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTg-zf-fQc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-t9-9WC">
-                                <rect key="frame" x="57" y="138" width="300" height="230"/>
+                                <rect key="frame" x="57" y="94" width="300" height="230"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-5B-W1v" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
@@ -183,7 +183,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVR-vz-lFM">
-                                <rect key="frame" x="141" y="386" width="132" height="47"/>
+                                <rect key="frame" x="141" y="342" width="132" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="6a0-Ac-XKU"/>
                                     <constraint firstAttribute="height" constant="47" id="gcW-Uu-FGJ"/>
@@ -207,24 +207,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPs-VZ-9dI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1883" y="135"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fcZ-ND-OAF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PKM-a2-D7h" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZFN-i9-8IQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6oc-2O-pcp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G7C-QF-oFm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="134.59821428571428"/>
         </scene>
     </scenes>
     <resources>
