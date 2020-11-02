@@ -3,6 +3,11 @@ const { issue: IssueModel } = require("../db/models");
 const createIssue = async (req, res) => {
   try {
     const { title } = req.body;
+    const newIssue = await IssueModel.create({ title, status: "open" });
+    if (!newIssue) {
+      return res.status(400).json({ message: "fail" });
+    }
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", erroror: error.message });
   }
@@ -10,6 +15,7 @@ const createIssue = async (req, res) => {
 
 const readIssue = async (req, res) => {
   try {
+    //   TODO: 여기는 고민을 많이해야됨....
   } catch (error) {
     return res.status(400).json({ message: "fail", erroror: error.message });
   }
@@ -17,6 +23,16 @@ const readIssue = async (req, res) => {
 
 const updateIssue = async (req, res) => {
   try {
+    const { issueid: id } = req.params;
+    const { title, status } = req.body;
+    await IssueModel.update(
+      {
+        title,
+        status,
+      },
+      { where: { id } }
+    );
+    return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", erroror: error.message });
   }
