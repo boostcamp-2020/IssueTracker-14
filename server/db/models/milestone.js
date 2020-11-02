@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       duedate: DataTypes.DATE,
       status: { type: DataTypes.ENUM, values: ["open", "closed"] },
+      description: DataTypes.STRING,
     },
     {
       sequelize,
