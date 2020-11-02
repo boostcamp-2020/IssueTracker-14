@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PKM-a2-D7h">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXg-Cz-p16" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="195" width="300" height="44"/>
+                                <rect key="frame" x="82.5" y="156.5" width="435" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="8yG-7c-t2S"/>
@@ -28,7 +27,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
-                                <rect key="frame" x="130" y="98" width="154.5" height="42"/>
+                                <rect key="frame" x="223" y="59.5" width="154.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="inD-u4-X8z"/>
                                 </constraints>
@@ -37,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dmz-1x-209" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="57" y="257" width="300" height="44"/>
+                                <rect key="frame" x="82.5" y="218.5" width="435" height="44"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F51-Hz-mLn"/>
@@ -48,9 +47,9 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="Ndb-gW-lDU">
-                                <rect key="frame" x="57" y="319" width="300" height="47"/>
+                                <rect key="frame" x="150" y="280.5" width="300" height="47"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmH-qU-Pry">
                                         <rect key="frame" x="0.0" y="0.0" width="132" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="DDN-fl-Zb0"/>
@@ -58,6 +57,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="로그인"/>
+                                        <connections>
+                                            <action selector="loginButtonDidTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cR5-qV-Kvy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-lW-iVP">
                                         <rect key="frame" x="168" y="0.0" width="132" height="47"/>
@@ -77,7 +79,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-cI-3ZF">
-                                <rect key="frame" x="57" y="409" width="300" height="44"/>
+                                <rect key="frame" x="82.5" y="370.5" width="435" height="44"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cU2-4P-MLY"/>
@@ -113,7 +115,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="1Yh-Jj-gaO"/>
                     <connections>
+                        <outlet property="emailInputView" destination="WXg-Cz-p16" id="aZo-sU-YPL"/>
                         <outlet property="githubLoginButton" destination="2Zq-cI-3ZF" id="dh9-ig-ifJ"/>
+                        <outlet property="localLoginButton" destination="TmH-qU-Pry" id="Xin-2V-lUi"/>
+                        <outlet property="passwordInputView" destination="dmz-1x-209" id="lGh-jI-fJm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,14 +130,14 @@
             <objects>
                 <viewController id="pRe-xU-scx" customClass="SignUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTg-zf-fQc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="rIV-t9-9WC">
-                                <rect key="frame" x="57" y="138" width="300" height="230"/>
+                                <rect key="frame" x="82.5" y="94" width="435" height="230"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozh-5B-W1v" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="435" height="44"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YUa-46-vkJ"/>
@@ -142,7 +147,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gny-mn-Zec" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="62" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="62" width="435" height="44"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="V0u-Zq-iGD"/>
@@ -153,7 +158,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igp-ws-xKd" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="124" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="124" width="435" height="44"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="UtX-eH-XTx"/>
@@ -164,7 +169,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXl-k0-4B0" customClass="InputView" customModule="IssueTracker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="186" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="186" width="435" height="44"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="QAE-ly-5z0"/>
@@ -177,7 +182,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVR-vz-lFM">
-                                <rect key="frame" x="141" y="386" width="132" height="47"/>
+                                <rect key="frame" x="234" y="342" width="132" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="6a0-Ac-XKU"/>
                                     <constraint firstAttribute="height" constant="47" id="gcW-Uu-FGJ"/>

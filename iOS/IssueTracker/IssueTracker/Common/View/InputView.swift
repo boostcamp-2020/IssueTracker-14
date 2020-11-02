@@ -10,7 +10,7 @@ import UIKit
 final class InputView: UIView {
     
     private let label: UILabel = UILabel()
-    private let textField: UITextField = UITextField()
+    let textField: UITextField = UITextField()
     @IBInspectable var title: String? {
         get { label.text }
         set { label.text = newValue }
@@ -65,6 +65,7 @@ private extension InputView {
     func configureTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textContentType = .oneTimeCode
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
         addSubview(textField)
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 8),
