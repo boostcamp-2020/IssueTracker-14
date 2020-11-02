@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCoordinator: Coordinator {
+final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
     private let networkService: NetworkServiceProviding
@@ -37,5 +37,15 @@ class MainCoordinator: Coordinator {
         )
         viewContoller.coordinator = self
         navigationController.pushViewController(viewContoller, animated: true)
+    }
+    
+    func showIssueList() {
+        let viewContoller = storyboard.instantiateViewController(
+            identifier: IssueListViewController.identifier,
+            creator: { coder -> IssueListViewController? in
+                return IssueListViewController(coder: coder)
+            }
+        )
+        navigationController.setViewControllers([viewContoller], animated: false)
     }
 }

@@ -44,7 +44,7 @@ final class LoginViewController: UIViewController {
     @IBAction func loginButtonDidTouchUp(_ sender: Any) {
         guard let email = emailInputView.textField.text,
               let password = passwordInputView.textField.text else { return }
-        let loginInfo = LoginInfo(email: email, password: password)
+        let loginInfo = LocalLoginInfo(email: email, password: password)
         loginUseCase.login(with: loginInfo) { result in
             switch result {
             case let .success(response):
@@ -70,6 +70,7 @@ private extension LoginViewController {
     func configureAppleLoginButton() {
         appleLoginButton.translatesAutoresizingMaskIntoConstraints = false
         appleLoginButton.cornerRadius = 10
+        appleLoginButton.addTarget(self, action: #selector(appleLoginButtonTouchUp), for: .touchUpInside)
         view.addSubview(appleLoginButton)
         NSLayoutConstraint.activate([
             appleLoginButton.widthAnchor.constraint(equalTo: githubLoginButton.widthAnchor),
@@ -77,6 +78,49 @@ private extension LoginViewController {
             appleLoginButton.heightAnchor.constraint(equalTo: githubLoginButton.heightAnchor),
             appleLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    @objc func appleLoginButtonTouchUp() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
+        let credential = authorization.credential as? ASAuthorizationAppleIDCredential
+        guard let email = credential?.email,
+              let familyName = credential?.fullName?.familyName,
+              let givenName = credential?.fullName?.givenName,
+              let hashcode = credential?.user else { return }
+        let info = AppleLoginInfo(email: email, name: familyName + givenName, hashcode: hashcode)
+        loginUseCase.login(with: info) { [weak self] result in
+            switch result {
+            case let .success(response):
+                DispatchQueue.main.async {
+                    self?.coordinator?.showIssueList()
+                }
+            case let .failure(error):
+                break
+            }
+        }
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error)
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window ?? ASPresentationAnchor()
     }
 }
 
