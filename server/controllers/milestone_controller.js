@@ -4,13 +4,13 @@ const createMilestone = async (req, res) => {
   try {
     // TODO: duedate front에서 확인 + backend에서도 검증해주기.
     const { title, duedate, description } = req.body;
-    const NewMilestone = await MilestoneModel.create({
+    const newMilestone = await MilestoneModel.create({
       title,
       duedate,
       description,
       status: "open",
     });
-    if (!NewMilestone) {
+    if (!newMilestone) {
       return res.status(400).json({ message: "fail" });
     }
     return res.status(200).json({ message: "success" });
