@@ -33,7 +33,7 @@ const readLabels = async (req, res) => {
 };
 
 const updateLabel = async (req, res) => {
-  const { id } = req.params;
+  const { labelid: id } = req.params;
   const { title, description, color } = req.body;
 
   try {
@@ -49,7 +49,7 @@ const updateLabel = async (req, res) => {
 };
 
 const deleteLabel = async (req, res) => {
-  const { id } = req.params;
+  const { labelid: id } = req.params;
 
   try {
     await labelModel.destroy({
