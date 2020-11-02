@@ -10,12 +10,30 @@ import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
+    static var identifier: String {
+        return String(describing: Self.self)
+    }
     @IBOutlet private weak var passwordInputView: InputView!
     @IBOutlet private weak var emailInputView: InputView!
     @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
-    private let loginUseCase: LoginUseCaseType = LoginUseCase(networkService: NetworkService())
+    private let patternChecker: PatternChecker = PatternChecker()
+    private let loginUseCase: LoginUseCaseType
+    weak var coordinator: MainCoordinator?
+    
+    @IBAction func signUpButtonDidTouchUp(_ sender: Any) {
+        coordinator?.showSignUp()
+    }
+    
+    init?(coder: NSCoder, useCase: LoginUseCaseType) {
+        loginUseCase = useCase
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("This viewController must be init with useCase.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
