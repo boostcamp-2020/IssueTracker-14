@@ -21,7 +21,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   assignee.init(
-    {},
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
+    },
     {
       sequelize,
       modelName: "assignee",

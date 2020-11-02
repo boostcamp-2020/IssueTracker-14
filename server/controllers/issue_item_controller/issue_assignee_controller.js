@@ -4,8 +4,7 @@ const createAssignee = async (req, res) => {
   try {
     const { issueid } = req.params;
     const { userid } = req.body;
-
-    const newAssignee = await AssigneeModel.create({ issueid, userid });
+    const newAssignee = await AssigneeModel.create({ userid, issueid });
     if (!newAssignee) {
       return res.status(400).json({ message: "fail" });
     }
