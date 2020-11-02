@@ -14,6 +14,7 @@
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
+		44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA5D94255032A8008AB0EB /* IssueListViewController.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
 		B949F990254EFB9100477211 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F98F254EFB9100477211 /* LoginInfo.swift */; };
 		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
@@ -64,6 +65,8 @@
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		44E910A5254ACF2A000949A1 /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
+		44EA5D8325502AE2008AB0EB /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
+		44EA5D94255032A8008AB0EB /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B949F98F254EFB9100477211 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
@@ -144,6 +147,14 @@
 				44E910A5254ACF2A000949A1 /* SignUpInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		44EA5D9325503296008AB0EB /* IssueListScene */ = {
+			isa = PBXGroup;
+			children = (
+				44EA5D94255032A8008AB0EB /* IssueListViewController.swift */,
+			);
+			path = IssueListScene;
 			sourceTree = "<group>";
 		};
 		9E4FCDB20009D47AC3AF8E66 /* Pods */ = {
@@ -238,9 +249,13 @@
 		B980375B25484A14002FF4BF /* IssueTracker */ = {
 			isa = PBXGroup;
 			children = (
+				44EA5D8325502AE2008AB0EB /* IssueTracker.entitlements */,
 				B923F01E254959D2004AD001 /* Common */,
 				B923F01D2549597E004AD001 /* LoginScene */,
 				447C96F625497449008D326F /* SignUpScene */,
+				44EA5D9325503296008AB0EB /* IssueListScene */,
+				B98C9C7D254FFB5F002B9CB9 /* Coordinator.swift */,
+				B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
@@ -272,8 +287,6 @@
 			children = (
 				B9BF5A6025499FA60052910D /* NetworkService.swift */,
 				B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */,
-				B98C9C7D254FFB5F002B9CB9 /* Coordinator.swift */,
-				B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -480,6 +493,7 @@
 				44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */,
 				B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */,
 				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
+				44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */,
 				B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */,
 				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
@@ -666,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -721,7 +735,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -737,6 +751,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IssueTracker/IssueTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = IssueTracker/Info.plist;
@@ -757,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IssueTracker/IssueTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = IssueTracker/Info.plist;

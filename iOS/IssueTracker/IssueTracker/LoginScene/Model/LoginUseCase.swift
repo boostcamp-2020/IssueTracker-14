@@ -14,7 +14,8 @@ enum LoginUseCaseError: Error {
 }
 
 protocol LoginUseCaseType {
-    func login(with info: LoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void)
+    func login(with info: LocalLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void)
+    func login(with appleInfo: AppleLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void)
 }
 
 final class LoginUseCase: LoginUseCaseType {
@@ -25,12 +26,32 @@ final class LoginUseCase: LoginUseCaseType {
         self.networkService = networkService
     }
 
-    func login(with info: LoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void) {
-        guard let data = try? JSONEncoder().encode(info) else {
+    func login(with localInfo: LocalLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void) {
+        guard let data = try? JSONEncoder().encode(localInfo) else {
             completion(.failure(.encodingError))
             return
         }
-        let request = LoginEndPoint(body: data)
+        let request = LoginEndPoint(path: .local, body: data)
+        networkService.request(requestType: request) { result in
+            switch result {
+            case let .success(data):
+                guard let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) else {
+                    completion(.failure(.decodingError))
+                    return
+                }
+                completion(.success(loginResponse))
+            case let .failure(error):
+                completion(.failure(.networkError(message: error.localizedDescription)))
+            }
+        }
+    }
+    
+    func login(with appleInfo: AppleLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void) {
+        guard let data = try? JSONEncoder().encode(appleInfo) else {
+            completion(.failure(.encodingError))
+            return
+        }
+        let request = LoginEndPoint(path: .apple, body: data)
         networkService.request(requestType: request) { result in
             switch result {
             case let .success(data):
