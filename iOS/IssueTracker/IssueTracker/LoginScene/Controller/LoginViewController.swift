@@ -15,7 +15,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
-    private let patternChecker: PatternChecker = PatternChecker()
     private let loginUseCase: LoginUseCaseType = LoginUseCase(networkService: NetworkService())
     
     override func viewDidLoad() {
@@ -80,7 +79,6 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let emailText = emailInputView.textField.text,
               let passwordText = passwordInputView.textField.text else { return }
-        localLoginButton.isEnabled = patternChecker.isValid(email: emailText)
-            && patternChecker.isValid(passWord: passwordText)
+        localLoginButton.isEnabled = !(emailText.isEmpty && passwordText.isEmpty)
     }
 }
