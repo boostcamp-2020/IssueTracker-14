@@ -206,6 +206,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="completeButtonTouchUp:" destination="pRe-xU-scx" eventType="touchUpInside" id="FIe-Al-Chm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xaJ-CG-YQR"/>

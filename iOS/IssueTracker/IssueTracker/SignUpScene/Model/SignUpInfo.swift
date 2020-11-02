@@ -10,7 +10,7 @@ import Foundation
 struct SignUpInfo: Encodable {
     
     var email: String?
-    var password1: String?
-    var password2: String?
+    var password: String?
+    var passwordConfirm: String?
     var nickname: String?
 }
