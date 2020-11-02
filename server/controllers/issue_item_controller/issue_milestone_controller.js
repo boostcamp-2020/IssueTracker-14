@@ -1,4 +1,3 @@
-// TODO: issue의 Milestoneid를 CD
 const { issue: IssueModel } = require("../../db/models");
 
 const toggleMilestoneToIssue = async (req, res) => {

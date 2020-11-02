@@ -1,4 +1,3 @@
-// TODO: assignee CRD
 const { assignee: AssigneeModel } = require("../../db/models");
 
 const createAssignee = async (req, res) => {
@@ -16,7 +15,7 @@ const createAssignee = async (req, res) => {
   }
 };
 
-const readAssignee = async (req, res) => {
+const readAssignees = async (req, res) => {
   try {
     //   TODO: read assignee 할때 user, assignee, issue의 join 필요
   } catch (error) {
@@ -34,4 +33,4 @@ const deleteAssignee = async (req, res) => {
   }
 };
 
-module.exports = { createAssignee, readAssignee, deleteAssignee };
+module.exports = { createAssignee, readAssignees, deleteAssignee };

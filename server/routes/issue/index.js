@@ -7,23 +7,23 @@ const assigneeController = require("../../controllers/issue_item_controller/issu
 const labelToIssueController = require("../../controllers/issue_item_controller/issue_label_controller");
 const milestoneToIssueController = require("../../controllers/issue_item_controller/issue_milestone_controller");
 
-router.get("/", issueController.readIssue);
+router.get("/", issueController.readIssues);
 router.post("/", issueController.createIssue);
 router.put("/:issueid", issueController.updateIssue);
 
-router.get("/:issueid/comment", commentController.readComment);
+router.get("/:issueid/comment", commentController.readComments);
 router.post("/:issueid/comment", commentController.createComment);
 router.put("/:issueid/comment/:commentid", commentController.updateComment);
 router.delete("/:issueid/comment/:commentid", commentController.deleteComment);
 
-router.get("/:issueid/assignee", assigneeController.readAssignee);
+router.get("/:issueid/assignee", assigneeController.readAssignees);
 router.post("/:issueid/assignee", assigneeController.createAssignee);
 router.delete(
   "/:issueid/assignee/:assigneeid",
   assigneeController.deleteAssignee
 );
 
-router.get("/:issueid/label", labelToIssueController.readLabelToIssue);
+router.get("/:issueid/label", labelToIssueController.readLabelsToIssue);
 router.post("/:issueid/label", labelToIssueController.createLabelToIssue);
 router.delete(
   "/:issueid/label/:labelid",

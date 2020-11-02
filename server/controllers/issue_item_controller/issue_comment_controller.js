@@ -1,4 +1,3 @@
-// TODO: comment model CRUD
 const { comment: CommentModel } = require("../../db/models");
 
 const createComment = async (req, res) => {
@@ -17,7 +16,7 @@ const createComment = async (req, res) => {
   }
 };
 
-const readComment = async (req, res) => {
+const readComments = async (req, res) => {
   try {
     //   TODO: Join이 필요함
   } catch (error) {
@@ -50,4 +49,4 @@ const deleteComment = async (req, res) => {
   }
 };
 
-module.exports = { createComment, readComment, updateComment, deleteComment };
+module.exports = { createComment, readComments, updateComment, deleteComment };

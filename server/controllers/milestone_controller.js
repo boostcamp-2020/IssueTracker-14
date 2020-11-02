@@ -19,7 +19,7 @@ const createMilestone = async (req, res) => {
   }
 };
 
-const readMilestone = async (req, res) => {
+const readMilestones = async (req, res) => {
   try {
     const { status } = req.query;
     const milestones = await MilestoneModel.findAll({ where: { status } });
@@ -64,7 +64,7 @@ const deleteMilestone = async (req, res) => {
 
 module.exports = {
   createMilestone,
-  readMilestone,
+  readMilestones,
   updateMilestone,
   deleteMilestone,
 };

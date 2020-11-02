@@ -1,4 +1,3 @@
-// TODO: label_has_issue를 CRD
 const { label_has_issue: LabelHasModel } = require("../../db/models");
 
 const createLabelToIssue = async (req, res) => {
@@ -16,7 +15,7 @@ const createLabelToIssue = async (req, res) => {
   }
 };
 
-const readLabelToIssue = async (req, res) => {
+const readLabelsToIssue = async (req, res) => {
   try {
     //  TODO: Join이 필요함.
   } catch (error) {
@@ -36,6 +35,6 @@ const deleteLabelToIssue = async (req, res) => {
 
 module.exports = {
   createLabelToIssue,
-  readLabelToIssue,
+  readLabelsToIssue,
   deleteLabelToIssue,
 };

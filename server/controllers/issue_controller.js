@@ -18,7 +18,7 @@ const createIssue = async (req, res) => {
   }
 };
 
-const readIssue = async (req, res) => {
+const readIssues = async (req, res) => {
   try {
     //   TODO: 여기는 고민을 많이해야됨....
   } catch (error) {
@@ -43,4 +43,4 @@ const updateIssue = async (req, res) => {
   }
 };
 
-module.exports = { createIssue, readIssue, updateIssue };
+module.exports = { createIssue, readIssues, updateIssue };
