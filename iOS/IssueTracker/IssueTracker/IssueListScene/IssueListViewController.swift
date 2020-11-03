@@ -11,4 +11,6 @@ final class IssueListViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
+    
+    @IBOutlet private weak var issueCollectionView: UICollectionView!
 }
