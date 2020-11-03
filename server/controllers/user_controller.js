@@ -84,11 +84,11 @@ const githubLogin = (req, res) => {
 
 const appleLogin = async (req, res) => {
   try {
-    const { email, name, hashcode } = req.body;
+    const { name, hashcode } = req.body;
     const [appleUser] = await UserModel.findOrCreate({
-      where: { email },
+      where: { nickname: name, password: hashcode },
       defaults: {
-        email: email,
+        email: `${name}@apple.com`,
         password: hashcode,
         nickname: name,
         provider: "apple",

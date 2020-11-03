@@ -10,7 +10,9 @@ const toggleMilestoneToIssue = async (req, res) => {
           where: { id: issueid },
         }
       );
-    } else {
+    }
+
+    if (milestoneid === undefined) {
       await IssueModel.update(
         { milestoneid: null },
         {

@@ -26,8 +26,7 @@ const readAssignees = async (req, res) => {
       include: [
         {
           model: AssigneeModel,
-          attributes: ["userid"],
-          include: [{ model: UserModel, attributes: ["nickname", "imageurl"] }],
+          include: [{ model: UserModel }],
         },
       ],
       where: { id: issueid },
