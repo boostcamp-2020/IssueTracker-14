@@ -44,10 +44,9 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: If fail
-        env:
-          github-token: ${{ secrets.GH_TOKEN }}
         uses: actions/github-script@v3.0.0
         with:
+          github-token: ${{ secrets.GH_TOKEN }}
           script: |
             const ref = "${{github.ref}}"
             const pull_number = Number(ref.split("/")[2])
