@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     defaults:
       run:
-        working-directory: ./IssueTracker
+        working-directory: ./iOS/IssueTracker
 
     steps:
       - name: Checkout
