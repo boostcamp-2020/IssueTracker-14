@@ -45,8 +45,4 @@ final class PatternCheckerTests: XCTestCase {
     func testInvaildNickName() {
         XCTAssertFalse(patternChecker.isValid(nickName: "t"))
     }
-    
-    func testCustomFailure() {
-        XCTFail()
-    }
 }
