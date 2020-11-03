@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     defaults:
       run:
-        working-directory: ./iOS/IssueTracker
+        working-directory: ./iOS/IssueTracker2
 
     steps:
       - name: Checkout
@@ -46,8 +46,9 @@ jobs:
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: If fail
         uses: actions/github-script@v3.0.0
-        with:
+        env:
           github-token: ${{secrets.GH_TOKEN}}
+        with:
           script: |
             const ref = "${{github.ref}}"
             const pull_number = Number(ref.split("/")[2])
