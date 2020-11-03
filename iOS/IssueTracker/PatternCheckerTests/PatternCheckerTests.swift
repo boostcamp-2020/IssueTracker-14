@@ -13,11 +13,11 @@ final class PatternCheckerTests: XCTestCase {
     let patternChecker: PatternChecker = PatternChecker()
     
     func testVaildId() {
-        XCTAssertTrue(patternChecker.isValid(id: "test@gmail.com"))
+        XCTAssertTrue(patternChecker.isValid(email: "test@gmail.com"))
     }
     
     func testInvaildId() {
-        XCTAssertFalse(patternChecker.isValid(id: "test"))
+        XCTAssertFalse(patternChecker.isValid(email: "test"))
     }
     
     func testVaildPassword() {
@@ -29,13 +29,13 @@ final class PatternCheckerTests: XCTestCase {
     }
     
     func testSamePasswordword() {
-        patternChecker.password = "test"
-        XCTAssertTrue(patternChecker.isValid(passWordCheck: "test"))
+        _ = patternChecker.isValid(passWord: "test")
+        XCTAssertTrue(patternChecker.isValid(passwordCheck: "test"))
     }
     
     func testDifferentPasswordword() {
-        patternChecker.password = "test"
-        XCTAssertFalse(patternChecker.isValid(passWordCheck: "testtest"))
+        _ = patternChecker.isValid(passWord: "test")
+        XCTAssertFalse(patternChecker.isValid(passwordCheck: "testtest"))
     }
     
     func testVaildNickName() {

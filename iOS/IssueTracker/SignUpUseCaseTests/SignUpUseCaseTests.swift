@@ -24,8 +24,8 @@ final class SignUpUseCaseTests: XCTestCase {
     }
     
     let signUpInfo = SignUpInfo(email: "test@naver.com",
-                                password1: "123456",
-                                password2: "123456",
+                                password: "123456",
+                                passwordConfirm: "123456",
                                 nickname: "dochoi")
     
     func testSingUpSuccess() {
