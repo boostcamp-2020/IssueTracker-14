@@ -3,6 +3,11 @@ const { label: labelModel } = require("../db/models");
 const createLabel = async (req, res) => {
   try {
     const { title, description, color } = req.body;
+
+    const findLabel = await labelModel.findOne({ where: title });
+
+    console.log(findLabel);
+
     const newLabel = await labelModel.create({
       title,
       description,

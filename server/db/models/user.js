@@ -35,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       provider: {
         type: DataTypes.ENUM,
         values: ["local", "github", "apple"],
+        allowNull: false,
       },
       imageurl: DataTypes.STRING,
     },

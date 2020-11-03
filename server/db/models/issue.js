@@ -37,10 +37,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   issue.init(
     {
-      title: DataTypes.STRING,
+      title: { type: DataTypes.STRING, allowNull: false },
       status: {
         type: DataTypes.ENUM,
         values: ["open", "closed"],
+        allowNull: false,
       },
     },
     {
