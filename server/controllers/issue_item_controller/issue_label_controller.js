@@ -20,16 +20,19 @@ const createLabelToIssue = async (req, res) => {
 const readLabelsToIssue = async (req, res) => {
   try {
     const { issueid } = req.params;
-    const [{ label_has_issues }] = await IssueModel.findAll({
+    const [{ label_has_issues: labels }] = await IssueModel.findAll({
       include: [
         {
           model: LabelHasModel,
-          include: [{ model: LabelModel }],
+          attributes: ["id"],
+          include: [
+            { model: LabelModel, attributes: ["id", "title", "description"] },
+          ],
         },
       ],
       where: { id: issueid },
     });
-    return res.status(200).json({ message: "success", label_has_issues });
+    return res.status(200).json({ message: "success", labels });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
