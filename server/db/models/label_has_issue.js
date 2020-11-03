@@ -21,7 +21,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   label_has_issue.init(
-    {},
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
+    },
     {
       sequelize,
       modelName: "label_has_issue",

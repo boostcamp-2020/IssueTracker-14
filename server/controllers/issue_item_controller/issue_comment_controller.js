@@ -1,4 +1,6 @@
 const { comment: CommentModel } = require("../../db/models");
+const { issue: IssueModel } = require("../../db/models");
+const { user: UserModel } = require("../../db/models");
 
 const createComment = async (req, res) => {
   try {
@@ -18,7 +20,20 @@ const createComment = async (req, res) => {
 
 const readComments = async (req, res) => {
   try {
-    //   TODO: Join이 필요함
+    const { issueid } = req.params;
+    const [{ comments }] = await IssueModel.findAll({
+      include: [
+        {
+          model: CommentModel,
+          attributes: ["id", "createdAt", "updatedAt"],
+          include: [
+            { model: UserModel, attributes: ["id", "nickname", "imageurl"] },
+          ],
+        },
+      ],
+      where: { id: issueid },
+    });
+    return res.status(200).json({ message: "success", comments });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

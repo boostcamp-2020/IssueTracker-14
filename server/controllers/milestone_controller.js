@@ -3,7 +3,7 @@ const { milestone: MilestoneModel } = require("../db/models");
 const createMilestone = async (req, res) => {
   try {
     const { title, duedate, description } = req.body;
-    if (Date.now() - +new Date(duedate) > 0) {
+    if (Date.now() > new Date(duedate)) {
       return res.status(400).json({ message: "fail" });
     }
     const newMilestone = await MilestoneModel.create({
@@ -12,8 +12,9 @@ const createMilestone = async (req, res) => {
       description,
       status: "open",
     });
+
     if (!newMilestone) {
-      return res.status(400).json({ message: "fail" });
+      return res.status(500).json({ message: "fail" });
     }
     return res.status(200).json({ message: "success" });
   } catch (error) {
@@ -26,7 +27,7 @@ const readMilestones = async (req, res) => {
     const { status } = req.query;
     const milestones = await MilestoneModel.findAll({ where: { status } });
     if (!Array.isArray(milestones)) {
-      return res.status(400).json({ message: "fail" });
+      return res.status(500).json({ message: "fail" });
     }
     return res.status(200).json({ message: "success", milestones: milestones });
   } catch (error) {
@@ -38,7 +39,7 @@ const updateMilestone = async (req, res) => {
   try {
     const { milestoneid: id } = req.params;
     const { title, duedate, description, status } = req.body;
-    if (Date.now() - +new Date(duedate) > 0) {
+    if (Date.now() > new Date(duedate)) {
       return res.status(400).json({ message: "fail" });
     }
     await MilestoneModel.update(

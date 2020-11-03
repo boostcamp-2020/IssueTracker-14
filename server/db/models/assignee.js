@@ -15,13 +15,20 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       this.belongsTo(models.issue, {
-        foreignKey: { name: "userid", allowNull: false },
+        foreignKey: { name: "issueid", allowNull: false },
         sourceKey: models.issue.id,
       });
     }
   }
   assignee.init(
-    {},
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
+    },
     {
       sequelize,
       modelName: "assignee",

@@ -17,9 +17,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   milestone.init(
     {
-      title: DataTypes.STRING,
+      title: { type: DataTypes.STRING, allowNull: false },
       duedate: DataTypes.DATE,
-      status: { type: DataTypes.ENUM, values: ["open", "closed"] },
+      status: {
+        type: DataTypes.ENUM,
+        values: ["open", "closed"],
+        allowNull: false,
+      },
       description: DataTypes.STRING,
     },
     {

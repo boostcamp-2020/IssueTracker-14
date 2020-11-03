@@ -5,6 +5,7 @@ module.exports = {
     await queryInterface.addColumn("issues", "authorid", {
       type: Sequelize.INTEGER,
       references: { model: "users", key: "id" },
+
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
@@ -17,35 +18,41 @@ module.exports = {
     await queryInterface.addColumn("comments", "userid", {
       type: Sequelize.INTEGER,
       references: { model: "users", key: "id" },
+
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
     await queryInterface.addColumn("comments", "issueid", {
       type: Sequelize.INTEGER,
       references: { model: "issues", key: "id" },
+
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
     await queryInterface.addColumn("assignees", "userid", {
       type: Sequelize.INTEGER,
       references: { model: "users", key: "id" },
+
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
     await queryInterface.addColumn("assignees", "issueid", {
       type: Sequelize.INTEGER,
+
       references: { model: "issues", key: "id" },
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
     await queryInterface.addColumn("label_has_issues", "issueid", {
       type: Sequelize.INTEGER,
+
       references: { model: "issues", key: "id" },
       onUpdate: "SET NULL",
       onDelete: "SET NULL",
     });
     await queryInterface.addColumn("label_has_issues", "labelid", {
       type: Sequelize.INTEGER,
+
       references: { model: "labels", key: "id" },
       onUpdate: "SET NULL",
       onDelete: "SET NULL",

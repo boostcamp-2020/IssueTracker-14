@@ -1,11 +1,21 @@
 const { label_has_issue: LabelHasModel } = require("../../db/models");
+const { issue: IssueModel } = require("../../db/models");
+const { label: LabelModel } = require("../../db/models");
 
 const createLabelToIssue = async (req, res) => {
   try {
     const { issueid } = req.params;
-    const { id: labelid } = req.body;
+    const { labelid } = req.body;
 
-    const newLabelToIssue = await LabelHasModel.create({ issueid, labelid });
+    const newLabelToIssue = await LabelHasModel.findOrCreate({
+      where: { issueid, labelid },
+      defaults: { issueid, labelid },
+    });
+
+    if (![newLabelToIssue][0][1]) {
+      return res.status(403).json({ message: "fail" });
+    }
+
     if (!newLabelToIssue) {
       return res.status(400).json({ message: "fail" });
     }
@@ -17,7 +27,20 @@ const createLabelToIssue = async (req, res) => {
 
 const readLabelsToIssue = async (req, res) => {
   try {
-    //  TODO: Join이 필요함.
+    const { issueid } = req.params;
+    const [{ label_has_issues: labels }] = await IssueModel.findAll({
+      include: [
+        {
+          model: LabelHasModel,
+          attributes: ["id"],
+          include: [
+            { model: LabelModel, attributes: ["id", "title", "description"] },
+          ],
+        },
+      ],
+      where: { id: issueid },
+    });
+    return res.status(200).json({ message: "success", labels });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
