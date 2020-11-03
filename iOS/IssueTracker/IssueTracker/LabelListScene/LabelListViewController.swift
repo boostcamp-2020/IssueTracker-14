@@ -12,7 +12,7 @@ final class LabelListViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    weak var coordinator: NavigationCoordinator?
+    weak var coordinator: LabelCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,7 @@ import UIKit
 
 final class HomeTabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    weak var coordinator: TabBarCoordinator?
+    weak var coordinator: HomeTabBarCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

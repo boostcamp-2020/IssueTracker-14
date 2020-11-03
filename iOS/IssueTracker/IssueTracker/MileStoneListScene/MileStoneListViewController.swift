@@ -12,7 +12,7 @@ final class MileStoneListViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    weak var coordinator: NavigationCoordinator?
+    weak var coordinator: MileStoneCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

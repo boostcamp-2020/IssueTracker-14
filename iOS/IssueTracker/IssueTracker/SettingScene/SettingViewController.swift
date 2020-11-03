@@ -12,7 +12,7 @@ final class SettingViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    weak var coordinator: NavigationCoordinator?
+    weak var coordinator: SettingCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

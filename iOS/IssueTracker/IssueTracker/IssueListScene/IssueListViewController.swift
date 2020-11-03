@@ -12,7 +12,7 @@ final class IssueListViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    weak var coordinator: NavigationCoordinator?
+    weak var coordinator: IssueCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
