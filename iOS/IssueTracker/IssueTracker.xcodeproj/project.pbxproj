@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4403B40D25494B5400503E17 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403B40C25494B5400503E17 /* InputView.swift */; };
 		4403B41025494C1000503E17 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4403B40F25494C1000503E17 /* .swiftlint.yml */; };
+		442D5C122551769100FB2B2A /* IssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C112551769100FB2B2A /* IssueCell.xib */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		4491F599254AEE6B00671C02 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491F598254AEE6B00671C02 /* PatternCheckerTests.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
@@ -59,6 +60,7 @@
 		15A098913BEFD9C0C0308AED /* Pods-IssueTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.debug.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4403B40C25494B5400503E17 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		4403B40F25494C1000503E17 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		442D5C112551769100FB2B2A /* IssueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCell.xib; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4491F596254AEE6B00671C02 /* PatternCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatternCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4491F598254AEE6B00671C02 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				44EA5D94255032A8008AB0EB /* IssueListViewController.swift */,
+				442D5C112551769100FB2B2A /* IssueCell.xib */,
 			);
 			path = IssueListScene;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4403B41025494C1000503E17 /* .swiftlint.yml in Resources */,
+				442D5C122551769100FB2B2A /* IssueCell.xib in Resources */,
 				B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */,
 				B980376625484A16002FF4BF /* Assets.xcassets in Resources */,
 				B980376425484A14002FF4BF /* Main.storyboard in Resources */,
@@ -684,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -739,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
