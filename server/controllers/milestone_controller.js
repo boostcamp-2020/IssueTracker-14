@@ -12,6 +12,7 @@ const createMilestone = async (req, res) => {
       description,
       status: "open",
     });
+
     if (!newMilestone) {
       return res.status(500).json({ message: "fail" });
     }

@@ -7,7 +7,15 @@ const createLabelToIssue = async (req, res) => {
     const { issueid } = req.params;
     const { labelid } = req.body;
 
-    const newLabelToIssue = await LabelHasModel.create({ issueid, labelid });
+    const newLabelToIssue = await LabelHasModel.findOrCreate({
+      where: { issueid, labelid },
+      defaults: { issueid, labelid },
+    });
+
+    if (![newLabelToIssue][0][1]) {
+      return res.status(403).json({ message: "fail" });
+    }
+
     if (!newLabelToIssue) {
       return res.status(400).json({ message: "fail" });
     }

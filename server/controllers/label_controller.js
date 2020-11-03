@@ -4,14 +4,9 @@ const createLabel = async (req, res) => {
   try {
     const { title, description, color } = req.body;
 
-    const findLabel = await labelModel.findOne({ where: title });
-
-    console.log(findLabel);
-
-    const newLabel = await labelModel.create({
-      title,
-      description,
-      color,
+    const newLabel = await labelModel.findOrCreate({
+      where: { title },
+      defaults: { title, description, color },
     });
 
     if (!newLabel) return res.status(400).json({ message: "fail" });
@@ -28,7 +23,7 @@ const readLabels = async (req, res) => {
     if (!Array.isArray(labels)) {
       return res.status(400).json({ message: "fail" });
     }
-    return res.status(200).json({ message: "success", labels: labels });
+    return res.status(200).json({ message: "success", labels });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

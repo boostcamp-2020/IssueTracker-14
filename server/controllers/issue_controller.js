@@ -29,6 +29,7 @@ const createIssue = async (req, res) => {
 const readIssues = async (req, res) => {
   try {
     const { status, author, label, milestone, assignee } = req.query;
+
     const issues = await IssueModel.findAll({
       include: [
         {
@@ -81,12 +82,16 @@ const readIssues = async (req, res) => {
 
     const filteredIssues = issues.filter((issue) => {
       issue.status === "open" ? issueCount.open++ : issueCount.closed++;
-      return status.includes(issue.status);
+      return status !== undefined
+        ? status.includes(issue.status)
+        : issue.status === "open";
     });
 
-    return res
-      .status(200)
-      .json({ message: "success", issues: { filteredIssues, issueCount } });
+    return res.status(200).json({
+      message: "success",
+      issues: filteredIssues,
+      issueCount,
+    });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

@@ -10,7 +10,7 @@ const { isAuth } = require("../middlewares/auth");
 
 router.use("/user", userRouter);
 
-router.use("/issues", issuesRouter);
+router.use("/issues", isAuth, issuesRouter);
 router.use("/label", isAuth, labelRouter);
 router.use("/milestone", isAuth, milestoneRouter);
 
