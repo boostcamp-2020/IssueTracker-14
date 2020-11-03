@@ -54,7 +54,7 @@ jobs:
             await github.issues.createComment({
             ...context.repo,
             issue_number: pull_number,
-            body: "CI Failed"
+            body: "CI Failed "
             })
         if: failure()
         
