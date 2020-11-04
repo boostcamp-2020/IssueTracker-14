@@ -37,7 +37,7 @@ struct IssueListUseCase: IssueListUseCaseType {
                 }
                 completion(.success(response.issues))
             case let .failure(error):
-                break
+                completion(.failure(.networkError(message: error.localizedDescription)))
             }
         }
     }
