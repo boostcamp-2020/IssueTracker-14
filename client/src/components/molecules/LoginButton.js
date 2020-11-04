@@ -12,7 +12,7 @@ const StyledLoginButton = styled.div`
   width: 80%;
 `;
 
-const LoginButton = ({ children }) => (
+const LoginButton = () => (
   <StyledLoginButton>
     <Button border backgroundColor={colors.grey} width={"100%"} height={"60%"}>
       <Text color={colors.black} fontSize={"small"}>
