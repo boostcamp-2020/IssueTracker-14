@@ -43,6 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         values: ["open", "closed"],
         allowNull: false,
       },
+      description: { type: DataTypes.STRING, allowNull: true },
     },
     {
       sequelize,
