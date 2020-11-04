@@ -18,7 +18,10 @@ const app = express();
 // 개발용으로 cors허용
 app.use(
   require("cors")({
-    origin: "http://issuetracker.2oneweek.site",
+    origin:
+      process.env.NODE_ENV === "development"
+        ? process.env.FRONT_DOMAIN_DEVELOP
+        : process.env.FRONT_DOMAIN_PRODUCTION,
     credentials: true,
   })
 );
