@@ -19,6 +19,7 @@ final class IssueCollectionViewCell: UICollectionViewCell {
     
     func update(with issue: Issue) {
         titleLabel.text = issue.title
-        descriptionLabel.text = issue.description
+        descriptionLabel.text = issue.status
+        mileStoneLabel.text = issue.mileStone.title
     }
 }

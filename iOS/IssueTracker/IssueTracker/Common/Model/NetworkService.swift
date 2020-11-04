@@ -8,6 +8,7 @@
 import Foundation
 
 protocol NetworkServiceProviding {
+    var userToken: String? { get set }
     func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void)
 }
 
@@ -21,6 +22,7 @@ enum NetworkError: Error {
 final class NetworkService: NetworkServiceProviding {
     
     private let session: URLSession
+    var userToken: String?
     
     init(session: URLSession = .shared) {
         self.session = session
@@ -35,6 +37,9 @@ final class NetworkService: NetworkServiceProviding {
         urlRequest.httpMethod = requestType.method.rawValue
         urlRequest.httpBody = requestType.body
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        if let userToken = userToken {
+            urlRequest.setValue("bearer \(userToken)", forHTTPHeaderField: "Authorization")
+        }
         session.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 completionHandler(.failure(.requestFailed(msg: error.localizedDescription)))

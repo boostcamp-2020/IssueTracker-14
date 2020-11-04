@@ -49,7 +49,7 @@ final class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
-                    self?.coordinator?.showIssueList()
+                    self?.coordinator?.showIssueList(userToken: response.token)
                 case let .failure(error):
                     self?.alert(message: error.localizedDescription)
                 }
@@ -107,7 +107,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(response):
-                    self?.coordinator?.showIssueList()
+                    self?.coordinator?.showIssueList(userToken: response.token)
                 case let .failure(error):
                     self?.alert(message: error.localizedDescription)
                 }
