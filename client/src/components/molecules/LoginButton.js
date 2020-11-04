@@ -12,14 +12,14 @@ const StyledLoginButton = styled.div`
   width: 80%;
 `;
 
-const GithubLoginButton = ({ children }) => (
+const LoginButton = ({ children }) => (
   <StyledLoginButton>
-    <Button border backgroundColor={colors.black} width={"100%"} height={"60%"}>
-      <Text color={colors.white} fontSize={"small"}>
-        Github으로 로그인하기
+    <Button border backgroundColor={colors.grey} width={"100%"} height={"60%"}>
+      <Text color={colors.black} fontSize={"small"}>
+        IssueTracker team 14에 로그인하기
       </Text>
     </Button>
   </StyledLoginButton>
 );
 
-export default GithubLoginButton;
+export default LoginButton;
