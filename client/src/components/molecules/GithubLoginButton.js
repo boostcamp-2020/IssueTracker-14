@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "../../constants/colors";
 import Button from "../atoms/Button";
 import Text from "../atoms/Text";
+import Icon from "../atoms/Icon";
 
 const StyledLoginButton = styled.div`
   display: flex;
@@ -12,11 +12,11 @@ const StyledLoginButton = styled.div`
   width: 80%;
 `;
 
-const GithubLoginButton = ({ children }) => (
+const GithubLoginButton = () => (
   <StyledLoginButton>
-    <Button border backgroundColor={colors.black} width={"100%"} height={"60%"}>
-      <Text color={colors.white} fontSize={"small"}>
-        Github으로 로그인하기
+    <Button border backgroundColor="black" width="100%" height="60%">
+      <Text color="white" fontSize="small">
+        Github으로 로그인하기 <Icon location="right" name="github" distance="0.3" />
       </Text>
     </Button>
   </StyledLoginButton>
