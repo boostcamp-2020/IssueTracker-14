@@ -11,14 +11,17 @@ require("dotenv").config();
 
 //passport
 const passport = require("passport");
-const passportConfig = require("./middlewares/passportConfig");
+const passportConfig = require("./middlewares/passport_config");
 
 const app = express();
 
 // 개발용으로 cors허용
 app.use(
   require("cors")({
-    origin: "http://127.0.0.1:8000",
+    origin:
+      process.env.NODE_ENV === "development"
+        ? process.env.FRONT_DOMAIN_DEVELOP
+        : process.env.FRONT_DOMAIN_PRODUCTION,
     credentials: true,
   })
 );
