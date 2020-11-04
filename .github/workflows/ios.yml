@@ -45,15 +45,17 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: If fail
-        uses: actions/github-script@v3.0.0
+        uses: actions/github-script@v3
+        if: failure()
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const ref = "${{github.ref}}"
             const pull_number = Number(ref.split("/")[2])
+            
             await github.issues.createComment({
-            ...context.repo,
             issue_number: pull_number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
             body: "CI Failed"
             })
-        if: failure()
