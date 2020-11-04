@@ -14,6 +14,8 @@ final class IssueCollectionViewCell: UICollectionViewCell {
     }
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var mileStoneLabel: PaddingLabel!
+    @IBOutlet private weak var labelLabel: PaddingLabel!
     
     func update(with issue: Issue) {
         titleLabel.text = issue.title
