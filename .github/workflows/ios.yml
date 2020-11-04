@@ -12,7 +12,7 @@ jobs:
     runs-on: macos-latest
     defaults:
       run:
-        working-directory: ./iOS/IssueTracker
+        working-directory: ./iOS/IssueTracker2
 
     steps:
       - name: Checkout
@@ -44,3 +44,16 @@ jobs:
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
+      - name: If fail
+        uses: actions/github-script@v3.0.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const ref = "${{github.ref}}"
+            const pull_number = Number(ref.split("/")[2])
+            await github.issues.createComment({
+            ...context.repo,
+            issue_number: pull_number,
+            body: "CI Failed"
+            })
+        if: failure()
