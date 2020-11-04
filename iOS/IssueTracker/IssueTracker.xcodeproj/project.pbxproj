@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		4403B40D25494B5400503E17 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4403B40C25494B5400503E17 /* InputView.swift */; };
 		4403B41025494C1000503E17 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4403B40F25494C1000503E17 /* .swiftlint.yml */; };
-		442D5C122551769100FB2B2A /* IssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C112551769100FB2B2A /* IssueCell.xib */; };
+		442B3DA525525E9300069D18 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B3DA425525E9300069D18 /* Issue.swift */; };
+		442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442B3DA9255265B800069D18 /* PaddingLabel.swift */; };
+		442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */; };
+		442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		4491F599254AEE6B00671C02 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4491F598254AEE6B00671C02 /* PatternCheckerTests.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
@@ -70,7 +73,10 @@
 		15A098913BEFD9C0C0308AED /* Pods-IssueTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.debug.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		4403B40C25494B5400503E17 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		4403B40F25494C1000503E17 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		442D5C112551769100FB2B2A /* IssueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCell.xib; sourceTree = "<group>"; };
+		442B3DA425525E9300069D18 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		442B3DA9255265B800069D18 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCollectionViewCell.swift; sourceTree = "<group>"; };
+		442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCollectionViewCell.xib; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4491F596254AEE6B00671C02 /* PatternCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatternCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4491F598254AEE6B00671C02 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
@@ -177,7 +183,9 @@
 			isa = PBXGroup;
 			children = (
 				44EA5D94255032A8008AB0EB /* IssueListViewController.swift */,
-				442D5C112551769100FB2B2A /* IssueCell.xib */,
+				442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */,
+				442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */,
+				442B3DA425525E9300069D18 /* Issue.swift */,
 				B9FBB4EF25518181007207AE /* HomeTabBarController.swift */,
 			);
 			path = IssueListScene;
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				4403B40C25494B5400503E17 /* InputView.swift */,
+				442B3DA9255265B800069D18 /* PaddingLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,8 +495,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */,
 				4403B41025494C1000503E17 /* .swiftlint.yml in Resources */,
-				442D5C122551769100FB2B2A /* IssueCell.xib in Resources */,
 				B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */,
 				B980376625484A16002FF4BF /* Assets.xcassets in Resources */,
 				B980376425484A14002FF4BF /* Main.storyboard in Resources */,
@@ -573,9 +582,11 @@
 				B9FBB4FB25518488007207AE /* HomeTabBarCoordinator.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
+				442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */,
 				B9FBB4F025518181007207AE /* HomeTabBarController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
+				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
@@ -591,6 +602,7 @@
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
 				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
+				442B3DA525525E9300069D18 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,6 +38,9 @@
                             <constraint firstItem="bMl-ui-Ww5" firstAttribute="bottom" secondItem="Pp1-Ii-iNK" secondAttribute="bottom" id="ovv-eA-L6y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="issueCollectionView" destination="Pp1-Ii-iNK" id="jZH-HK-xGg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qq4-OZ-xp7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
