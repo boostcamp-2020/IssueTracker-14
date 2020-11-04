@@ -9,6 +9,10 @@ import UIKit
 
 final class IssueListViewController: UIViewController {
     
+    private enum Constant {
+        static let closeActionTitle: String = "Close"
+    }
+    
     static var identifier: String {
         return String(describing: Self.self)
     }
@@ -40,7 +44,7 @@ private extension IssueListViewController {
         configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
             let closeAction = UIContextualAction(
                 style: .destructive,
-                title: "Close",
+                title: Constant.closeActionTitle,
                 handler: { [weak self] _, _, _ in
                     self?.issues.remove(at: indexPath.item)
                 }

@@ -10,23 +10,23 @@ import UIKit
 @IBDesignable
 final class PaddingLabel: UILabel {
     
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable private var borderWidth: CGFloat {
         get { layer.borderWidth }
         set { layer.borderWidth = newValue }
     }
-    @IBInspectable var borderColor: UIColor {
+    @IBInspectable private var borderColor: UIColor {
         get { UIColor(cgColor: layer.borderColor ?? UIColor.clear.cgColor) }
         set { layer.borderColor = newValue.cgColor }
     }
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable private var cornerRadius: CGFloat {
         get { layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
-    @IBInspectable var paddingWidth: CGFloat {
+    @IBInspectable private var paddingWidth: CGFloat {
         get { padding.width }
         set { padding.width = newValue }
     }
-    @IBInspectable var paddingHeight: CGFloat {
+    @IBInspectable private var paddingHeight: CGFloat {
         get { padding.height }
         set { padding.height = newValue }
     }
