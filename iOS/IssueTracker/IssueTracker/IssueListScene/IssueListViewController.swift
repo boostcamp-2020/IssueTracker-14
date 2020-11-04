@@ -105,10 +105,10 @@ private extension IssueListViewController {
 
 private extension IssueListViewController {
     func loadList() {
-        useCase.loadList { result in
+        useCase.loadList {[weak self] result in
             switch result {
             case let .success(issues):
-                self.issues = issues
+                self?.issues = issues
             case let .failure(error):
                 break
             }
