@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   label.init(
     {
-      title: DataTypes.STRING,
-      color: DataTypes.STRING,
-      description: DataTypes.STRING,
+      title: { type: DataTypes.STRING, allowNull: false },
+      color: { type: DataTypes.STRING, allowNull: false },
+      description: { type: DataTypes.STRING, allowNull: true },
     },
     {
       sequelize,

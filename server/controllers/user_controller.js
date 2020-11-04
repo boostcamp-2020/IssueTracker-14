@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt-nodejs");
 
 const signup = async (req, res) => {
   try {
-    const { email, nickname, password1, password2 } = req.body;
-    const checkPassword = password1 === password2;
-    const bcryptPassword = bcrypt.hashSync(password1);
+    const { email, nickname, password, passwordConfirm } = req.body;
+    const checkPassword = password === passwordConfirm;
+    const bcryptPassword = bcrypt.hashSync(password);
     const isExist = await UserModel.findOne({ where: { email } });
 
     if (isExist) {
@@ -30,7 +30,7 @@ const signup = async (req, res) => {
       return res.status(400).json({ message: "fail" });
     }
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -61,10 +61,14 @@ const localLogin = async (req, res) => {
         email,
         nickname: currentUser.nickname,
       });
-      return res.status(201).json({ message: "success", token: jwtoken });
+      // nickname return 우선 제외
+      return res.status(201).json({
+        message: "success",
+        token: jwtoken,
+      });
     }
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
@@ -74,17 +78,17 @@ const githubLogin = (req, res) => {
     const jwtoken = getToken({ id, email, nickname });
     return res.status(201).json({ message: "success", token: jwtoken });
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
 const appleLogin = async (req, res) => {
   try {
-    const { email, name, hashcode } = req.body;
+    const { name, hashcode } = req.body;
     const [appleUser] = await UserModel.findOrCreate({
-      where: { email },
+      where: { nickname: name, password: hashcode },
       defaults: {
-        email: email,
+        email: `${name}@apple.com`,
         password: hashcode,
         nickname: name,
         provider: "apple",
@@ -97,7 +101,7 @@ const appleLogin = async (req, res) => {
     });
     return res.status(201).json({ message: "success", token: jwtoken });
   } catch (error) {
-    console.log(error);
+    return res.status(400).json({ message: "fail", error: error.message });
   }
 };
 
