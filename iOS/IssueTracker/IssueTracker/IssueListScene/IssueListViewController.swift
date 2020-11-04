@@ -47,15 +47,7 @@ final class IssueListViewController: UIViewController {
         dataSource = issueDataSource()
         issueCollectionView.dataSource = dataSource
         issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
-        updateList()
-        useCase.loadList { result in
-            switch result {
-            case let .success(issues):
-                self.issues = issues
-            case let .failure(error):
-                break
-            }
-        }
+        loadList()
     }
 }
 
@@ -67,7 +59,10 @@ private extension IssueListViewController {
                 style: .destructive,
                 title: Constant.closeActionTitle,
                 handler: { [weak self] _, _, _ in
-                    self?.issues.remove(at: indexPath.item)
+                    guard let self = self else { return }
+                    let id = self.issues[indexPath.item].id
+                        self.closeIssue(with: id)
+                    self.issues.remove(at: indexPath.item)
                 }
             )
             return UISwipeActionsConfiguration(actions: [closeAction])
@@ -104,6 +99,31 @@ private extension IssueListViewController {
         snapshot.appendItems(issues, toSection: .main)
         DispatchQueue.main.async { [weak self] in
             self?.dataSource?.apply(snapshot)
+        }
+    }
+}
+
+private extension IssueListViewController {
+    func loadList() {
+        useCase.loadList { result in
+            switch result {
+            case let .success(issues):
+                self.issues = issues
+            case let .failure(error):
+                break
+            }
+        }
+    }
+    
+    func closeIssue(with id: Int) {
+        useCase.closeIssue(with: id) {[weak self] error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    self?.alert(message: "Close 실패\n\(error.localizedDescription)")
+                    return
+                }
+            }
+            self?.loadList()
         }
     }
 }

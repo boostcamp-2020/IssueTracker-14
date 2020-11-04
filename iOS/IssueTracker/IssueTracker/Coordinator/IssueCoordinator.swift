@@ -24,7 +24,7 @@ final class IssueCoordinator: NavigationCoordinator {
         let viewController = storyboard.instantiateViewController(
             identifier: IssueListViewController.identifier,
             creator: { [unowned self] coder -> IssueListViewController? in
-                let useCase = IssueListUseCase(networkService: networkService)
+                let useCase = IssueListUseCase(networkService: self.networkService)
                 return IssueListViewController(coder: coder, useCase: useCase)
             })
         viewController.coordinator = self      
