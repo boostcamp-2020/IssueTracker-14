@@ -18,7 +18,7 @@ const app = express();
 // 개발용으로 cors허용
 app.use(
   require("cors")({
-    origin: "http://127.0.0.1:8000",
+    origin: "http://issuetracker.2oneweek.site",
     credentials: true,
   })
 );
