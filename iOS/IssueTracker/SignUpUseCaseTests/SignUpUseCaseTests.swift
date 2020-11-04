@@ -11,12 +11,16 @@ import XCTest
 final class SignUpUseCaseTests: XCTestCase {
 
     struct MockSuccessNetworkService: NetworkServiceProviding {
+        var userToken: String?
+        
         func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
             completionHandler(.success(Data()))
         }
     }
     
     struct MockFailureNetworkService: NetworkServiceProviding {
+        var userToken: String?
+        
         func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
             completionHandler(.failure(.invalidData))
         }
