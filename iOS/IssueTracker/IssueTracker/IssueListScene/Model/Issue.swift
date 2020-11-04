@@ -15,13 +15,15 @@ struct Issue: Decodable, Hashable {
     let id: Int
     let title: String
     let status: String
-    let mileStone: MileStone
+    let mileStone: MileStone?
+    let description: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case title
         case status
         case mileStone = "milestone"
+        case description
     }
 }
 
