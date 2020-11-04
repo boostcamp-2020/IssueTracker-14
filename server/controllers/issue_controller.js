@@ -11,7 +11,6 @@ const { Op } = require("sequelize");
 const createIssue = async (req, res) => {
   try {
     const { title, description } = req.body;
-    console.log(description);
     const { id: authorid } = req.user;
     const newIssue = await IssueModel.create({
       title,
