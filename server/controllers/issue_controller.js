@@ -35,12 +35,12 @@ const readIssues = async (req, res) => {
         {
           model: UserModel,
           attributes: ["id", "nickname"],
-          where: author !== undefined ? { nickname: author } : {},
+          where: author !== undefined && { nickname: author },
         },
         {
           model: MilestoneModel,
           attributes: ["id", "title"],
-          where: milestone !== undefined ? { title: milestone } : {},
+          where: milestone !== undefined && { title: milestone },
         },
         {
           model: AssigneeModel,
@@ -48,7 +48,7 @@ const readIssues = async (req, res) => {
             {
               model: UserModel,
               attributes: ["id", "nickname", "imageurl"],
-              where: assignee !== undefined ? { nickname: assignee } : {},
+              where: assignee !== undefined && { nickname: assignee },
             },
           ],
           attributes: ["id"],
@@ -61,14 +61,11 @@ const readIssues = async (req, res) => {
           include: [
             {
               model: LabelModel,
-              where:
-                label !== undefined
-                  ? {
-                      title: {
-                        [Op.or]: Array.isArray(label) ? label : [label],
-                      },
-                    }
-                  : {},
+              where: label !== undefined && {
+                title: {
+                  [Op.or]: Array.isArray(label) ? label : [label],
+                },
+              },
               attributes: ["id", "title", "color", "description"],
             },
           ],
