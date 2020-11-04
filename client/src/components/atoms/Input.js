@@ -13,6 +13,8 @@ const StyledInput = styled.input`
     size === "big" ? 16 : { size } === "medium" ? 12 : 8}px;
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: #000000;
+  width: 80%;
+  height: 55%;
 `;
 
 const Input = ({ type, placeholder, size, rounded, id }) => (

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import LoginForm from "./components/organisms/LoginForm";
+import LoginPage from "./pages/User/LoginPage";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
+import colors from "./constants/colors";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ const StyledRootContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: ${colors.lightGrey};
+  margin: 0;
+  padding: 0;
+  font-size: 62.5%;
 `;
 
 const App = () => {
@@ -17,8 +22,8 @@ const App = () => {
   return (
     <StyledRootContainer>
       <Switch>
-        <Route exact path="/" component={LoginForm} />
-        <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/login" component={LoginPage} />
       </Switch>
       {/*
         <Route exact path="/register" component={LoginForm} />

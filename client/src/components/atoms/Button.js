@@ -6,8 +6,8 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   outline: none;
   border: ${({ border }) => (border === true ? 1 : 0)}px solid #959da5;
-  height: ${({ size }) =>
-    size === "big" ? 48 : size === "medium" ? 24 : 12}px;
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
   padding: 0
     ${({ size }) => (size === "big" ? 40 : size === "medium" ? 20 : 10)}px;
   font-size: ${({ size }) =>
@@ -32,10 +32,14 @@ const StyledButton = styled.button`
   & + & {
     margin-left: 1rem;
   }
+
+  padding: 0;
+  margin: 0;
 `;
 
 const Button = ({
-  size,
+  width,
+  height,
   rounded,
   backgroundColor,
   onClick,
@@ -45,7 +49,8 @@ const Button = ({
   ...rest
 }) => (
   <StyledButton
-    size={size}
+    width={width}
+    height={height}
     rounded={rounded}
     color={color}
     backgroundColor={backgroundColor}

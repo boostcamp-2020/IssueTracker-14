@@ -5,6 +5,7 @@ const StyledInputLabel = styled.label`
   box-sizing: border-box;
   outline: none;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   font-size: ${(props) =>
     props.size === "big" ? 16 : props.size === "medium" ? 12 : 8}px;
@@ -15,6 +16,8 @@ const StyledInputLabel = styled.label`
       props.size === "big" ? 40 : props.size === "medium" ? 20 : 10}px;
   color: #000000;
   font-weight: bold;
+  width: 80%;
+  padding: 0;
 `;
 
 const InputLabel = (props) => (
