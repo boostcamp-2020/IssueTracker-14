@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
+import SignUpPage from "./pages/User/SignUpPage";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import colors from "./constants/colors";
@@ -24,6 +25,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/signup" component={SignUpPage} />
       </Switch>
       {/*
         <Route exact path="/register" component={LoginForm} />
