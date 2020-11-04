@@ -17,6 +17,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: { name: "userid", allowNull: false },
         sourceKey: "id",
       });
+      this.hasMany(models.assignee, {
+        foreignKey: { name: "userid", allowNull: false },
+        sourceKey: "id",
+      });
     }
   }
   user.init(
@@ -31,6 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       provider: {
         type: DataTypes.ENUM,
         values: ["local", "github", "apple"],
+        allowNull: false,
       },
       imageurl: DataTypes.STRING,
     },
