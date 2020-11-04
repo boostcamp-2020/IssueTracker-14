@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledLabel = styled.label`
+const StyledInputLabel = styled.label`
   box-sizing: border-box;
   outline: none;
   display: flex;
@@ -13,17 +13,17 @@ const StyledLabel = styled.label`
   font-weight: bold;
 `;
 
-const Label = props => (
-  <StyledLabel
+const InputLabel = props => (
+  <StyledInputLabel
     htmlFor={props.for}
     size={props.size}>
     <div>{props.label}</div>
-  </StyledLabel>
+  </StyledInputLabel>
 );
 
-Label.defaultProps = {
+InputLabel.defaultProps = {
   size: "medium",
   label: "기본 라벨"
 };
 
-export default Label;
+export default InputLabel;
