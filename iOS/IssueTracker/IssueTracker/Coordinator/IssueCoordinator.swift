@@ -22,7 +22,11 @@ final class IssueCoordinator: NavigationCoordinator {
     
     func start() {
         let viewController = storyboard.instantiateViewController(
-            identifier: IssueListViewController.identifier) as IssueListViewController
+            identifier: IssueListViewController.identifier,
+            creator: { [unowned self] coder -> IssueListViewController? in
+                let useCase = IssueListUseCase(networkService: networkService)
+                return IssueListViewController(coder: coder, useCase: useCase)
+            })
         viewController.coordinator = self      
         navigationController?.pushViewController(viewController, animated: true)
     }

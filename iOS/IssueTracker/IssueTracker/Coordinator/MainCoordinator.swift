@@ -10,14 +10,12 @@ import UIKit
 final class MainCoordinator: NavigationCoordinator {
     var navigationController: UINavigationController?
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    private let networkService: NetworkServiceProviding
-    private let chlidCoordinator: HomeTabBarCoordinator
+    private var networkService: NetworkServiceProviding
+    private var childCoordinator: HomeTabBarCoordinator?
     
     init(navigationController: UINavigationController, networkService: NetworkServiceProviding) {
         self.navigationController = navigationController
         self.networkService = networkService
-        let homeController = HomeTabBarController()
-        chlidCoordinator  = HomeTabBarCoordinator(tabBarController: homeController, networkService: networkService)
     }
     
     func start() {
@@ -44,9 +42,13 @@ extension MainCoordinator {
         navigationController?.pushViewController(viewContoller, animated: true)
     }
     
-    func showIssueList() {
-        navigationController?.setViewControllers([chlidCoordinator.tabBarController], animated: false)
-        chlidCoordinator.start()
-        chlidCoordinator.parentCoordinator = self
+    func showIssueList(userToken: String?) {
+        let homeController = HomeTabBarController()
+        networkService.userToken = userToken
+        childCoordinator  = HomeTabBarCoordinator(tabBarController: homeController, networkService: networkService)
+        guard let childCoordinator = childCoordinator else { return }
+        navigationController?.setViewControllers([childCoordinator.tabBarController], animated: false)
+        childCoordinator.start()
+        childCoordinator.parentCoordinator = self
     }
 }

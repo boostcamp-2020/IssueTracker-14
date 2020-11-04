@@ -18,14 +18,21 @@ final class IssueListViewController: UIViewController {
     }
     @IBOutlet private weak var issueCollectionView: UICollectionView!
     weak var coordinator: IssueCoordinator?
+    private let useCase: IssueListUseCaseType
     private var dataSource: IssueCollectionViewDataSource?
-    private var issues: [Issue] = [Issue(id: 1, title: "이슈 목록 구현", description: "2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?"),
-                                   Issue(id: 2, title: "레이블 목록 구현", description: "?"),
-                                   Issue(id: 3, title: "마일스톤 목록 구현", description: "설명표시"),
-                                   Issue(id: 4, title: "데모", description: "배포?")] {
+    private var issues: [Issue] = [] {
         didSet {
             updateList()
         }
+    }
+    
+    init?(coder: NSCoder, useCase: IssueListUseCaseType) {
+        self.useCase = useCase
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("This viewController must be init with useCase.")
     }
     
     override func viewDidLoad() {
@@ -41,6 +48,14 @@ final class IssueListViewController: UIViewController {
         issueCollectionView.dataSource = dataSource
         issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
         updateList()
+        useCase.loadList { result in
+            switch result {
+            case let .success(issues):
+                self.issues = issues
+            case let .failure(error):
+                break
+            }
+        }
     }
 }
 
@@ -87,6 +102,8 @@ private extension IssueListViewController {
         var snapshot = IssueCollectionViewSnapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(issues, toSection: .main)
-        dataSource?.apply(snapshot)
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource?.apply(snapshot)
+        }
     }
 }
