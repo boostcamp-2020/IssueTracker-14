@@ -72,7 +72,14 @@ const readIssues = async (req, res) => {
           attributes: ["id"],
         },
       ],
-      attributes: ["id", "title", "status", "createdAt", "updatedAt"],
+      attributes: [
+        "id",
+        "title",
+        "status",
+        "createdAt",
+        "updatedAt",
+        "description",
+      ],
     });
     //TODO: Comment count
     const issueCount = { open: 0, closed: 0 };
