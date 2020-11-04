@@ -17,6 +17,7 @@ final class IssueListViewController: UIViewController {
         return String(describing: Self.self)
     }
     @IBOutlet private weak var issueCollectionView: UICollectionView!
+    weak var coordinator: IssueCoordinator?
     private var dataSource: IssueCollectionViewDataSource?
     private var issues: [Issue] = [Issue(id: 1, title: "이슈 목록 구현", description: "2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?2줄까지만표시?"),
                                    Issue(id: 2, title: "레이블 목록 구현", description: "?"),
@@ -29,6 +30,11 @@ final class IssueListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
+        navigationItem.searchController = UISearchController(searchResultsController: nil)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = "이슈"
         let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
         issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
         dataSource = issueDataSource()

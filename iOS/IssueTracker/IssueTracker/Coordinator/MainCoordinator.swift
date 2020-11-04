@@ -7,14 +7,17 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator {
-    var navigationController: UINavigationController
+final class MainCoordinator: NavigationCoordinator {
+    var navigationController: UINavigationController?
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
     private let networkService: NetworkServiceProviding
+    private let chlidCoordinator: HomeTabBarCoordinator
     
     init(navigationController: UINavigationController, networkService: NetworkServiceProviding) {
         self.navigationController = navigationController
         self.networkService = networkService
+        let homeController = HomeTabBarController()
+        chlidCoordinator  = HomeTabBarCoordinator(tabBarController: homeController, networkService: networkService)
     }
     
     func start() {
@@ -25,9 +28,11 @@ final class MainCoordinator: Coordinator {
             }
         )
         viewContoller.coordinator = self
-        navigationController.pushViewController(viewContoller, animated: true)
+        navigationController?.pushViewController(viewContoller, animated: true)
     }
-    
+}
+
+extension MainCoordinator {
     func showSignUp() {
         let viewContoller = storyboard.instantiateViewController(
             identifier: SignUpViewController.identifier,
@@ -36,16 +41,12 @@ final class MainCoordinator: Coordinator {
             }
         )
         viewContoller.coordinator = self
-        navigationController.pushViewController(viewContoller, animated: true)
+        navigationController?.pushViewController(viewContoller, animated: true)
     }
     
     func showIssueList() {
-        let viewContoller = storyboard.instantiateViewController(
-            identifier: IssueListViewController.identifier,
-            creator: { coder -> IssueListViewController? in
-                return IssueListViewController(coder: coder)
-            }
-        )
-        navigationController.setViewControllers([viewContoller], animated: false)
+        navigationController?.setViewControllers([chlidCoordinator.tabBarController], animated: false)
+        chlidCoordinator.start()
+        chlidCoordinator.parentCoordinator = self
     }
 }
