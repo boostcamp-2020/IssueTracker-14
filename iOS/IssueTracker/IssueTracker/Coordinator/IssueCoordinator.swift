@@ -21,9 +21,9 @@ final class IssueCoordinator: NavigationCoordinator {
     }
     
     func start() {
-        let viewContoller = storyboard.instantiateViewController(
+        let viewController = storyboard.instantiateViewController(
             identifier: IssueListViewController.identifier) as IssueListViewController
-        viewContoller.coordinator = self      
-        navigationController?.pushViewController(viewContoller, animated: true)
+        viewController.coordinator = self      
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

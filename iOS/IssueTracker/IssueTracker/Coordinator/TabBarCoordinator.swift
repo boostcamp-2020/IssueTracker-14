@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TabBarCoordinator: class {
-    var tabBarController: UITabBarController? { get set }
+    var tabBarController: UITabBarController { get set }
 
     func start()
 }

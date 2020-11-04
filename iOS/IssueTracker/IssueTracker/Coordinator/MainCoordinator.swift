@@ -11,7 +11,7 @@ final class MainCoordinator: NavigationCoordinator {
     var navigationController: UINavigationController?
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
     private let networkService: NetworkServiceProviding
-    private var chlidCoordinator: HomeTabBarCoordinator
+    private let chlidCoordinator: HomeTabBarCoordinator
     
     init(navigationController: UINavigationController, networkService: NetworkServiceProviding) {
         self.navigationController = navigationController
@@ -45,7 +45,7 @@ extension MainCoordinator {
     }
     
     func showIssueList() {
-        navigationController?.setViewControllers([chlidCoordinator.tabBarController!], animated: false)
+        navigationController?.setViewControllers([chlidCoordinator.tabBarController], animated: false)
         chlidCoordinator.start()
         chlidCoordinator.parentCoordinator = self
     }

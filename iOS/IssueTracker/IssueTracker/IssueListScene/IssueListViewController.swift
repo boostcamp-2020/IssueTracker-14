@@ -23,8 +23,4 @@ final class IssueListViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "이슈"
     }
     
-    required init?(coder: NSCoder) {
-        super .init(coder: coder)
-        
-    }
 }
