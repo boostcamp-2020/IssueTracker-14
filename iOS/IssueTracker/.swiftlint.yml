@@ -3,5 +3,4 @@ disabled_rules:
 - identifier_name
 included:
 excluded:
-- SignUpUseCaseTests
-- PatternCheckerTests
+- IssueTrackerUnitTests

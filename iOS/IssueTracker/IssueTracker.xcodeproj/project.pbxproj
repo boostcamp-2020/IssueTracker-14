@@ -31,6 +31,8 @@
 		B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */; };
 		B9013EA72554061100B98C10 /* LoginResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */; };
 		B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */; };
+		B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */; };
+		B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */; };
 		B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743012551C4A600E1D2E6 /* LabelListViewController.swift */; };
 		B907430A2551C5E400E1D2E6 /* LabelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */; };
 		B907431F2551DB5700E1D2E6 /* MileStoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */; };
@@ -101,6 +103,8 @@
 		B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueResponse+Encodable.swift"; sourceTree = "<group>"; };
 		B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResponse+Encodable.swift"; sourceTree = "<group>"; };
 		B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
+		B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServiceError+Equtable.swift"; sourceTree = "<group>"; };
 		B90743012551C4A600E1D2E6 /* LabelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListViewController.swift; sourceTree = "<group>"; };
 		B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCoordinator.swift; sourceTree = "<group>"; };
 		B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 				B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */,
 				B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */,
 				B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */,
+				B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 		B90C76AE25530ABC00134AEE /* IssueTrackerUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */,
 				B9013E8D2554054C00B98C10 /* Extension */,
 				B9013E842554049E00B98C10 /* Mock */,
 				B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */,
@@ -558,11 +564,13 @@
 				B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */,
 				B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */,
 				B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */,
+				B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */,
 				B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */,
 				B9013E992554059000B98C10 /* MileStone+Encodable.swift in Sources */,
 				B9013EA72554061100B98C10 /* LoginResponse+Encodable.swift in Sources */,
 				B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */,
 				B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */,
+				B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */,
 				B9013E8F2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
