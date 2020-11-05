@@ -8,11 +8,8 @@ const createComment = async (req, res) => {
     const { content } = req.body;
     const { id: userid } = req.user;
 
-    const newComment = await CommentModel.create({ issueid, userid, content });
-    if (!newComment) {
-      return res.status(400).json({ message: "fail" });
-    }
-    return res.status(200).json({ message: "success" });
+    await CommentModel.create({ issueid, userid, content });
+    return res.status(201).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
