@@ -1,8 +1,8 @@
 //
 //  LoginUseCaseTests.swift
-//  LoginUseCaseTests
+//  IssueListUseCaseTests
 //
-//  Created by TTOzzi on 2020/11/04.
+//  Created by 최동규 on 2020/11/05.
 //
 
 import XCTest
@@ -18,15 +18,6 @@ final class LoginUseCaseTests: XCTestCase {
             let data = try? JSONEncoder().encode(response)
             completionHandler(.success(data!))
         }
-    }
-    
-    struct MockFailureNetworkService: NetworkServiceProviding {
-        var userToken: String?
-        
-        func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
-            completionHandler(.failure(.invalidData))
-        }
-        
     }
     
     func testLocalLoginSuccess() {
@@ -78,32 +69,6 @@ final class LoginUseCaseTests: XCTestCase {
             case let .failure(error):
                 XCTAssertEqual(error, .networkError(message: ""))
             }
-        }
-    }
-}
-
-extension LoginResponse: Encodable {
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(token, forKey: .token)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case token
-    }
-}
-
-extension LoginUseCaseError: Equatable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        switch (lhs, rhs) {
-        case (.decodingError, .decodingError):
-            return true
-        case (.networkError, .networkError):
-            return true
-        case (.encodingError, .encodingError):
-            return true
-        default:
-            return false
         }
     }
 }

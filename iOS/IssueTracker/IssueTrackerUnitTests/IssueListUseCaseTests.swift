@@ -27,15 +27,6 @@ class IssueListUseCaseTests: XCTestCase {
         }
     }
     
-    struct MockFailureNetworkService: NetworkServiceProviding {
-        var userToken: String?
-        
-        func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
-            completionHandler(.failure(.invalidData))
-        }
-        
-    }
-    
     func testLoadListSuccess() {
         let useCase = IssueListUseCase(networkService: MockSuccessNetworkService(issues: issues))
         useCase.loadList(completion: { result in
@@ -72,56 +63,6 @@ class IssueListUseCaseTests: XCTestCase {
         let useCase = IssueListUseCase(networkService: MockFailureNetworkService())
         useCase.closeIssue(with: 4) { error in
             XCTAssertEqual(error, .networkError(message: ""))
-        }
-    }
-}
-
-extension IssueResponse: Encodable {
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(issues, forKey: .issues)
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case issues
-    }
-}
-
-extension Issue: Encodable {
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(description, forKey: .description)
-        try container.encode(id, forKey: .id)
-        try container.encode(mileStone, forKey: .mileStone)
-        try container.encode(status, forKey: .status)
-        try container.encode(title, forKey: .title)
-    }
-}
-
-extension MileStone: Encodable {
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-    }
-}
-
-extension IssueListUseCaseError: Equatable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        switch (lhs, rhs) {
-        case (.decodingError, .decodingError):
-            return true
-        case (.networkError, .networkError):
-            return true
-        case (.encodingError, .encodingError):
-            return true
-        default:
-            return false
         }
     }
 }
