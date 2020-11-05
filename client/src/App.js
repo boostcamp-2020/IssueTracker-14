@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 import colors from "./constants/colors";
+
+import { AuthContext } from "./stores/auth";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -19,17 +21,27 @@ const StyledRootContainer = styled.div`
 
 const App = () => {
   // TODO: Router 설정 , checkLogin 후 분기
+
   //useEffect => checkLogin => flase history.push('/login') else history.push('/');
+  const existingTokens = JSON.parse(localStorage.getItem("token"));
+  console.log(existingTokens);
+  const [authTokens, setAuthTokens] = useState(existingTokens);
+
+  const setTokens = (data) => {
+    localStorage.setItem("token", JSON.stringify(data));
+    setAuthTokens(data);
+  };
+
   return (
-    <StyledRootContainer>
-      <Switch>
-        <Route exact path="/" component={LoginPage} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/signup" component={SignUpPage} />
-      </Switch>
-      {/*
-        <Route exact path="/register" component={LoginForm} />
-        <Route eact path="/issues" component={LoginForm} />s
+    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+      <StyledRootContainer>
+        <Switch>
+          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/signup" component={SignUpPage} />
+          <Route eact path="/issues" component={SignUpPage} />
+        </Switch>
+        {/*
         <Route exact path="/issues/new" component={LoginForm} />
         <Route exact path="/issues/:issueid" component={LoginForm} />
         <Route exact path="/labels" component={LoginForm} />
@@ -37,7 +49,8 @@ const App = () => {
         <Route path="/milestones/new" component={LoginForm} />
         <Route path="/milestones/edit/:milestoneid" component={LoginForm} />
       */}
-    </StyledRootContainer>
+      </StyledRootContainer>
+    </AuthContext.Provider>
   );
 };
 

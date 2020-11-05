@@ -8,7 +8,7 @@ const StyledTitle = styled.div`
 
 const Title = ({ children }) => (
   <StyledTitle>
-    <Text fontWeight={"bold"} fontSize={"2.3rem"}>
+    <Text fontWeight={"bold"} fontSize={"2.3rem"} hover={false}>
       이슈트래커
     </Text>
   </StyledTitle>
