@@ -17,13 +17,15 @@ const StyledInput = styled.input`
   height: 55%;
 `;
 
-const Input = ({ type, placeholder, size, rounded, id }) => (
+const Input = ({ type, placeholder, name, size, rounded, id, onChange }) => (
   <StyledInput
     type={type}
     placeholder={placeholder}
     size={size}
     rounded={rounded}
     id={id}
+    name={name}
+    onChange={onChange}
   />
 );
 
