@@ -47,8 +47,8 @@ final class LoginUseCaseTests: XCTestCase {
         let localLoginInfo = LocalLoginInfo(email: "test", password: "test")
         useCase.login(with: localLoginInfo) { result in
             switch result {
-            case .success:
-                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공")
+            case let .success(data):
+                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공 \(data)")
             case let .failure(error):
                 XCTAssertEqual(error, .networkError(message: ""))
             }
@@ -73,8 +73,8 @@ final class LoginUseCaseTests: XCTestCase {
         let appleLoginInfo = AppleLoginInfo(email: "test", name: "test", hashcode: "testtest")
         useCase.login(with: appleLoginInfo) { result in
             switch result {
-            case .success:
-                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공")
+            case let .success(data):
+                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공 \(data)")
             case let .failure(error):
                 XCTAssertEqual(error, .networkError(message: ""))
             }
