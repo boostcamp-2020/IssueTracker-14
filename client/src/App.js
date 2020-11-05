@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import colors from "./constants/colors";
 
+import axios from "axios";
 import { AuthContext } from "./stores/auth";
 
 const StyledRootContainer = styled.div`
@@ -21,22 +22,41 @@ const StyledRootContainer = styled.div`
 
 const App = () => {
   // TODO: Router 설정 , checkLogin 후 분기
+  const token = localStorage.getItem("token");
+  const [isAuth, setIsAuth] = useState(false);
+  const history = useHistory();
 
-  //useEffect => checkLogin => flase history.push('/login') else history.push('/');
-  const existingTokens = JSON.parse(localStorage.getItem("token"));
-  console.log(existingTokens);
-  const [authTokens, setAuthTokens] = useState(existingTokens);
+  if (!token) {
+  }
+
+  if (token) {
+    axios
+      .get("http://localhost:3000/api/user/status", {
+        headers: {
+          Authorization: `bearer ${token}`,
+        },
+      })
+      .then(({ data: { message } }) => {
+        console.log(message);
+        console.log(isAuth);
+        if (message === "ok") {
+          setIsAuth(true);
+        }
+      })
+      .catch();
+  }
 
   const setTokens = (data) => {
-    localStorage.setItem("token", JSON.stringify(data));
+    localStorage.setItem("token", data);
     setAuthTokens(data);
   };
 
   return (
-    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
+    <AuthContext.Provider value={{ isAuth }}>
       <StyledRootContainer>
+        <Link to={"/login"}>로그인페이지 테스트</Link>
         <Switch>
-          <Route exact path="/" component={LoginPage} />
+          <Route exact path="/" component={isAuth ? SignUpPage : LoginPage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
           <Route eact path="/issues" component={SignUpPage} />

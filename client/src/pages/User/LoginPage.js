@@ -35,12 +35,14 @@ function reducer(state, action) {
         nickname: state.inputs.nickname,
         password: state.inputs.password,
       };
-      console.log(body.nickname, body.password);
-      const { message, token } = axios.post(
-        "http://115.85.183.106:3000/api/user/login",
-        body
-      );
-      console.log(message, token);
+      // TODO: async await
+      axios
+        .post("http://127.0.0.1:3000/api/user/login", body)
+        .then(({ data: { message, token } }) => {
+          localStorage.setItem("token", token);
+          location.href = "/";
+        });
+
     default:
       return state;
   }
