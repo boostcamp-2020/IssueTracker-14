@@ -1,8 +1,8 @@
 //
 //  PatternCheckerTests.swift
-//  PatternCheckerTests
+//  IssueListUseCaseTests
 //
-//  Created by TTOzzi on 2020/10/29.
+//  Created by 최동규 on 2020/11/05.
 //
 
 import XCTest
