@@ -10,18 +10,16 @@ import XCTest
 
 class IssueListUseCaseTests: XCTestCase {
 
-    static var issues: [Issue] {
-        let issue1 = Issue(id: 1, title: "이슈 1", status: "open",
-                           mileStone: MileStone(id: 3, title: "마일스톤"), description: "내용")
-        let issue2 = Issue(id: 2, title: "이슈 2", status: "open", mileStone: nil, description: nil)
-        let issue3 = Issue(id: 3, title: "이슈 3", status: "closed", mileStone: nil, description: "내용")
-        let issue4 = Issue(id: 4, title: "이슈 4", status: "open", mileStone: nil, description: nil)
-        return [issue1, issue2, issue3, issue4]
-    }
+    var issues: [Issue]  = [Issue(id: 1, title: "이슈 1", status: "open",
+                                  mileStone: MileStone(id: 3, title: "마일스톤"), description: "내용"),
+                            Issue(id: 2, title: "이슈 2", status: "open", mileStone: nil, description: nil),
+                            Issue(id: 3, title: "이슈 3", status: "closed", mileStone: nil, description: "내용"),
+                            Issue(id: 4, title: "이슈 4", status: "open", mileStone: nil, description: nil)]
     
     struct MockSuccessNetworkService: NetworkServiceProviding {
         var userToken: String?
         
+        let issues: [Issue]
         func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
             let response = IssueResponse(issues: issues)
             let data = try? JSONEncoder().encode(response)
@@ -39,11 +37,11 @@ class IssueListUseCaseTests: XCTestCase {
     }
     
     func testLoadListSuccess() {
-        let useCase = IssueListUseCase(networkService: MockSuccessNetworkService())
+        let useCase = IssueListUseCase(networkService: MockSuccessNetworkService(issues: issues))
         useCase.loadList(completion: { result in
             switch result {
-            case let .success(issues):
-                XCTAssertEqual(issues, IssueListUseCaseTests.issues)
+            case let .success(receivedIssues):
+                XCTAssertEqual(receivedIssues, self.issues)
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }
@@ -55,8 +53,8 @@ class IssueListUseCaseTests: XCTestCase {
         let useCase = IssueListUseCase(networkService: MockFailureNetworkService())
         useCase.loadList(completion: { result in
             switch result {
-            case let .success(issues):
-                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공")
+            case let .success(issue):
+                XCTFail("서버에서 잘못된 데이터가 왔음에도 성공\n\(issue.description)")
             case let .failure(error):
                 XCTAssertEqual(error, .networkError(message: ""))
             }
@@ -64,7 +62,7 @@ class IssueListUseCaseTests: XCTestCase {
     }
 
     func testCloseIssueSuccess() {
-        let useCase = IssueListUseCase(networkService: MockSuccessNetworkService())
+        let useCase = IssueListUseCase(networkService: MockSuccessNetworkService( issues: issues))
         useCase.closeIssue(with: 4) { error in
             XCTAssertNil(error)
         }
@@ -73,7 +71,7 @@ class IssueListUseCaseTests: XCTestCase {
     func testCloseIssueFailure() {
         let useCase = IssueListUseCase(networkService: MockFailureNetworkService())
         useCase.closeIssue(with: 4) { error in
-            XCTAssertNotNil(error)
+            XCTAssertEqual(error, .networkError(message: ""))
         }
     }
 }
