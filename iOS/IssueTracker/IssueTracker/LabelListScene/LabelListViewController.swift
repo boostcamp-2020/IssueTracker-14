@@ -17,7 +17,7 @@ final class LabelListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem.init(systemItem: .add)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "레이블"
     }
