@@ -13,8 +13,8 @@ const StyledSignUpButton = styled.div`
 
 const SignUpButton = () => (
   <StyledSignUpButton>
-    <Button border backgroundColor="grey" width="100%" height="60%">
-      <Text color="black" fontSize="small">
+    <Button border backgroundColor={"grey"} width={"100%"} height={"60%"}>
+      <Text color={"black"} fontSize={"small"} hover={false}>
         회원가입
       </Text>
     </Button>

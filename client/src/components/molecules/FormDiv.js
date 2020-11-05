@@ -13,10 +13,16 @@ const StyledFormDiv = styled.div`
   margin: 0.5rem;
 `;
 
-const FormDiv = ({ label, htmlFor, size, type }) => (
+const FormDiv = ({ label, htmlFor, size, type, name, onChange }) => (
   <StyledFormDiv>
     <InputLabel label={label} for={htmlFor} size={size} />
-    <Input id={htmlFor} size={size} type={type} />
+    <Input
+      id={htmlFor}
+      size={size}
+      type={type}
+      name={name}
+      onChange={onChange}
+    />
   </StyledFormDiv>
 );
 

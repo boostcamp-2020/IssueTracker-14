@@ -8,15 +8,22 @@ const StyledLoginButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 55px;
   width: 80%;
 `;
 
-const GithubLoginButton = () => (
+const GithubLoginButton = ({ onClick }) => (
   <StyledLoginButton>
-    <Button border backgroundColor="black" width="100%" height="60%">
-      <Text color="white" fontSize="small">
-        Github으로 로그인하기 <Icon location="right" name="github" distance="0.3" />
+    <Button
+      border
+      backgroundColor={"black"}
+      width={"100%"}
+      height={"70%"}
+      onClick={onClick}
+    >
+      <Text color={"white"} fontSize={"small"} hover={false}>
+        Github으로 로그인하기
+        <Icon location={"right"} name={"github"} distance={"0.3"} />
       </Text>
     </Button>
   </StyledLoginButton>

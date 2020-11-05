@@ -42,9 +42,9 @@ const Button = ({
   height,
   rounded,
   backgroundColor,
-  onClick,
   color,
   icon,
+  onClick,
   children,
   ...rest
 }) => (
@@ -54,6 +54,7 @@ const Button = ({
     rounded={rounded}
     color={color}
     backgroundColor={backgroundColor}
+    onClick={onClick}
     {...rest}
   >
     {children}

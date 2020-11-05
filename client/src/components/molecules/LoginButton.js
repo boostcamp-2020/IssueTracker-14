@@ -8,14 +8,20 @@ const StyledLoginButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70px;
+  height: 55px;
   width: 80%;
 `;
 
-const LoginButton = () => (
+const LoginButton = ({ onClick }) => (
   <StyledLoginButton>
-    <Button border backgroundColor={colors.grey} width={"100%"} height={"60%"}>
-      <Text color={colors.black} fontSize={"small"}>
+    <Button
+      border
+      backgroundColor={colors.grey}
+      width={"100%"}
+      height={"70%"}
+      onClick={onClick}
+    >
+      <Text color={colors.black} fontSize={"small"} hover={false}>
         IssueTracker team 14에 로그인하기
       </Text>
     </Button>

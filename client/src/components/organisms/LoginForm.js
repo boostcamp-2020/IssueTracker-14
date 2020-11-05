@@ -18,11 +18,25 @@ const StyledLoginForm = styled.div`
   border-radius: 0.4rem;
 `;
 
-const LoginForm = ({ size }) => (
+const LoginForm = ({ size, onChange, onClick }) => (
   <StyledLoginForm>
-    <FormDiv label="아이디" size={size} for="input-id" type="email" />
-    <FormDiv label="비밀번호" size={size} for="input-pw" type="password" />
-    <LoginButton />
+    <FormDiv
+      label="아이디"
+      size={size}
+      for="input-id"
+      type="email"
+      onChange={onChange}
+      name={"nickname"}
+    />
+    <FormDiv
+      label="비밀번호"
+      size={size}
+      for="input-pw"
+      type="password"
+      onChange={onChange}
+      name={"password"}
+    />
+    <LoginButton onClick={onClick} />
     <GithubLoginButton />
     <Link to="/signup">
       <Text color="black" fontSize="small">

@@ -15,15 +15,16 @@ const StyledText = styled.p`
   padding: 0;
 
   &:hover {
-    color: ${colors.blue};
+    color: ${({ hover }) => hover && colors.blue};
   }
 `;
 
-const Text = ({ children, color, fontSize, fontWeight, ...rest }) => (
+const Text = ({ children, color, fontSize, fontWeight, hover, ...rest }) => (
   <StyledText
     color={color}
     fontSize={fontSize}
     fontWeight={fontWeight}
+    hover={hover}
     {...rest}
   >
     {children}
@@ -33,6 +34,7 @@ const Text = ({ children, color, fontSize, fontWeight, ...rest }) => (
 Text.defaultProps = {
   color: "black",
   fontSize: "medium",
+  hover: true,
 };
 
 export default Text;
