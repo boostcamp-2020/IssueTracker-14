@@ -40,14 +40,26 @@ final class IssueListViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
         navigationItem.searchController = UISearchController(searchResultsController: nil)
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "이슈"
         let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
         issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
         dataSource = issueDataSource()
         issueCollectionView.dataSource = dataSource
+        issueCollectionView.delegate = self
         issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
         loadList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+}
+
+extension IssueListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
+        coordinator?.showDetail(of: selectedIssue)
     }
 }
 

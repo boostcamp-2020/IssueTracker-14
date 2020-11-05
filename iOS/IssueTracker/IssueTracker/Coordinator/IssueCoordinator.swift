@@ -31,3 +31,15 @@ final class IssueCoordinator: NavigationCoordinator {
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
+
+extension IssueCoordinator {
+    func showDetail(of issue: Issue) {
+        let viewController = storyboard.instantiateViewController(
+            identifier: IssueDetailViewController.identifier,
+            creator: { coder -> IssueDetailViewController? in
+                return IssueDetailViewController(coder: coder)
+            })
+        viewController.coordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+}
