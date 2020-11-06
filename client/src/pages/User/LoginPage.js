@@ -1,8 +1,8 @@
 import React, { useReducer, useCallback } from "react";
-import axios from "axios";
 import styled from "styled-components";
 import Title from "../../components/organisms/Title";
 import LoginForm from "../../components/organisms/LoginForm";
+import myAxios from "../../utils/myAxios";
 
 const LoginPageWrapper = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const initialState = {
   },
 };
 
-function reducer(state, action) {
+const reducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_INPUT":
       return {
@@ -35,14 +35,14 @@ function reducer(state, action) {
         nickname: state.inputs.nickname,
         password: state.inputs.password,
       };
-      // TODO: async await
-      axios
-        .post("http://127.0.0.1:3000/api/user/login", body)
-        .then(({ data: { message, token } }) => {
+      const checkUserInfo = async () => {
+        const { data: { message, token } } = await myAxios.post('/user/login', body);
+        if (message === "success"){
           localStorage.setItem("token", token);
           location.href = "/";
-        });
-
+        }
+      }
+      checkUserInfo();
     default:
       return state;
   }
@@ -50,13 +50,9 @@ function reducer(state, action) {
 
 const LoginPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { users } = state;
-  const { nickname, password } = state.inputs;
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
-    console.log(e.target);
-    console.log("name", name, "value", value);
     dispatch({
       type: "CHANGE_INPUT",
       name,
@@ -64,8 +60,7 @@ const LoginPage = () => {
     });
   }, []);
 
-  const onClick = useCallback((e) => {
-    console.log(e);
+  const onClick = useCallback(() => {
     dispatch({
       type: "POST_USER",
     });
