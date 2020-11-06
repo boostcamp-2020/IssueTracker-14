@@ -7,7 +7,7 @@ import styled from "styled-components";
 import colors from "./constants/colors";
 import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
-import {UserProvider} from './stores/user';
+import { UserProvider } from "./stores/user";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -26,21 +26,23 @@ const App = () => {
   const token = localStorage.getItem("token");
   const [isAuth, setIsAuth] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (token) {
       checkToken();
     }
   }, []);
 
   const checkToken = async () => {
-    const { data : { message } } = await myAxios.get('/user/status');
+    const {
+      data: { message },
+    } = await myAxios.get("/user/status");
     if (message === "ok") {
       setIsAuth(true);
     }
-  }
+  };
 
   return (
-    <AuthContext.Provider value={ isAuth }>
+    <AuthContext.Provider value={isAuth}>
       <StyledRootContainer>
         <Switch>
           <UserProvider>
@@ -49,7 +51,6 @@ const App = () => {
             <Route exact path="/signup" component={SignUpPage} />
           </UserProvider>
           <Route eact path="/issues" component={IssuesPage} />
-  
         </Switch>
         {/*
         <Route exact path="/issues/new" component={LoginForm} />
