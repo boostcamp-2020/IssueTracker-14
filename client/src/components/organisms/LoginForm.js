@@ -5,7 +5,7 @@ import LoginButton from "../molecules/LoginButton";
 import GithubLoginButton from "../molecules/GithubLoginButton";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useUserState, useUserDispatch } from "../../stores/user";
+import { useUserDispatch } from "../../stores/user";
 
 const StyledLoginForm = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const LoginForm = ({ size }) => {
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
     dispatch({
-      type: "CHANGE_INPUT",
+      type: "CHANGE_LOGIN_INPUT",
       name,
       value,
     });
