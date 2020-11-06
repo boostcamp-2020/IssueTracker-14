@@ -73,7 +73,6 @@ const userReducer = (state, action) => {
           password: state.signup.password,
           passwordConfirm: state.signup.passwordConfirm,
         });
-        console.log(message);
         if (message === "success") {
           location.href = "/";
           return;
