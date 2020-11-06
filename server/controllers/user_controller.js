@@ -62,7 +62,7 @@ const localLogin = async (req, res) => {
         nickname: currentUser.nickname,
       });
       // nickname return 우선 제외
-      return res.status(201).json({
+      return res.status(200).json({
         message: "success",
         token: jwtoken,
       });
@@ -76,7 +76,7 @@ const githubLogin = (req, res) => {
   try {
     const { email, nickname, id } = req.user;
     const jwtoken = getToken({ id, email, nickname });
-    return res.status(201).json({ message: "success", token: jwtoken });
+    return res.status(200).json({ message: "success", token: jwtoken });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
@@ -99,7 +99,7 @@ const appleLogin = async (req, res) => {
       nickname: appleUser.nickname,
       email: appleUser.email,
     });
-    return res.status(201).json({ message: "success", token: jwtoken });
+    return res.status(200).json({ message: "success", token: jwtoken });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
