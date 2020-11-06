@@ -1,8 +1,8 @@
 //
 //  SignUpUseCaseTests.swift
-//  SignUpUseCaseTests
+//  IssueListUseCaseTests
 //
-//  Created by 최동규 on 2020/10/29.
+//  Created by 최동규 on 2020/11/05.
 //
 
 import XCTest
@@ -11,21 +11,16 @@ import XCTest
 final class SignUpUseCaseTests: XCTestCase {
 
     struct MockSuccessNetworkService: NetworkServiceProviding {
+        var userToken: String?
+        
         func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
             completionHandler(.success(Data()))
         }
     }
     
-    struct MockFailureNetworkService: NetworkServiceProviding {
-        func request(requestType: RequestType, completionHandler: @escaping (Result<Data, NetworkError>) -> Void) {
-            completionHandler(.failure(.invalidData))
-        }
-        
-    }
-    
     let signUpInfo = SignUpInfo(email: "test@naver.com",
-                                password1: "123456",
-                                password2: "123456",
+                                password: "123456",
+                                passwordConfirm: "123456",
                                 nickname: "dochoi")
     
     func testSingUpSuccess() {
