@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class ShadowButton: UIButton {
+final class ShadowButton: UIButton {
 
     @IBInspectable private var cornerRadius: CGFloat {
         get { layer.cornerRadius }
