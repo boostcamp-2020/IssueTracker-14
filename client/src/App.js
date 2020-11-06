@@ -7,6 +7,7 @@ import styled from "styled-components";
 import colors from "./constants/colors";
 import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
+import {UserProvider} from './stores/user';
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -42,10 +43,13 @@ const App = () => {
     <AuthContext.Provider value={ isAuth }>
       <StyledRootContainer>
         <Switch>
-          <Route exact path="/" component={isAuth ? IssuesPage : LoginPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/signup" component={SignUpPage} />
+          <UserProvider>
+            <Route exact path="/" component={isAuth ? IssuesPage : LoginPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignUpPage} />
+          </UserProvider>
           <Route eact path="/issues" component={IssuesPage} />
+  
         </Switch>
         {/*
         <Route exact path="/issues/new" component={LoginForm} />

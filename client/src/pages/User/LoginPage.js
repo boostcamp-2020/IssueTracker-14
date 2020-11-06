@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Title from "../../components/organisms/Title";
 import LoginForm from "../../components/organisms/LoginForm";
 import myAxios from "../../utils/myAxios";
+import {useUserState, useUserDispatch} from '../../stores/user';
 
 const LoginPageWrapper = styled.div`
   display: flex;
@@ -13,43 +14,9 @@ const LoginPageWrapper = styled.div`
   height: 930px;
 `;
 
-const initialState = {
-  inputs: {
-    nickname: "",
-    password: "",
-  },
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "CHANGE_INPUT":
-      return {
-        ...state,
-        inputs: {
-          ...state.inputs,
-          [action.name]: action.value,
-        },
-      };
-    case "POST_USER":
-      const body = {
-        nickname: state.inputs.nickname,
-        password: state.inputs.password,
-      };
-      const checkUserInfo = async () => {
-        const { data: { message, token } } = await myAxios.post('/user/login', body);
-        if (message === "success"){
-          localStorage.setItem("token", token);
-          location.href = "/";
-        }
-      }
-      checkUserInfo();
-    default:
-      return state;
-  }
-}
-
 const LoginPage = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const state = useUserState();
+  const dispatch = useUserDispatch();
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
