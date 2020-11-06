@@ -12,15 +12,12 @@ const createIssue = async (req, res) => {
   try {
     const { title, description } = req.body;
     const { id: authorid } = req.user;
-    const newIssue = await IssueModel.create({
+    await IssueModel.create({
       title,
       description,
       authorid,
       status: "open",
     });
-    if (!newIssue) {
-      return res.status(400).json({ message: "fail" });
-    }
     return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });

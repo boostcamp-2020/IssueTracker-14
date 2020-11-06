@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../constants/colors";
 import Button from "../atoms/Button";
 import Text from "../atoms/Text";
-import Icon from "../atoms/Icon";
 
 const StyledLoginButton = styled.div`
   display: flex;
@@ -12,21 +12,20 @@ const StyledLoginButton = styled.div`
   width: 80%;
 `;
 
-const GithubLoginButton = ({ onClick }) => (
+const LoginButton = ({ onClick }) => (
   <StyledLoginButton>
     <Button
       border
-      backgroundColor={"black"}
+      backgroundColor={colors.grey}
       width={"100%"}
       height={"70%"}
       onClick={onClick}
     >
-      <Text color={"white"} fontSize={"small"} hover={false}>
-        Github으로 로그인하기
-        <Icon location={"right"} name={"github"} distance={"0.3"} />
+      <Text color={colors.black} fontSize={"small"} hover={false}>
+        IssueTracker team 14에 로그인하기
       </Text>
     </Button>
   </StyledLoginButton>
 );
 
-export default GithubLoginButton;
+export default LoginButton;

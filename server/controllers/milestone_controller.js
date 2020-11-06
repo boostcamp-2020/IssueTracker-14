@@ -6,16 +6,13 @@ const createMilestone = async (req, res) => {
     if (Date.now() > new Date(duedate)) {
       return res.status(400).json({ message: "fail" });
     }
-    const newMilestone = await MilestoneModel.create({
+    await MilestoneModel.create({
       title,
       duedate,
       description,
       status: "open",
     });
 
-    if (!newMilestone) {
-      return res.status(500).json({ message: "fail" });
-    }
     return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });

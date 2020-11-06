@@ -6,14 +6,11 @@ const createAssignee = async (req, res) => {
   try {
     const { issueid } = req.params;
     const { userid } = req.body;
-    const newAssignee = await AssigneeModel.findOrCreate({
+    await AssigneeModel.findOrCreate({
       where: { userid, issueid },
       defaults: { userid, issueid },
     });
-    if (!newAssignee) {
-      return res.status(400).json({ message: "fail" });
-    }
-    return res.status(200).json({ message: "success" });
+    return res.status(201).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
