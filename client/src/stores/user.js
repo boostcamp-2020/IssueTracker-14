@@ -18,6 +18,7 @@ const userReducer = (state, action) => {
           [action.name]: action.value,
         },
       };
+
     case "POST_USER":
       const body = {
         nickname: state.inputs.nickname,
@@ -37,7 +38,17 @@ const userReducer = (state, action) => {
       checkLocalUserInfo();
 
     case "POST_GITHUB_USER":
-    // checkUserInfo();
+      const checkGithubUserInfo = async () => {
+        const {
+          data: { message, token },
+        } = await myAxios.get("/user/oauth/github");
+
+        if (message === "success") {
+          localStorage.setItem("token", token);
+          location.href = "/";
+        }
+      };
+      checkGithubUserInfo();
 
     default:
       return state;
@@ -46,6 +57,9 @@ const userReducer = (state, action) => {
 
 const UserStateContext = createContext();
 const UserDispatchContext = createContext();
+
+const useUserState = () => useContext(UserStateContext);
+const useUserDispatch = () => useContext(UserDispatchContext);
 
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -58,8 +72,5 @@ const UserProvider = ({ children }) => {
     </UserStateContext.Provider>
   );
 };
-
-const useUserState = () => useContext(UserStateContext);
-const useUserDispatch = () => useContext(UserDispatchContext);
 
 export { UserProvider, useUserState, useUserDispatch };

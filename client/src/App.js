@@ -22,7 +22,6 @@ const StyledRootContainer = styled.div`
 `;
 
 const App = () => {
-  // TODO: Router 설정 , checkLogin 후 분기
   const token = localStorage.getItem("token");
   const [isAuth, setIsAuth] = useState(false);
   const history = useHistory();
