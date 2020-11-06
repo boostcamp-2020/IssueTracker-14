@@ -19,10 +19,24 @@ const createMilestone = async (req, res) => {
   }
 };
 
+const readMilestone = async (req, res) => {
+  try {
+    const { milestoneid: id } = req.params;
+    const milestone = await MilestoneModel.findOne({
+      where: { id },
+    });
+    return res.status(200).json({ message: "success", milestone: milestone });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
 const readMilestones = async (req, res) => {
   try {
     const { status } = req.query;
-    const milestones = await MilestoneModel.findAll({ where: { status } });
+    const milestones = await MilestoneModel.findAll({
+      where: status !== undefined && { status },
+    });
     if (!Array.isArray(milestones)) {
       return res.status(500).json({ message: "fail" });
     }
@@ -66,6 +80,7 @@ const deleteMilestone = async (req, res) => {
 
 module.exports = {
   createMilestone,
+  readMilestone,
   readMilestones,
   updateMilestone,
   deleteMilestone,

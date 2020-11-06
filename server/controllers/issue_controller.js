@@ -24,6 +24,59 @@ const createIssue = async (req, res) => {
   }
 };
 
+const readIssue = async (req, res) => {
+  try {
+    const { issueid: id } = req.params;
+    const issue = await IssueModel.findOne({
+      include: [
+        {
+          model: UserModel,
+          attributes: ["id", "nickname"],
+        },
+        {
+          model: MilestoneModel,
+          attributes: ["id", "title"],
+        },
+        {
+          model: AssigneeModel,
+          include: [
+            {
+              model: UserModel,
+              attributes: ["id", "nickname", "imageurl"],
+            },
+          ],
+          attributes: ["id"],
+        },
+        {
+          model: CommentModel,
+        },
+        {
+          model: LabelHasIssueModel,
+          include: [
+            {
+              model: LabelModel,
+              attributes: ["id", "title", "color", "description"],
+            },
+          ],
+          attributes: ["id"],
+        },
+      ],
+      attributes: [
+        "id",
+        "title",
+        "status",
+        "createdAt",
+        "updatedAt",
+        "description",
+      ],
+      where: { id },
+    });
+    return res.status(200).json({ message: "success", issue });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
 const readIssues = async (req, res) => {
   try {
     const { status, author, label, milestone, assignee } = req.query;
@@ -116,4 +169,4 @@ const updateIssue = async (req, res) => {
   }
 };
 
-module.exports = { createIssue, readIssues, updateIssue };
+module.exports = { createIssue, readIssue, readIssues, updateIssue };
