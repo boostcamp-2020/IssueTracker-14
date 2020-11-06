@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/User/IssuesPage";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import colors from "./constants/colors";
 import myAxios from "./utils/myAxios";
@@ -25,12 +25,7 @@ const App = () => {
   // TODO: Router 설정 , checkLogin 후 분기
   const token = localStorage.getItem("token");
   const [isAuth, setIsAuth] = useState(false);
-
-  useEffect(() => {
-    if (token) {
-      checkToken();
-    }
-  }, []);
+  const history = useHistory();
 
   const checkToken = async () => {
     const {
@@ -38,19 +33,30 @@ const App = () => {
     } = await myAxios.get("/user/status");
     if (message === "ok") {
       setIsAuth(true);
+      return true;
     }
+    return false;
   };
+
+  useEffect(() => {
+    if (!token) {
+      history.push("/login");
+    }
+    if (token) {
+      const status = checkToken();
+      status ? history.push("/issues") : history.push("/login");
+    }
+  }, []);
 
   return (
     <AuthContext.Provider value={isAuth}>
       <StyledRootContainer>
         <Switch>
           <UserProvider>
-            <Route exact path="/" component={isAuth ? IssuesPage : LoginPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
+            <Route eact path="/issues" component={IssuesPage} />
           </UserProvider>
-          <Route eact path="/issues" component={IssuesPage} />
         </Switch>
         {/*
         <Route exact path="/issues/new" component={LoginForm} />

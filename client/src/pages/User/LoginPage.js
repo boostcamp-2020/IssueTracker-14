@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Title from "../../components/organisms/Title";
 import LoginForm from "../../components/organisms/LoginForm";
 import myAxios from "../../utils/myAxios";
-import {useUserState, useUserDispatch} from '../../stores/user';
+import { useUserState, useUserDispatch } from "../../stores/user";
 
 const LoginPageWrapper = styled.div`
   display: flex;
@@ -27,16 +27,22 @@ const LoginPage = () => {
     });
   }, []);
 
-  const onClick = useCallback(() => {
+  const onClickLocalLogin = useCallback(() => {
     dispatch({
       type: "POST_USER",
+    });
+  }, []);
+
+  const onClickGithubLogin = useCallback(() => {
+    dispatch({
+      type: "POST_GITHUB_USER",
     });
   }, []);
 
   return (
     <LoginPageWrapper>
       <Title />
-      <LoginForm onChange={onChange} onClick={onClick} />
+      <LoginForm onChange={onChange} onClick={onClickLocalLogin} />
     </LoginPageWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useReducer, useContext, createContext } from "react";
-import myAxios from '../utils/myAxios';
+import myAxios from "../utils/myAxios";
 
 const initialState = {
   inputs: {
@@ -23,18 +23,26 @@ const userReducer = (state, action) => {
         nickname: state.inputs.nickname,
         password: state.inputs.password,
       };
-      const checkUserInfo = async () => {
-        const { data: { message, token } } = await myAxios.post('/user/login', body);
-        if (message === "success"){
+
+      const checkLocalUserInfo = async () => {
+        const {
+          data: { message, token },
+        } = await myAxios.post("/user/login", body);
+        if (message === "success") {
           localStorage.setItem("token", token);
           location.href = "/";
         }
-      }
-      checkUserInfo();
+      };
+
+      checkLocalUserInfo();
+
+    case "POST_GITHUB_USER":
+    // checkUserInfo();
+
     default:
       return state;
   }
-}
+};
 
 const UserStateContext = createContext();
 const UserDispatchContext = createContext();
@@ -55,4 +63,3 @@ const useUserState = () => useContext(UserStateContext);
 const useUserDispatch = () => useContext(UserDispatchContext);
 
 export { UserProvider, useUserState, useUserDispatch };
-  
