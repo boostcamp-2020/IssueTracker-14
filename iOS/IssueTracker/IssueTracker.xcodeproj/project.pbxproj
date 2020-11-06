@@ -24,6 +24,8 @@
 		44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA5D94255032A8008AB0EB /* IssueListViewController.swift */; };
 		44FF26C02554738D00D1E059 /* IssueInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF26BF2554738D00D1E059 /* IssueInfoView.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
+		B9007862255466510035D307 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007861255466510035D307 /* ShadowView.swift */; };
+		B9007866255466660035D307 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007865255466650035D307 /* ShadowButton.swift */; };
 		B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E552554035800B98C10 /* LoginUseCaseTests.swift */; };
 		B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */; };
 		B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */; };
@@ -36,6 +38,7 @@
 		B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */; };
 		B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */; };
 		B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */; };
+		B9013EBE2554227700B98C10 /* IssueDetailPullUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */; };
 		B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743012551C4A600E1D2E6 /* LabelListViewController.swift */; };
 		B907430A2551C5E400E1D2E6 /* LabelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */; };
 		B907431F2551DB5700E1D2E6 /* MileStoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */; };
@@ -99,6 +102,8 @@
 		44FF26BF2554738D00D1E059 /* IssueInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueInfoView.swift; sourceTree = "<group>"; };
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
+		B9007861255466510035D307 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		B9007865255466650035D307 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		B9013E552554035800B98C10 /* LoginUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTests.swift; sourceTree = "<group>"; };
 		B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
 		B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTests.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
 		B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServiceError+Equtable.swift"; sourceTree = "<group>"; };
+		B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailPullUPViewController.swift; sourceTree = "<group>"; };
 		B90743012551C4A600E1D2E6 /* LabelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListViewController.swift; sourceTree = "<group>"; };
 		B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCoordinator.swift; sourceTree = "<group>"; };
 		B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +255,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */ = {
+			isa = PBXGroup;
+			children = (
+				B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */,
+			);
+			path = IssueDetailPullUpScene;
+			sourceTree = "<group>";
+		};
 		B90743002551C40400E1D2E6 /* LabelListScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +326,8 @@
 			children = (
 				4403B40C25494B5400503E17 /* InputView.swift */,
 				442B3DA9255265B800069D18 /* PaddingLabel.swift */,
+				B9007861255466510035D307 /* ShadowView.swift */,
+				B9007865255466650035D307 /* ShadowButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +389,7 @@
 				B90743142551DAE800E1D2E6 /* MileStoneListScene */,
 				B90743262551DB6F00E1D2E6 /* SettingScene */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
+				B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
@@ -616,11 +633,14 @@
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
 				B9FBB4F025518181007207AE /* HomeTabBarController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
+				B9013EBE2554227700B98C10 /* IssueDetailPullUPViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
 				44FF26C02554738D00D1E059 /* IssueInfoView.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
+				B9007866255466660035D307 /* ShadowButton.swift in Sources */,
+				B9007862255466510035D307 /* ShadowView.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
 				B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */,
