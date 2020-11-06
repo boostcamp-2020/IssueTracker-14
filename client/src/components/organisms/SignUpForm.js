@@ -20,7 +20,12 @@ const SignUpForm = ({ size }) => (
     <FormDiv label="아이디" size={size} for="input-id" type="email" />
     <FormDiv label="닉네임" size={size} for="input-nickname" type="text" />
     <FormDiv label="비밀번호" size={size} for="input-pw" type="password" />
-    <FormDiv label="비밀번호 확인" size={size} for="input-pw-check" type="password" />
+    <FormDiv
+      label="비밀번호 확인"
+      size={size}
+      for="input-pw-check"
+      type="password"
+    />
     <SignUpButton />
   </StyledSignUpForm>
 );

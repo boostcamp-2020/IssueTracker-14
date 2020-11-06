@@ -11,9 +11,7 @@ const IssuesPageWrapper = styled.div`
 `;
 
 const IssuesPage = () => (
-  <IssuesPageWrapper>
-    Issue가 들어올 자리
-  </IssuesPageWrapper>
+  <IssuesPageWrapper>Issue가 들어올 자리</IssuesPageWrapper>
 );
 
 export default IssuesPage;
