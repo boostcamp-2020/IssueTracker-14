@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-require('dotenv').config()
+const Dotenv = require('dotenv-webpack');
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
   mode: isDevelopment ? 'development' : 'production',
-  entry: ['./src/index.js'],
+  entry: ["@babel/polyfill", './src/index.js'],
   resolve: {
     extensions: ['.js', '.jsx']
   },
@@ -46,6 +46,7 @@ module.exports = {
   }),
     new CleanWebpackPlugin({
         cleanAfterEveryBuildPatterns: ['dist']
-    })
+    }),
+    new Dotenv()
   ]
 };
