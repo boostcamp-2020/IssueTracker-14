@@ -21,12 +21,15 @@ final class IssueDetailPullUpViewController: UIViewController {
 extension IssueDetailPullUpViewController {
     private func configure() {
         let baseFrame = UIScreen.main.bounds
+        let centerX = baseFrame.width / 2
+        let centerY = baseFrame.height / 2 * 2.5
+        
         view.frame =
             CGRect(x: baseFrame.minX,
                    y: baseFrame.minY,
                    width: baseFrame.width,
                    height: baseFrame.height * 0.85)
-        view.center = CGPoint(x: baseFrame.width / 2, y: (baseFrame.height / 2) * 2.5)
+        view.center = CGPoint(x: centerX, y: centerY)
         view.layer.cornerRadius = 15
         view.clipsToBounds = true
     }

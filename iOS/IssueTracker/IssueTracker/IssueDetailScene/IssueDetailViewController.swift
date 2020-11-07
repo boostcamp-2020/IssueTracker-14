@@ -14,8 +14,8 @@ final class IssueDetailViewController: UIViewController {
     }
     @IBOutlet private weak var issueDetailTableView: UITableView!
     weak var coordinator: IssueCoordinator?
-    private var pullUpViewController: IssueDetailPullUpViewController
-    private var pullUpViewAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.1,
+    private let pullUpViewController: IssueDetailPullUpViewController
+    private let pullUpViewAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.1,
                                                                                     curve: .easeOut,
                                                                                     animations: nil)
     
@@ -33,7 +33,7 @@ final class IssueDetailViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
         issueDetailTableView.dataSource = self
         issueDetailTableView.delegate = self
-        configuepullUpView()
+        configuePullUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +81,7 @@ extension IssueDetailViewController: UITableViewDelegate {
 }
 
 private extension IssueDetailViewController {
-    func configuepullUpView() {
+    func configuePullUpView() {
         view.addSubview(pullUpViewController.view)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pullUpAction))
         pullUpViewController.view.addGestureRecognizer(panGesture)
