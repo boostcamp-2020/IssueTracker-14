@@ -38,7 +38,7 @@
 		B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */; };
 		B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */; };
 		B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */; };
-		B9013EBE2554227700B98C10 /* IssueDetailPullUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */; };
+		B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */; };
 		B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743012551C4A600E1D2E6 /* LabelListViewController.swift */; };
 		B907430A2551C5E400E1D2E6 /* LabelCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */; };
 		B907431F2551DB5700E1D2E6 /* MileStoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */; };
@@ -116,7 +116,7 @@
 		B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
 		B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServiceError+Equtable.swift"; sourceTree = "<group>"; };
-		B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailPullUPViewController.swift; sourceTree = "<group>"; };
+		B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailPullUpViewController.swift; sourceTree = "<group>"; };
 		B90743012551C4A600E1D2E6 /* LabelListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListViewController.swift; sourceTree = "<group>"; };
 		B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCoordinator.swift; sourceTree = "<group>"; };
 		B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListViewController.swift; sourceTree = "<group>"; };
@@ -258,7 +258,7 @@
 		B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */ = {
 			isa = PBXGroup;
 			children = (
-				B9013EBD2554227700B98C10 /* IssueDetailPullUPViewController.swift */,
+				B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */,
 			);
 			path = IssueDetailPullUpScene;
 			sourceTree = "<group>";
@@ -633,7 +633,7 @@
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
 				B9FBB4F025518181007207AE /* HomeTabBarController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
-				B9013EBE2554227700B98C10 /* IssueDetailPullUPViewController.swift in Sources */,
+				B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
 				44FF26C02554738D00D1E059 /* IssueInfoView.swift in Sources */,
