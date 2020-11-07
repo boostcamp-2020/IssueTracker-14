@@ -37,13 +37,17 @@ const App = () => {
     return false;
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!token) {
       history.push("/login");
     }
     if (token) {
-      const status = checkToken();
-      status ? history.push("/issues") : history.push("/login");
+      try{
+        await checkToken();
+        history.push("/issues")
+      } catch (err) {
+        history.push("/login");
+      }
     }
   }, []);
 
