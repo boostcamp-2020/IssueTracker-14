@@ -58,7 +58,7 @@ const App = () => {
           <UserProvider>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            <Route eact path="/issues" component={IssuesPage} />
+            <Route exact path="/issues" component={IssuesPage} />
           </UserProvider>
         </Switch>
         {/*
