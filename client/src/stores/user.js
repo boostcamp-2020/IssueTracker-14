@@ -1,43 +1,95 @@
 import React, { useReducer, useContext, createContext } from "react";
-import myAxios from '../utils/myAxios';
+import myAxios from "../utils/myAxios";
 
 const initialState = {
-  inputs: {
+  login: {
     nickname: "",
     password: "",
+  },
+  signup: {
+    email: "",
+    nickname: "",
+    password: "",
+    passwordConfirm: "",
   },
 };
 
 const userReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE_INPUT":
+    case "CHANGE_LOGIN_INPUT":
       return {
         ...state,
-        inputs: {
-          ...state.inputs,
+        login: {
+          ...state.login,
           [action.name]: action.value,
         },
       };
-    case "POST_USER":
-      const body = {
-        nickname: state.inputs.nickname,
-        password: state.inputs.password,
+
+    case "CHANGE_SIGNUP_INPUT":
+      console.log(state.signup);
+      return {
+        ...state,
+        signup: {
+          ...state.signup,
+          [action.name]: action.value,
+        },
       };
-      const checkUserInfo = async () => {
-        const { data: { message, token } } = await myAxios.post('/user/login', body);
-        if (message === "success"){
+
+    case "POST_USER":
+      const checkLocalUserInfo = async () => {
+        const {
+          data: { message, token },
+        } = await myAxios.post("/user/login", {
+          nickname: state.login.nickname,
+          password: state.login.password,
+        });
+        if (message === "success") {
           localStorage.setItem("token", token);
           location.href = "/";
         }
-      }
-      checkUserInfo();
+      };
+      return checkLocalUserInfo();
+
+    case "POST_GITHUB_USER":
+      const checkGithubUserInfo = async () => {
+        const {
+          data: { message, token },
+        } = await myAxios.get("/user/oauth/github");
+
+        if (message === "success") {
+          localStorage.setItem("token", token);
+          location.href = "/";
+        }
+      };
+      return checkGithubUserInfo();
+
+    case "POST_SIGNUP_USER":
+      const signUpNewUser = async () => {
+        const {
+          data: { message },
+        } = await myAxios.post("/user/signup", {
+          email: state.signup.email,
+          nickname: state.signup.nickname,
+          password: state.signup.password,
+          passwordConfirm: state.signup.passwordConfirm,
+        });
+        if (message === "success") {
+          location.href = "/";
+          return;
+        }
+      };
+      return signUpNewUser();
+
     default:
       return state;
   }
-}
+};
 
 const UserStateContext = createContext();
 const UserDispatchContext = createContext();
+
+const useUserState = () => useContext(UserStateContext);
+const useUserDispatch = () => useContext(UserDispatchContext);
 
 const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -51,8 +103,4 @@ const UserProvider = ({ children }) => {
   );
 };
 
-const useUserState = () => useContext(UserStateContext);
-const useUserDispatch = () => useContext(UserDispatchContext);
-
 export { UserProvider, useUserState, useUserDispatch };
-  

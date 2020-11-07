@@ -17,9 +17,24 @@ const createLabel = async (req, res) => {
   }
 };
 
+const readLabel = async (req, res) => {
+  try {
+    const { labelid: id } = req.params;
+    const label = await labelModel.findOne({
+      where: { id },
+      attributes: ["id", "title", "color", "description"],
+    });
+    return res.status(200).json({ message: "success", label: label });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
 const readLabels = async (req, res) => {
   try {
-    const labels = await labelModel.findAll();
+    const labels = await labelModel.findAll({
+      attributes: ["id", "title", "color", "description"],
+    });
     if (!Array.isArray(labels)) {
       return res.status(400).json({ message: "fail" });
     }
@@ -57,4 +72,10 @@ const deleteLabel = async (req, res) => {
   }
 };
 
-module.exports = { createLabel, readLabels, updateLabel, deleteLabel };
+module.exports = {
+  createLabel,
+  readLabel,
+  readLabels,
+  updateLabel,
+  deleteLabel,
+};

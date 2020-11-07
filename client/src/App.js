@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/User/IssuesPage";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import colors from "./constants/colors";
 import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
-import {UserProvider} from './stores/user';
+import { UserProvider } from "./stores/user";
 
 const StyledRootContainer = styled.div`
   display: flex;
@@ -22,34 +22,40 @@ const StyledRootContainer = styled.div`
 `;
 
 const App = () => {
-  // TODO: Router 설정 , checkLogin 후 분기
   const token = localStorage.getItem("token");
   const [isAuth, setIsAuth] = useState(false);
+  const history = useHistory();
 
-  useEffect(()=>{
+  const checkToken = async () => {
+    const {
+      data: { message },
+    } = await myAxios.get("/user/status");
+    if (message === "ok") {
+      setIsAuth(true);
+      return true;
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    if (!token) {
+      history.push("/login");
+    }
     if (token) {
-      checkToken();
+      const status = checkToken();
+      status ? history.push("/issues") : history.push("/login");
     }
   }, []);
 
-  const checkToken = async () => {
-    const { data : { message } } = await myAxios.get('/user/status');
-    if (message === "ok") {
-      setIsAuth(true);
-    }
-  }
-
   return (
-    <AuthContext.Provider value={ isAuth }>
+    <AuthContext.Provider value={isAuth}>
       <StyledRootContainer>
         <Switch>
           <UserProvider>
-            <Route exact path="/" component={isAuth ? IssuesPage : LoginPage} />
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
+            <Route eact path="/issues" component={IssuesPage} />
           </UserProvider>
-          <Route eact path="/issues" component={IssuesPage} />
-  
         </Switch>
         {/*
         <Route exact path="/issues/new" component={LoginForm} />
