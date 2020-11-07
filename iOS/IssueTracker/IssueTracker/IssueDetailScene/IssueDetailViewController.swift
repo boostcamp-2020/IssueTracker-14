@@ -98,7 +98,7 @@ private extension IssueDetailViewController {
         let willMoveY = velocity.y < 0  ? minY : maxY
         
         navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: true)
-        guard changedY >= minY && changedY <= maxY else { return }
+        guard (minY...maxY).contains(changedY) else { return }
         
         pullUpView.center = CGPoint(x: pullUpView.center.x, y: changedY)
         panGestureRecognizer.setTranslation(.zero, in: pullUpView)

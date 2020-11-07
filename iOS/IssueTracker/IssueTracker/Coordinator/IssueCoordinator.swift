@@ -27,7 +27,7 @@ final class IssueCoordinator: NavigationCoordinator {
                 let useCase = IssueListUseCase(networkService: self.networkService)
                 return IssueListViewController(coder: coder, useCase: useCase)
             })
-        viewController.coordinator = self      
+        viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
