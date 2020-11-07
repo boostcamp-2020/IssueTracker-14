@@ -99,10 +99,11 @@ private extension IssueDetailViewController {
         
         navigationController?.setNavigationBarHidden(isNavigationBarHidden, animated: true)
         guard changedY >= minY && changedY <= maxY else { return }
+        
         pullUpView.center = CGPoint(x: pullUpView.center.x, y: changedY)
         panGestureRecognizer.setTranslation(.zero, in: pullUpView)
-        
         guard panGestureRecognizer.state == .ended else { return }
+        
         pullUpViewAnimator.stopAnimation(true)
         pullUpViewAnimator.addAnimations {
             pullUpView.center = CGPoint(x: pullUpView.center.x, y: willMoveY)
