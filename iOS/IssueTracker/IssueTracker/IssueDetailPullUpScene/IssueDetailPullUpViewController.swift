@@ -19,8 +19,7 @@ final class IssueDetailPullUpViewController: UIViewController {
 }
 
 extension IssueDetailPullUpViewController {
-    private func configure()
-    {
+    private func configure() {
         let baseFrame = UIScreen.main.bounds
         view.frame =
             CGRect(x: baseFrame.minX,
@@ -32,4 +31,3 @@ extension IssueDetailPullUpViewController {
         view.clipsToBounds = true
     }
 }
-
