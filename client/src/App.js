@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
+import NewIssuePage from "./pages/Issue/NewIssuePage";
 import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import myAxios from "./utils/myAxios";
@@ -9,7 +10,7 @@ import { AuthContext } from "./stores/auth";
 import { UserProvider } from "./stores/user";
 
 const StyledRootContainer = styled.div`
-  position:absolute
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -39,9 +40,9 @@ const App = () => {
       history.push("/login");
     }
     if (token) {
-      try{
+      try {
         await checkToken();
-        history.push("/")
+        history.push("/");
       } catch (err) {
         history.push("/login");
       }
@@ -56,6 +57,7 @@ const App = () => {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/" component={IssuesPage} />
+            <Route exact path="/issues/new" component={NewIssuePage} />
           </UserProvider>
         </Switch>
         {/*
