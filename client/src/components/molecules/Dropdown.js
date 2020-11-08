@@ -23,6 +23,7 @@ const Dropdown = ({
   buttonData,
   reverse,
   border,
+  buttonColor,
   ...rest
 }) => {
     const [showDropdown, setShowDropdown] = useState("none");
@@ -33,7 +34,7 @@ const Dropdown = ({
 
     return (
     <StyledDropdown>
-        <Button width={buttonWidth} height={buttonHeight} border={border} onClick={handleDropdown} >{buttonText}<Icon name={"dropdown"} location={"right"} /></Button>
+        <Button width={buttonWidth} height={buttonHeight} border={border} backgroundColor={buttonColor} onClick={handleDropdown} >{buttonText}<Icon name={"dropdown"} location={"right"} /></Button>
         <StyledHidden showDropdown={showDropdown} buttonWidth={buttonWidth} dropdownWidth={dropdownWidth} reverse={reverse}>
             <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} cursor={"text"} >{labelText}</Button>
             {buttonData.map((el, idx) => {
@@ -51,6 +52,7 @@ Dropdown.defaultProps = {
   labelText: "드랍다운 설명하는 칸",
   reverse: true,
   border: false,
+  buttonColor: "white"
 };
 
 export default Dropdown;
