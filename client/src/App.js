@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
-import IssuesPage from "./pages/User/IssuesPage";
+import IssuesPage from "./pages/Issue/IssuesPage";
 import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import myAxios from "./utils/myAxios";

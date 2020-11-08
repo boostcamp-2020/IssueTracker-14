@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "./../../components/organisms/Header";
+import Header from "../../components/organisms/Header";
+import NavigationWrapper from "../../components/organisms/NavigationWrapper";
 
 const IssuesPageWrapper = styled.div`
   position: relative;
   top: 6rem;
   display: flex;
+  margin: 3rem 0rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -16,9 +18,7 @@ const IssuesPage = () => (
   <>
     <Header />
     <IssuesPageWrapper>
-      <div>
-        Issue바디 페이지
-      </div>
+      <NavigationWrapper />
     </IssuesPageWrapper>
   </>
 );
