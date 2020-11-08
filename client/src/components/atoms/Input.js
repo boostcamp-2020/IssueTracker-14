@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   height: 55%;
 `;
 
-const Input = ({ type, placeholder, name, width, margin, padding, fontSize, rounded, id, onChange }) => (
+const Input = ({ type, placeholder, name, width, margin, padding, fontSize, rounded, id, onChange, ...rest }) => (
   <StyledInput
     type={type}
     placeholder={placeholder}
@@ -26,6 +26,7 @@ const Input = ({ type, placeholder, name, width, margin, padding, fontSize, roun
     name={name}
     width={width}
     onChange={onChange}
+    {...rest}
   />
 );
 
@@ -35,7 +36,6 @@ Input.defaultProps = {
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
-  width: "80%"
 };
 
 export default Input;
