@@ -27,17 +27,19 @@ final class IssueCoordinator: NavigationCoordinator {
                 let useCase = IssueListUseCase(networkService: self.networkService)
                 return IssueListViewController(coder: coder, useCase: useCase)
             })
-        viewController.coordinator = self      
+        viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
 extension IssueCoordinator {
     func showDetail(of issue: Issue) {
+        let pullUpViewController: IssueDetailPullUpViewController =
+            storyboard.instantiateViewController(identifier: IssueDetailPullUpViewController.identifier)
         let viewController = storyboard.instantiateViewController(
             identifier: IssueDetailViewController.identifier,
             creator: { coder -> IssueDetailViewController? in
-                return IssueDetailViewController(coder: coder)
+                return IssueDetailViewController(coder: coder, pullUpViewController: pullUpViewController)
             })
         viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)

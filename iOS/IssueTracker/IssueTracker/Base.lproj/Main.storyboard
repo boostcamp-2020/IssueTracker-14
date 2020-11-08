@@ -261,8 +261,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="아이디"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
-                                <rect key="frame" x="130" y="92.5" width="154.5" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이슈 트래커 Team 14" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rjr-Co-neD">
+                                <rect key="frame" x="61" y="92.5" width="292.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="inD-u4-X8z"/>
                                 </constraints>
@@ -345,6 +345,7 @@
                             <constraint firstItem="dmz-1x-209" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fr3-UM-IXd"/>
                             <constraint firstItem="WXg-Cz-p16" firstAttribute="top" secondItem="rjr-Co-neD" secondAttribute="bottom" constant="55" id="fwQ-Hc-8Fb"/>
                             <constraint firstItem="WXg-Cz-p16" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ljE-9C-kIk"/>
+                            <constraint firstItem="rjr-Co-neD" firstAttribute="width" secondItem="WXg-Cz-p16" secondAttribute="width" multiplier="0.975" id="xXI-ru-mRj"/>
                             <constraint firstItem="Ndb-gW-lDU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yNr-bm-2J2"/>
                         </constraints>
                     </view>
@@ -584,7 +585,7 @@
         <!--Issue Detail Pull Up View Controller-->
         <scene sceneID="A6g-wB-ocQ">
             <objects>
-                <viewController id="nds-4N-VD5" customClass="IssueDetailPullUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IssueDetailPullUpViewController" id="nds-4N-VD5" customClass="IssueDetailPullUpViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Y5-Yv-eiF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -593,7 +594,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="89.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KD7-Rn-zi9">
-                                        <rect key="frame" x="10" y="20" width="394" height="50"/>
+                                        <rect key="frame" x="10" y="30" width="394" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCV-7a-4VR" customClass="ShadowButton" customModule="IssueTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="284" height="50"/>
@@ -662,13 +663,28 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOP-vT-nQj" userLabel="PullUp Bar">
+                                        <rect key="frame" x="182" y="8" width="50" height="5"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="30p-Mg-nAm"/>
+                                            <constraint firstAttribute="height" constant="5" id="L8N-f2-0nd"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstItem="KD7-Rn-zi9" firstAttribute="top" secondItem="IsI-Xf-EB5" secondAttribute="top" constant="20" id="hd6-mN-7sv"/>
+                                    <constraint firstItem="KD7-Rn-zi9" firstAttribute="top" secondItem="IsI-Xf-EB5" secondAttribute="top" constant="30" id="hd6-mN-7sv"/>
+                                    <constraint firstItem="uOP-vT-nQj" firstAttribute="top" secondItem="IsI-Xf-EB5" secondAttribute="top" constant="8" id="mxM-bd-dbg"/>
                                     <constraint firstItem="KD7-Rn-zi9" firstAttribute="leading" secondItem="IsI-Xf-EB5" secondAttribute="leading" constant="10" id="q1x-rB-PvE"/>
                                     <constraint firstAttribute="trailing" secondItem="KD7-Rn-zi9" secondAttribute="trailing" constant="10" id="r7v-Ic-V3f"/>
                                     <constraint firstItem="KD7-Rn-zi9" firstAttribute="height" secondItem="IsI-Xf-EB5" secondAttribute="height" multiplier="0.558659" id="uqL-N8-hrf"/>
+                                    <constraint firstItem="uOP-vT-nQj" firstAttribute="centerX" secondItem="IsI-Xf-EB5" secondAttribute="centerX" id="znu-uZ-8dh"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="담당자" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IdR-4o-7t7">
@@ -782,11 +798,11 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" systemColor="systemGray3Color"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="1"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                         <real key="value" value="1"/>
