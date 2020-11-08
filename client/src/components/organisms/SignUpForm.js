@@ -16,7 +16,7 @@ const StyledSignUpForm = styled.div`
   border-radius: 0.4rem;
 `;
 
-const SignUpForm = ({ size }) => {
+const SignUpForm = () => {
   const dispatch = useUserDispatch();
 
   const onChange = useCallback((e) => {
@@ -39,7 +39,6 @@ const SignUpForm = ({ size }) => {
     <StyledSignUpForm>
       <FormDiv
         label={"아이디"}
-        size={size}
         for={"input-id"}
         type={"email"}
         onChange={onChange}
@@ -47,7 +46,6 @@ const SignUpForm = ({ size }) => {
       />
       <FormDiv
         label={"닉네임"}
-        size={size}
         for={"input-nickname"}
         type={"text"}
         onChange={onChange}
@@ -55,7 +53,6 @@ const SignUpForm = ({ size }) => {
       />
       <FormDiv
         label={"비밀번호"}
-        size={size}
         for={"input-pw"}
         type={"password"}
         onChange={onChange}
@@ -63,7 +60,6 @@ const SignUpForm = ({ size }) => {
       />
       <FormDiv
         label={"비밀번호 확인"}
-        size={size}
         for={"input-pw-check"}
         type={"password"}
         onChange={onChange}

@@ -46,7 +46,6 @@ const LoginForm = ({ size }) => {
     <StyledLoginForm>
       <FormDiv
         label="아이디"
-        size={size}
         for="input-id"
         type="email"
         onChange={onChange}
@@ -54,7 +53,6 @@ const LoginForm = ({ size }) => {
       />
       <FormDiv
         label="비밀번호"
-        size={size}
         for="input-pw"
         type="password"
         onChange={onChange}

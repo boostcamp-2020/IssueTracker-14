@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
-import IssuesPage from "./pages/User/IssuesPage";
+import IssuesPage from "./pages/Issue/IssuesPage";
 import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
-import colors from "./constants/colors";
 import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
 import { UserProvider } from "./stores/user";
 
 const StyledRootContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position:absolute
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height: 100%;
-  background-color: ${colors.lightGrey};
   margin: 0;
   padding: 0;
   font-size: 62.5%;
@@ -37,13 +34,17 @@ const App = () => {
     return false;
   };
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!token) {
       history.push("/login");
     }
     if (token) {
-      const status = checkToken();
-      status ? history.push("/issues") : history.push("/login");
+      try{
+        await checkToken();
+        history.push("/")
+      } catch (err) {
+        history.push("/login");
+      }
     }
   }, []);
 
@@ -54,7 +55,7 @@ const App = () => {
           <UserProvider>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            <Route eact path="/issues" component={IssuesPage} />
+            <Route exact path="/" component={IssuesPage} />
           </UserProvider>
         </Switch>
         {/*

@@ -5,32 +5,35 @@ const StyledInput = styled.input`
   outline: none;
   box-sizing: border-box;
   border: 1px solid #d1d5da;
-  height: ${({ size }) =>
-    size === "big" ? 48 : { size } === "medium" ? 24 : 12}px;
-  margin: 0
-    ${({ size }) => (size === "big" ? 40 : { size } === "medium" ? 20 : 10)}px;
-  font-size: ${({ size }) =>
-    size === "big" ? 16 : { size } === "medium" ? 12 : 8}px;
+  margin: ${({ margin }) => margin};
+  padding: ${({ padding }) => padding};
+  font-size: ${({ fontSize }) => fontSize};
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: #000000;
-  width: 80%;
+  width: ${({ width }) => width};
   height: 55%;
 `;
 
-const Input = ({ type, placeholder, name, size, rounded, id, onChange }) => (
+const Input = ({ type, placeholder, name, width, margin, padding, fontSize, rounded, id, onChange, ...rest }) => (
   <StyledInput
     type={type}
     placeholder={placeholder}
-    size={size}
+    margin={margin}
+    padding={padding}
+    fontSize={fontSize}
     rounded={rounded}
     id={id}
     name={name}
+    width={width}
     onChange={onChange}
+    {...rest}
   />
 );
 
 Input.defaultProps = {
-  size: "medium",
+  margin: "0.75rem",
+  padding: "0.75rem",
+  fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
 };

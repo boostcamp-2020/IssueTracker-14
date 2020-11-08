@@ -7,27 +7,27 @@ const StyledInputLabel = styled.label`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: ${(props) =>
-    props.size === "big" ? 16 : props.size === "medium" ? 12 : 8}px;
-  height: ${(props) =>
-    props.size === "big" ? 48 : props.size === "medium" ? 24 : 12}px;
-  padding: 0
-    ${(props) =>
-      props.size === "big" ? 40 : props.size === "medium" ? 20 : 10}px;
+  font-size: ${({fontSize}) => fontSize};
+  height: ${({height})=>height};
+  padding: ${({padding})=>padding};
+  margin: ${({margin})=>margin};
   color: #000000;
   font-weight: bold;
   width: 80%;
   padding: 0;
 `;
 
-const InputLabel = (props) => (
-  <StyledInputLabel htmlFor={props.for} size={props.size}>
-    <div>{props.label}</div>
+const InputLabel = ({fontSize, height, padding, margin, htmlFor, label}) => (
+  <StyledInputLabel htmlFor={htmlFor} fontSize={fontSize} height={height} padding={padding} margin={margin}>
+    <div>{label}</div>
   </StyledInputLabel>
 );
 
 InputLabel.defaultProps = {
-  size: "medium",
+  padding: "0rem",
+  margin: "0.1rem 0rem",
+  height: "0.5rem",
+  fontSize: "14px",
   label: "기본 라벨",
 };
 
