@@ -34,11 +34,11 @@ const Dropdown = ({
 
     return (
     <StyledDropdown>
-        <Button width={buttonWidth} height={buttonHeight} border={border} backgroundColor={buttonColor} onClick={handleDropdown} >{buttonText}<Icon name={"dropdown"} location={"right"} /></Button>
+        <Button width={buttonWidth} height={buttonHeight} border={border} backgroundColor={buttonColor} onClick={handleDropdown} ><span>{buttonText}</span><Icon name={"dropdown"} location={"right"} /></Button>
         <StyledHidden showDropdown={showDropdown} buttonWidth={buttonWidth} dropdownWidth={dropdownWidth} reverse={reverse}>
-            <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} cursor={"text"} >{labelText}</Button>
+            <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} cursor={"text"} ><span>{labelText}</span></Button>
             {buttonData.map((el, idx) => {
-                return <Button key={idx} width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} >{el.name}</Button>
+                return <Button key={idx} width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} ><span>{el.name}</span></Button>
             })}
         </StyledHidden>
     </StyledDropdown>
