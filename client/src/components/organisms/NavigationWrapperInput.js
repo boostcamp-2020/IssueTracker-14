@@ -9,6 +9,7 @@ const StyledNavigationWrapperInput = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0px 10px;
+  flex: auto;
 `;
 
 const inputFilterButtons = [
@@ -22,7 +23,7 @@ const inputFilterButtons = [
 const NavigationWrapperInput = () => (
     <StyledNavigationWrapperInput>
         <Dropdown buttonData={inputFilterButtons} buttonText={"Filters"} labelText={"Filter Issues"} buttonWidth={"5rem"} reverse={false} border={true} />
-        <Input margin="0rem" padding={"0.5rem 0rem"} width={"36rem"} />
+        <Input margin="0rem" padding={"0.5rem 0rem"} display={"table-cell"} width={"100%"} />
     </StyledNavigationWrapperInput>
 );
 
