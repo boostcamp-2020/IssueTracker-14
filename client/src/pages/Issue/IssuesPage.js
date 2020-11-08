@@ -8,11 +8,10 @@ const IssuesPageWrapper = styled.div`
   position: relative;
   top: 6rem;
   display: flex;
-  margin: 3rem 0rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 100%;
+  margin: 3rem auto;
+  width: 80%;
 `;
 
 const IssuesPage = () => (

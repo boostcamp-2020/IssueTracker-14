@@ -9,7 +9,7 @@ const StyledNavigationWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   margin: 1.5rem 0rem 0.5rem 0rem;
 `;
 

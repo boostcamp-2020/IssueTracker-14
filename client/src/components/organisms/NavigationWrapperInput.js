@@ -6,10 +6,7 @@ import Dropdown from "../molecules/Dropdown";
 const StyledNavigationWrapperInput = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 10px;
-  flex: auto;
+  width: 100%;
 `;
 
 const inputFilterButtons = [
