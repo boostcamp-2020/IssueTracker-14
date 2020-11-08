@@ -17,7 +17,7 @@ const StyledHeader = styled.div`
 `
 
 const Header = () => (
-    <StyledHeader> <Icon name={"book"} /> 헤더입니다. </StyledHeader>
+    <StyledHeader> <Icon name={"book"} cursor={"text"} /> 헤더입니다. </StyledHeader>
 )
 
 export default Header;

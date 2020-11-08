@@ -18,7 +18,7 @@ Icon.defaultProps = {
   name: "passport",
   location: "left",
   distance: "0.3",
-  cursor: "text",
+  cursor: "pointer",
 };
 
 export default Icon;
