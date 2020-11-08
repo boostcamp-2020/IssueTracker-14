@@ -11,7 +11,7 @@ const StyledDropdown = styled.div`
 const StyledHidden = styled.div`
     position: absolute;
     display: ${({showDropdown}) => showDropdown};
-    top: ${(buttonHeight) => buttonHeight};
+    left: ${({reverse, buttonWidth, dropdownWidth}) => reverse ? `-${parseFloat(dropdownWidth) - parseFloat(buttonWidth)}rem` : "0rem"}};
 `
 
 const Dropdown = ({
@@ -21,6 +21,7 @@ const Dropdown = ({
   dropdownWidth,
   labelText,
   buttonData,
+  reverse,
   ...rest
 }) => {
     const [showDropdown, setShowDropdown] = useState("none");
@@ -32,7 +33,7 @@ const Dropdown = ({
     return (
     <StyledDropdown>
         <Button width={buttonWidth} height={buttonHeight} border={true} onClick={handleDropdown} >{buttonText}<Icon name={"dropdown"} location={"right"} /></Button>
-        <StyledHidden showDropdown={showDropdown} >
+        <StyledHidden showDropdown={showDropdown} buttonWidth={buttonWidth} dropdownWidth={dropdownWidth} reverse={reverse}>
             <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} cursor={"text"} >{labelText}</Button>
             {buttonData.map((el, idx) => {
                 return <Button key={idx} width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} >{el.name}</Button>
@@ -46,7 +47,8 @@ Dropdown.defaultProps = {
   buttonHeight: "2rem",
   buttonText: "드랍다운 버튼",
   dropdownWidth: "18rem",
-  labelText: "드랍다운 설명하는 칸"
+  labelText: "드랍다운 설명하는 칸",
+  reverse: true,
 };
 
 export default Dropdown;
