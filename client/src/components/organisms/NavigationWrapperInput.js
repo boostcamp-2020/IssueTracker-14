@@ -21,7 +21,7 @@ const inputFilterButtons = [
 
 const NavigationWrapperInput = () => (
     <StyledNavigationWrapperInput>
-        <Dropdown buttonData={inputFilterButtons} buttonText={"Filters"} labelText={"Filter Issues"} buttonWidth={"5rem"} />
+        <Dropdown buttonData={inputFilterButtons} buttonText={"Filters"} labelText={"Filter Issues"} buttonWidth={"5rem"} reverse={false} border={true} />
         <Input margin="0rem" padding={"0.5rem 0rem"} width={"36rem"} />
     </StyledNavigationWrapperInput>
 );
