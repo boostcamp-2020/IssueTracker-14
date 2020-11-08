@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../constants/colors";
 
 const StyledInput = styled.input`
   outline: none;
@@ -10,11 +11,24 @@ const StyledInput = styled.input`
   font-size: ${({ fontSize }) => fontSize};
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: #000000;
+  background-color: ${({ bgColor }) => (bgColor ? colors[bgColor] : "inherit")};
   width: ${({ width }) => width};
   height: 55%;
 `;
 
-const Input = ({ type, placeholder, name, width, margin, padding, fontSize, rounded, id, onChange, ...rest }) => (
+const Input = ({
+  type,
+  placeholder,
+  name,
+  width,
+  margin,
+  padding,
+  fontSize,
+  rounded,
+  id,
+  onChange,
+  ...rest
+}) => (
   <StyledInput
     type={type}
     placeholder={placeholder}
