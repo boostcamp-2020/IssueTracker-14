@@ -10,11 +10,11 @@ const StyledInput = styled.input`
   font-size: ${({ fontSize }) => fontSize};
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: #000000;
-  width: 80%;
+  width: ${({ width }) => width};
   height: 55%;
 `;
 
-const Input = ({ type, placeholder, name, margin, padding, fontSize, rounded, id, onChange }) => (
+const Input = ({ type, placeholder, name, width, margin, padding, fontSize, rounded, id, onChange }) => (
   <StyledInput
     type={type}
     placeholder={placeholder}
@@ -24,6 +24,7 @@ const Input = ({ type, placeholder, name, margin, padding, fontSize, rounded, id
     rounded={rounded}
     id={id}
     name={name}
+    width={width}
     onChange={onChange}
   />
 );
@@ -34,6 +35,7 @@ Input.defaultProps = {
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
+  width: "80%"
 };
 
 export default Input;
