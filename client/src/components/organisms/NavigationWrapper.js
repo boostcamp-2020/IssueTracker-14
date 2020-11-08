@@ -10,6 +10,7 @@ const StyledNavigationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 80%;
+  margin: 1.5rem 0rem 0.5rem 0rem;
 `;
 
 const NavigationWrapper = () => (
