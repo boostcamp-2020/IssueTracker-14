@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "../atoms/Button";
-import TextArea from "../atoms/Textarea";
-import Text from "../atoms/Text";
+import A from "../atoms/index";
 
 const StyledFormTextArea = styled.div`
   position: relative;
@@ -18,7 +16,7 @@ const StyledButtonWrapper = styled.div`
 const StyledTextWrapper = styled.div`
   position: absolute;
   right: 0.8rem;
-  bottom: 0.8rem;
+  bottom: 4rem;
 `;
 
 const StyledTextAreaWrapper = styled.div``;
@@ -41,7 +39,7 @@ const FormTextArea = ({
   return (
     <StyledFormTextArea>
       <StyledButtonWrapper>
-        <Button
+        <A.Button
           border
           borderBottom={"0"}
           padding={"0.5rem"}
@@ -50,15 +48,15 @@ const FormTextArea = ({
           zIndex={"1"}
         >
           Write
-        </Button>
+        </A.Button>
       </StyledButtonWrapper>
       <StyledTextWrapper>
-        <Text cursor={"default"} hover={false} fontSize={"0.8rem"}>
+        <A.Text cursor={"default"} hover={false} fontSize={"0.8rem"}>
           {charLength} characters
-        </Text>
+        </A.Text>
       </StyledTextWrapper>
       <StyledTextAreaWrapper>
-        <TextArea
+        <A.TextArea
           name={name}
           placeholder={placeholder}
           rows={rows}
@@ -66,6 +64,7 @@ const FormTextArea = ({
           {...rest}
           onChange={onChange}
         />
+        <A.Input type={"file"} name={"file"} margin={"0"} />
       </StyledTextAreaWrapper>
     </StyledFormTextArea>
   );

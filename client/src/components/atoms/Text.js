@@ -3,9 +3,10 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 
 const StyledText = styled.p`
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  text-align: ${({ align }) => align};
   color: ${({ color }) => colors[color]};
   font-weight: ${({ fontWeight }) => fontWeight === "bold" && "bold"};
   font-size: ${({ fontSize }) => fontSize};
@@ -36,6 +37,7 @@ Text.defaultProps = {
   fontSize: "medium",
   hover: true,
   cursor: "pointer",
+  align: "center",
 };
 
 export default Text;
