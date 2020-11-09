@@ -67,11 +67,7 @@ final class IssueListViewController: UIViewController {
             cell?.isEditing = editing
         }
         if !editing {
-            issueCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
-                issueCollectionView.deselectItem(at: indexPath, animated: true)
-                let cell = issueCollectionView.cellForItem(at: indexPath) as? IssueCollectionViewCell
-                cell?.selectButton.isSelected = false
-            }
+            deselectAllItems()
             issueListViewEditTabBar.removeFromSuperview()
         } else {
             tabBarController?.tabBar.addSubview(issueListViewEditTabBar)
@@ -133,8 +129,7 @@ private extension IssueListViewController {
                     withReuseIdentifier: IssueCollectionViewCell.identifier,
                     for: indexPath
                 ) as? IssueCollectionViewCell
-                cell?.update(with: issue)
-                cell?.isEditing = self.isEditing
+                cell?.update(with: issue, isEditing: self.isEditing)
                 return cell
             }
         )
@@ -188,12 +183,9 @@ extension IssueListViewController: IssueListViewEditTabBarDelegate {
 
 private extension IssueListViewController {
     @objc func selectAllButtonDidTouchUp() {
+        
         if selectedCellsCount == issues.count {
-            (0..<issues.count).forEach { item in
-                let indexPath = IndexPath(item: item, section: 0)
-                issueCollectionView.deselectItem(at: indexPath, animated: true)
-            }
-            selectedCellsCount = 0
+            deselectAllItems()
         } else {
             (0..<issues.count).forEach { item in
                 let indexPath = IndexPath(item: item, section: 0)
@@ -201,6 +193,13 @@ private extension IssueListViewController {
             }
             selectedCellsCount = issues.count
         }
+    }
+    
+    func deselectAllItems() {
+        issueCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
+            issueCollectionView.deselectItem(at: indexPath, animated: true)
+        }
+        selectedCellsCount = 0
     }
 }
 
@@ -230,10 +229,10 @@ private extension IssueListViewController {
     }
     
     func configureTabBar() {
-        guard let tabBarController = tabBarController else {return}
-        let tabBarFrame =  CGRect(origin: .zero, size: (tabBarController.tabBar.frame.size))
+        guard let tabBarController = tabBarController else { return }
+        let tabBarFrame = CGRect(origin: .zero, size: (tabBarController.tabBar.frame.size))
         issueListViewEditTabBar = IssueListViewEditTabBar(frame: tabBarFrame)
-        issueListViewEditTabBar.issueListViewEditTabBardelegate = self
+        issueListViewEditTabBar.delegate = self
     }
     
     func setEditingNavigationItem(_ editing: Bool) {

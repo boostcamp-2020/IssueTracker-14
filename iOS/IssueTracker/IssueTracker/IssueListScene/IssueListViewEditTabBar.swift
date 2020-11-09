@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol IssueListViewEditTabBarDelegate: class {
+    func closeButtonDidTouchUp(_ issueListViewEditTabBarDelegate: IssueListViewEditTabBar)
+}
+
 final class IssueListViewEditTabBar: UIView {
     
-    let closeButton: UIButton =  UIButton()
-    weak var issueListViewEditTabBardelegate: IssueListViewEditTabBarDelegate?
+    private let closeButton: UIButton =  UIButton()
+    weak var delegate: IssueListViewEditTabBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,6 +23,8 @@ final class IssueListViewEditTabBar: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
                                      closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)])
     }
@@ -30,25 +36,16 @@ final class IssueListViewEditTabBar: UIView {
 
 extension IssueListViewEditTabBar {
     func configure() {
-        self.backgroundColor = .systemGray6
+        backgroundColor = .systemGray6
         closeButton.setTitle("선택 이슈 닫기", for: .normal)
         closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        closeButton.titleLabel?.sizeToFit()
-        closeButton.frame = CGRect(origin: .zero, size: closeButton.titleLabel!.frame.size)
         closeButton.setTitleColor(.systemBlue, for: .normal)
         closeButton.setTitleColor(closeButton.currentTitleColor.withAlphaComponent(0.3), for: .highlighted)
-        closeButton.isUserInteractionEnabled
-            = true
         addSubview(closeButton)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(closeButtonDidTouchUp), for: .touchUpInside)
     }
     
     @objc func closeButtonDidTouchUp() {
-        issueListViewEditTabBardelegate?.closeButtonDidTouchUp(self)
+        delegate?.closeButtonDidTouchUp(self)
     }
-}
-
-protocol IssueListViewEditTabBarDelegate: class {
-    func closeButtonDidTouchUp(_ issueListViewEditTabBarDelegate: IssueListViewEditTabBar)
 }
