@@ -7,18 +7,33 @@ const StyledInputLabel = styled.label`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: ${({fontSize}) => fontSize};
-  height: ${({height})=>height};
-  padding: ${({padding})=>padding};
-  margin: ${({margin})=>margin};
+  font-size: ${({ fontSize }) => fontSize};
+  height: ${({ height }) => height};
+  padding: ${({ padding }) => padding};
+  margin: ${({ margin }) => margin};
   color: #000000;
-  font-weight: bold;
+  font-weight: ${({ fontWeight }) => fontWeight};
   width: 80%;
   padding: 0;
 `;
 
-const InputLabel = ({fontSize, height, padding, margin, htmlFor, label}) => (
-  <StyledInputLabel htmlFor={htmlFor} fontSize={fontSize} height={height} padding={padding} margin={margin}>
+const InputLabel = ({
+  fontSize,
+  height,
+  padding,
+  margin,
+  htmlFor,
+  label,
+  ...rest
+}) => (
+  <StyledInputLabel
+    htmlFor={htmlFor}
+    fontSize={fontSize}
+    height={height}
+    padding={padding}
+    margin={margin}
+    {...rest}
+  >
     <div>{label}</div>
   </StyledInputLabel>
 );
@@ -29,6 +44,7 @@ InputLabel.defaultProps = {
   height: "0.5rem",
   fontSize: "14px",
   label: "기본 라벨",
+  fontWeight: "bold",
 };
 
 export default InputLabel;

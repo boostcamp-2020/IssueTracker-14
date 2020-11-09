@@ -1,0 +1,40 @@
+import React from "react";
+import styled from "styled-components";
+import A from "../atoms/index";
+import InputLabel from "../atoms/InputLabel";
+
+const StyledFileInput = styled.div`
+  padding: 0.4rem 0.4rem;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+`;
+
+const FileInput = () => {
+  return (
+    <StyledFileInput>
+      <InputLabel
+        htmlFor={"file"}
+        label={"Attach files by selecting here"}
+        fontWeight={"500"}
+      />
+      <A.Input
+        type={"file"}
+        name={"file"}
+        id={"file"}
+        margin={"0"}
+        opacity={"0"}
+        width={"100%"}
+        height={"100%"}
+        padding={"0"}
+        position={"absolute"}
+        left={"0"}
+        top={"0"}
+      />
+    </StyledFileInput>
+  );
+};
+
+export default FileInput;

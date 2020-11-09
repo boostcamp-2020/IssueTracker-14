@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
+import M from "./index";
 
 const StyledFormTextArea = styled.div`
   position: relative;
@@ -19,7 +20,9 @@ const StyledTextWrapper = styled.div`
   bottom: 4rem;
 `;
 
-const StyledTextAreaWrapper = styled.div``;
+const StyledTextAreaWrapper = styled.div`
+  margin-bottom: 1rem;
+`;
 
 const FormTextArea = ({
   label,
@@ -64,7 +67,7 @@ const FormTextArea = ({
           {...rest}
           onChange={onChange}
         />
-        <A.Input type={"file"} name={"file"} margin={"0"} />
+        <M.FileInput />
       </StyledTextAreaWrapper>
     </StyledFormTextArea>
   );
