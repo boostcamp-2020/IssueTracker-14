@@ -16,7 +16,7 @@ const NavigationWrapperLink = () => (
     <A.Button border={true} rounded={false} width={"8rem"} height={"2rem"}>
       <A.Icon name={"label"} /> Label
     </A.Button>
-    <Link to={"/milestones/new"}>
+    <Link to={"/milestones/new"} style={{ textDecoration: "none" }}>
       <A.Button border={true} rounded={false} width={"9rem"} height={"2rem"}>
         <A.Icon name={"milestone"} /> Milestone
       </A.Button>
