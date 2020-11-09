@@ -28,6 +28,7 @@ final class IssueListViewController: UIViewController {
     private var issueListViewEditTabBar: IssueListViewEditTabBar!
     private var selectedCellsCount: Int =  0 {
         didSet {
+            guard isEditing else { return }
             navigationController?.navigationBar.topItem?.title = "\(selectedCellsCount)개 선택"
         }
     }
@@ -195,7 +196,7 @@ extension IssueListViewController: IssueListViewEditTabBarDelegate {
 
 private extension IssueListViewController {
     @objc func selectAllButtonDidTouchUp() {
-        
+        guard isEditing else { return }
         if selectedCellsCount == issues.count {
             deselectAllItems()
         } else {
