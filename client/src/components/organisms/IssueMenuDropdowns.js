@@ -1,43 +1,49 @@
 import React from "react";
 import styled from "styled-components";
-import Dropdown from "../molecules/Dropdown";
+import M from "../molecules/index";
 
-const StyledDropdowns = styled.div`
+const StyledDropdownCluster = styled.div`
   position: relative;
   display: flex;
 `;
 
-const IssueMenuDropdowns = () => (
-  <StyledDropdowns>
-    <Dropdown
-      buttonData={[]}
-      buttonText={"Author"}
-      labelText={"Filter by author"}
-      buttonWidth={"5rem"}
-      showDropdown={"none"}
-    />
-    <Dropdown
-      buttonData={[]}
-      buttonText={"Label"}
-      labelText={"Filter by label"}
-      buttonWidth={"5rem"}
-      showDropdown={"none"}
-    />
-    <Dropdown
-      buttonData={[]}
-      buttonText={"Milestones"}
-      labelText={"Filter by milestone"}
-      buttonWidth={"7rem"}
-      showDropdown={"none"}
-    />
-    <Dropdown
-      buttonData={[]}
-      buttonText={"Assignee"}
-      labelText={"Filter by who's assigned"}
-      buttonWidth={"7rem"}
-      showDropdown={"none"}
-    />
-  </StyledDropdowns>
+const data = [
+  {
+    buttonData: [],
+    buttonText: "Author",
+    labelText: "Filter by author",
+    buttonWidth: "5rem",
+    showDropdown: "none",
+  },
+  {
+    buttonData: [],
+    buttonText: "Label",
+    labelText: "Filter by label",
+    buttonWidth: "5rem",
+    showDropdown: "none",
+  },
+  {
+    buttonData: [],
+    buttonText: "Milestones",
+    labelText: "Filter by milestone",
+    buttonWidth: "7rem",
+    showDropdown: "none",
+  },
+  {
+    buttonData: [],
+    buttonText: "Assignee",
+    labelText: "Filter by who's assigned",
+    buttonWidth: "7rem",
+    showDropdown: "none",
+  },
+];
+
+const IssueMenuDropdownCluster = ({ dropdownOptions }) => (
+  <StyledDropdownCluster>
+    {data.map((el, idx) => (
+      <M.Dropdown key={idx} {...el} />
+    ))}
+  </StyledDropdownCluster>
 );
 
-export default IssueMenuDropdowns;
+export default IssueMenuDropdownCluster;

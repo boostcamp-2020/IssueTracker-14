@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "./../atoms/Button";
-import Icon from "./../atoms/Icon";
-import Input from "./../atoms/Input";
+import A from "../atoms/index";
 
 const StyledDropdown = styled.div`
   position: relative;
@@ -14,24 +12,24 @@ const StyledTitle = styled.div`
 `;
 
 const StyledHidden = styled.div`
-    position: absolute;
-    display: ${({ showDropdown }) => showDropdown};
-    left: ${({ reverse, buttonWidth, dropdownWidth }) =>
-      reverse
-        ? `-${parseFloat(dropdownWidth) - parseFloat(buttonWidth)}rem`
-        : "0rem"}};
-    background-color: #ffffff;
-    z-index: 1;
+  position: absolute;
+  display: ${({ showDropdown }) => showDropdown};
+  left: ${({ reverse, buttonWidth, dropdownWidth }) =>
+    reverse
+      ? `-${parseFloat(dropdownWidth) - parseFloat(buttonWidth)}rem`
+      : "0rem"};
+  background-color: #ffffff;
+  z-index: 1;
 `;
 
 const Dropdown = ({
+  buttonData,
   buttonWidth,
   search,
   buttonHeight,
   buttonText,
   dropdownWidth,
   labelText,
-  buttonData,
   reverse,
   border,
   buttonColor,
@@ -55,7 +53,7 @@ const Dropdown = ({
 
   return (
     <StyledDropdown>
-      <Button
+      <A.Button
         width={buttonWidth}
         height={buttonHeight}
         border={border}
@@ -66,15 +64,15 @@ const Dropdown = ({
         padding={btnPadding}
       >
         <span>{buttonText}</span>
-        <Icon name={icon} location={"right"} />
-      </Button>
+        <A.Icon name={icon} location={"right"} />
+      </A.Button>
       <StyledHidden
         showDropdown={showDropdown}
         buttonWidth={buttonWidth}
         dropdownWidth={dropdownWidth}
         reverse={reverse}
       >
-        <Button
+        <A.Button
           width={dropdownWidth}
           height={buttonHeight}
           border={true}
@@ -83,11 +81,15 @@ const Dropdown = ({
         >
           <StyledTitle>
             <span>{labelText}</span>
-            <Icon name={"reset"} onClick={handleDropdown} cursor={"pointer"} />
+            <A.Icon
+              name={"reset"}
+              onClick={handleDropdown}
+              cursor={"pointer"}
+            />
           </StyledTitle>
-        </Button>
+        </A.Button>
         {search ? (
-          <Input
+          <A.Input
             margin="0rem"
             padding={"0.5rem 0rem"}
             display={"block"}
@@ -102,7 +104,7 @@ const Dropdown = ({
           })
           .map((el, idx) => {
             return (
-              <Button
+              <A.Button
                 key={idx}
                 width={dropdownWidth}
                 height={buttonHeight}
@@ -110,7 +112,7 @@ const Dropdown = ({
                 textAlign={"left"}
               >
                 <span>{el.name}</span>
-              </Button>
+              </A.Button>
             );
           })}
       </StyledHidden>

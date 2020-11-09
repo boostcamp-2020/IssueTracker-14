@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
-import Text from "../atoms/Text";
-import FormDiv from "../molecules/FormDiv";
-import LoginButton from "../molecules/LoginButton";
-import GithubLoginButton from "../molecules/GithubLoginButton";
+import colors from "../../constants/colors";
 import styled from "styled-components";
+import A from "../atoms/index";
+import M from "../molecules/index";
 import { Link } from "react-router-dom";
 import { useUserDispatch } from "../../stores/user";
 
@@ -45,26 +44,47 @@ const LoginForm = ({ size }) => {
 
   return (
     <StyledLoginForm>
-      <FormDiv
+      <M.FormDiv
         label="아이디"
         for="input-id"
         type="email"
         onChange={onChange}
         name={"nickname"}
       />
-      <FormDiv
+      <M.FormDiv
         label="비밀번호"
         for="input-pw"
         type="password"
         onChange={onChange}
         name={"password"}
       />
-      <LoginButton onClick={onClickLocalLogin} />
-      <GithubLoginButton onClick={onClickGithubLogin} />
+      <M.ButtonDiv
+        buttonColor={colors.grey}
+        width={"100%"}
+        height={"70%"}
+        onClick={onClickLocalLogin}
+        textColor={colors.black}
+        fontSize={"small"}
+        hover={false}
+      >
+        IssueTracker team 14에 로그인하기
+      </M.ButtonDiv>
+      <M.ButtonDiv
+        buttonColor={colors.black}
+        width={"100%"}
+        height={"70%"}
+        onClick={onClickGithubLogin}
+        textColor={"white"}
+        fontSize={"small"}
+        hover={false}
+      >
+        Github으로 로그인하기
+        <A.Icon location={"right"} name={"github"} distance={"0.3"} />
+      </M.ButtonDiv>
       <Link to="/signup">
-        <Text color="black" fontSize="small">
+        <A.Text color="black" fontSize="small">
           아직 회원이 아니라면? 회원가입 하러가기
-        </Text>
+        </A.Text>
       </Link>
     </StyledLoginForm>
   );

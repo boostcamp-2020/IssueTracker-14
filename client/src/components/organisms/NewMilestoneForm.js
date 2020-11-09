@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import FormDiv from "../molecules/FormDiv";
-import NewMilestoneButton from "../molecules/NewMilestoneButton";
+
 import styled from "styled-components";
 
 const StyledNewMilestoneForm = styled.div`
@@ -26,7 +26,6 @@ const NewMilestoneForm = () => {
         type={"text"}
         name={"Description"}
       />
-      <NewMilestoneButton>Create Milestone</NewMilestoneButton>
     </StyledNewMilestoneForm>
   );
 };

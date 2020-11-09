@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Input from "../atoms/Input";
-import FormTextArea from "../molecules/FormTextArea";
-import Button from "../atoms/Button";
+import A from "../atoms/index";
+import M from "../molecules/index";
 
 const StyledNewIsssueForm = styled.section`
   padding: 1rem;
@@ -17,7 +16,7 @@ const StyledButtonWrapper = styled.div`
 const NewIssueForm = () => {
   return (
     <StyledNewIsssueForm>
-      <Input
+      <A.Input
         type={"text"}
         placeholder={"Title"}
         margin={"0"}
@@ -26,7 +25,7 @@ const NewIssueForm = () => {
         height={"auto"}
         width={"100%"}
       />
-      <FormTextArea
+      <M.FormTextArea
         label={"Write"}
         htmlFor={"comment"}
         name={"comment"}
@@ -37,8 +36,8 @@ const NewIssueForm = () => {
         bgColor={"middleWhite"}
       />
       <StyledButtonWrapper>
-        <Button>Cancel</Button>
-        <Button
+        <A.Button>Cancel</A.Button>
+        <A.Button
           color={"white"}
           backgroundColor={"green"}
           width={"8rem"}
@@ -46,7 +45,7 @@ const NewIssueForm = () => {
           border={true}
         >
           Submit new issue
-        </Button>
+        </A.Button>
       </StyledButtonWrapper>
     </StyledNewIsssueForm>
   );

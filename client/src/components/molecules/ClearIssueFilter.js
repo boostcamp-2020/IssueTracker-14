@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../atoms/Text";
-import Icon from "../atoms/Icon";
+import A from "../atoms/index";
 
 const StyledClearIssueFilter = styled.div`
   display: flex;
@@ -12,10 +11,10 @@ const StyledClearIssueFilter = styled.div`
 
 const ClearIssueFilter = ({ onClick }) => (
   <StyledClearIssueFilter onClick={onClick}>
-      <Text color={"black"} fontSize={"1.2rem"} hover={false}>
-        <Icon location={"left"} name={"reset"} />
-        Clear current search query, filters, and sorts
-      </Text>
+    <A.Text color={"black"} fontSize={"1.2rem"} hover={false}>
+      <A.Icon location={"left"} name={"reset"} />
+      Clear current search query, filters, and sorts
+    </A.Text>
   </StyledClearIssueFilter>
 );
 

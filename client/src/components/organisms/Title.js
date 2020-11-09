@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../atoms/Text";
+import A from "../atoms/index";
 
 const StyledTitle = styled.div`
   margin: 20px;
@@ -8,9 +8,9 @@ const StyledTitle = styled.div`
 
 const Title = ({ children }) => (
   <StyledTitle>
-    <Text fontWeight={"bold"} fontSize={"2.3rem"} hover={false}>
+    <A.Text fontWeight={"bold"} fontSize={"2.3rem"} hover={false}>
       이슈트래커
-    </Text>
+    </A.Text>
   </StyledTitle>
 );
 

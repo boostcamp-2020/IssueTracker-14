@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
-import FormDiv from "../molecules/FormDiv";
-import SignUpButton from "../molecules/SignUpButton";
+import M from "../molecules/index";
 import styled from "styled-components";
 import { useUserDispatch } from "../../stores/user";
 
@@ -37,35 +36,45 @@ const SignUpForm = () => {
 
   return (
     <StyledSignUpForm>
-      <FormDiv
+      <M.FormDiv
         label={"아이디"}
         for={"input-id"}
         type={"email"}
         onChange={onChange}
         name={"email"}
       />
-      <FormDiv
+      <M.FormDiv
         label={"닉네임"}
         for={"input-nickname"}
         type={"text"}
         onChange={onChange}
         name={"nickname"}
       />
-      <FormDiv
+      <M.FormDiv
         label={"비밀번호"}
         for={"input-pw"}
         type={"password"}
         onChange={onChange}
         name={"password"}
       />
-      <FormDiv
+      <M.FormDiv
         label={"비밀번호 확인"}
         for={"input-pw-check"}
         type={"password"}
         onChange={onChange}
         name={"passwordConfirm"}
       />
-      <SignUpButton onClick={onClickSignup} />
+      <M.ButtonDiv
+        buttonColor={colors.grey}
+        width={"100%"}
+        height={"60%"}
+        onClick={onClickSignup}
+        textColor={colors.black}
+        fontSize={"small"}
+        hover={false}
+      >
+        회원가입
+      </M.ButtonDiv>
     </StyledSignUpForm>
   );
 };
