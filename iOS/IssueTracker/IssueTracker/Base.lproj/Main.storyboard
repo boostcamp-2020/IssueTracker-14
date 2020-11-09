@@ -219,7 +219,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contentLabel" destination="TJi-ZD-KBt" id="NSn-J2-Nmd"/>
+                                            <outlet property="creationDateLabel" destination="ycs-yn-6gq" id="4aI-WT-X07"/>
                                             <outlet property="emojiButton" destination="Och-Qj-ugC" id="9qn-kg-Or6"/>
+                                            <outlet property="writerLabel" destination="KsJ-Vx-dEg" id="a92-ET-ddj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -735,7 +737,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feature" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8aP-yj-Dpm" customClass="PaddingLabel" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="359" width="74.5" height="27.5"/>
+                                <rect key="frame" x="20" y="359" width="64.5" height="27.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>

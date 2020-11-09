@@ -7,17 +7,20 @@
 
 import Foundation
 
-struct IssueListEndPoint: RequestType {
+struct IssueEndPoint: RequestType {
     
     enum Path: CustomStringConvertible {
         case issues
         case closed(id: Int)
+        case detail(id: Int)
         
         var description: String {
             switch self {
             case .issues:
                 return "/issues"
             case let .closed(id):
+                return "/issues/\(id)"
+            case let .detail(id):
                 return "/issues/\(id)"
             }
         }
