@@ -31,12 +31,11 @@
 		B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */; };
 		B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */; };
 		B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E85255404BA00B98C10 /* MockNetworkService.swift */; };
-		B9013E8F2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */; };
 		B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E942554057200B98C10 /* Issue+Encodable.swift */; };
 		B9013E992554059000B98C10 /* MileStone+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E982554059000B98C10 /* MileStone+Encodable.swift */; };
 		B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */; };
 		B9013EA72554061100B98C10 /* LoginResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */; };
-		B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */; };
+		B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */; };
 		B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */; };
 		B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */; };
 		B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */; };
@@ -110,12 +109,11 @@
 		B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
 		B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTests.swift; sourceTree = "<group>"; };
 		B9013E85255404BA00B98C10 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
-		B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueListUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
 		B9013E942554057200B98C10 /* Issue+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+Encodable.swift"; sourceTree = "<group>"; };
 		B9013E982554059000B98C10 /* MileStone+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MileStone+Encodable.swift"; sourceTree = "<group>"; };
 		B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueResponse+Encodable.swift"; sourceTree = "<group>"; };
 		B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResponse+Encodable.swift"; sourceTree = "<group>"; };
-		B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
+		B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCaseError+Equtable.swift"; sourceTree = "<group>"; };
 		B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServiceError+Equtable.swift"; sourceTree = "<group>"; };
 		B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailPullUpViewController.swift; sourceTree = "<group>"; };
@@ -246,12 +244,11 @@
 		B9013E8D2554054C00B98C10 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */,
 				B9013E942554057200B98C10 /* Issue+Encodable.swift */,
 				B9013E982554059000B98C10 /* MileStone+Encodable.swift */,
 				B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */,
 				B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */,
-				B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */,
+				B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */,
 				B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */,
 			);
 			path = Extension;
@@ -599,7 +596,7 @@
 				B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */,
 				B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */,
 				B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */,
-				B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */,
+				B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */,
 				B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */,
 				B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */,
 				B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */,
@@ -608,7 +605,6 @@
 				B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */,
 				B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */,
 				B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */,
-				B9013E8F2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

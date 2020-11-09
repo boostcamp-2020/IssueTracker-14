@@ -8,7 +8,7 @@
 import Foundation
 @testable import IssueTracker
 
-extension LoginUseCaseError: Equatable {
+extension UseCaseError: Equatable {
     public static func == (lhs: Self, rhs: Self) -> Bool {
         switch (lhs, rhs) {
         case (.decodingError, .decodingError):
