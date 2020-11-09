@@ -1,6 +1,5 @@
 import React from "react";
-import InputLabel from "../atoms/InputLabel";
-import Input from "../atoms/Input";
+import A from "../atoms/index";
 import styled from "styled-components";
 
 const StyledFormDiv = styled.div`
@@ -15,8 +14,8 @@ const StyledFormDiv = styled.div`
 
 const FormDiv = ({ label, htmlFor, type, name, padding, onChange }) => (
   <StyledFormDiv>
-    <InputLabel label={label} htmlFor={htmlFor} />
-    <Input
+    <A.InputLabel label={label} htmlFor={htmlFor} />
+    <A.Input
       id={htmlFor}
       type={type}
       name={name}
@@ -29,7 +28,7 @@ const FormDiv = ({ label, htmlFor, type, name, padding, onChange }) => (
 FormDiv.defaultProps = {
   padding: "1rem",
   margin: "0.75rem",
-  fontSize: "0.75rem"
+  fontSize: "0.75rem",
 };
 
 export default FormDiv;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Checkbox from "../atoms/Checkbox";
-import ClearIssueFilter from "../molecules/ClearIssueFilter";
-import IssueMenuDropdowns from "../organisms/IssueMenuDropdowns";
+import A from "../atoms/index";
+import M from "../molecules/index";
+import O from "../organisms/index";
 
 const StyledIssueWrapper = styled.div`
   position: relative;
@@ -22,16 +22,16 @@ const StyledIssueMenuWrapper = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const IssueWrapper = () => (
-    <StyledIssueWrapper>
-        <ClearIssueFilter />
-        <StyledIssueMenuWrapper>
-          <Checkbox />
-          <IssueMenuDropdowns />
-        </StyledIssueMenuWrapper>
-    </StyledIssueWrapper>
+  <StyledIssueWrapper>
+    <M.ClearIssueFilter />
+    <StyledIssueMenuWrapper>
+      <A.Checkbox />
+      <O.IssueMenuDropdowns />
+    </StyledIssueMenuWrapper>
+  </StyledIssueWrapper>
 );
 
 export default IssueWrapper;
