@@ -11,6 +11,11 @@ final class IssueListViewController: UIViewController {
     
     private enum Constant {
         static let closeActionTitle: String = "Close"
+        static let navigationBarTopTitle: String = "이슈"
+        static let leftBarButtonItemTitle: String = "Filter"
+        static let leftBarButtonItemTitleDuringEditing: String = "Select All"
+        static let rightBarButtonItemTitle: String = "Edit"
+        static let rightBarButtonItemTitleDuringEditing: String = "Cancel"
     }
     
     static var identifier: String {
@@ -20,6 +25,12 @@ final class IssueListViewController: UIViewController {
     weak var coordinator: IssueCoordinator?
     private let useCase: IssueListUseCaseType
     private var dataSource: IssueCollectionViewDataSource?
+    private var issueListViewEditTabBar: IssueListViewEditTabBar!
+    private var selectedCellsCount: Int =  0 {
+        didSet {
+            navigationController?.navigationBar.topItem?.title = "\(selectedCellsCount)개 선택"
+        }
+    }
     private var issues: [Issue] = [] {
         didSet {
             updateList()
@@ -37,16 +48,7 @@ final class IssueListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: nil, action: nil)
-        navigationItem.searchController = UISearchController(searchResultsController: nil)
-        navigationController?.navigationBar.topItem?.title = "이슈"
-        let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
-        issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
-        dataSource = issueDataSource()
-        issueCollectionView.dataSource = dataSource
-        issueCollectionView.delegate = self
-        issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
+        configure()
         loadList()
     }
     
@@ -55,6 +57,23 @@ final class IssueListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        selectedCellsCount = 0
+        setEditingNavigationItem(editing)
+        issueCollectionView.allowsMultipleSelection = editing
+        issueCollectionView.indexPathsForVisibleItems.forEach { indexPath in
+            let cell = issueCollectionView.cellForItem(at: indexPath) as? IssueCollectionViewCell
+            cell?.isEditing = editing
+        }
+        if !editing {
+            deselectAllItems()
+            issueListViewEditTabBar.removeFromSuperview()
+        } else {
+            tabBarController?.tabBar.addSubview(issueListViewEditTabBar)
+        }
+    }
+
     @IBAction private func issueCreateButtonDidTouchUp(_ sender: ShadowButton) {
         coordinator?.showCreateIssue()
     }
@@ -62,15 +81,25 @@ final class IssueListViewController: UIViewController {
 
 extension IssueListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
-        useCase.loadDetail(with: selectedIssue.id) { [weak self] result in
-            switch result {
-            case let .success(issue):
-                self?.coordinator?.showDetail(of: issue)
-            case let .failure(error):
-                self?.alert(message: error.localizedDescription)
+        if !isEditing {
+            guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
+            useCase.loadDetail(with: selectedIssue.id) { [weak self] result in
+                switch result {
+                case let .success(issue):
+                    self?.coordinator?.showDetail(of: issue)
+                case let .failure(error):
+                    self?.alert(message: error.localizedDescription)
+                }
             }
+            issueCollectionView.deselectItem(at: indexPath, animated: true)
+        } else {
+            selectedCellsCount = issueCollectionView.indexPathsForSelectedItems?.count ?? 0
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard isEditing else { return }
+        selectedCellsCount = issueCollectionView.indexPathsForSelectedItems?.count ?? 0
     }
 }
 
@@ -84,7 +113,7 @@ private extension IssueListViewController {
                 handler: { [weak self] _, _, _ in
                     guard let self = self else { return }
                     let id = self.issues[indexPath.item].id
-                        self.closeIssue(with: id)
+                    self.closeIssue(with: id)
                     self.issues.remove(at: indexPath.item)
                 }
             )
@@ -105,12 +134,12 @@ private extension IssueListViewController {
     func issueDataSource() -> IssueCollectionViewDataSource {
         return IssueCollectionViewDataSource(
             collectionView: issueCollectionView,
-            cellProvider: { collectionView, indexPath, issue -> IssueCollectionViewCell? in
+            cellProvider: { [unowned self] collectionView, indexPath, issue -> IssueCollectionViewCell? in
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: IssueCollectionViewCell.identifier,
                     for: indexPath
                 ) as? IssueCollectionViewCell
-                cell?.update(with: issue)
+                cell?.update(with: issue, isEditing: self.isEditing)
                 return cell
             }
         )
@@ -149,6 +178,87 @@ private extension IssueListViewController {
                 }
             }
             self?.loadList()
+        }
+    }
+}
+
+extension IssueListViewController: IssueListViewEditTabBarDelegate {
+    func closeButtonDidTouchUp(_ issueListViewEditTabBar: IssueListViewEditTabBar) {
+        guard let selectedItems = issueCollectionView.indexPathsForSelectedItems else { return }
+        let set =  selectedItems.reduce(into: Set<Int>(), { result, indexPath in
+            result.insert(issues[indexPath.item].id)
+        })
+        selectedCellsCount = 0
+        issues.removeAll(where: { set.contains($0.id) })
+    }
+}
+
+private extension IssueListViewController {
+    @objc func selectAllButtonDidTouchUp() {
+        
+        if selectedCellsCount == issues.count {
+            deselectAllItems()
+        } else {
+            (0..<issues.count).forEach { item in
+                let indexPath = IndexPath(item: item, section: 0)
+                issueCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init())
+            }
+            selectedCellsCount = issues.count
+        }
+    }
+    
+    func deselectAllItems() {
+        issueCollectionView.indexPathsForSelectedItems?.forEach { indexPath in
+            issueCollectionView.deselectItem(at: indexPath, animated: true)
+        }
+        selectedCellsCount = 0
+    }
+}
+
+private extension IssueListViewController {
+    func configure() {
+        configureNavigationBar()
+        configureCollectionView()
+        configureTabBar()
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: Constant.leftBarButtonItemTitle,
+                                                           style: .plain, target: self, action:
+                                                            #selector(selectAllButtonDidTouchUp))
+        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.searchController = UISearchController(searchResultsController: nil)
+        navigationController?.navigationBar.topItem?.title = Constant.navigationBarTopTitle
+    }
+    
+    func configureCollectionView() {
+        let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
+        issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
+        dataSource = issueDataSource()
+        issueCollectionView.dataSource = dataSource
+        issueCollectionView.delegate = self
+        issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
+    }
+    
+    func configureTabBar() {
+        guard let tabBarController = tabBarController else { return }
+        let tabBarFrame = CGRect(origin: .zero, size: (tabBarController.tabBar.frame.size))
+        issueListViewEditTabBar = IssueListViewEditTabBar(frame: tabBarFrame)
+        issueListViewEditTabBar.delegate = self
+    }
+    
+    func setEditingNavigationItem(_ editing: Bool) {
+        navigationItem.leftBarButtonItem?.title = editing ?
+            Constant.leftBarButtonItemTitleDuringEditing : Constant.leftBarButtonItemTitle
+        navigationItem.rightBarButtonItem?.title = editing ?
+            Constant.rightBarButtonItemTitleDuringEditing : Constant.rightBarButtonItemTitle
+        navigationItem.searchController?.searchBar.isHidden = editing
+        if !editing {
+            navigationController?.navigationBar.topItem?.title =  Constant.navigationBarTopTitle
+        } else {
+            let rightBarbuttonFont = UIFont.systemFont(ofSize: 17)
+            navigationItem.rightBarButtonItem?.setTitleTextAttributes([.font: rightBarbuttonFont],
+                                                                      for: .normal)
         }
     }
 }

@@ -27,7 +27,7 @@ final class IssueDetailViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("This viewController must be init with useCase.")
+        fatalError("This viewController must be init with pullUpViewController.")
     }
     
     override func viewDidLoad() {
@@ -40,8 +40,8 @@ final class IssueDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
         tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
