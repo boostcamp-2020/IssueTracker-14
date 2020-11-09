@@ -19,6 +19,15 @@ const StyledLoginForm = styled.div`
   border-radius: 0.4rem;
 `;
 
+const StyledLoginFormDivWrapper = styled.div`
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const LoginForm = ({ size }) => {
   const dispatch = useUserDispatch();
 
@@ -45,50 +54,53 @@ const LoginForm = ({ size }) => {
 
   return (
     <StyledLoginForm>
-      <M.FormDiv
-        label="아이디"
-        for="input-id"
-        type="email"
-        onChange={onChange}
-        name={"nickname"}
-      />
-      <M.FormDiv
-        label="비밀번호"
-        for="input-pw"
-        type="password"
-        onChange={onChange}
-        name={"password"}
-      />
-      <M.ButtonDiv
-        buttonColor={colors.grey}
-        width={"100%"}
-        height={"70%"}
-        onClick={onClickLocalLogin}
-        textColor={colors.black}
-        fontSize={"small"}
-        hover={false}
-      >
-        IssueTracker team 14에 로그인하기
-      </M.ButtonDiv>
-      <a href="http://localhost:3000/api/user/oauth/github">
+      <StyledLoginFormDivWrapper>
+        <M.FormDiv
+          label="아이디"
+          for="input-id"
+          type="email"
+          onChange={onChange}
+          name={"nickname"}
+        />
+        <M.FormDiv
+          label="비밀번호"
+          for="input-pw"
+          type="password"
+          onChange={onChange}
+          name={"password"}
+        />
+        <M.ButtonDiv
+          buttonColor={colors.grey}
+          width={"100%"}
+          height={"2.2rem"}
+          onClick={onClickLocalLogin}
+          textColor={colors.black}
+          fontSize={"small"}
+          hover={false}
+          margin={"0.3rem"}
+        >
+          IssueTracker team 14에 로그인하기
+        </M.ButtonDiv>
+
         <M.ButtonDiv
           buttonColor={colors.black}
           width={"100%"}
-          height={"70%"}
+          height={"2.2rem"}
           textColor={"white"}
           fontSize={"small"}
           hover={false}
+          margin={"0.3rem"}
         >
           Github으로 로그인하기
           <A.Icon location={"right"} name={"github"} distance={"0.3"} />
         </M.ButtonDiv>
-      </a>
 
-      <Link to="/signup">
-        <A.Text color="black" fontSize="small">
-          아직 회원이 아니라면? 회원가입 하러가기
-        </A.Text>
-      </Link>
+        <Link to="/signup">
+          <A.Text color="black" fontSize="small">
+            아직 회원이 아니라면? 회원가입 하러가기
+          </A.Text>
+        </Link>
+      </StyledLoginFormDivWrapper>
     </StyledLoginForm>
   );
 };

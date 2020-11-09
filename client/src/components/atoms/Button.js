@@ -73,6 +73,8 @@ Button.defaultProps = {
   textAlign: "center",
   cursor: "pointer",
   display: "block",
+  width: "100%",
+  height: "2rem",
 };
 
 export default Button;

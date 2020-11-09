@@ -5,6 +5,7 @@ import M from "../molecules/index";
 const StyledDropdownCluster = styled.div`
   position: relative;
   display: flex;
+  height: 100%;
 `;
 
 const data = [
