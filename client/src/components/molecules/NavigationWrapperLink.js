@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Icon from "./../atoms/Icon";
-import Button from "./../atoms/Button";
+import { Link } from "react-router-dom";
+import A from "../atoms/index";
 
 const StyledNavigationWrapperLink = styled.div`
   position: relative;
@@ -13,12 +13,14 @@ const StyledNavigationWrapperLink = styled.div`
 
 const NavigationWrapperLink = () => (
   <StyledNavigationWrapperLink>
-    <Button border={true} rounded={false} width={"8rem"} height={"2rem"}>
-      <Icon name={"label"} /> Label
-    </Button>
-    <Button border={true} rounded={false} width={"9rem"} height={"2rem"}>
-      <Icon name={"milestone"} /> Milestone
-    </Button>
+    <A.Button border={true} rounded={false} width={"8rem"} height={"2rem"}>
+      <A.Icon name={"label"} /> Label
+    </A.Button>
+    <Link to={"/milestones/new"}>
+      <A.Button border={true} rounded={false} width={"9rem"} height={"2rem"}>
+        <A.Icon name={"milestone"} /> Milestone
+      </A.Button>
+    </Link>
   </StyledNavigationWrapperLink>
 );
 

@@ -3,13 +3,13 @@ import styled from "styled-components";
 import A from "../atoms/index";
 
 const StyledTitle = styled.div`
-  margin: 20px;
+  margin: 20px 0;
 `;
 
 const Title = ({ children }) => (
   <StyledTitle>
     <A.Text fontWeight={"bold"} fontSize={"2.3rem"} hover={false}>
-      이슈트래커
+      {children}
     </A.Text>
   </StyledTitle>
 );

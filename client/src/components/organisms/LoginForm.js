@@ -11,8 +11,9 @@ const StyledLoginForm = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 40%;
+  padding: 0.5rem;
   background-color: white;
   box-sizing: border-box;
   border-radius: 0.4rem;
@@ -69,18 +70,20 @@ const LoginForm = ({ size }) => {
       >
         IssueTracker team 14에 로그인하기
       </M.ButtonDiv>
-      <M.ButtonDiv
-        buttonColor={colors.black}
-        width={"100%"}
-        height={"70%"}
-        onClick={onClickGithubLogin}
-        textColor={"white"}
-        fontSize={"small"}
-        hover={false}
-      >
-        Github으로 로그인하기
-        <A.Icon location={"right"} name={"github"} distance={"0.3"} />
-      </M.ButtonDiv>
+      <a href="http://localhost:3000/api/user/oauth/github">
+        <M.ButtonDiv
+          buttonColor={colors.black}
+          width={"100%"}
+          height={"70%"}
+          textColor={"white"}
+          fontSize={"small"}
+          hover={false}
+        >
+          Github으로 로그인하기
+          <A.Icon location={"right"} name={"github"} distance={"0.3"} />
+        </M.ButtonDiv>
+      </a>
+
       <Link to="/signup">
         <A.Text color="black" fontSize="small">
           아직 회원이 아니라면? 회원가입 하러가기
