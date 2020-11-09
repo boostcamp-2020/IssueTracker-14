@@ -79,6 +79,7 @@ const Dropdown = ({
           height={buttonHeight}
           border={true}
           textAlign={"left"}
+          cursor={"text"}
         >
           <StyledTitle>
             <span>{labelText}</span>

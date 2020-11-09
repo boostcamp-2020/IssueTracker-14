@@ -9,6 +9,8 @@ import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
 import { UserProvider } from "./stores/user";
 
+import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
+
 const StyledRootContainer = styled.div`
   position: absolute;
   top: 0px;
@@ -53,10 +55,12 @@ const App = () => {
     <AuthContext.Provider value={isAuth}>
       <StyledRootContainer>
         <Switch>
+          <Route exact path="/" component={IssuesPage} />
+          <Route exact path="/milestones/new" component={NewMilestonePage} />
+          <Route exact path="/issues/new" component={NewIssuePage} />
           <UserProvider>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            <Route exact path="/" component={NewIssuePage} />
             {/* <Route exact path="/" component={IssuesPage} /> */}
           </UserProvider>
         </Switch>
@@ -65,7 +69,7 @@ const App = () => {
         <Route exact path="/issues/:issueid" component={LoginForm} />
         <Route exact path="/labels" component={LoginForm} />
         <Route exact path="/milestones" component={LoginForm} />
-        <Route path="/milestones/new" component={LoginForm} />
+        
         <Route path="/milestones/edit/:milestoneid" component={LoginForm} />
       */}
       </StyledRootContainer>
