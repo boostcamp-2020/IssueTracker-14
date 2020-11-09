@@ -73,13 +73,24 @@ final class IssueListViewController: UIViewController {
             tabBarController?.tabBar.addSubview(issueListViewEditTabBar)
         }
     }
+
+    @IBAction private func issueCreateButtonDidTouchUp(_ sender: ShadowButton) {
+        coordinator?.showCreateIssue()
+    }
 }
 
 extension IssueListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !isEditing {
             guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
-            coordinator?.showDetail(of: selectedIssue)
+            useCase.loadDetail(with: selectedIssue.id) { [weak self] result in
+                switch result {
+                case let .success(issue):
+                    self?.coordinator?.showDetail(of: issue)
+                case let .failure(error):
+                    self?.alert(message: error.localizedDescription)
+                }
+            }
             issueCollectionView.deselectItem(at: indexPath, animated: true)
         } else {
             selectedCellsCount = issueCollectionView.indexPathsForSelectedItems?.count ?? 0
@@ -90,7 +101,6 @@ extension IssueListViewController: UICollectionViewDelegate {
         guard isEditing else { return }
         selectedCellsCount = issueCollectionView.indexPathsForSelectedItems?.count ?? 0
     }
-    
 }
 
 private extension IssueListViewController {
@@ -152,7 +162,9 @@ private extension IssueListViewController {
             case let .success(issues):
                 self?.issues = issues
             case let .failure(error):
-                break
+                DispatchQueue.main.async {
+                    self?.alert(message: error.localizedDescription)
+                }
             }
         }
     }

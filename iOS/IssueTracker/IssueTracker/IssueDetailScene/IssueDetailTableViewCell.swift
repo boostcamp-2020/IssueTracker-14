@@ -12,6 +12,8 @@ final class IssueDetailTableViewCell: UITableViewCell {
     static var identifier: String {
         return String(describing: Self.self)
     }
+    @IBOutlet private weak var writerLabel: UILabel!
+    @IBOutlet private weak var creationDateLabel: UILabel!
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var emojiButton: UIButton!
     private let topBorder: CALayer = CALayer()
@@ -27,8 +29,11 @@ final class IssueDetailTableViewCell: UITableViewCell {
         configure()
     }
     
-    func update(isComment: Bool) {
+    func update(isComment: Bool, comment: Comment) {
         contentLabel.numberOfLines = isComment ? 2 : 0
+        writerLabel.text = comment.writer
+        creationDateLabel.text = comment.createdAt
+        contentLabel.text = comment.content
     }
 }
 

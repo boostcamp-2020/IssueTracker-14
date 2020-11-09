@@ -7,22 +7,8 @@
 
 import Foundation
 
-enum SignUpUseCaseError: Error {
-    case encodingError
-    case networkError(message: String)
-    
-    var localizedDescription: String {
-        switch self {
-        case .encodingError:
-            return "인코딩 에러"
-        case let .networkError(message):
-            return "회원가입 실패\(message)"
-        }
-    }
-}
-
 protocol SignUpUseCaseType {
-    func signUp(with info: SignUpInfo, completion: @escaping (SignUpUseCaseError?) -> Void)
+    func signUp(with info: SignUpInfo, completion: @escaping (UseCaseError?) -> Void)
 }
 
 final class SignUpUseCase: SignUpUseCaseType {
@@ -33,7 +19,7 @@ final class SignUpUseCase: SignUpUseCaseType {
         self.networkService = networkService
     }
     
-    func signUp(with info: SignUpInfo, completion: @escaping (SignUpUseCaseError?) -> Void) {
+    func signUp(with info: SignUpInfo, completion: @escaping (UseCaseError?) -> Void) {
         guard let data = try? JSONEncoder().encode(info) else {
             completion(.encodingError)
             return
