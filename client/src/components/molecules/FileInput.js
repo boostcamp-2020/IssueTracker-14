@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
-import InputLabel from "../atoms/InputLabel";
 
 const StyledFileInput = styled.div`
   padding: 0.4rem 0.4rem;
@@ -15,7 +14,7 @@ const StyledFileInput = styled.div`
 const FileInput = () => {
   return (
     <StyledFileInput>
-      <InputLabel
+      <A.InputLabel
         htmlFor={"file"}
         label={"Attach files by selecting here"}
         fontWeight={"500"}
