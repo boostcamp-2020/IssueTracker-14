@@ -49,7 +49,7 @@ const Dropdown = ({
     <StyledDropdown>
         <Button width={buttonWidth} height={buttonHeight} border={border} backgroundColor={buttonColor} onClick={handleDropdown} ><span>{buttonText}</span><Icon name={"dropdown"} location={"right"} /></Button>
         <StyledHidden showDropdown={showDropdown} buttonWidth={buttonWidth} dropdownWidth={dropdownWidth} reverse={reverse}>
-            <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"}>
+            <Button width={dropdownWidth} height={buttonHeight} border={true} textAlign={"left"} cursor={"text"} >
                 <StyledTitle>
                     <span>{labelText}</span>
                     <Icon name={"reset"} onClick={handleDropdown} cursor={"pointer"} />
