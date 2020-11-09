@@ -5,7 +5,8 @@ import colors from "../../constants/colors";
 const StyledButton = styled.button`
   box-sizing: border-box;
   outline: none;
-  border: ${({ border }) => (border === true ? 1 : 0)}px solid ${({ borderColor }) => (borderColor)};
+  border: ${({ border }) => (border === true ? 1 : 0)}px solid
+    ${({ borderColor }) => borderColor};
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   padding: ${({ padding }) => padding};
@@ -16,7 +17,10 @@ const StyledButton = styled.button`
   background-color: ${({ backgroundColor }) => colors[backgroundColor]};
   cursor: ${(cursor) => cursor};
   text-align: ${({ textAlign }) => textAlign};
-  
+
+  display: ${({ display }) => display};
+  justify-content: ${({ justifyContent }) => justifyContent || undefined};
+
   &:hover {
     background-color: ${({ backgroundColor }) => colors[backgroundColor]};
   }
@@ -67,6 +71,7 @@ Button.defaultProps = {
   label: "기본 버튼",
   textAlign: "center",
   cursor: "pointer",
+  display: "block",
 };
 
 export default Button;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
+import NewIssuePage from "./pages/Issue/NewIssuePage";
 import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import myAxios from "./utils/myAxios";
@@ -55,10 +56,12 @@ const App = () => {
       <StyledRootContainer>
         <Switch>
           <Route exact path="/" component={IssuesPage} />
-          <Route path="/milestones/new" component={NewMilestonePage} />
+          <Route exact path="/milestones/new" component={NewMilestonePage} />
+          <Route exact path="/issues/new" component={NewIssuePage} />
           <UserProvider>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
+            {/* <Route exact path="/" component={IssuesPage} /> */}
           </UserProvider>
         </Switch>
         {/*

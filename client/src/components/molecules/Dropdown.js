@@ -35,6 +35,10 @@ const Dropdown = ({
   reverse,
   border,
   buttonColor,
+  icon,
+  btnDisplay,
+  btnJustify,
+  btnPadding,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -57,9 +61,12 @@ const Dropdown = ({
         border={border}
         backgroundColor={buttonColor}
         onClick={handleDropdown}
+        display={btnDisplay}
+        justifyContent={btnJustify}
+        padding={btnPadding}
       >
         <span>{buttonText}</span>
-        <Icon name={"dropdown"} location={"right"} />
+        <Icon name={icon} location={"right"} />
       </Button>
       <StyledHidden
         showDropdown={showDropdown}
@@ -121,6 +128,7 @@ Dropdown.defaultProps = {
   border: false,
   buttonColor: "white",
   search: true,
+  icon: "dropdown",
 };
 
 export default Dropdown;

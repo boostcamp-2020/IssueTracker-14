@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
-const StyledInput = styled.input`
+const StyledTextArea = styled.textarea`
   outline: none;
   box-sizing: border-box;
   border: 1px solid #d1d5da;
@@ -13,44 +13,24 @@ const StyledInput = styled.input`
   color: #000000;
   background-color: ${({ bgColor }) => (bgColor ? colors[bgColor] : "inherit")};
   width: ${({ width }) => width};
-  height: ${({ height }) => height};
 `;
 
-const Input = ({
-  type,
-  placeholder,
-  name,
-  width,
-  margin,
-  padding,
-  fontSize,
-  rounded,
-  id,
-  onChange,
-  ...rest
-}) => (
-  <StyledInput
-    type={type}
-    placeholder={placeholder}
-    margin={margin}
-    padding={padding}
-    fontSize={fontSize}
-    rounded={rounded}
-    id={id}
-    name={name}
-    width={width}
-    onChange={onChange}
-    {...rest}
-  />
-);
+const TextArea = ({ placeholder, rows, name, ...rest }) => {
+  return (
+    <StyledTextArea
+      placeholder={placeholder}
+      rows={rows}
+      name={name}
+      {...rest}
+    />
+  );
+};
 
-Input.defaultProps = {
-  margin: "0.75rem",
+TextArea.defaultProps = {
   padding: "0.75rem",
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
-  height: "55%",
 };
 
-export default Input;
+export default TextArea;
