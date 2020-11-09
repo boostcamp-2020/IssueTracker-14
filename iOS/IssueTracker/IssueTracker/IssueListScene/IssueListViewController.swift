@@ -54,6 +54,10 @@ final class IssueListViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    @IBAction private func issueCreateButtonDidTouchUp(_ sender: ShadowButton) {
+        coordinator?.showCreateIssue()
+    }
 }
 
 extension IssueListViewController: UICollectionViewDelegate {
