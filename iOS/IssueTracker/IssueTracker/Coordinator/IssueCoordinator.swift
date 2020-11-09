@@ -45,4 +45,10 @@ extension IssueCoordinator {
         viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func showCreateIssue() {
+        let createIssueViewController = storyboard
+            .instantiateViewController(identifier: IssueCreateViewController.identifier)
+        navigationController?.present(createIssueViewController, animated: true)
+    }
 }
