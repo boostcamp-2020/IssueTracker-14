@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import Image from "../../components/atoms/Image";
 import NewIssueForm from "../../components/organisms/NewIssueForm";
+import NewIssueOptions from "../../components/organisms/NewIssueOptions";
 
 const NewIssuePageWrapper = styled.div`
   position: relative;
@@ -23,6 +24,7 @@ const NewIssuePage = () => {
           padding={"0 0.5rem"}
         />
         <NewIssueForm />
+        <NewIssueOptions />
       </NewIssuePageWrapper>
     </>
   );

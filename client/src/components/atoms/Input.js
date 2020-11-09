@@ -50,7 +50,7 @@ Input.defaultProps = {
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
-  heigt: "55%",
+  height: "55%",
 };
 
 export default Input;
