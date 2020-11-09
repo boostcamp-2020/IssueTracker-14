@@ -14,12 +14,14 @@ final class IssueDetailViewController: UIViewController {
     }
     @IBOutlet private weak var issueDetailTableView: UITableView!
     weak var coordinator: IssueCoordinator?
+    private let issue: IssueDetail
     private let pullUpViewController: IssueDetailPullUpViewController
     private let pullUpViewAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.1,
                                                                                     curve: .easeOut,
                                                                                     animations: nil)
     
-    init?(coder: NSCoder, pullUpViewController: IssueDetailPullUpViewController) {
+    init?(coder: NSCoder, issue: IssueDetail, pullUpViewController: IssueDetailPullUpViewController) {
+        self.issue = issue
         self.pullUpViewController = pullUpViewController
         super.init(coder: coder)
     }
@@ -40,7 +42,6 @@ final class IssueDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
         tabBarController?.tabBar.isHidden = true
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,7 +52,7 @@ final class IssueDetailViewController: UIViewController {
 
 extension IssueDetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        return issue.comments.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +64,8 @@ extension IssueDetailViewController: UITableViewDataSource {
                 withIdentifier: IssueDetailTableViewCell.identifier,
                 for: indexPath
         ) as? IssueDetailTableViewCell else { return UITableViewCell() }
-        cell.update(isComment: indexPath.section > 0)
+        let comment = issue.comments[indexPath.section]
+        cell.update(isComment: indexPath.section > 0, comment: comment)
         return cell
     }
 }

@@ -7,26 +7,9 @@
 
 import Foundation
 
-enum LoginUseCaseError: Error {
-    case encodingError
-    case networkError(message: String)
-    case decodingError
-    
-    var localizedDescription: String {
-        switch self {
-        case .decodingError:
-            return "디코딩 에러"
-        case let .networkError(message):
-            return "로그인 실패\n\(message)"
-        case .encodingError:
-            return "인코딩 에러"
-        }
-    }
-}
-
 protocol LoginUseCaseType {
-    func login(with info: LocalLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void)
-    func login(with appleInfo: AppleLoginInfo, completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void)
+    func login(with info: LocalLoginInfo, completion: @escaping (Result<LoginResponse, UseCaseError>) -> Void)
+    func login(with appleInfo: AppleLoginInfo, completion: @escaping (Result<LoginResponse, UseCaseError>) -> Void)
 }
 
 final class LoginUseCase: LoginUseCaseType {
@@ -38,7 +21,7 @@ final class LoginUseCase: LoginUseCaseType {
     }
 
     func login(with localInfo: LocalLoginInfo,
-               completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void) {
+               completion: @escaping (Result<LoginResponse, UseCaseError>) -> Void) {
         guard let data = try? JSONEncoder().encode(localInfo) else {
             completion(.failure(.encodingError))
             return
@@ -59,7 +42,7 @@ final class LoginUseCase: LoginUseCaseType {
     }
     
     func login(with appleInfo: AppleLoginInfo,
-               completion: @escaping (Result<LoginResponse, LoginUseCaseError>) -> Void) {
+               completion: @escaping (Result<LoginResponse, UseCaseError>) -> Void) {
         guard let data = try? JSONEncoder().encode(appleInfo) else {
             completion(.failure(.encodingError))
             return

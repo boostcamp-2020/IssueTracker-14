@@ -14,10 +14,11 @@
 		442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */; };
 		442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */; };
 		443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */; };
-		443A9CE22552B179009D3D34 /* IssueListEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CE12552B179009D3D34 /* IssueListEndPoint.swift */; };
+		443A9CE22552B179009D3D34 /* IssueEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CE12552B179009D3D34 /* IssueEndPoint.swift */; };
 		445829AB255422B6003E51E9 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445829AA255422B6003E51E9 /* IssueDetailViewController.swift */; };
 		445829B3255435B6003E51E9 /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445829B2255435B6003E51E9 /* IssueDetailTableViewCell.swift */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
+		44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCDE02558D95F0023457B /* UseCaseError.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
@@ -30,12 +31,11 @@
 		B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */; };
 		B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */; };
 		B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E85255404BA00B98C10 /* MockNetworkService.swift */; };
-		B9013E8F2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */; };
 		B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E942554057200B98C10 /* Issue+Encodable.swift */; };
 		B9013E992554059000B98C10 /* MileStone+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E982554059000B98C10 /* MileStone+Encodable.swift */; };
 		B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */; };
 		B9013EA72554061100B98C10 /* LoginResponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */; };
-		B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */; };
+		B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */; };
 		B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */; };
 		B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */; };
 		B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */; };
@@ -90,10 +90,11 @@
 		442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCollectionViewCell.swift; sourceTree = "<group>"; };
 		442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCollectionViewCell.xib; sourceTree = "<group>"; };
 		443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListUseCase.swift; sourceTree = "<group>"; };
-		443A9CE12552B179009D3D34 /* IssueListEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListEndPoint.swift; sourceTree = "<group>"; };
+		443A9CE12552B179009D3D34 /* IssueEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEndPoint.swift; sourceTree = "<group>"; };
 		445829AA255422B6003E51E9 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		445829B2255435B6003E51E9 /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		44ABCDE02558D95F0023457B /* UseCaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseError.swift; sourceTree = "<group>"; };
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		44E910A5254ACF2A000949A1 /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
@@ -108,12 +109,11 @@
 		B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
 		B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTests.swift; sourceTree = "<group>"; };
 		B9013E85255404BA00B98C10 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
-		B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueListUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
 		B9013E942554057200B98C10 /* Issue+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+Encodable.swift"; sourceTree = "<group>"; };
 		B9013E982554059000B98C10 /* MileStone+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MileStone+Encodable.swift"; sourceTree = "<group>"; };
 		B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IssueResponse+Encodable.swift"; sourceTree = "<group>"; };
 		B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginResponse+Encodable.swift"; sourceTree = "<group>"; };
-		B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginUseCaseError+Equatable.swift"; sourceTree = "<group>"; };
+		B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCaseError+Equtable.swift"; sourceTree = "<group>"; };
 		B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkServiceError+Equtable.swift"; sourceTree = "<group>"; };
 		B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailPullUpViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			children = (
 				442B3DA425525E9300069D18 /* Issue.swift */,
 				443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */,
-				443A9CE12552B179009D3D34 /* IssueListEndPoint.swift */,
+				443A9CE12552B179009D3D34 /* IssueEndPoint.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,12 +244,11 @@
 		B9013E8D2554054C00B98C10 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B9013E8E2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift */,
 				B9013E942554057200B98C10 /* Issue+Encodable.swift */,
 				B9013E982554059000B98C10 /* MileStone+Encodable.swift */,
 				B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */,
 				B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */,
-				B9013EAA2554062200B98C10 /* LoginUseCaseError+Equatable.swift */,
+				B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */,
 				B9013EB225540B2100B98C10 /* NetworkServiceError+Equtable.swift */,
 			);
 			path = Extension;
@@ -419,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				B9BF5A6025499FA60052910D /* NetworkService.swift */,
+				44ABCDE02558D95F0023457B /* UseCaseError.swift */,
 				B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */,
 			);
 			path = Model;
@@ -596,7 +596,7 @@
 				B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */,
 				B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */,
 				B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */,
-				B9013EAB2554062200B98C10 /* LoginUseCaseError+Equatable.swift in Sources */,
+				B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */,
 				B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */,
 				B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */,
 				B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */,
@@ -605,7 +605,6 @@
 				B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */,
 				B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */,
 				B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */,
-				B9013E8F2554055E00B98C10 /* IssueListUseCaseError+Equatable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +640,7 @@
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
 				B9007866255466660035D307 /* ShadowButton.swift in Sources */,
 				B9007862255466510035D307 /* ShadowView.swift in Sources */,
+				44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
 				B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */,
@@ -654,7 +654,7 @@
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
 				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
-				443A9CE22552B179009D3D34 /* IssueListEndPoint.swift in Sources */,
+				443A9CE22552B179009D3D34 /* IssueEndPoint.swift in Sources */,
 				442B3DA525525E9300069D18 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

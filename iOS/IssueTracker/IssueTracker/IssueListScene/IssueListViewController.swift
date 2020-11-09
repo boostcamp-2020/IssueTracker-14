@@ -59,7 +59,14 @@ final class IssueListViewController: UIViewController {
 extension IssueListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
-        coordinator?.showDetail(of: selectedIssue)
+        useCase.loadDetail(with: selectedIssue.id) { [weak self] result in
+            switch result {
+            case let .success(issue):
+                self?.coordinator?.showDetail(of: issue)
+            case let .failure(error):
+                self?.alert(message: error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -122,7 +129,9 @@ private extension IssueListViewController {
             case let .success(issues):
                 self?.issues = issues
             case let .failure(error):
-                break
+                DispatchQueue.main.async {
+                    self?.alert(message: error.localizedDescription)
+                }
             }
         }
     }

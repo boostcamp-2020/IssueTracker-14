@@ -27,7 +27,32 @@ struct Issue: Decodable, Hashable {
     }
 }
 
+struct Comment: Decodable, Hashable {
+    let writer: String
+    let createdAt: String
+    let content: String
+}
+
 struct MileStone: Decodable, Hashable {
     let id: Int
     let title: String
+}
+
+// 임시 데이터
+struct IssueDetail: Decodable, Hashable {
+    let id: Int
+    let title: String
+    let status: String
+    let mileStone: MileStone?
+    let comments: [Comment]
+    let description: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case status
+        case comments
+        case mileStone = "milestone"
+        case description
+    }
 }

@@ -17,7 +17,6 @@ final class IssueCoordinator: NavigationCoordinator {
     init(navigationController: UINavigationController, networkService: NetworkServiceProviding) {
         self.navigationController = navigationController
         self.networkService = networkService
-        
     }
     
     func start() {
@@ -33,13 +32,15 @@ final class IssueCoordinator: NavigationCoordinator {
 }
 
 extension IssueCoordinator {
-    func showDetail(of issue: Issue) {
+    func showDetail(of issue: IssueDetail) {
         let pullUpViewController: IssueDetailPullUpViewController =
             storyboard.instantiateViewController(identifier: IssueDetailPullUpViewController.identifier)
         let viewController = storyboard.instantiateViewController(
             identifier: IssueDetailViewController.identifier,
             creator: { coder -> IssueDetailViewController? in
-                return IssueDetailViewController(coder: coder, pullUpViewController: pullUpViewController)
+                return IssueDetailViewController(coder: coder,
+                                                 issue: issue,
+                                                 pullUpViewController: pullUpViewController)
             })
         viewController.coordinator = self
         navigationController?.pushViewController(viewController, animated: true)
