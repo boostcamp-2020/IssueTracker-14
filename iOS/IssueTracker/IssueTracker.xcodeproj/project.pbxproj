@@ -15,14 +15,11 @@
 		442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */; };
 		443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */; };
 		443A9CE22552B179009D3D34 /* IssueListEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CE12552B179009D3D34 /* IssueListEndPoint.swift */; };
-		445829AB255422B6003E51E9 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445829AA255422B6003E51E9 /* IssueDetailViewController.swift */; };
-		445829B3255435B6003E51E9 /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445829B2255435B6003E51E9 /* IssueDetailTableViewCell.swift */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
 		44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EA5D94255032A8008AB0EB /* IssueListViewController.swift */; };
-		44FF26C02554738D00D1E059 /* IssueInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FF26BF2554738D00D1E059 /* IssueInfoView.swift */; };
 		800722403CD0E1D517104752 /* Pods_IssueTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */; };
 		B9007862255466510035D307 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007861255466510035D307 /* ShadowView.swift */; };
 		B9007866255466660035D307 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007865255466650035D307 /* ShadowButton.swift */; };
@@ -46,6 +43,11 @@
 		B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907432F2551DC2C00E1D2E6 /* MileStoneCoordinator.swift */; };
 		B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743342551DC3300E1D2E6 /* SettingCoordinator.swift */; };
 		B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */; };
+		B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */; };
+		B91AFB43255938A3007AD8DD /* IssueInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB42255938A3007AD8DD /* IssueInfoView.swift */; };
+		B91AFB4B255938B6007AD8DD /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */; };
+		B91AFB5125594085007AD8DD /* IssueListViewEditTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB5025594085007AD8DD /* IssueListViewEditTabBar.swift */; };
+		B91AFB57255940EF007AD8DD /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB56255940EE007AD8DD /* HomeTabBarController.swift */; };
 		B949F990254EFB9100477211 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F98F254EFB9100477211 /* LoginInfo.swift */; };
 		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
 		B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F99C254F085000477211 /* LoginEndPoint.swift */; };
@@ -67,7 +69,6 @@
 		B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */; };
 		B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF5A6025499FA60052910D /* NetworkService.swift */; };
 		B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */; };
-		B9FBB4F025518181007207AE /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4EF25518181007207AE /* HomeTabBarController.swift */; };
 		B9FBB4FB25518488007207AE /* HomeTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,15 +92,12 @@
 		442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCollectionViewCell.xib; sourceTree = "<group>"; };
 		443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListUseCase.swift; sourceTree = "<group>"; };
 		443A9CE12552B179009D3D34 /* IssueListEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListEndPoint.swift; sourceTree = "<group>"; };
-		445829AA255422B6003E51E9 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
-		445829B2255435B6003E51E9 /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		44E910A5254ACF2A000949A1 /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
 		44EA5D8325502AE2008AB0EB /* IssueTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IssueTracker.entitlements; sourceTree = "<group>"; };
 		44EA5D94255032A8008AB0EB /* IssueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
-		44FF26BF2554738D00D1E059 /* IssueInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueInfoView.swift; sourceTree = "<group>"; };
 		4B26D7853D2AAE8891129546 /* Pods_IssueTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IssueTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98995B803699302D8FC3AB2F /* Pods-IssueTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IssueTracker.release.xcconfig"; path = "Target Support Files/Pods-IssueTracker/Pods-IssueTracker.release.xcconfig"; sourceTree = "<group>"; };
 		B9007861255466510035D307 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -126,6 +124,11 @@
 		B90C76AD25530ABC00134AEE /* IssueTrackerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IssueTrackerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListUseCaseTests.swift; sourceTree = "<group>"; };
 		B90C76B125530ABC00134AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		B91AFB42255938A3007AD8DD /* IssueInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueInfoView.swift; sourceTree = "<group>"; };
+		B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
+		B91AFB5025594085007AD8DD /* IssueListViewEditTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListViewEditTabBar.swift; sourceTree = "<group>"; };
+		B91AFB56255940EE007AD8DD /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		B949F98F254EFB9100477211 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		B949F997254F07D900477211 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B949F99C254F085000477211 /* LoginEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndPoint.swift; sourceTree = "<group>"; };
@@ -149,7 +152,6 @@
 		B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B9BF5A6025499FA60052910D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
-		B9FBB4EF25518181007207AE /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,16 +184,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		445829A92554227F003E51E9 /* IssueDetailScene */ = {
-			isa = PBXGroup;
-			children = (
-				445829AA255422B6003E51E9 /* IssueDetailViewController.swift */,
-				445829B2255435B6003E51E9 /* IssueDetailTableViewCell.swift */,
-				44FF26BF2554738D00D1E059 /* IssueInfoView.swift */,
-			);
-			path = IssueDetailScene;
-			sourceTree = "<group>";
-		};
 		447C96F625497449008D326F /* SignUpScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,10 +207,11 @@
 		44EA5D9325503296008AB0EB /* IssueListScene */ = {
 			isa = PBXGroup;
 			children = (
+				B91AFB5025594085007AD8DD /* IssueListViewEditTabBar.swift */,
+				B91AFB56255940EE007AD8DD /* HomeTabBarController.swift */,
 				44EA5D94255032A8008AB0EB /* IssueListViewController.swift */,
 				442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */,
 				442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */,
-				B9FBB4EF25518181007207AE /* HomeTabBarController.swift */,
 				443A9CD82552B0B4009D3D34 /* Model */,
 			);
 			path = IssueListScene;
@@ -302,6 +295,16 @@
 			path = IssueTrackerUnitTests;
 			sourceTree = "<group>";
 		};
+		B91AFB412559387F007AD8DD /* IssueDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				B91AFB42255938A3007AD8DD /* IssueInfoView.swift */,
+				B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */,
+				B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */,
+			);
+			path = IssueDetailScene;
+			sourceTree = "<group>";
+		};
 		B923F01D2549597E004AD001 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,7 +386,6 @@
 				B923F01D2549597E004AD001 /* LoginScene */,
 				447C96F625497449008D326F /* SignUpScene */,
 				44EA5D9325503296008AB0EB /* IssueListScene */,
-				445829A92554227F003E51E9 /* IssueDetailScene */,
 				B9FBB4FF2551851D007207AE /* Coordinator */,
 				B90743002551C40400E1D2E6 /* LabelListScene */,
 				B90743142551DAE800E1D2E6 /* MileStoneListScene */,
@@ -391,6 +393,7 @@
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
 				B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
+				B91AFB412559387F007AD8DD /* IssueDetailScene */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
 				B980376725484A16002FF4BF /* LaunchScreen.storyboard */,
@@ -613,9 +616,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				445829B3255435B6003E51E9 /* IssueDetailTableViewCell.swift in Sources */,
 				B9840B6F25518D7E0042E259 /* IssueCoordinator.swift in Sources */,
 				B907431F2551DB5700E1D2E6 /* MileStoneListViewController.swift in Sources */,
+				B91AFB57255940EF007AD8DD /* HomeTabBarController.swift in Sources */,
 				44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */,
 				B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */,
 				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
@@ -629,20 +632,19 @@
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
 				442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */,
-				445829AB255422B6003E51E9 /* IssueDetailViewController.swift in Sources */,
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
-				B9FBB4F025518181007207AE /* HomeTabBarController.swift in Sources */,
+				B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
-				44FF26C02554738D00D1E059 /* IssueInfoView.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
 				B9007866255466660035D307 /* ShadowButton.swift in Sources */,
 				B9007862255466510035D307 /* ShadowView.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
+				B91AFB43255938A3007AD8DD /* IssueInfoView.swift in Sources */,
 				B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */,
 				B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
@@ -653,8 +655,10 @@
 				B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */,
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
+				B91AFB4B255938B6007AD8DD /* IssueDetailTableViewCell.swift in Sources */,
 				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
 				443A9CE22552B179009D3D34 /* IssueListEndPoint.swift in Sources */,
+				B91AFB5125594085007AD8DD /* IssueListViewEditTabBar.swift in Sources */,
 				442B3DA525525E9300069D18 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

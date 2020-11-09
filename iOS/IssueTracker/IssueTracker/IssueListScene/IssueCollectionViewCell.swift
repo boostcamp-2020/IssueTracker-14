@@ -16,6 +16,26 @@ final class IssueCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var mileStoneLabel: PaddingLabel!
     @IBOutlet private weak var labelLabel: PaddingLabel!
+    @IBOutlet private(set) weak var selectButton: UIButton!
+    override var isSelected: Bool {
+        didSet {
+            if isEditing {
+            selectButton.isSelected = isSelected
+            }
+        }
+    }
+    var isEditing: Bool = false {
+        didSet {
+            let changedX: CGFloat = isEditing ? -50 : 0
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    guard let self = self else { return }
+                    self.layer.bounds = CGRect(x: changedX,
+                                               y: self.bounds.minY,
+                                               width: self.bounds.width,
+                                               height: self.bounds.height)
+                }
+        }
+    }
     
     func update(with issue: Issue) {
         titleLabel.text = issue.title
