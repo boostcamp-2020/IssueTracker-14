@@ -13,14 +13,17 @@ const StyledTextArea = styled.textarea`
   color: #000000;
   background-color: ${({ bgColor }) => (bgColor ? colors[bgColor] : "inherit")};
   width: ${({ width }) => width};
+  height: ${({ height }) => height};
 `;
 
-const TextArea = ({ placeholder, rows, name, ...rest }) => {
+const TextArea = ({ placeholder, width, height, rows, name, ...rest }) => {
   return (
     <StyledTextArea
       placeholder={placeholder}
       rows={rows}
       name={name}
+      width={width}
+      height={height}
       {...rest}
     />
   );

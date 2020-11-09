@@ -11,8 +11,24 @@ const StyledNewMilestoneForm = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 20rem;
+  height: 40rem;
   margin: 20px 0;
+`;
+
+const StyledDescription = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 35%;
+`;
+
+const StyledFormFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
 `;
 
 const NewMilestoneForm = () => {
@@ -55,30 +71,34 @@ const NewMilestoneForm = () => {
         onChange={onChange}
         rounded
       />
-      <A.Text fontWeight={"bold"} hover={false}>
-        Description
-      </A.Text>
-      <M.FormTextArea
-        label={"Description"}
-        rows={"20"}
-        width={"100%"}
-        placeholder={"Leave a description"}
-        name={"description"}
-        onChange={onChange}
-        width={"100%"}
-      />
-      <M.ButtonDiv
-        buttonColor={colors.green}
-        width={"8rem"}
-        height={"2rem"}
-        onClick={onClickNewMilestone}
-        textColor={colors.white}
-        fontSize={"small"}
-        hover={false}
-        border={true}
-      >
-        Create Milestone
-      </M.ButtonDiv>
+      <StyledDescription>
+        <A.Text fontWeight={"bold"} hover={false}>
+          Description
+        </A.Text>
+        <M.FormTextArea
+          label={"Description"}
+          rows={"20"}
+          width={"100%"}
+          placeholder={"Leave a description"}
+          name={"description"}
+          onChange={onChange}
+          height={"100%"}
+        />
+      </StyledDescription>
+      <StyledFormFooter>
+        <M.ButtonDiv
+          buttonColor={colors.green}
+          width={"8rem"}
+          height={"2rem"}
+          onClick={onClickNewMilestone}
+          textColor={colors.white}
+          fontSize={"small"}
+          hover={false}
+          border={true}
+        >
+          Create Milestone
+        </M.ButtonDiv>
+      </StyledFormFooter>
     </StyledNewMilestoneForm>
   );
 };
