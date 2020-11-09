@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
@@ -16,6 +16,12 @@ const StyledButtonWrapper = styled.div`
 `;
 
 const NewIssueForm = () => {
+  const [charLength, setCharLength] = useState(0);
+
+  const onChangeTextArea = (e) => {
+    setTimeout(() => setCharLength(e.target.value.length), 2000);
+  };
+
   return (
     <StyledNewIsssueForm>
       <A.Input
@@ -36,6 +42,8 @@ const NewIssueForm = () => {
         placeholder={"Leave a commment"}
         rounded={true}
         bgColor={"middleWhite"}
+        onChange={onChangeTextArea}
+        charLength={charLength}
       />
       <StyledButtonWrapper>
         <A.Button>Cancel</A.Button>

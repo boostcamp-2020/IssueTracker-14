@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "./index";
@@ -31,14 +31,10 @@ const FormTextArea = ({
   placeholder,
   rows,
   bgColor,
+  charLength,
+  onChange,
   ...rest
 }) => {
-  const [charLength, setCharLength] = useState(0);
-
-  const onChange = (e) => {
-    setTimeout(() => setCharLength(e.target.value.length), 2000);
-  };
-
   return (
     <StyledFormTextArea>
       <StyledButtonWrapper>
