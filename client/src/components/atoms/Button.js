@@ -7,6 +7,7 @@ const StyledButton = styled.button`
   outline: none;
   border: ${({ border }) => (border === true ? 1 : 0)}px solid
     ${({ borderColor }) => borderColor};
+  border-bottom: ${({ borderBottom }) => borderBottom};
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   padding: ${({ padding }) => padding};
@@ -20,6 +21,7 @@ const StyledButton = styled.button`
 
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
+  z-index: ${({ zIndex }) => zIndex};
 
   &:hover {
     background-color: ${({ backgroundColor }) => colors[backgroundColor]};

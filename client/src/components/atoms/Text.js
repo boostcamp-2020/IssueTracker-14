@@ -9,7 +9,7 @@ const StyledText = styled.p`
   color: ${({ color }) => colors[color]};
   font-weight: ${({ fontWeight }) => fontWeight === "bold" && "bold"};
   font-size: ${({ fontSize }) => fontSize};
-  cursor: pointer;
+  cursor: ${({ cursor }) => cursor};
 
   margin: 0;
   padding: 0;
@@ -35,6 +35,7 @@ Text.defaultProps = {
   color: "black",
   fontSize: "medium",
   hover: true,
+  cursor: "pointer",
 };
 
 export default Text;

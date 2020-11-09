@@ -4,7 +4,9 @@ import A from "../atoms/index";
 import M from "../molecules/index";
 
 const StyledNewIsssueForm = styled.section`
-  padding: 1rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0 1rem;
+  border: 1px solid #e3e3e4;
   width: 40vw;
 `;
 
