@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import IssueMenuDropdowns from "./IssueMenuDropdowns";
+import DropdownCluster from "./DropdownCluster";
 import IssueWrapper from "./IssueWrapper";
 import LoginForm from "./LoginForm";
 import NavigationWrapperInput from "./NavigationWrapperInput";
@@ -13,7 +13,7 @@ import Title from "./Title";
 export default {
   Footer,
   Header,
-  IssueMenuDropdowns,
+  DropdownCluster,
   IssueWrapper,
   LoginForm,
   NavigationWrapperInput,
