@@ -9,6 +9,11 @@ const StyledNewIsssueForm = styled.section`
   width: 40vw;
 `;
 
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const NewIssueForm = () => {
   return (
     <StyledNewIsssueForm>
@@ -31,7 +36,7 @@ const NewIssueForm = () => {
         rounded={true}
         bgColor={"middleWhite"}
       />
-      <>
+      <StyledButtonWrapper>
         <Button>Cancel</Button>
         <Button
           color={"white"}
@@ -42,7 +47,7 @@ const NewIssueForm = () => {
         >
           Submit new issue
         </Button>
-      </>
+      </StyledButtonWrapper>
     </StyledNewIsssueForm>
   );
 };
