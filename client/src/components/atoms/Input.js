@@ -13,7 +13,7 @@ const StyledInput = styled.input`
   color: #000000;
   background-color: ${({ bgColor }) => (bgColor ? colors[bgColor] : "inherit")};
   width: ${({ width }) => width};
-  height: 55%;
+  height: ${({ height }) => height};
 `;
 
 const Input = ({
@@ -50,6 +50,7 @@ Input.defaultProps = {
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
+  heigt: "55%",
 };
 
 export default Input;
