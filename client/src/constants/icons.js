@@ -1,7 +1,15 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCodeBranch, faBook, faMapSigns, faTags, faCaretDown, faWindowClose } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faGithubAlt } from '@fortawesome/free-brands-svg-icons'
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCodeBranch,
+  faBook,
+  faMapSigns,
+  faTags,
+  faCaretDown,
+  faWindowClose,
+  faCog,
+} from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
 const icons = {
   book: <FontAwesomeIcon icon={faBook} />,
@@ -12,6 +20,7 @@ const icons = {
   label: <FontAwesomeIcon icon={faTags} />,
   dropdown: <FontAwesomeIcon icon={faCaretDown} />,
   reset: <FontAwesomeIcon icon={faWindowClose} />,
-}
+  cog: <FontAwesomeIcon icon={faCog} />,
+};
 
 export default icons;
