@@ -36,6 +36,9 @@ const Dropdown = ({
   border,
   buttonColor,
   icon,
+  btnDisplay,
+  btnJustify,
+  btnPadding,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -58,6 +61,9 @@ const Dropdown = ({
         border={border}
         backgroundColor={buttonColor}
         onClick={handleDropdown}
+        display={btnDisplay}
+        justifyContent={btnJustify}
+        padding={btnPadding}
       >
         <span>{buttonText}</span>
         <Icon name={icon} location={"right"} />
