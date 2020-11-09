@@ -30,28 +30,24 @@ const issueDropdownOptions = [
     buttonText: "Author",
     labelText: "Filter by author",
     buttonWidth: "5rem",
-    showDropdown: "none",
   },
   {
     buttonData: [],
     buttonText: "Label",
     labelText: "Filter by label",
     buttonWidth: "5rem",
-    showDropdown: "none",
   },
   {
     buttonData: [],
     buttonText: "Milestones",
     labelText: "Filter by milestone",
     buttonWidth: "7rem",
-    showDropdown: "none",
   },
   {
     buttonData: [],
     buttonText: "Assignee",
     labelText: "Filter by who's assigned",
     buttonWidth: "7rem",
-    showDropdown: "none",
   },
 ];
 

@@ -131,6 +131,7 @@ Dropdown.defaultProps = {
   buttonColor: "white",
   search: true,
   icon: "dropdown",
+  showDropdown: "none",
 };
 
 export default Dropdown;
