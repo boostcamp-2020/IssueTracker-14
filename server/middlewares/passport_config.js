@@ -32,8 +32,8 @@ const githubConfig = {
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL:
     process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/api/user/oauth/github/callback"
-      : "http://115.85.183.106:3000/api/user/oauth/github/callback",
+      ? "http://localhost:8000"
+      : "http://issuetracker.2oneweek.site",
 };
 
 const githubLoginVerify = async (accessToken, refreshToken, profile, done) => {

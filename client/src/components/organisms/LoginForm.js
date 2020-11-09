@@ -42,6 +42,7 @@ const LoginForm = ({ size }) => {
       type: "POST_GITHUB_USER",
     });
   }, []);
+
   return (
     <StyledLoginForm>
       <FormDiv

@@ -52,14 +52,7 @@ const userReducer = (state, action) => {
 
     case "POST_GITHUB_USER":
       const checkGithubUserInfo = async () => {
-        const {
-          data: { message, token },
-        } = await myAxios.get("/user/oauth/github");
-
-        if (message === "success") {
-          localStorage.setItem("token", token);
-          location.href = "/";
-        }
+        await myAxios.get("/user/oauth/github");
       };
       return checkGithubUserInfo();
 
