@@ -38,6 +38,13 @@ const issueDropdownOptions = [
       labelText: "Filter by who's assigned",
       buttonWidth: "7rem",
     },
+    {
+      buttonData: [{name: "Newest"}, {name: "Oldest"}, {name: "Most commented"}, {name: "Least commented"}, {name: "Recently updated"}, {name: "Least recently updated"},],
+      buttonText: "Sort",
+      labelText: "Sort by",
+      buttonWidth: "5rem",
+      search: false
+    },
 ];
 
 const IssueMenu = () => {
