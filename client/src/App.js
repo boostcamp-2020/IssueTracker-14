@@ -29,6 +29,12 @@ const App = () => {
   const [isAuth, setIsAuth] = useState(false);
   const history = useHistory();
 
+  const [_, accessToken] = location.search.split("=");
+  if (accessToken) {
+    localStorage.setItem("token", accessToken);
+    location.href = "/";
+  }
+
   const checkToken = async () => {
     const {
       data: { message },
@@ -59,7 +65,6 @@ const App = () => {
       <StyledRootContainer>
         <Switch>
           <UserProvider>
-            {/* <Route path="/?access_token=token" component={GithubCallbackPage} /> */}
             <Route exact path="/" component={IssuesPage} />
             <MilestoneProvider>
               <Route

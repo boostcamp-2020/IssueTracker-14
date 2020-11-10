@@ -1,6 +1,7 @@
 const { user: UserModel } = require("../db/models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt-nodejs");
+require("dotenv").config();
 
 const signup = async (req, res) => {
   try {
@@ -78,7 +79,11 @@ const githubLogin = (req, res) => {
     const jwtoken = getToken({ id, email, nickname });
     return res
       .status(200)
-      .redirect(`http://localhost:8000?access_token=${jwtoken}`);
+      .redirect(
+        process.env.NODE_ENV === "development"
+          ? `http://localhost:8000?access_token=${jwtoken}`
+          : `http://issuetracker.2oneweek.stie?access_token=${jwtoken}`
+      );
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
