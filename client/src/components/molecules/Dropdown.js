@@ -22,6 +22,7 @@ const StyledHidden = styled.div`
   z-index: 1;
 `;
 
+// TODO: dropdown open시 다른 곳 누르면 꺼지게
 const Dropdown = ({
   buttonData,
   buttonWidth,
@@ -37,6 +38,7 @@ const Dropdown = ({
   btnDisplay,
   btnJustify,
   btnPadding,
+  fetchData,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -44,9 +46,10 @@ const Dropdown = ({
   const [searchName, setSearchName] = useState("");
 
   const handleDropdown = () => {
-    showDropdown === "none"
-      ? setShowDropdown("block")
-      : setShowDropdown("none");
+    if (showDropdown === "none") {
+      fetchData();
+      setShowDropdown("block");
+    } else setShowDropdown("none");
   };
 
   const handleSearch = (e) => setSearchName(e.target.value);
@@ -98,23 +101,30 @@ const Dropdown = ({
             onChange={handleSearch}
           />
         ) : null}
-        {buttonData
-          .filter((el) => {
-            return el.name.includes(searchName);
-          })
-          .map((el, idx) => {
+        {buttonData === null ? (
+          <A.Button
+            width={dropdownWidth}
+            height={buttonHeight}
+            border={true}
+            textAlign={"left"}
+          >
+            <span>loading...</span>
+          </A.Button>
+        ) : (
+          buttonData.map((el) => {
             return (
               <A.Button
-                key={idx}
+                key={el.id}
                 width={dropdownWidth}
                 height={buttonHeight}
                 border={true}
                 textAlign={"left"}
               >
-                <span>{el.name}</span>
+                <span>{el.title === undefined ? el.nickname : el.title}</span>
               </A.Button>
             );
-          })}
+          })
+        )}
       </StyledHidden>
     </StyledDropdown>
   );

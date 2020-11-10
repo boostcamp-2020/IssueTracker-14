@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Dropdown from "./Dropdown";
-import Text from "../atoms/Text";
+import A from "../atoms/index";
+import M from "./index";
 
 const StyledDropDownWithText = styled.div`
   padding: 1rem 0;
@@ -17,11 +17,12 @@ const DropDownWithText = ({
   icon,
   text,
   fontSize,
+  fetchData,
   ...rest
 }) => {
   return (
     <StyledDropDownWithText>
-      <Dropdown
+      <M.Dropdown
         buttonData={buttonData}
         buttonText={buttonText}
         btnDisplay={"flex"}
@@ -32,10 +33,12 @@ const DropDownWithText = ({
         showDropdown={showDropdown}
         search={search}
         icon={icon}
-      ></Dropdown>
-      <Text hover={false} fontSize={fontSize}>
+        fetchData={fetchData}
+        search={false}
+      ></M.Dropdown>
+      <A.Text hover={false} fontSize={fontSize}>
         {text}
-      </Text>
+      </A.Text>
     </StyledDropDownWithText>
   );
 };
