@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import Image from "../../components/atoms/Image";
-import A from "../../components/atoms/index";
-import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 
 const NewIssuePageWrapper = styled.div`
@@ -15,12 +13,14 @@ const NewIssuePageWrapper = styled.div`
 `;
 
 const NewIssuePage = () => {
+  const imageUrl = localStorage.getItem("userImage");
   return (
     <>
       <Header />
       <NewIssuePageWrapper>
         <Image
           imageUrl={
+            imageUrl &&
             "https://img7.yna.co.kr/photo/reuters/2020/09/20/PRU20200920291901055_P4.jpg"
           }
           padding={"0 0.5rem"}

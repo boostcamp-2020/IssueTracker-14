@@ -38,9 +38,12 @@ const App = () => {
 
   const checkToken = async () => {
     const {
-      data: { message },
+      data: { message, user },
     } = await myAxios.get("/user/status");
     if (message === "ok") {
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("username", user.nickname);
+      localStorage.setItem("userImage", user.imageUrl);
       setIsAuth(true);
       return true;
     }
