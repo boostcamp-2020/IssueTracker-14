@@ -23,7 +23,6 @@ const StyledHidden = styled.div`
   z-index: 1;
 `;
 
-// TODO: dropdown open시 다른 곳 누르면 꺼지게
 const Dropdown = ({
   buttonData,
   buttonWidth,
