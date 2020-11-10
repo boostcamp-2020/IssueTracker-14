@@ -18,6 +18,7 @@ const FileInput = () => {
         htmlFor={"file"}
         label={"Attach files by selecting here"}
         fontWeight={"500"}
+        fontSize={"0.8rem"}
       />
       <A.Input
         type={"file"}

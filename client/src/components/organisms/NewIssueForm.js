@@ -28,11 +28,14 @@ const NewIssueForm = () => {
         type={"text"}
         placeholder={"Title"}
         margin={"0"}
+        padding={"0.5rem"}
+        fontSize={"1rem"}
         bgColor={"middleWhite"}
         rounded={true}
         height={"auto"}
         width={"100%"}
       />
+      <M.Tabs tabList={["Write", "Priview"]} />
       <M.FormTextArea
         label={"Write"}
         htmlFor={"comment"}

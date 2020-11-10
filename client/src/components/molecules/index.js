@@ -9,6 +9,7 @@ import NavigationWrapperLink from "./NavigationWrapperLink";
 import IssueData from "./IssueData";
 import FileInput from "./FileInput";
 import Title from "./Title";
+import Tabs from "./Tabs";
 
 export default {
   ButtonDiv,
@@ -22,4 +23,5 @@ export default {
   IssueData,
   FileInput,
   Title,
+  Tabs,
 };
