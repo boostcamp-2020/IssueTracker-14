@@ -49,12 +49,12 @@ const Input = ({
 );
 
 Input.defaultProps = {
-  margin: "0.75rem",
-  padding: "0.75rem",
+  // margin: "0.75rem",
+  // padding: "0.75rem",
   fontSize: "0.75rem",
   rounded: false,
   placeholder: "",
-  height: "55%",
+  height: "2.3rem",
 };
 
 export default Input;

@@ -11,10 +11,8 @@ const StyledText = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight === "bold" && "bold"};
   font-size: ${({ fontSize }) => fontSize};
   cursor: ${({ cursor }) => cursor};
-
-  margin: 0;
+  margin: 0.3rem;
   padding: 0;
-
   &:hover {
     color: ${({ hover }) => hover && colors.blue};
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import colors from "./../../constants/colors";
 import styled from "styled-components";
-import Title from "../../components/organisms/Title";
+import Title from "../../components/molecules/Title";
 import SignUpForm from "../../components/organisms/SignUpForm";
 
 const SignUpPageWrapper = styled.div`
@@ -17,7 +17,7 @@ const SignUpPageWrapper = styled.div`
 
 const SignUpPage = () => (
   <SignUpPageWrapper>
-    <Title />
+    <Title>이슈트래커</Title>
     <SignUpForm />
   </SignUpPageWrapper>
 );

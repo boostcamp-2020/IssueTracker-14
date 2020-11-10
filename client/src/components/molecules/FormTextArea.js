@@ -33,11 +33,14 @@ const FormTextArea = ({
   bgColor,
   charLength,
   onChange,
+  width,
+  height,
   ...rest
 }) => {
   return (
     <StyledFormTextArea>
-      <StyledButtonWrapper>
+      <
+    >
         <A.Button
           border
           borderBottom={"0"}

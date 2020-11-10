@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import A from "../atoms/index";
 
 const StyledInputLabel = styled.label`
   box-sizing: border-box;
@@ -17,32 +18,25 @@ const StyledInputLabel = styled.label`
   padding: 0;
 `;
 
-const InputLabel = ({
-  fontSize,
-  height,
-  padding,
-  margin,
-  htmlFor,
-  label,
-  ...rest
-}) => (
+const InputLabel = ({ fontSize, height, padding, margin, htmlFor, label }) => (
   <StyledInputLabel
     htmlFor={htmlFor}
     fontSize={fontSize}
     height={height}
     padding={padding}
     margin={margin}
-    {...rest}
   >
-    <div>{label}</div>
+    <A.Text hover={false} fontWeight={"bold"}>
+      {label}
+    </A.Text>
   </StyledInputLabel>
 );
 
 InputLabel.defaultProps = {
   padding: "0rem",
-  margin: "0.1rem 0rem",
-  height: "0.5rem",
-  fontSize: "14px",
+  // margin: "0.1rem 0rem",
+  height: "1rem",
+  fontSize: "medium",
   label: "기본 라벨",
   fontWeight: "bold",
 };

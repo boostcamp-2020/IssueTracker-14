@@ -26,7 +26,6 @@ const userReducer = (state, action) => {
       };
 
     case "CHANGE_SIGNUP_INPUT":
-      console.log(state.signup);
       return {
         ...state,
         signup: {

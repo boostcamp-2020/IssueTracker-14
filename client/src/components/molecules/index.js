@@ -6,6 +6,7 @@ import FormDiv from "./FormDiv";
 import FormTextArea from "./FormTextArea";
 import NavigationWrapperLink from "./NavigationWrapperLink";
 import FileInput from "./FileInput";
+import Title from "./Title";
 
 export default {
   ButtonDiv,
@@ -16,4 +17,5 @@ export default {
   FormTextArea,
   NavigationWrapperLink,
   FileInput,
+  Title,
 };
