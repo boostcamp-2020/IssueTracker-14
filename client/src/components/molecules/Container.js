@@ -17,7 +17,6 @@ const StyledMenuWrapper = styled.div`
   height: 3.5rem;
   box-sizing: border-box;
   border-bottom: 1px solid #000000;
-  padding: 0rem 1rem;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +26,6 @@ const StyledContentWrapper = styled.div`
   position: relative;
   display: flex;
   box-sizing: border-box;
-  padding: 0rem 1rem;
   width: 100%;
   min-height: 20rem;
   justify-content: center;
