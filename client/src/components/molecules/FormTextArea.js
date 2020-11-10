@@ -5,19 +5,13 @@ import M from "./index";
 
 const StyledFormTextArea = styled.div`
   position: relative;
-`;
-
-const StyledButtonWrapper = styled.div`
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border-bottom: 1px solid #e3e3e4;
-  margin-bottom: 0.5rem;
-  z-index: 0;
+  width: ${({ width }) => width};
 `;
 
 const StyledTextWrapper = styled.div`
   position: absolute;
   right: 0.8rem;
-  bottom: 4rem;
+  bottom: 1rem;
 `;
 
 const StyledTextAreaWrapper = styled.div`
@@ -38,17 +32,7 @@ const FormTextArea = ({
   ...rest
 }) => {
   return (
-    <StyledFormTextArea>
-      <A.Button
-        border
-        borderBottom={"0"}
-        padding={"0.5rem"}
-        rounded={false}
-        borderColor="#e3e3e4"
-        zIndex={"1"}
-      >
-        Write
-      </A.Button>
+    <StyledFormTextArea width={width}>
       <StyledTextWrapper>
         <A.Text cursor={"default"} hover={false} fontSize={"0.8rem"}>
           {charLength} characters
@@ -60,10 +44,10 @@ const FormTextArea = ({
           placeholder={placeholder}
           rows={rows}
           bgColor={bgColor}
+          width={"100%"}
           {...rest}
           onChange={onChange}
         />
-        <M.FileInput />
       </StyledTextAreaWrapper>
     </StyledFormTextArea>
   );

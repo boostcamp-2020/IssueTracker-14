@@ -16,9 +16,19 @@ const StyledInputLabel = styled.label`
   font-weight: ${({ fontWeight }) => fontWeight};
   width: 80%;
   padding: 0;
+  cursor: ${({ cursor }) => cursor};
 `;
 
-const InputLabel = ({ fontSize, height, padding, margin, htmlFor, label }) => (
+const InputLabel = ({
+  fontSize,
+  height,
+  padding,
+  margin,
+  htmlFor,
+  label,
+  fontWeight,
+  ...rest
+}) => (
   <StyledInputLabel
     htmlFor={htmlFor}
     fontSize={fontSize}
@@ -26,7 +36,7 @@ const InputLabel = ({ fontSize, height, padding, margin, htmlFor, label }) => (
     padding={padding}
     margin={margin}
   >
-    <A.Text hover={false} fontWeight={"bold"}>
+    <A.Text hover={false} fontWeight={fontWeight} fontSize={fontSize}>
       {label}
     </A.Text>
   </StyledInputLabel>
@@ -39,6 +49,7 @@ InputLabel.defaultProps = {
   fontSize: "medium",
   label: "기본 라벨",
   fontWeight: "bold",
+  cursor: "default",
 };
 
 export default InputLabel;

@@ -31,6 +31,9 @@ const StyledButton = styled.button`
   &:active {
     background-color: ${({ backgroundColor }) => colors[backgroundColor]};
   }
+  & + & {
+    margin-left: 0.8rem;
+  }
 `;
 
 const Button = ({
