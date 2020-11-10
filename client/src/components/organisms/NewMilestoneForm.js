@@ -11,7 +11,6 @@ const StyledNewMilestoneForm = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-  height: 40rem;
   margin: 20px 0;
 `;
 
@@ -20,8 +19,7 @@ const StyledDescription = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
-  height: 35%;
+  width: 40vw;
 `;
 
 const StyledFormFooter = styled.div`
@@ -52,9 +50,10 @@ const NewMilestoneForm = () => {
     <StyledNewMilestoneForm>
       <M.FormDiv
         label={"title"}
-        for={"title-id"}
+        for={"title"}
         type={"text"}
         name={"title"}
+        id={"title"}
         padding={"1rem"}
         width={"30%"}
         placeholder={"title"}
@@ -63,9 +62,10 @@ const NewMilestoneForm = () => {
       />
       <M.FormDiv
         label={"Due date"}
-        for={"Due-date"}
+        for={"duedate"}
         type={"date"}
         name={"duedate"}
+        id={"duedate"}
         padding={"1rem"}
         width={"30%"}
         onChange={onChange}

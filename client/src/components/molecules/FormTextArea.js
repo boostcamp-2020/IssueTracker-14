@@ -5,12 +5,13 @@ import M from "./index";
 
 const StyledFormTextArea = styled.div`
   position: relative;
+  width: ${({ width }) => width};
 `;
 
 const StyledTextWrapper = styled.div`
   position: absolute;
   right: 0.8rem;
-  bottom: 3rem;
+  bottom: 1rem;
 `;
 
 const StyledTextAreaWrapper = styled.div`
@@ -31,7 +32,7 @@ const FormTextArea = ({
   ...rest
 }) => {
   return (
-    <StyledFormTextArea>
+    <StyledFormTextArea width={width}>
       <StyledTextWrapper>
         <A.Text cursor={"default"} hover={false} fontSize={"0.8rem"}>
           {charLength} characters
@@ -47,7 +48,6 @@ const FormTextArea = ({
           {...rest}
           onChange={onChange}
         />
-        <M.FileInput />
       </StyledTextAreaWrapper>
     </StyledFormTextArea>
   );

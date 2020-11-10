@@ -56,6 +56,7 @@ const NewIssueForm = () => {
           onChange={onChangeTextArea}
           charLength={charLength}
         />
+        <M.FileInput />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
         <A.Button width={"auto"}>Cancel</A.Button>
