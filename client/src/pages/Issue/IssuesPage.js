@@ -50,11 +50,11 @@ const IssuesPage = () => {
           <O.NavigationWrapperInput />
           <M.NavigationWrapperLink />
           <M.ButtonDiv
-            buttonColor={colors.green}
+            buttonColor={"green"}
             width={"8rem"}
             height={"2rem"}
             onClick={onClickNewIssue}
-            textColor={colors.white}
+            textColor={"white"}
             fontSize={"small"}
             hover={false}
             border={true}
