@@ -9,6 +9,7 @@ import {
   faWindowClose,
   faCog,
   faExclamationCircle,
+  faCommentAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
@@ -23,6 +24,7 @@ const icons = {
   reset: <FontAwesomeIcon icon={faWindowClose} />,
   cog: <FontAwesomeIcon icon={faCog} />,
   alert: <FontAwesomeIcon icon={faExclamationCircle} />,
+  message: <FontAwesomeIcon icon={faCommentAlt} />,
 };
 
 export default icons;

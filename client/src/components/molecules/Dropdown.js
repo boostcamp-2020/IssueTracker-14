@@ -111,7 +111,12 @@ const Dropdown = ({
             <span>loading...</span>
           </A.Button>
         ) : (
-          buttonData.map((el) => {
+          buttonData
+          .filter((el) => {
+            if (el.title) return el.title.includes(searchName);
+            return true;
+          })
+          .map((el) => {
             return (
               <A.Button
                 key={el.id}
@@ -142,6 +147,7 @@ Dropdown.defaultProps = {
   search: true,
   icon: "dropdown",
   showDropdown: "none",
+  fetchData: ()=>{},
 };
 
 export default Dropdown;
