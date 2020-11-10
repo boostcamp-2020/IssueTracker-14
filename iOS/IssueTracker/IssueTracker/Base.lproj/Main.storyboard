@@ -607,19 +607,64 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QMu-sG-FB2">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="414" height="56"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="B3P-aM-588">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LabelCollectionViewCell" id="B3P-aM-588" customClass="LabelCollectionViewCell" customModule="IssueTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hyp-Fp-Xub">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="6le-0o-I1g">
+                                                    <rect key="frame" x="16" y="8" width="155" height="40"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" text="feature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-ne-Ry6" customClass="PaddingLabel" customModule="IssueTracker" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="19"/>
+                                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingWidth">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="paddingHeight">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" text="기능에 대한 레이블입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-3F-xVU">
+                                                            <rect key="frame" x="0.0" y="25" width="155" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="4Vn-VH-XMo"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" systemColor="systemGrayColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6le-0o-I1g" firstAttribute="leading" secondItem="hyp-Fp-Xub" secondAttribute="leading" constant="16" id="9zd-lb-COR"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6le-0o-I1g" secondAttribute="trailing" constant="32" id="V8k-fX-XUD"/>
+                                                <constraint firstAttribute="bottom" secondItem="6le-0o-I1g" secondAttribute="bottom" constant="8" id="YNS-Be-39C"/>
+                                                <constraint firstItem="6le-0o-I1g" firstAttribute="top" secondItem="hyp-Fp-Xub" secondAttribute="top" constant="8" id="bXZ-oj-tbT"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="56"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="PLX-3F-xVU" id="m1f-W1-Voq"/>
+                                            <outlet property="labelLabel" destination="hr9-ne-Ry6" id="tkb-om-6Gq"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -633,10 +678,13 @@
                             <constraint firstItem="ebC-Bw-szy" firstAttribute="top" secondItem="RcB-1O-PKH" secondAttribute="top" id="itS-e1-oks"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="labelCollectionView" destination="ebC-Bw-szy" id="Gax-J5-KNt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jU-mA-C6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="378" y="500"/>
+            <point key="canvasLocation" x="376.81159420289856" y="1301.7857142857142"/>
         </scene>
         <!--Mile Stone List View Controller-->
         <scene sceneID="0P1-yV-N2K">
@@ -877,7 +925,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feature" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8aP-yj-Dpm" customClass="PaddingLabel" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="359" width="64.5" height="27.5"/>
+                                <rect key="frame" x="20" y="359" width="74.5" height="27.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -1060,10 +1108,13 @@
             <size key="intrinsicContentSize" width="94" height="33"/>
         </designable>
         <designable name="8aP-yj-Dpm">
-            <size key="intrinsicContentSize" width="64.5" height="25.5"/>
+            <size key="intrinsicContentSize" width="74.5" height="27.5"/>
         </designable>
         <designable name="ZCV-7a-4VR">
             <size key="intrinsicContentSize" width="56" height="30"/>
+        </designable>
+        <designable name="hr9-ne-Ry6">
+            <size key="intrinsicContentSize" width="56" height="19"/>
         </designable>
         <designable name="k3Y-fo-ljF">
             <size key="intrinsicContentSize" width="17" height="22"/>
