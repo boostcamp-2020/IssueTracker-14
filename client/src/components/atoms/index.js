@@ -6,6 +6,8 @@ import Input from "./Input";
 import InputLabel from "./InputLabel";
 import Label from "./Label";
 import Text from "./Text";
+import TextArea from "./TextArea";
+import Line from "./Line";
 
 export default {
   Button,
@@ -16,4 +18,6 @@ export default {
   InputLabel,
   Label,
   Text,
+  TextArea,
+  Line,
 };

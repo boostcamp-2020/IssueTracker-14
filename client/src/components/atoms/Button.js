@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
@@ -7,6 +8,7 @@ const StyledButton = styled.button`
   outline: none;
   border: ${({ border }) => (border === true ? 1 : 0)}px solid
     ${({ borderColor }) => borderColor};
+  border-bottom: ${({ borderBottom }) => borderBottom};
   height: ${({ height }) => height};
   width: ${({ width }) => width};
   padding: ${({ padding }) => padding};
@@ -20,6 +22,7 @@ const StyledButton = styled.button`
 
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
+  z-index: ${({ zIndex }) => zIndex};
 
   &:hover {
     background-color: ${({ backgroundColor }) => colors[backgroundColor]};
@@ -72,6 +75,8 @@ Button.defaultProps = {
   textAlign: "center",
   cursor: "pointer",
   display: "block",
+  width: "100%",
+  height: "2rem",
 };
 
 export default Button;

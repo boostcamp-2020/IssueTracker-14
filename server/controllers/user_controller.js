@@ -76,7 +76,9 @@ const githubLogin = (req, res) => {
   try {
     const { email, nickname, id } = req.user;
     const jwtoken = getToken({ id, email, nickname });
-    return res.status(200).json({ message: "success", token: jwtoken });
+    return res
+      .status(200)
+      .redirect(`http://localhost:8000?access_token=${jwtoken}`);
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

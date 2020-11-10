@@ -6,8 +6,9 @@ const StyledButtonDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 55px;
-  width: 100px;
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
+  margin: ${({ margin }) => margin};
 `;
 
 const ButtonDiv = ({
@@ -19,10 +20,11 @@ const ButtonDiv = ({
   fontSize,
   hover,
   children,
+  margin,
   ...rest
 }) => {
   return (
-    <StyledButtonDiv>
+    <StyledButtonDiv width={width} height={height} margin={margin}>
       <A.Button
         border
         backgroundColor={buttonColor}
