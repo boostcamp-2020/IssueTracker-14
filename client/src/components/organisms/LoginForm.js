@@ -52,6 +52,10 @@ const LoginForm = ({ size }) => {
     });
   }, []);
 
+  const GithubLoginUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000/api/user/oauth/github"
+      : "http://115.85.183.106:3000/api/user/oauth/github";
   return (
     <StyledLoginForm>
       <StyledLoginFormDivWrapper>
@@ -82,12 +86,8 @@ const LoginForm = ({ size }) => {
           IssueTracker team 14에 로그인하기
         </M.ButtonDiv>
         <a
-          href={
-            process.env.NODE_ENV === "development"
-              ? "http://localhost:3000/api/user/oauth/github"
-              : ""
-          }
-          style={{ display: "block", width: "100%" }}
+          href={`${GithubLoginUrl}`}
+          style={{ display: "block", width: "100%", margin: 0, padding: 0 }}
         >
           <M.ButtonDiv
             buttonColor={colors.black}
@@ -96,7 +96,6 @@ const LoginForm = ({ size }) => {
             textColor={"white"}
             fontSize={"small"}
             hover={false}
-            margin={"0.3rem"}
           >
             Github으로 로그인하기
             <A.Icon location={"right"} name={"github"} distance={"0.3"} />

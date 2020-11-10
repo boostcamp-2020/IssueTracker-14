@@ -82,7 +82,7 @@ const githubLogin = (req, res) => {
       .redirect(
         process.env.NODE_ENV === "development"
           ? `http://localhost:8000?access_token=${jwtoken}`
-          : `http://issuetracker.2oneweek.stie?access_token=${jwtoken}`
+          : `http://issuetracker.2oneweek.site?access_token=${jwtoken}`
       );
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
