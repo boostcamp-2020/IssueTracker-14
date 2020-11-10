@@ -11,9 +11,10 @@ const StyledTabs = styled.div`
 const Tabs = ({ tabList }) => {
   return (
     <StyledTabs>
-      {tabList.map((tab) => {
+      {tabList.map((tab, id) => {
         return (
           <A.Button
+            key={id}
             border
             borderBottom={"0"}
             padding={"0.5rem"}
