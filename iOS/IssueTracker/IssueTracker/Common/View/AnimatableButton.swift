@@ -23,12 +23,11 @@ class AnimatableButton: UIButton {
     }
     
     private func configure() {
-        self.addTarget(self, action: #selector(animate(_:)), for: .touchUpInside)
-        self.addTarget(self, action: #selector(animate(_:)), for: .touchDown)
-        self.addTarget(self, action: #selector(animate(_:)), for: .touchUpOutside)
+        addTarget(self, action: #selector(animate(_:)), for: .touchUpInside)
+        addTarget(self, action: #selector(animate(_:)), for: .touchDown)
+        addTarget(self, action: #selector(animate(_:)), for: .touchUpOutside)
         titleLabel?.minimumScaleFactor = 0.1
         titleLabel?.adjustsFontSizeToFitWidth = true
-        titleLabel?.lineBreakMode = .byClipping
     }
     
     private func scaleUp(_ sender: UIButton) {
