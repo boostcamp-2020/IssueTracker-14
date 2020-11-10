@@ -7,17 +7,10 @@ const StyledFormTextArea = styled.div`
   position: relative;
 `;
 
-const StyledButtonWrapper = styled.div`
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border-bottom: 1px solid #e3e3e4;
-  margin-bottom: 0.5rem;
-  z-index: 0;
-`;
-
 const StyledTextWrapper = styled.div`
   position: absolute;
   right: 0.8rem;
-  bottom: 4rem;
+  bottom: 3rem;
 `;
 
 const StyledTextAreaWrapper = styled.div`
@@ -50,6 +43,7 @@ const FormTextArea = ({
           placeholder={placeholder}
           rows={rows}
           bgColor={bgColor}
+          width={"100%"}
           {...rest}
           onChange={onChange}
         />

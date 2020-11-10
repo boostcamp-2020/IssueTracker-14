@@ -19,6 +19,7 @@ const FileInput = () => {
         label={"Attach files by selecting here"}
         fontWeight={"500"}
         fontSize={"0.8rem"}
+        cursor={"pointer"}
       />
       <A.Input
         type={"file"}
@@ -32,6 +33,7 @@ const FileInput = () => {
         position={"absolute"}
         left={"0"}
         top={"0"}
+        cursor={"pointer"}
       />
     </StyledFileInput>
   );

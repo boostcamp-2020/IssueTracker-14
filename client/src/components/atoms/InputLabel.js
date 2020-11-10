@@ -16,6 +16,7 @@ const StyledInputLabel = styled.label`
   font-weight: ${({ fontWeight }) => fontWeight};
   width: 80%;
   padding: 0;
+  cursor: ${({ cursor }) => cursor};
 `;
 
 const InputLabel = ({
@@ -48,6 +49,7 @@ InputLabel.defaultProps = {
   fontSize: "medium",
   label: "기본 라벨",
   fontWeight: "bold",
+  cursor: "default",
 };
 
 export default InputLabel;
