@@ -14,17 +14,16 @@ const createIssue = async (req, res) => {
   try {
     const {
       title,
-      description,
       milestoneid,
       assigneeIdList,
       labelIdList,
+      commentContent,
     } = req.body;
     const { id: authorid } = req.user;
 
     const { id: issueid } = await IssueModel.create(
       {
         title,
-        description,
         authorid,
         milestoneid,
         status: "open",
@@ -32,19 +31,26 @@ const createIssue = async (req, res) => {
       { transaction: t }
     );
 
-    await AssigneeModel.bulkCreate(
-      JSON.parse(assigneeIdList).map((userid) => {
-        return { issueid, userid };
-      }),
+    await CommentModel.create(
+      { issueid, content: commentContent, userid: authorid },
       { transaction: t }
     );
 
-    await LabelHasIssueModel.bulkCreate(
-      JSON.parse(labelIdList).map((labelid) => {
-        return { issueid, labelid };
-      }),
-      { transaction: t }
-    );
+    Array.isArray(assigneeIdList) &&
+      (await AssigneeModel.bulkCreate(
+        JSON.parse(assigneeIdList).map((userid) => {
+          return { issueid, userid };
+        }),
+        { transaction: t }
+      ));
+
+    Array.isArray(labelIdList) &&
+      (await LabelHasIssueModel.bulkCreate(
+        JSON.parse(labelIdList).map((labelid) => {
+          return { issueid, labelid };
+        }),
+        { transaction: t }
+      ));
     await t.commit();
     return res.status(200).json({ message: "success" });
   } catch (error) {
