@@ -7,17 +7,35 @@ const StyledImage = styled.img`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   padding: ${({ padding }) => padding};
-  cursor: ${({cursor}) => cursor};
+  cursor: ${({ cursor }) => cursor};
   border-radius: 50%;
 `;
 
-const Image = ({ position, right, imageUrl, size, padding, cursor, ...rest }) => {
-  return <StyledImage position={position} right={right} src={imageUrl} size={size} padding={padding} cursor={cursor} {...rest} />;
+const Image = ({
+  position,
+  right,
+  imageUrl,
+  size,
+  padding,
+  cursor,
+  ...rest
+}) => {
+  return (
+    <StyledImage
+      position={position}
+      right={right}
+      src={imageUrl}
+      size={size}
+      padding={padding}
+      cursor={cursor}
+      {...rest}
+    />
+  );
 };
 
 Image.defaultProps = {
   size: "40px",
   position: "relative",
-  cursor: "defualt",
+  cursor: "default",
 };
 export default Image;
