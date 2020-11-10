@@ -18,7 +18,16 @@ const StyledInputLabel = styled.label`
   padding: 0;
 `;
 
-const InputLabel = ({ fontSize, height, padding, margin, htmlFor, label }) => (
+const InputLabel = ({
+  fontSize,
+  height,
+  padding,
+  margin,
+  htmlFor,
+  label,
+  fontWeight,
+  ...rest
+}) => (
   <StyledInputLabel
     htmlFor={htmlFor}
     fontSize={fontSize}
@@ -26,7 +35,7 @@ const InputLabel = ({ fontSize, height, padding, margin, htmlFor, label }) => (
     padding={padding}
     margin={margin}
   >
-    <A.Text hover={false} fontWeight={"bold"}>
+    <A.Text hover={false} fontWeight={fontWeight} fontSize={fontSize}>
       {label}
     </A.Text>
   </StyledInputLabel>
