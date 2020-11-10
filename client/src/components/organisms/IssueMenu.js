@@ -39,11 +39,11 @@ const issueDropdownOptions = [
       buttonWidth: "7rem",
     },
     {
-      buttonData: [{name: "Newest"}, {name: "Oldest"}, {name: "Most commented"}, {name: "Least commented"}, {name: "Recently updated"}, {name: "Least recently updated"},],
+      buttonData: [{title: "Newest", id: "id1"}, {title: "Oldest", id: "id2"}, {title: "Most commented", id: "id3"}, {title: "Least commented", id: "id4"}, {title: "Recently updated", id: "id5"}, {title: "Least recently updated", id: "id6"},],
       buttonText: "Sort",
       labelText: "Sort by",
       buttonWidth: "5rem",
-      search: false
+      search: true
     },
 ];
 
