@@ -1,5 +1,4 @@
 import React, { useReducer, useContext, createContext } from "react";
-import { useHistory } from "react-router-dom";
 import myAxios from "../utils/myAxios";
 
 const initialState = {
@@ -8,10 +7,37 @@ const initialState = {
     duedate: "",
     description: "",
   },
+  milestones: [],
+  loading: true,
+  error: null,
 };
 
 const milestoneReducer = (state, action) => {
   switch (action.type) {
+    case "READ_LOADING":
+      return {
+        ...state,
+        loading: false,
+        milestones: null,
+        error: null,
+      };
+
+    case "READ_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        milestones: action.data.milestones,
+        error: null,
+      };
+
+    case "READ_ERROR":
+      return {
+        ...state,
+        loading: false,
+        milestones: null,
+        error: action.error,
+      };
+
     case "ON_CHANGE_INPUTS":
       return {
         ...state,
@@ -20,6 +46,7 @@ const milestoneReducer = (state, action) => {
           [action.name]: action.value,
         },
       };
+
     case "CREATE_NEW_MILESTONE":
       try {
         const createMilestone = async () => {
@@ -32,7 +59,7 @@ const milestoneReducer = (state, action) => {
           });
           if (message === "success") {
             alert("정상적으로 Milestone이 생성되었습니다.");
-            window.history.popState();
+            return;
           }
         };
         return createMilestone();
@@ -40,6 +67,7 @@ const milestoneReducer = (state, action) => {
         console.log(error);
       }
       return;
+
     default:
       return state;
   }

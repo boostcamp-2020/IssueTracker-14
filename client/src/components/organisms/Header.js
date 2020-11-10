@@ -20,7 +20,7 @@ const StyledHeader = styled.div`
 const Header = () => (
   <StyledHeader>
     <Link to={"/"} style={{ textDecoration: "none" }}>
-      <A.Text cursor={false} hover color={"white"}>
+      <A.Text hover color={"white"}>
         <A.Icon name={"book"} cursor={"text"} />
         헤더입니다.
       </A.Text>

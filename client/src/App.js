@@ -6,6 +6,8 @@ import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
 import { UserProvider } from "./stores/user";
 import { MilestoneProvider } from "./stores/milestone";
+import { LabelProvider } from "./stores/label";
+import { AssigneeProvider } from "./stores/assignee";
 
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
@@ -65,18 +67,20 @@ const App = () => {
         <Switch>
           <UserProvider>
             <Route exact path="/" component={IssuesPage} />
-            <MilestoneProvider>
-              <Route
-                exact
-                path="/milestones/new"
-                component={NewMilestonePage}
-              />
-            </MilestoneProvider>
-
-            <Route exact path="/issues/new" component={NewIssuePage} />
-
-            <Route exact path="/login" component={LoginPage} />
-            <Route exact path="/signup" component={SignUpPage} />
+            <AssigneeProvider>
+              <LabelProvider>
+                <MilestoneProvider>
+                  <Route
+                    exact
+                    path="/milestones/new"
+                    component={NewMilestonePage}
+                  />
+                  <Route exact path="/issues/new" component={NewIssuePage} />
+                  <Route exact path="/login" component={LoginPage} />
+                  <Route exact path="/signup" component={SignUpPage} />
+                </MilestoneProvider>
+              </LabelProvider>
+            </AssigneeProvider>
           </UserProvider>
         </Switch>
         {/*

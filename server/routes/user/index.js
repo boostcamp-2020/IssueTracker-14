@@ -15,6 +15,12 @@ router.get(
   }
 );
 
+router.get(
+  "/all",
+  passport.authenticate("jwt", { session: false }),
+  userController.getAllUsers
+);
+
 router.post("/signup", userController.signup);
 router.post("/login", userController.localLogin);
 

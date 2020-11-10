@@ -121,4 +121,15 @@ const getToken = ({ id, nickname, email }) => {
   return jwt.sign(payloadObj, process.env.JWT_SECRET_KEY);
 };
 
-module.exports = { signup, localLogin, githubLogin, appleLogin };
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserModel.findAll({
+      attributes: ["id", "nickname", "imageurl"],
+    });
+    return res.status(200).json({ message: "success", users });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
+module.exports = { signup, localLogin, githubLogin, appleLogin, getAllUsers };
