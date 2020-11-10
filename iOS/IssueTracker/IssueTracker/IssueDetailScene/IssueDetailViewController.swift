@@ -118,13 +118,19 @@ private extension IssueDetailViewController {
 extension IssueDetailViewController: IssueDetailPullUpViewControllerDelegate {
     func scrollUpButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController) {
         let indexPaths = issueDetailTableView.indexPathsForVisibleRows
-        guard let indexPath = indexPaths?.first else { return }
-        issueDetailTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        guard var indexPath = indexPaths?.first else { return }
+        if indexPath.section == 0 {
+            issueDetailTableView.setContentOffset(.zero, animated: true)
+        } else {
+            indexPath.section -= 1
+            issueDetailTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
     
     func scrollDownButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController) {
         let indexPaths = issueDetailTableView.indexPathsForVisibleRows
-        guard let indexPath = indexPaths?.last else { return }
-        issueDetailTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        guard var indexPath = indexPaths?.last, indexPath.section < issue.comments.count - 1 else { return }
+        indexPath.section += 1
+        issueDetailTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
 }
