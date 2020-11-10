@@ -27,3 +27,11 @@ final class LabelCoordinator: NavigationCoordinator {
         navigationController?.pushViewController(viewContoller, animated: true)
     }
 }
+
+extension LabelCoordinator {
+    func showEdit() {
+        let editingViewController = EditingViewController()
+        editingViewController.modalPresentationStyle = .overFullScreen
+        navigationController?.present(editingViewController, animated: true)
+    }
+}
