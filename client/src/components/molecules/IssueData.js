@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import A from './../atoms/index';
 import M from './../molecules/index';
@@ -9,13 +9,14 @@ const StyledIssueData = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  border: 1px solid #000000;
+  border-top: 1px solid #000000;
   width: 100%;
 `;
 
 const StyledCheckbox = styled.div`
     display: flex;
-    min-width: 3rem;
+    width: 3rem;
+    height: 3.5rem;
     justify-content: right;
     align-items: center;
 `
@@ -23,10 +24,16 @@ const StyledCheckbox = styled.div`
 const StyledIssueIcon = styled.div`
     display; flex;
     width: 3rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.5rem;
+    font-size: 1.2rem
 `
 
 const StyledImportant = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: start;
     width: 100%;
 `
 
@@ -35,41 +42,104 @@ const StyledTrivial = styled.div`
     width: 11rem;
 `
 
+const StyledComment = styled.div`
+    display: flex;
+    width: 4.5rem;
+    justify-content: center;
+    align-items: center;
+`
 
-const data = {
-    "id": 74,
-    "title": "네트워크네트워크22",
-    "status": "open",
-    "createdAt": "2020-11-04T18:05:15.000Z",
-    "updatedAt": "2020-11-04T18:05:15.000Z",
-    "description": "리스트를 많이 만들자",
-    "user": {
-        "id": 4,
-        "nickname": "Asdf"
-    },
-    "milestone": null,
-    "assignees": [],
-    "comments": [],
-    "label_has_issues": []
+const StyledAssignee = styled.div`
+    positoin: relative;
+    display: flex;
+    width: 7rem;
+    justify-content: center;
+    align-items: center;
+`
+
+const calculateTime = timeString => {
+    const now = new Date();
+    const timeObject = new Date(timeString);
+    const timeDifference = (now - timeObject) / 1000;
+    if (timeDifference<60){
+        return `${timeDifference} seconds ago`;
+    }
+    if (timeDifference<3600){
+        return `${Math.floor(timeDifference/60)} minutes ago`;
+    }
+    if (timeDifference<216000){
+        return `${Math.floor(timeDifference/3600)} hours ago`;
+    }
+    const todayDate = now.getDate();
+    const timeDate = timeObject.getDate();
+    const dateDifference = todayDate - timeDate;
+    if (timeDifference>216000 && dateDifference===1) {
+        return "yesterday"
+    }
+    return `${Math.floor(timeDifference/216000)} days ago`
 }
 
-const IssueMenu = () => {
+const IssueData = ({props}) => {
+    const [imageHover, setImageHover] = useState(false)
+    const commentsLength = props.comments.length;
+    const assigneesLength = props.assignees.length;
+
+    const mouseOnImage = () => {
+        setImageHover(true);
+    }
+
+    const mouseOffImage = () => {
+        setImageHover(false);
+    }
+
     return (
     <StyledIssueData>
         <StyledCheckbox>
             <A.Checkbox />
         </StyledCheckbox>
         <StyledIssueIcon>
-            
+            <A.Icon name={"alert"} color={props.status==="open" ?  "black" : "red"} />
         </StyledIssueIcon>
         <StyledImportant>
-
+            <A.Text fontSize={"1.25rem"} fontWeight={"bold"} >{props.title}
+            {props["label_has_issues"].map((el,idx)=>{
+                return (
+                    <A.Label key={idx} backgroundHexaColor={el.label.color} margin={"0rem 0rem 0rem 0.3rem"}>{el.label.title}</A.Label>
+                )
+            })}
+            </A.Text>
+            <A.Text fontSize={"0.75rem"}>
+                #{props.id} opened {calculateTime(props.createdAt)} by {props.user.nickname}
+            </A.Text>
         </StyledImportant>
         <StyledTrivial>
-
+            <StyledAssignee onMouseLeave={mouseOffImage}>
+                <>
+                {props.assignees.map((el, idx)=>{
+                    if (el.user.imageurl!==null) return (
+                    <A.Image
+                        key={`assignee-${el.id}`}
+                        size={"1.5rem"}
+                        imageUrl={el.user.imageurl}
+                        position={"absolute"}
+                        right={`${6.2 + assigneesLength + (imageHover ? assigneesLength - idx - 1 : 0) - 0.7 * (idx + 1)}rem`}
+                        cursor={"pointer"}
+                        onClick={() => {alert(el.id)}}
+                        onMouseEnter={mouseOnImage}
+                    />
+                    );
+                })}
+                </>
+            </StyledAssignee>
+            <StyledComment>
+                <A.Text fontSize={"1rem"}>
+                    {commentsLength===0 ? "" : (<><A.Icon name={"message"} color={"black"} /> {commentsLength}</>) }
+                </A.Text>
+            </StyledComment>
         </StyledTrivial>
     </StyledIssueData>
     )
 }
 
-export default IssueMenu
+
+export default IssueData;
