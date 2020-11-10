@@ -9,7 +9,6 @@ import { MilestoneProvider } from "./stores/milestone";
 
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
-import GithubCallbackPage from "./pages/User/GithubCallbackPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
 import NewIssuePage from "./pages/Issue/NewIssuePage";
 import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
