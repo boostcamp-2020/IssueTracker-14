@@ -42,12 +42,16 @@ extension IssueCollectionViewCell {
 private extension IssueCollectionViewCell {
     func animate() {
         let changedX: CGFloat = isEditing ? -50 : 0
-        UIView.animate(withDuration: 0.3) { [weak self] in
-            guard let self = self else { return }
-            self.layer.bounds = CGRect(x: changedX,
-                                       y: self.bounds.minY,
-                                       width: self.bounds.width,
-                                       height: self.bounds.height)
-        }
+        let animator = UIViewPropertyAnimator(duration: 0.3,
+                                              curve: .easeInOut,
+                                              animations: {
+                                                [weak self] in
+                                                guard let self = self else { return }
+                                                self.layer.bounds = CGRect(x: changedX,
+                                                                           y: self.bounds.minY,
+                                                                           width: self.bounds.width,
+                                                                           height: self.bounds.height)
+                                              })
+        animator.startAnimation()
     }
 }
