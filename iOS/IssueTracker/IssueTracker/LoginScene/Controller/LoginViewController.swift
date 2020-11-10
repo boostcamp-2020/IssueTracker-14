@@ -116,7 +116,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print(error)
+        alert(message: "로그인 실패!\n\(error.localizedDescription)")
     }
 }
 
