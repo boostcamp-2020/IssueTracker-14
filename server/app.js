@@ -46,3 +46,6 @@ app.use(function (req, res, next) {
 
 // error handler
 // TODO: ERROR PAGE 만들고 handler 작성
+app.use((req, res) => {
+  res.redirect("/");
+});

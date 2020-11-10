@@ -8,7 +8,6 @@ import NewIssueForm from "./NewIssueForm";
 import NewIssueOptions from "./NewIssueOptions";
 import NewMilestoneForm from "./NewMilestoneForm";
 import SignUpForm from "./SignUpForm";
-import Title from "./Title";
 
 export default {
   Footer,
@@ -21,5 +20,4 @@ export default {
   NewIssueOptions,
   NewMilestoneForm,
   SignUpForm,
-  Title,
 };
