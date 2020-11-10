@@ -18,6 +18,8 @@
 		44791038255A70CB004366B2 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791037255A70CB004366B2 /* EditingViewController.swift */; };
 		4479103C255A7522004366B2 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479103B255A7522004366B2 /* EditingView.swift */; };
 		44791044255A7C2F004366B2 /* AnimatableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791043255A7C2F004366B2 /* AnimatableButton.swift */; };
+		44791048255AB7CE004366B2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791047255AB7CE004366B2 /* Label.swift */; };
+		4479104C255AB80A004366B2 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
 		449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CE3282559332100A56AEB /* IssueCreateViewController.swift */; };
 		44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCDE02558D95F0023457B /* UseCaseError.swift */; };
@@ -99,6 +101,8 @@
 		44791037255A70CB004366B2 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
 		4479103B255A7522004366B2 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
 		44791043255A7C2F004366B2 /* AnimatableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableButton.swift; sourceTree = "<group>"; };
+		44791047255AB7CE004366B2 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		449CE3282559332100A56AEB /* IssueCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCreateViewController.swift; sourceTree = "<group>"; };
 		44ABCDE02558D95F0023457B /* UseCaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseError.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				B90743012551C4A600E1D2E6 /* LabelListViewController.swift */,
+				4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */,
+				44791047255AB7CE004366B2 /* Label.swift */,
 			);
 			path = LabelListScene;
 			sourceTree = "<group>";
@@ -643,6 +649,7 @@
 				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
 				B90743282551DB9A00E1D2E6 /* SettingViewController.swift in Sources */,
 				449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */,
+				44791048255AB7CE004366B2 /* Label.swift in Sources */,
 				44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */,
 				B907430A2551C5E400E1D2E6 /* LabelCoordinator.swift in Sources */,
 				B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */,
@@ -679,6 +686,7 @@
 				B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */,
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
+				4479104C255AB80A004366B2 /* LabelCollectionViewCell.swift in Sources */,
 				B91AFB4B255938B6007AD8DD /* IssueDetailTableViewCell.swift in Sources */,
 				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
 				B91AFB5125594085007AD8DD /* IssueListViewEditTabBar.swift in Sources */,

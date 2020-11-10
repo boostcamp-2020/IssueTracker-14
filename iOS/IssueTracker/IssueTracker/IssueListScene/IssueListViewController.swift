@@ -24,7 +24,6 @@ final class IssueListViewController: UIViewController {
     @IBOutlet private weak var issueCollectionView: UICollectionView!
     weak var coordinator: IssueCoordinator?
     private let useCase: IssueListUseCaseType
-    private var dataSource: IssueCollectionViewDataSource?
     private var issueListViewEditTabBar: IssueListViewEditTabBar!
     private var selectedCellsCount: Int =  0 {
         didSet {
@@ -37,6 +36,7 @@ final class IssueListViewController: UIViewController {
             updateList()
         }
     }
+    private lazy var dataSource: IssueCollectionViewDataSource = issueDataSource()
     
     init?(coder: NSCoder, useCase: IssueListUseCaseType) {
         self.useCase = useCase
@@ -83,7 +83,7 @@ final class IssueListViewController: UIViewController {
 extension IssueListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if !isEditing {
-            guard let selectedIssue = dataSource?.itemIdentifier(for: indexPath) else { return }
+            guard let selectedIssue = dataSource.itemIdentifier(for: indexPath) else { return }
             useCase.loadDetail(with: selectedIssue.id) { [weak self] result in
                 switch result {
                 case let .success(issue):
@@ -151,7 +151,7 @@ private extension IssueListViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(issues, toSection: .main)
         DispatchQueue.main.async { [weak self] in
-            self?.dataSource?.apply(snapshot)
+            self?.dataSource.apply(snapshot)
         }
     }
 }
@@ -235,7 +235,6 @@ private extension IssueListViewController {
     func configureCollectionView() {
         let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
         issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
-        dataSource = issueDataSource()
         issueCollectionView.dataSource = dataSource
         issueCollectionView.delegate = self
         issueCollectionView.setCollectionViewLayout(issueCollectionViewLayout(), animated: true)
