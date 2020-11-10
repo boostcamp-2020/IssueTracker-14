@@ -26,7 +26,10 @@ const NewIssueForm = () => {
   const [charLength, setCharLength] = useState(0);
 
   const onChangeTextArea = (e) => {
-    setTimeout(() => setCharLength(e.target.value.length), 2000);
+    setTimeout(() => {
+      setCharLength(e.target.value.length);
+      setTimeout(() => setCharLength(0), 2000);
+    }, 2000);
   };
 
   return (
