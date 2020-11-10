@@ -1,23 +1,27 @@
 import Footer from "./Footer";
 import Header from "./Header";
-import IssueMenuDropdowns from "./IssueMenuDropdowns";
-import IssueWrapper from "./IssueWrapper";
+import DropdownCluster from "./DropdownCluster";
 import LoginForm from "./LoginForm";
 import NavigationWrapperInput from "./NavigationWrapperInput";
 import NewIssueForm from "./NewIssueForm";
 import NewIssueOptions from "./NewIssueOptions";
 import NewMilestoneForm from "./NewMilestoneForm";
 import SignUpForm from "./SignUpForm";
+import Title from "./Title";
+import IssueMenu from "./IssueMenu";
+import IssueContent from "./IssueContent";
 
 export default {
   Footer,
   Header,
-  IssueMenuDropdowns,
-  IssueWrapper,
+  DropdownCluster,
   LoginForm,
   NavigationWrapperInput,
   NewIssueForm,
   NewIssueOptions,
   NewMilestoneForm,
   SignUpForm,
+  Title,
+  IssueMenu,
+  IssueContent,
 };
