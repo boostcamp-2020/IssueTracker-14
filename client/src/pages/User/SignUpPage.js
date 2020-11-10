@@ -1,8 +1,9 @@
 import React from "react";
 import colors from "./../../constants/colors";
 import styled from "styled-components";
-import Title from "../../components/molecules/Title";
-import SignUpForm from "../../components/organisms/SignUpForm";
+import A from "../../components/atoms/index";
+import M from "../../components/molecules/index";
+import O from "../../components/organisms/index";
 
 const SignUpPageWrapper = styled.div`
   display: flex;
@@ -17,8 +18,8 @@ const SignUpPageWrapper = styled.div`
 
 const SignUpPage = () => (
   <SignUpPageWrapper>
-    <Title>이슈트래커</Title>
-    <SignUpForm />
+    <M.Title>이슈트래커</M.Title>
+    <O.SignUpForm />
   </SignUpPageWrapper>
 );
 

@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import colors from "../../constants/colors";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
-import NavigationWrapperInput from "./../../components/organisms/NavigationWrapperInput";
-import NavigationWrapperLink from "./../../components/molecules/NavigationWrapperLink";
 import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
@@ -49,8 +47,8 @@ const IssuesPage = () => {
       <Header />
       <IssuesPageWrapper>
         <StyledNavigationWrapper>
-          <NavigationWrapperInput />
-          <NavigationWrapperLink />
+          <O.NavigationWrapperInput />
+          <M.NavigationWrapperLink />
           <M.ButtonDiv
             buttonColor={colors.green}
             width={"8rem"}
