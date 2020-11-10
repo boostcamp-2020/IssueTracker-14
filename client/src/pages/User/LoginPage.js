@@ -1,8 +1,9 @@
 import React, { useReducer, useCallback } from "react";
 import colors from "./../../constants/colors";
 import styled from "styled-components";
+import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
-import LoginForm from "../../components/organisms/LoginForm";
+import O from "../../components/organisms/index";
 
 const LoginPageWrapper = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const LoginPage = () => {
   return (
     <LoginPageWrapper>
       <M.Title>이슈트래커</M.Title>
-      <LoginForm />
+      <O.LoginForm />
     </LoginPageWrapper>
   );
 };

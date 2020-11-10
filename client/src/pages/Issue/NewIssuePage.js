@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import Image from "../../components/atoms/Image";
-import NewIssueForm from "../../components/organisms/NewIssueForm";
-import NewIssueOptions from "../../components/organisms/NewIssueOptions";
+import A from "../../components/atoms/index";
+import M from "../../components/molecules/index";
+import O from "../../components/organisms/index";
 
 const NewIssuePageWrapper = styled.div`
   position: relative;
@@ -24,8 +25,8 @@ const NewIssuePage = () => {
           }
           padding={"0 0.5rem"}
         />
-        <NewIssueForm />
-        <NewIssueOptions />
+        <O.NewIssueForm />
+        <O.NewIssueOptions />
       </NewIssuePageWrapper>
     </>
   );
