@@ -4,7 +4,6 @@ import styled from "styled-components";
 const StyledContainer = styled.div`
   position: relative;
   display: flex;
-  border: 1px solid #000000;
   flex-direction: column;
   align-items: center;
   margin: 0.5rem 0rem 1.5rem 0rem;
@@ -16,7 +15,8 @@ const StyledMenuWrapper = styled.div`
   display: flex;
   height: 3.5rem;
   box-sizing: border-box;
-  border-bottom: 1px solid #000000;
+  border: 1px solid #000000;
+  border-bottom: ${({ empty }) => empty ? "1px solid #000000" : "none"};
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -27,20 +27,27 @@ const StyledContentWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  min-height: 20rem;
+  min-height: ${({ empty }) => empty ? "20rem" : "0rem"};
+  border: 1px solid #000000;
+  border-top: none;
   justify-content: center;
-  align-items: start;
+  align-items: ${({ empty }) => empty ? "center" : "start"};
 `
+// TODO: min-height를 data가 들어오면 거기에 맞게 수정
 
-const Container = ({ menu, content }) => (
+const Container = ({ menu, content, empty }) => (
     <StyledContainer>
-        <StyledMenuWrapper>
+        <StyledMenuWrapper empty={ empty }>
             { menu }
         </StyledMenuWrapper>
-        <StyledContentWrapper>
+        <StyledContentWrapper empty={ empty }>
             { content }
         </StyledContentWrapper>
     </StyledContainer>
 );
+
+Container.defaultProps = {
+  empty: false,
+}
 
 export default Container;
