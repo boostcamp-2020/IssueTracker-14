@@ -1,4 +1,5 @@
 import ButtonDiv from "./ButtonDiv";
+import Container from "./Container";
 import ClearIssueFilter from "./ClearIssueFilter";
 import Dropdown from "./Dropdown";
 import DropdownWithText from "./DropdownWithText";
@@ -8,6 +9,7 @@ import NavigationWrapperLink from "./NavigationWrapperLink";
 
 export default {
   ButtonDiv,
+  Container,
   ClearIssueFilter,
   Dropdown,
   DropdownWithText,
