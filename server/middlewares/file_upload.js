@@ -20,7 +20,7 @@ const S3 = new AWS.S3({
 const upload = multer({
   storage: multerS3({
     s3: S3, // 위에서 정의한 S3 Object
-    bucket: "issue", // 버킷 이름
+    bucket: "issue-tracker-team14", // 버킷 이름
     contentType: multerS3.AUTO_CONTENT_TYPE, // 자동을 콘텐츠 타입 세팅
     acl: "public-read", // 클라이언트에서 자유롭게 가용하기 위함
     key: (req, file, cb) => {

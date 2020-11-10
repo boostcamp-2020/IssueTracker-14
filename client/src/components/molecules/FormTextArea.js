@@ -29,6 +29,7 @@ const FormTextArea = ({
   onChange,
   width,
   height,
+  filePath,
   ...rest
 }) => {
   return (
@@ -47,6 +48,7 @@ const FormTextArea = ({
           width={"100%"}
           {...rest}
           onChange={onChange}
+          filePath={filePath}
         />
       </StyledTextAreaWrapper>
     </StyledFormTextArea>

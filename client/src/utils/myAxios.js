@@ -11,6 +11,13 @@ const headerConfig = {
   },
 };
 
+const fileUploadHeaderConfig = {
+  headers: {
+    Authorization: "Bearer " + localStorage.getItem("token"),
+    "Content-Type": "multipart/form-data;charset=utf-8;",
+  },
+};
+
 const URL = `${serverURL}/api`;
 
 const myAxios = {
@@ -28,6 +35,10 @@ const myAxios = {
 
   delete: function (path) {
     return axios.put(URL + path, headerConfig);
+  },
+
+  filepost: function (data) {
+    return axios.post(URL + "/fileupload", data, fileUploadHeaderConfig);
   },
 };
 

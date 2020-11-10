@@ -3,6 +3,7 @@ import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
+import myAxios from "../../utils/myAxios";
 
 const StyledNewIsssueForm = styled.section`
   padding: 0.5rem 0.5rem;
@@ -24,6 +25,22 @@ const StyledButtonWrapper = styled.div`
 
 const NewIssueForm = () => {
   const [charLength, setCharLength] = useState(0);
+  const [filePath, setFilePath] = useState("");
+
+  const onSubmitHandler = async (event) => {
+    if (event.target.files !== null) {
+      try {
+        const fd = new FormData();
+        fd.append("filename", event.target.files[0]);
+        const {
+          data: { filePath },
+        } = await myAxios.filepost(fd);
+        setFilePath(filePath);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   const onChangeTextArea = (e) => {
     setTimeout(() => setCharLength(e.target.value.length), 2000);
@@ -55,8 +72,9 @@ const NewIssueForm = () => {
           bgColor={"middleWhite"}
           onChange={onChangeTextArea}
           charLength={charLength}
+          filePath={filePath}
         />
-        <M.FileInput />
+        <M.FileInput onSubmitHandler={onSubmitHandler} />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
         <A.Button width={"auto"}>Cancel</A.Button>
