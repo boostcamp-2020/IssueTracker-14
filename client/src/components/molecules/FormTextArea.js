@@ -39,19 +39,16 @@ const FormTextArea = ({
 }) => {
   return (
     <StyledFormTextArea>
-      <
-    >
-        <A.Button
-          border
-          borderBottom={"0"}
-          padding={"0.5rem"}
-          rounded={false}
-          borderColor="#e3e3e4"
-          zIndex={"1"}
-        >
-          Write
-        </A.Button>
-      </StyledButtonWrapper>
+      <A.Button
+        border
+        borderBottom={"0"}
+        padding={"0.5rem"}
+        rounded={false}
+        borderColor="#e3e3e4"
+        zIndex={"1"}
+      >
+        Write
+      </A.Button>
       <StyledTextWrapper>
         <A.Text cursor={"default"} hover={false} fontSize={"0.8rem"}>
           {charLength} characters
