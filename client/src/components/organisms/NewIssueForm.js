@@ -24,18 +24,20 @@ const StyledButtonWrapper = styled.div`
 `;
 
 const NewIssueForm = () => {
+  const [value, setValue] = useState("");
   const [charLength, setCharLength] = useState(0);
   const [filePath, setFilePath] = useState("");
 
-  const onSubmitHandler = async (event) => {
-    if (event.target.files !== null) {
+  const onSubmitHandler = async (e) => {
+    if (e.target.files !== null) {
       try {
         const fd = new FormData();
-        fd.append("filename", event.target.files[0]);
+        fd.append("filename", e.target.files[0]);
         const {
           data: { filePath },
         } = await myAxios.filepost(fd);
         setFilePath(filePath);
+        setValue(`${value}\n(${filePath})`);
       } catch (error) {
         console.log(error);
       }
@@ -44,6 +46,7 @@ const NewIssueForm = () => {
 
   const onChangeTextArea = (e) => {
     setTimeout(() => setCharLength(e.target.value.length), 2000);
+    setValue(e.target.value);
   };
 
   return (
@@ -70,6 +73,7 @@ const NewIssueForm = () => {
           placeholder={"Leave a commment"}
           rounded={true}
           bgColor={"middleWhite"}
+          value={value}
           onChange={onChangeTextArea}
           charLength={charLength}
           filePath={filePath}

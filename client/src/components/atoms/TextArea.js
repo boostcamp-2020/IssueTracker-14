@@ -23,11 +23,9 @@ const TextArea = ({
   rows,
   name,
   filePath,
+  value,
   ...rest
 }) => {
-  const [value, setValue] = useState("");
-
-  console.log(value);
   return (
     <StyledTextArea
       placeholder={placeholder}
@@ -36,7 +34,6 @@ const TextArea = ({
       width={width}
       height={height}
       value={value}
-      onChange={({ target: { value } }) => setValue(value)}
       {...rest}
     />
   );
