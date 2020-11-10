@@ -17,8 +17,7 @@ final class IssueDetailViewController: UIViewController {
     private let issue: IssueDetail
     private let pullUpViewController: IssueDetailPullUpViewController
     private let pullUpViewAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.1,
-                                                                                    curve: .easeInOut,
-                                                                                    animations: nil)
+                                                                                    curve: .easeInOut)
     
     init?(coder: NSCoder, issue: IssueDetail, pullUpViewController: IssueDetailPullUpViewController) {
         self.issue = issue
