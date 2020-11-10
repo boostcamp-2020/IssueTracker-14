@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
-import Image from "../../components/atoms/Image";
+import A from "../../components/atoms/index";
 import O from "../../components/organisms/index";
 
 const NewIssuePageWrapper = styled.div`
@@ -18,7 +18,12 @@ const NewIssuePage = () => {
     <>
       <Header />
       <NewIssuePageWrapper>
-        <Image imageUrl={imageUrl} padding={"0 0.5rem"} />
+        <A.Image
+          imageUrl={
+            imageUrl || "https://github.com/identicons/app/oauth_app/1404563"
+          }
+          padding={"0 0.5rem"}
+        />
         <O.NewIssueForm />
         <O.NewIssueOptions />
       </NewIssuePageWrapper>
