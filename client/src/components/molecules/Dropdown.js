@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
+import M from "../molecules/index";
 
 const StyledDropdown = styled.div`
   position: relative;
@@ -69,6 +70,7 @@ const Dropdown = ({
         <span>{buttonText}</span>
         <A.Icon name={icon} location={"right"} />
       </A.Button>
+
       <StyledHidden
         showDropdown={showDropdown}
         buttonWidth={buttonWidth}
@@ -112,25 +114,29 @@ const Dropdown = ({
           </A.Button>
         ) : (
           buttonData
-          .filter((el) => {
-            if (el.title) return el.title.includes(searchName);
-            return true;
-          })
-          .map((el) => {
-            return (
-              <A.Button
-                key={el.id}
-                width={dropdownWidth}
-                height={buttonHeight}
-                border={true}
-                textAlign={"left"}
-              >
-                <span>{el.title === undefined ? el.nickname : el.title}</span>
-              </A.Button>
-            );
-          })
+            .filter((el) => {
+              if (el.title) return el.title.includes(searchName);
+              return true;
+            })
+            .map((el) => {
+              return (
+                <A.Button
+                  key={el.id}
+                  width={dropdownWidth}
+                  height={buttonHeight}
+                  border={true}
+                  textAlign={"left"}
+                >
+                  <span>{el.title === undefined ? el.nickname : el.title}</span>
+                </A.Button>
+              );
+            })
         )}
       </StyledHidden>
+      <M.Overlay
+        hidden={showDropdown === "none" ? true : false}
+        onClick={handleDropdown}
+      />
     </StyledDropdown>
   );
 };
@@ -147,7 +153,7 @@ Dropdown.defaultProps = {
   search: true,
   icon: "dropdown",
   showDropdown: "none",
-  fetchData: ()=>{},
+  fetchData: () => {},
 };
 
 export default Dropdown;
