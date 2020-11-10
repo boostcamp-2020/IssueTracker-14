@@ -9,6 +9,7 @@ import NewMilestoneForm from "./NewMilestoneForm";
 import SignUpForm from "./SignUpForm";
 import Title from "./Title";
 import IssueMenu from "./IssueMenu";
+import IssueContent from "./IssueContent";
 
 export default {
   Footer,
@@ -22,4 +23,5 @@ export default {
   SignUpForm,
   Title,
   IssueMenu,
+  IssueContent,
 };

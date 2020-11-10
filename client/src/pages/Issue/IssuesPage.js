@@ -68,6 +68,7 @@ const IssuesPage = () => {
           <M.ClearIssueFilter />
           <M.Container
             menu={<O.IssueMenu />}
+            content={<O.IssueContent />}
           />
         </StyledIssueContentWrapper>
       </IssuesPageWrapper>

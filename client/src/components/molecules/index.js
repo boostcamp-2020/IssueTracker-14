@@ -6,6 +6,7 @@ import DropdownWithText from "./DropdownWithText";
 import FormDiv from "./FormDiv";
 import FormTextArea from "./FormTextArea";
 import NavigationWrapperLink from "./NavigationWrapperLink";
+import IssueData from "./IssueData";
 
 export default {
   ButtonDiv,
@@ -16,4 +17,5 @@ export default {
   FormDiv,
   FormTextArea,
   NavigationWrapperLink,
+  IssueData,
 };
