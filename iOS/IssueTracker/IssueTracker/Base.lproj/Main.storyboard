@@ -769,10 +769,16 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57b-Sk-psI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <state key="normal" image="chevron.up" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="scrollUpButtonDidTouchUp:" destination="nds-4N-VD5" eventType="touchUpInside" id="rhk-qh-yGQ"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHJ-jM-Mus">
                                                                 <rect key="frame" x="50" y="0.0" width="50" height="50"/>
                                                                 <state key="normal" image="chevron.down" catalog="system"/>
+                                                                <connections>
+                                                                    <action selector="scrollDownButtonDidTouchUp:" destination="nds-4N-VD5" eventType="touchUpInside" id="zRf-tX-yIL"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -877,7 +883,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feature" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8aP-yj-Dpm" customClass="PaddingLabel" customModule="IssueTracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="359" width="64.5" height="27.5"/>
+                                <rect key="frame" x="20" y="359" width="74.5" height="27.5"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -1049,6 +1055,10 @@
                             <constraint firstItem="Qwn-4d-rYA" firstAttribute="trailing" secondItem="wOM-nc-Rcx" secondAttribute="trailing" constant="20" id="zAi-rV-XyF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollDownButton" destination="qHJ-jM-Mus" id="LjY-nb-RJh"/>
+                        <outlet property="scrollUpButton" destination="57b-Sk-psI" id="hwN-4B-Rd0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="io9-Py-rGl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1060,7 +1070,7 @@
             <size key="intrinsicContentSize" width="94" height="33"/>
         </designable>
         <designable name="8aP-yj-Dpm">
-            <size key="intrinsicContentSize" width="64.5" height="25.5"/>
+            <size key="intrinsicContentSize" width="74.5" height="27.5"/>
         </designable>
         <designable name="ZCV-7a-4VR">
             <size key="intrinsicContentSize" width="56" height="30"/>
