@@ -78,7 +78,12 @@ struct IssueListUseCase: IssueListUseCaseType {
                           comments: [
                             Comment(writer: "godrm", createdAt: "16 minutes ago", content: "레이블 전체 목록을 볼 수 있는게 어떨까요\n전체 설명이 보여야 선택할 수 있으니까\n\n마크다운 문법을 지원하고\nHTML형태로 보여줘야 할까요"),
                             Comment(writer: "crong", createdAt: "16 minutes ago", content: "긍정적인 기능이네요\n댓글은 두줄"),
-                            Comment(writer: "honux", createdAt: "16 minutes ago", content: "굿")
+                            Comment(writer: "honux", createdAt: "16 minutes ago", content: "굿"),
+                            Comment(writer: "TTOzi", createdAt: "4 minutes ago", content: "스크롤"),
+                            Comment(writer: "dochoi", createdAt: "3 minutes ago", content: "스크롤테스트"),
+                            Comment(writer: "dochoi", createdAt: "1 minutes ago", content: "스크롤테스트"),
+                            Comment(writer: "dochoi", createdAt: "1 minutes ago", content: "스크롤테스트"),
+                            Comment(writer: "dochoi", createdAt: "1 minutes ago", content: "스크롤테스트")
                           ],
                           description: nil)
         completion(.success(issue))

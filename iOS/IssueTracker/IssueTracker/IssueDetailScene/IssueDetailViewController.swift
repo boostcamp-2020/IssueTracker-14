@@ -17,7 +17,7 @@ final class IssueDetailViewController: UIViewController {
     private let issue: IssueDetail
     private let pullUpViewController: IssueDetailPullUpViewController
     private let pullUpViewAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.1,
-                                                                                    curve: .easeOut,
+                                                                                    curve: .easeInOut,
                                                                                     animations: nil)
     
     init?(coder: NSCoder, issue: IssueDetail, pullUpViewController: IssueDetailPullUpViewController) {
@@ -54,15 +54,15 @@ extension IssueDetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return issue.comments.count
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: IssueDetailTableViewCell.identifier,
-                for: indexPath
+            withIdentifier: IssueDetailTableViewCell.identifier,
+            for: indexPath
         ) as? IssueDetailTableViewCell else { return UITableViewCell() }
         let comment = issue.comments[indexPath.section]
         cell.update(isComment: indexPath.section > 0, comment: comment)
@@ -87,6 +87,8 @@ private extension IssueDetailViewController {
         view.addSubview(pullUpViewController.view)
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pullUpAction))
         pullUpViewController.view.addGestureRecognizer(panGesture)
+        issueDetailTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.frame.height * 0.15, right: 0)
+        pullUpViewController.delegate = self
     }
     
     @objc func pullUpAction(_ panGestureRecognizer: UIPanGestureRecognizer) {
@@ -111,5 +113,19 @@ private extension IssueDetailViewController {
             pullUpView.center = CGPoint(x: pullUpView.center.x, y: willMoveY)
         }
         pullUpViewAnimator.startAnimation()
+    }
+}
+
+extension IssueDetailViewController: IssueDetailPullUpViewControllerDelegate {
+    func scrollUpButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController) {
+        let indexPaths = issueDetailTableView.indexPathsForVisibleRows
+        guard let indexPath = indexPaths?.first else { return }
+        issueDetailTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+    }
+    
+    func scrollDownButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController) {
+        let indexPaths = issueDetailTableView.indexPathsForVisibleRows
+        guard let indexPath = indexPaths?.last else { return }
+        issueDetailTableView.scrollToRow(at: indexPath, at: .middle, animated: true)
     }
 }

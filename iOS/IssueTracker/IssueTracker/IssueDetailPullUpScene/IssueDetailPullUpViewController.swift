@@ -7,15 +7,33 @@
 
 import UIKit
 
+protocol IssueDetailPullUpViewControllerDelegate: class {
+    func scrollUpButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController)
+    func scrollDownButtonDidTouchUp(_ issueDetailPullUpViewController: IssueDetailPullUpViewController)
+}
+
 final class IssueDetailPullUpViewController: UIViewController {
 
+    @IBOutlet private weak var scrollUpButton: UIButton!
+    @IBOutlet private weak var scrollDownButton: UIButton!
     static var identifier: String {
         return String(describing: Self.self)
     }
+    weak var delegate: IssueDetailPullUpViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
+    
+    @IBAction func scrollUpButtonDidTouchUp(_ sender: UIButton) {
+        delegate?.scrollUpButtonDidTouchUp(self)
+    }
+    
+    @IBAction func scrollDownButtonDidTouchUp(_ sender: UIButton) {
+        delegate?.scrollDownButtonDidTouchUp(self)
+    }
+
 }
 
 extension IssueDetailPullUpViewController {
