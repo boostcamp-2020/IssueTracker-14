@@ -5,8 +5,9 @@ import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import NavigationWrapperInput from "./../../components/organisms/NavigationWrapperInput";
 import NavigationWrapperLink from "./../../components/molecules/NavigationWrapperLink";
+import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
-import IssueWrapper from "./../../components/organisms/IssueWrapper";
+import O from "../../components/organisms/index";
 
 const IssuesPageWrapper = styled.div`
   position: relative;
@@ -25,6 +26,15 @@ const StyledNavigationWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin: 1.5rem 0rem 0.5rem 0rem;
+`;
+
+const StyledIssueContentWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0rem 1.5rem 0rem;
+  width: 100%;
 `;
 
 const IssuesPage = () => {
@@ -54,7 +64,12 @@ const IssuesPage = () => {
             New Issue
           </M.ButtonDiv>
         </StyledNavigationWrapper>
-        <IssueWrapper />
+        <StyledIssueContentWrapper>
+          <M.ClearIssueFilter />
+          <M.Container
+            menu={<O.IssueMenu />}
+          />
+        </StyledIssueContentWrapper>
       </IssuesPageWrapper>
     </>
   );
