@@ -6,20 +6,49 @@ const { label: LabelModel } = require("../db/models");
 const { label_has_issue: LabelHasIssueModel } = require("../db/models");
 const { assignee: AssigneeModel } = require("../db/models");
 
+const db = require("../db/models/index");
 const { Op } = require("sequelize");
 
 const createIssue = async (req, res) => {
+  const t = await db.sequelize.transaction();
   try {
-    const { title, description } = req.body;
-    const { id: authorid } = req.user;
-    await IssueModel.create({
+    const {
       title,
       description,
-      authorid,
-      status: "open",
-    });
+      milestoneid,
+      assigneeIdList,
+      labelIdList,
+    } = req.body;
+    const { id: authorid } = req.user;
+
+    const { id: issueid } = await IssueModel.create(
+      {
+        title,
+        description,
+        authorid,
+        milestoneid,
+        status: "open",
+      },
+      { transaction: t }
+    );
+
+    await AssigneeModel.bulkCreate(
+      JSON.parse(assigneeIdList).map((userid) => {
+        return { issueid, userid };
+      }),
+      { transaction: t }
+    );
+
+    await LabelHasIssueModel.bulkCreate(
+      JSON.parse(labelIdList).map((labelid) => {
+        return { issueid, labelid };
+      }),
+      { transaction: t }
+    );
+    await t.commit();
     return res.status(200).json({ message: "success" });
   } catch (error) {
+    await t.rollback();
     return res.status(400).json({ message: "fail", error: error.message });
   }
 };
