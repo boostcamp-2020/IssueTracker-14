@@ -27,6 +27,7 @@ const StyledHidden = styled.div`
 `;
 
 const Dropdown = ({
+  optionId,
   buttonData,
   buttonWidth,
   search,
@@ -42,6 +43,7 @@ const Dropdown = ({
   btnJustify,
   btnPadding,
   fetchData,
+  clickItem,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -126,10 +128,13 @@ const Dropdown = ({
             .map((data, idx) => {
               return (
                 <M.DropdownItem
+                  optionId={optionId}
                   key={idx}
                   data={data}
                   width={dropdownWidth}
                   height={buttonHeight}
+                  onClick={clickItem}
+                  setVisible={setShowDropdown}
                 />
               );
             })
