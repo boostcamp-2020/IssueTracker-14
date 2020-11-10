@@ -14,6 +14,10 @@ const StyledInput = styled.input`
   background-color: ${({ bgColor }) => (bgColor ? colors[bgColor] : "inherit")};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  opacity: ${({ opacity }) => opacity};
+  position: ${({ position }) => position};
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
 `;
 
 const Input = ({

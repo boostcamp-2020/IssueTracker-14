@@ -13,7 +13,7 @@ const StyledInputLabel = styled.label`
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
   color: #000000;
-  font-weight: bold;
+  font-weight: ${({ fontWeight }) => fontWeight};
   width: 80%;
   padding: 0;
 `;
@@ -38,6 +38,7 @@ InputLabel.defaultProps = {
   height: "1rem",
   fontSize: "medium",
   label: "기본 라벨",
+  fontWeight: "bold",
 };
 
 export default InputLabel;

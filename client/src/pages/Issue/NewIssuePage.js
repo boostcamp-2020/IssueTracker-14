@@ -10,6 +10,7 @@ const NewIssuePageWrapper = styled.div`
   top: 6rem;
   display: flex;
   justify-content: center;
+  padding: 3rem;
 `;
 
 const NewIssuePage = () => {
