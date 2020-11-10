@@ -27,3 +27,11 @@ final class MileStoneCoordinator: NavigationCoordinator {
         navigationController?.pushViewController(viewContoller, animated: true)
     }
 }
+
+extension MileStoneCoordinator {
+    func showEdit() {
+        let editingViewController = EditingViewController()
+        editingViewController.modalPresentationStyle = .overFullScreen
+        navigationController?.present(editingViewController, animated: true)
+    }
+}

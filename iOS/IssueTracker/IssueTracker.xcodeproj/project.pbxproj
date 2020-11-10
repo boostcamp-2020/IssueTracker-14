@@ -49,6 +49,8 @@
 		B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907432F2551DC2C00E1D2E6 /* MileStoneCoordinator.swift */; };
 		B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90743342551DC3300E1D2E6 /* SettingCoordinator.swift */; };
 		B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */; };
+		B90E674A255AF42500E990B1 /* MileStone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E6749255AF42500E990B1 /* MileStone.swift */; };
+		B90E674E255AF43800E990B1 /* MileStoneCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90E674D255AF43800E990B1 /* MileStoneCollectionViewCell.swift */; };
 		B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */; };
 		B91AFB43255938A3007AD8DD /* IssueInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB42255938A3007AD8DD /* IssueInfoView.swift */; };
 		B91AFB4B255938B6007AD8DD /* IssueDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */; };
@@ -57,7 +59,8 @@
 		B949F990254EFB9100477211 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F98F254EFB9100477211 /* LoginInfo.swift */; };
 		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
 		B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F99C254F085000477211 /* LoginEndPoint.swift */; };
-		B94B3655255039E900369C59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B3654255039E900369C59 /* UIViewController+Alert.swift */; };
+		B94B3655255039E900369C59 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B3654255039E900369C59 /* UIViewController+alert.swift */; };
+		B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F54D7255B335100B800C8 /* String+customDateFormat.swift */; };
 		B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */; };
 		B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */; };
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
@@ -136,6 +139,8 @@
 		B90C76AD25530ABC00134AEE /* IssueTrackerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IssueTrackerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListUseCaseTests.swift; sourceTree = "<group>"; };
 		B90C76B125530ABC00134AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B90E6749255AF42500E990B1 /* MileStone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStone.swift; sourceTree = "<group>"; };
+		B90E674D255AF43800E990B1 /* MileStoneCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneCollectionViewCell.swift; sourceTree = "<group>"; };
 		B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
 		B91AFB42255938A3007AD8DD /* IssueInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueInfoView.swift; sourceTree = "<group>"; };
 		B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,7 +149,8 @@
 		B949F98F254EFB9100477211 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		B949F997254F07D900477211 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B949F99C254F085000477211 /* LoginEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndPoint.swift; sourceTree = "<group>"; };
-		B94B3654255039E900369C59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		B94B3654255039E900369C59 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
+		B94F54D7255B335100B800C8 /* String+customDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+customDateFormat.swift"; sourceTree = "<group>"; };
 		B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmailPattern.swift"; sourceTree = "<group>"; };
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */,
+				B90E6749255AF42500E990B1 /* MileStone.swift */,
+				B90E674D255AF43800E990B1 /* MileStoneCollectionViewCell.swift */,
 			);
 			path = MileStoneListScene;
 			sourceTree = "<group>";
@@ -376,7 +384,8 @@
 				B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */,
 				B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */,
 				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
-				B94B3654255039E900369C59 /* UIViewController+Alert.swift */,
+				B94B3654255039E900369C59 /* UIViewController+alert.swift */,
+				B94F54D7255B335100B800C8 /* String+customDateFormat.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -661,6 +670,7 @@
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
 				442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */,
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
+				B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */,
 				B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */,
@@ -669,6 +679,7 @@
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
+				B90E674E255AF43800E990B1 /* MileStoneCollectionViewCell.swift in Sources */,
 				B9007866255466660035D307 /* ShadowButton.swift in Sources */,
 				4479103C255A7522004366B2 /* EditingView.swift in Sources */,
 				B9007862255466510035D307 /* ShadowView.swift in Sources */,
@@ -680,9 +691,10 @@
 				B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
 				B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */,
-				B94B3655255039E900369C59 /* UIViewController+Alert.swift in Sources */,
+				B94B3655255039E900369C59 /* UIViewController+alert.swift in Sources */,
 				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
 				B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */,
+				B90E674A255AF42500E990B1 /* MileStone.swift in Sources */,
 				B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */,
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
