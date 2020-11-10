@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import LoginPage from "./pages/User/LoginPage";
-import SignUpPage from "./pages/User/SignUpPage";
-import IssuesPage from "./pages/Issue/IssuesPage";
-import NewIssuePage from "./pages/Issue/NewIssuePage";
 import { Switch, Route, useHistory } from "react-router-dom";
 import styled from "styled-components";
+
 import myAxios from "./utils/myAxios";
 import { AuthContext } from "./stores/auth";
 import { UserProvider } from "./stores/user";
+import { MilestoneProvider } from "./stores/milestone";
 
+import LoginPage from "./pages/User/LoginPage";
+import SignUpPage from "./pages/User/SignUpPage";
+import GithubCallbackPage from "./pages/User/GithubCallbackPage";
+import IssuesPage from "./pages/Issue/IssuesPage";
+import NewIssuePage from "./pages/Issue/NewIssuePage";
 import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
 
 const StyledRootContainer = styled.div`
@@ -55,13 +58,21 @@ const App = () => {
     <AuthContext.Provider value={isAuth}>
       <StyledRootContainer>
         <Switch>
-          <Route exact path="/" component={IssuesPage} />
-          <Route exact path="/milestones/new" component={NewMilestonePage} />
-          <Route exact path="/issues/new" component={NewIssuePage} />
           <UserProvider>
+            {/* <Route path="/?access_token=token" component={GithubCallbackPage} /> */}
+            <Route exact path="/" component={IssuesPage} />
+            <MilestoneProvider>
+              <Route
+                exact
+                path="/milestones/new"
+                component={NewMilestonePage}
+              />
+            </MilestoneProvider>
+
+            <Route exact path="/issues/new" component={NewIssuePage} />
+
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignUpPage} />
-            {/* <Route exact path="/" component={IssuesPage} /> */}
           </UserProvider>
         </Switch>
         {/*

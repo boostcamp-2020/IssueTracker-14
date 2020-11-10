@@ -3,17 +3,16 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 
 const StyledText = styled.p`
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  text-align: ${({ align }) => align};
   color: ${({ color }) => colors[color]};
   font-weight: ${({ fontWeight }) => fontWeight === "bold" && "bold"};
   font-size: ${({ fontSize }) => fontSize};
-  cursor: pointer;
-
-  margin: 0;
+  cursor: ${({ cursor }) => cursor};
+  margin: 0.3rem;
   padding: 0;
-
   &:hover {
     color: ${({ hover }) => hover && colors.blue};
   }
@@ -35,6 +34,8 @@ Text.defaultProps = {
   color: "black",
   fontSize: "medium",
   hover: true,
+  cursor: "pointer",
+  align: "center",
 };
 
 export default Text;

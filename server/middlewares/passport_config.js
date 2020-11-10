@@ -32,7 +32,7 @@ const githubConfig = {
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL:
     process.env.NODE_ENV === "development"
-      ? "http://localhost:8000"
+      ? "http://localhost:3000/api/user/oauth/github/callback"
       : "http://issuetracker.2oneweek.site",
 };
 

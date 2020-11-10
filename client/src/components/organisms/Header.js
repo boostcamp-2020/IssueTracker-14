@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import A from "./../../components/atoms/index";
 import colors from "./../../constants/colors";
 import styled from "styled-components";
@@ -18,8 +19,12 @@ const StyledHeader = styled.div`
 
 const Header = () => (
   <StyledHeader>
-    {" "}
-    <A.Icon name={"book"} cursor={"text"} /> 헤더입니다.{" "}
+    <Link to={"/"} style={{ textDecoration: "none" }}>
+      <A.Text cursor={false} hover color={"white"}>
+        <A.Icon name={"book"} cursor={"text"} />
+        헤더입니다.
+      </A.Text>
+    </Link>
   </StyledHeader>
 );
 
