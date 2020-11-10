@@ -41,7 +41,7 @@ const Header = () => {
         <Link to={"/"} style={{ textDecoration: "none" }}>
           <A.Text hover color={"white"}>
             <A.Icon name={"book"} cursor={"text"} />
-            헤더입니다.
+            IssueTracker-Team14
           </A.Text>
         </Link>
       </StyledHeader>

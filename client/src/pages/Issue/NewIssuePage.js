@@ -20,8 +20,7 @@ const NewIssuePage = () => {
       <NewIssuePageWrapper>
         <Image
           imageUrl={
-            imageUrl &&
-            "https://img7.yna.co.kr/photo/reuters/2020/09/20/PRU20200920291901055_P4.jpg"
+            imageUrl && "https://github.com/identicons/app/oauth_app/1404563"
           }
           padding={"0 0.5rem"}
         />
