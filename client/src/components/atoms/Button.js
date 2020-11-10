@@ -22,6 +22,7 @@ const StyledButton = styled.button`
 
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
+  align-items: ${({ alignItems }) => alignItems};
   z-index: ${({ zIndex }) => zIndex};
   opacity: ${({ opacity }) => opacity};
 

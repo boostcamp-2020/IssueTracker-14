@@ -24,7 +24,7 @@ const Image = ({
     <StyledImage
       position={position}
       right={right}
-      src={imageUrl}
+      src={imageUrl || "https://github.com/identicons/app/oauth_app/1404563"}
       size={size}
       padding={padding}
       cursor={cursor}
@@ -37,5 +37,6 @@ Image.defaultProps = {
   size: "40px",
   position: "relative",
   cursor: "default",
+  imageUrl: "https://github.com/identicons/app/oauth_app/1404563",
 };
 export default Image;

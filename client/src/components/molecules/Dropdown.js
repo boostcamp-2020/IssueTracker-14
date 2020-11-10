@@ -10,6 +10,7 @@ const StyledDropdown = styled.div`
 const StyledTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 `;
 
 const StyledHidden = styled.div`
@@ -21,6 +22,8 @@ const StyledHidden = styled.div`
       : "0rem"};
   background-color: #ffffff;
   z-index: 1;
+  border-radius: 4px;
+  border: 1px solid #959da5;
 `;
 
 const Dropdown = ({
@@ -79,9 +82,12 @@ const Dropdown = ({
         <A.Button
           width={dropdownWidth}
           height={buttonHeight}
-          border={true}
+          border={false}
+          rounded={false}
+          borderBottom={"1px solid #959da5"}
           textAlign={"left"}
           cursor={"text"}
+          backgroundColor={"middleWhite"}
         >
           <StyledTitle>
             <span>{labelText}</span>
@@ -117,17 +123,14 @@ const Dropdown = ({
               if (el.title) return el.title.includes(searchName);
               return true;
             })
-            .map((el) => {
+            .map((data, idx) => {
               return (
-                <A.Button
-                  key={el.id}
+                <M.DropdownItem
+                  key={idx}
+                  data={data}
                   width={dropdownWidth}
                   height={buttonHeight}
-                  border={true}
-                  textAlign={"left"}
-                >
-                  <span>{el.title === undefined ? el.nickname : el.title}</span>
-                </A.Button>
+                />
               );
             })
         )}

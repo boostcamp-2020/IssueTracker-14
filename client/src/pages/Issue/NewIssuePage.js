@@ -18,12 +18,7 @@ const NewIssuePage = () => {
     <>
       <Header />
       <NewIssuePageWrapper>
-        <Image
-          imageUrl={
-            imageUrl && "https://github.com/identicons/app/oauth_app/1404563"
-          }
-          padding={"0 0.5rem"}
-        />
+        <Image imageUrl={imageUrl} padding={"0 0.5rem"} />
         <O.NewIssueForm />
         <O.NewIssueOptions />
       </NewIssuePageWrapper>
