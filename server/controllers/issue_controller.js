@@ -184,11 +184,13 @@ const readIssues = async (req, res) => {
 const updateIssue = async (req, res) => {
   try {
     const { issueid: id } = req.params;
-    const { title, status } = req.body;
+    const { title, status, description, milestoneid } = req.body;
     await IssueModel.update(
       {
         title,
         status,
+        description,
+        milestoneid,
       },
       { where: { id } }
     );

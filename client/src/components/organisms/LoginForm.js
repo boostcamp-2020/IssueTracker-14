@@ -81,20 +81,27 @@ const LoginForm = ({ size }) => {
         >
           IssueTracker team 14에 로그인하기
         </M.ButtonDiv>
-
-        <M.ButtonDiv
-          buttonColor={colors.black}
-          width={"100%"}
-          height={"2.2rem"}
-          textColor={"white"}
-          fontSize={"small"}
-          hover={false}
-          margin={"0.3rem"}
+        <a
+          href={
+            process.env.NODE_ENV === "development"
+              ? "http://localhost:3000/api/user/oauth/github"
+              : ""
+          }
+          style={{ display: "block", width: "100%" }}
         >
-          Github으로 로그인하기
-          <A.Icon location={"right"} name={"github"} distance={"0.3"} />
-        </M.ButtonDiv>
-
+          <M.ButtonDiv
+            buttonColor={colors.black}
+            width={"100%"}
+            height={"2.2rem"}
+            textColor={"white"}
+            fontSize={"small"}
+            hover={false}
+            margin={"0.3rem"}
+          >
+            Github으로 로그인하기
+            <A.Icon location={"right"} name={"github"} distance={"0.3"} />
+          </M.ButtonDiv>
+        </a>
         <Link to="/signup">
           <A.Text color="black" fontSize="small">
             아직 회원이 아니라면? 회원가입 하러가기
