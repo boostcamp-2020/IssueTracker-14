@@ -29,7 +29,7 @@ const StyledContentWrapper = styled.div`
   width: 100%;
   min-height: 20rem;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 `
 
 const Container = ({ menu, content }) => (
