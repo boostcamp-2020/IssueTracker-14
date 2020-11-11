@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MileStoneCollectionViewCell: UICollectionViewListCell {
+final class MileStoneCollectionViewCell: UICollectionViewCell {
     static var identifier: String {
         return String(describing: Self.self)
     }

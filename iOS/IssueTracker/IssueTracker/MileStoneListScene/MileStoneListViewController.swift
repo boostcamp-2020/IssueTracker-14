@@ -41,7 +41,7 @@ final class MileStoneListViewController: UIViewController {
 }
 
 private extension MileStoneListViewController {
-    @objc func addBuuttonDidTouchUp() {
+    @objc func addButtonDidTouchUp() {
         coordinator?.showEdit()
     }
 }
@@ -93,7 +93,7 @@ private extension MileStoneListViewController {
     func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
-                                                            action: #selector(addBuuttonDidTouchUp))
+                                                            action: #selector(addButtonDidTouchUp))
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "마일스톤"
     }
