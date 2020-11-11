@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MileStone: Codable, Hashable {
+struct MileStone: Decodable, Hashable {
     let id: Int
     let title: String
     let status: String?
@@ -15,4 +15,15 @@ struct MileStone: Codable, Hashable {
     let createAt: String?
     let duedate: String?
     let updatedAt: String?
+    
+    init(id: Int, title: String, status: String?=nil, description: String?=nil,
+         createAt: String?=nil, duedate: String?=nil, updatedAt: String?=nil) {
+        self.id = id
+        self.title = title
+        self.status = status
+        self.description = description
+        self.createAt = createAt
+        self.duedate = duedate
+        self.updatedAt = updatedAt
+    }
 }

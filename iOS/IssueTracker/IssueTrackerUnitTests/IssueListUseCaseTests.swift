@@ -11,7 +11,7 @@ import XCTest
 class IssueListUseCaseTests: XCTestCase {
 
     var issues: [Issue]  = [Issue(id: 1, title: "이슈 1", status: "open",
-                                  mileStone: MileStone(id: 3, title: "마일스톤"), description: "내용"),
+                                  mileStone: MileStone(id: 3, title: "마일스톤", status: nil, description: nil, createAt: nil, duedate: nil, updatedAt: nil), description: "내용"),
                             Issue(id: 2, title: "이슈 2", status: "open", mileStone: nil, description: nil),
                             Issue(id: 3, title: "이슈 3", status: "closed", mileStone: nil, description: "내용"),
                             Issue(id: 4, title: "이슈 4", status: "open", mileStone: nil, description: nil)]
