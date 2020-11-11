@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Label: Hashable {
+struct Label: Hashable, Decodable {
     let id: Int
     let title: String
     let color: String

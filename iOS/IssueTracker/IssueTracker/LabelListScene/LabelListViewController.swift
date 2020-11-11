@@ -14,6 +14,7 @@ final class LabelListViewController: UIViewController {
     }
     @IBOutlet private weak var labelCollectionView: UICollectionView!
     weak var coordinator: LabelCoordinator?
+    private let useCase: LabelListUseCaseType
     private var labels: [Label] = [
         Label(id: 1, title: "hello", color: "", description: "asdf"),
         Label(id: 2, title: "asdf", color: "", description: "vzxcvz"),
@@ -26,10 +27,19 @@ final class LabelListViewController: UIViewController {
     }
     private lazy var dataSource: LabelCollectionViewDataSource = labelDataSource()
     
+    init?(coder: NSCoder, useCase: LabelListUseCaseType) {
+        self.useCase = useCase
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("This viewController must be init with useCase.")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        updateList()
+        loadList()
     }
 }
 
@@ -79,11 +89,26 @@ private extension LabelListViewController {
 }
 
 private extension LabelListViewController {
+    func loadList() {
+        useCase.loadList {[weak self] result in
+            switch result {
+            case let .success(labels):
+                self?.labels = labels
+            case let .failure(error):
+                DispatchQueue.main.async {
+                    self?.alert(message: error.localizedDescription)
+                }
+            }
+        }
+    }
+}
+
+private extension LabelListViewController {
     func configure() {
         configureNavigationBar()
         configureCollectionView()
     }
-    
+
     func configureNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
