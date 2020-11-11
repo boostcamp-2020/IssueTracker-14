@@ -23,7 +23,7 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const IssueMenu = () => {
+const IssueMenu = ({ query, setQuery }) => {
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -42,24 +42,36 @@ const IssueMenu = () => {
       buttonText: "Author",
       labelText: "Filter by author",
       buttonWidth: "5rem",
+      fetchData: () => {
+        fetchTargetData("user/all", assigneeDispatch);
+      },
     },
     {
-      buttonData: [],
+      buttonData: labelState.labels,
       buttonText: "Label",
       labelText: "Filter by label",
       buttonWidth: "5rem",
+      fetchData: () => {
+        fetchTargetData("label", labelDispatch);
+      },
     },
     {
-      buttonData: [],
+      buttonData: milestoneState.milestones,
       buttonText: "Milestones",
       labelText: "Filter by milestone",
       buttonWidth: "7rem",
+      fetchData: () => {
+        fetchTargetData("milestone", milestoneDispatch);
+      },
     },
     {
-      buttonData: [],
+      buttonData: assigneeState.users,
       buttonText: "Assignee",
       labelText: "Filter by who's assigned",
       buttonWidth: "7rem",
+      fetchData: () => {
+        fetchTargetData("user/all", assigneeDispatch);
+      },
     },
     {
       buttonData: [
@@ -76,12 +88,22 @@ const IssueMenu = () => {
       search: true,
     },
   ];
-
+  const onClickIssueOpen = () => {
+    setQuery({ ...query, status: "open" });
+  };
+  const onClickIssueClosed = () => {
+    setQuery({ ...query, status: "closed" });
+  };
+  // TODO: OPEN CLOSED BUTTON STYLING
   return (
     <StyledIssueMenuWrapper>
       <A.Checkbox />
-      <span>{issueState.issueCount?.open}</span>
-      <span>{issueState.issueCount?.closed}</span>
+      <A.Button onClick={onClickIssueOpen}>
+        {issueState.issueCount?.open}
+      </A.Button>
+      <A.Button onClick={onClickIssueClosed}>
+        {issueState.issueCount?.closed}
+      </A.Button>
       <O.DropdownCluster dropdownOptions={issueDropdownOptions} />
     </StyledIssueMenuWrapper>
   );

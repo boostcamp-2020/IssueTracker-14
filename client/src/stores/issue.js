@@ -24,8 +24,7 @@ const issueReducer = (state, action) => {
     case "READ_LOADING":
       return {
         ...state,
-        loading: false,
-        issues: null,
+        loading: true,
         error: null,
       };
 
@@ -42,7 +41,6 @@ const issueReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        issues: null,
         error: action.error,
       };
 

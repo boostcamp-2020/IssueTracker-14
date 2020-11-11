@@ -75,7 +75,7 @@ const IssuesPage = () => {
     fetchTargetData(`issues${queryToString(query)}`, issueDispatch);
     fetchTargetData("label", labelDispatch);
     fetchTargetData("milestone", milestoneDispatch);
-  }, []);
+  }, [query]);
 
   const onClickNewIssue = () => {
     history.push("/issues/new");
@@ -103,7 +103,10 @@ const IssuesPage = () => {
         </StyledNavigationWrapper>
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
-          <M.Container menu={<O.IssueMenu />} content={<O.IssueContent />} />
+          <M.Container
+            menu={<O.IssueMenu query={query} setQuery={setQuery} />}
+            content={<O.IssueContent issues={issueState.issues} />}
+          />
         </StyledIssueContentWrapper>
       </IssuesPageWrapper>
     </>

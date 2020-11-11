@@ -16,38 +16,34 @@ const StyledMenuWrapper = styled.div`
   height: 3.5rem;
   box-sizing: border-box;
   border: 1px solid #000000;
-  border-bottom: ${({ empty }) => empty ? "1px solid #000000" : "none"};
+  border-bottom: ${({ empty }) => (empty ? "1px solid #000000" : "none")};
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 const StyledContentWrapper = styled.div`
   position: relative;
   display: flex;
   box-sizing: border-box;
   width: 100%;
-  min-height: ${({ empty }) => empty ? "20rem" : "0rem"};
+  min-height: ${({ empty }) => (empty ? "20rem" : "0rem")};
   border: 1px solid #000000;
   border-top: none;
   justify-content: center;
-  align-items: ${({ empty }) => empty ? "center" : "start"};
-`
-// TODO: min-height를 data가 들어오면 거기에 맞게 수정
+  align-items: ${({ empty }) => (empty ? "center" : "start")};
+`;
+// TODO: Empty일 경우 처리
 
 const Container = ({ menu, content, empty }) => (
-    <StyledContainer>
-        <StyledMenuWrapper empty={ empty }>
-            { menu }
-        </StyledMenuWrapper>
-        <StyledContentWrapper empty={ empty }>
-            { content }
-        </StyledContentWrapper>
-    </StyledContainer>
+  <StyledContainer>
+    <StyledMenuWrapper empty={empty}>{menu}</StyledMenuWrapper>
+    <StyledContentWrapper empty={empty}>{content}</StyledContentWrapper>
+  </StyledContainer>
 );
 
 Container.defaultProps = {
   empty: false,
-}
+};
 
 export default Container;

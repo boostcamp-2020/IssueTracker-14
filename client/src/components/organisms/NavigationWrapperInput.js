@@ -18,18 +18,20 @@ const inputFilterButtons = [
 ];
 
 const queryParser = (query) => {
-  const queryAuthor = query.author ? `author: ${query.author}` : "";
+  const queryAuthor = query.author ? ` author: ${query.author}` : "";
   const queryLabel = (() => {
     if (query.label.length !== 0) {
       return query.label.reduce((acc, label) => {
-        return acc + `label: ${label}`;
+        return acc + ` label: ${label}`;
       }, "");
     }
     return "";
   })();
-  const queryAssignee = query.assignee ? `assignee: ${query.assignee}` : "";
-  const queryMilestone = query.milestone ? `milestone: ${query.milestone}` : "";
-  return `is: ${query.status} ${queryAuthor} ${queryLabel} ${queryAssignee} ${queryMilestone}`;
+  const queryAssignee = query.assignee ? ` assignee: ${query.assignee}` : "";
+  const queryMilestone = query.milestone
+    ? ` milestone: ${query.milestone}`
+    : "";
+  return `is: ${query.status}${queryAuthor}${queryLabel}${queryAssignee}${queryMilestone}`;
 };
 
 const NavigationWrapperInput = ({ query, setQuery }) => {
