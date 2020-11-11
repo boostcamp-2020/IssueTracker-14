@@ -9,13 +9,15 @@ const StyledDropDownWithText = styled.div`
 `;
 
 const DropDownWithText = ({
+  optionId,
   buttonData,
   buttonText,
   labelText,
   showDropdown,
   search,
   icon,
-  text,
+  selected,
+  defaultText,
   fontSize,
   fetchData,
   ...rest
@@ -23,6 +25,7 @@ const DropDownWithText = ({
   return (
     <StyledDropDownWithText>
       <M.Dropdown
+        optionId={optionId}
         buttonData={buttonData}
         buttonText={buttonText}
         btnDisplay={"flex"}
@@ -31,14 +34,36 @@ const DropDownWithText = ({
         labelText={labelText}
         buttonWidth={"100%"}
         showDropdown={showDropdown}
-        search={search}
         icon={icon}
         fetchData={fetchData}
         search={false}
       ></M.Dropdown>
-      <A.Text hover={false} fontSize={fontSize}>
-        {text}
-      </A.Text>
+      {!selected || selected.length === 0 ? (
+        <A.Text hover={false} fontSize={fontSize} align={"left"}>
+          {defaultText}
+        </A.Text>
+      ) : (
+        selected.map((el, idx) => {
+          if (optionId === 0) {
+            return (
+              <>
+                <A.Image size={"15px"} imageUrl={el.imageurl} />
+                <A.Text key={el.id} hover={false} fontSize={fontSize}>
+                  {el.nickname}
+                </A.Text>
+              </>
+            );
+          }
+
+          if (optionId === 1) {
+            return (
+              <A.Text key={el.id} hover={false} fontSize={fontSize}>
+                {el.title}
+              </A.Text>
+            );
+          }
+        })
+      )}
     </StyledDropDownWithText>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
@@ -24,9 +25,22 @@ const StyledButtonWrapper = styled.div`
 
 const NewIssueForm = () => {
   const [charLength, setCharLength] = useState(0);
+  const [buttonActive, setButtonActive] = useState(false);
+
+  const onClickBtn = () => {
+    alert("eeeee");
+  };
+
+  const onChangeTitle = (e) => {
+    if (e.target.value) setButtonActive(true);
+    if (e.target.value.length === 0) setButtonActive(false);
+  };
 
   const onChangeTextArea = (e) => {
-    setTimeout(() => setCharLength(e.target.value.length), 2000);
+    setTimeout(() => {
+      setCharLength(e.target.value.length);
+      setTimeout(() => setCharLength(0), 2000);
+    }, 2000);
   };
 
   return (
@@ -41,6 +55,7 @@ const NewIssueForm = () => {
         rounded={true}
         height={"auto"}
         width={"100%"}
+        onChange={onChangeTitle}
       />
       <M.Tabs tabList={["Write", "Priview"]} />
       <StyledFormTextAreaWrapper>
@@ -59,13 +74,18 @@ const NewIssueForm = () => {
         <M.FileInput />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
-        <A.Button width={"auto"}>Cancel</A.Button>
+        <Link to="/">
+          <A.Button width={"auto"}>Cancel</A.Button>
+        </Link>
         <A.Button
           color={"white"}
           backgroundColor={"green"}
           width={"8rem"}
           height={"2rem"}
           border={true}
+          disabled={!buttonActive}
+          opacity={buttonActive ? "1" : "0.5"}
+          onClick={onClickBtn}
         >
           Submit new issue
         </A.Button>
