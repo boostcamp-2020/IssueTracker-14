@@ -116,6 +116,8 @@ const readIssues = async (req, res) => {
   try {
     const { status, author, label, milestone, assignee } = req.query;
 
+    console.log(author);
+
     const issues = await IssueModel.findAll({
       include: [
         {
