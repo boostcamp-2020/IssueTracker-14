@@ -13,7 +13,7 @@ const LabelsPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 3rem auto;
-  width: 80%;
+  width: 70%;
 `;
 
 const StyledLabelNavigationWrapper = styled.div`
