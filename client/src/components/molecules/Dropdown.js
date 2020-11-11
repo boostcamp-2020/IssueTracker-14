@@ -134,8 +134,9 @@ const Dropdown = ({
                   data={data}
                   width={dropdownWidth}
                   height={buttonHeight}
-                  onClick={clickItem}
+                  dispatchData={data.dispatchData}
                   setVisible={setShowDropdown}
+                  {...rest}
                 />
               );
             })

@@ -11,6 +11,7 @@ import {
   useMilestoneState,
   useMilestoneDispatch,
 } from "../../stores/milestone";
+import { useQueryState, useQueryDispatch } from "../../stores/query";
 
 import fetchTargetData from "../../utils/fetchData";
 
@@ -23,7 +24,7 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const IssueMenu = ({ query, setQuery }) => {
+const IssueMenu = () => {
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -34,11 +35,19 @@ const IssueMenu = ({ query, setQuery }) => {
   const assigneeDispatch = useAssigneeDispatch();
 
   const issueState = useIssueState();
-  const issueDispatch = useIssueDispatch();
+
+  const queryDispatch = useQueryDispatch();
 
   const issueDropdownOptions = [
     {
-      buttonData: assigneeState.users,
+      buttonData: assigneeState.users.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            queryDispatch({ type: "CHANGE_AUTHOR", data: el.nickname });
+          },
+        };
+      }),
       buttonText: "Author",
       labelText: "Filter by author",
       buttonWidth: "5rem",
@@ -47,7 +56,14 @@ const IssueMenu = ({ query, setQuery }) => {
       },
     },
     {
-      buttonData: labelState.labels,
+      buttonData: labelState.labels.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            queryDispatch({ type: "CHANGE_LABEL", data: el.title });
+          },
+        };
+      }),
       buttonText: "Label",
       labelText: "Filter by label",
       buttonWidth: "5rem",
@@ -56,7 +72,14 @@ const IssueMenu = ({ query, setQuery }) => {
       },
     },
     {
-      buttonData: milestoneState.milestones,
+      buttonData: milestoneState.milestones.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            queryDispatch({ type: "CHANGE_MILESTONE", data: el.title });
+          },
+        };
+      }),
       buttonText: "Milestones",
       labelText: "Filter by milestone",
       buttonWidth: "7rem",
@@ -65,7 +88,14 @@ const IssueMenu = ({ query, setQuery }) => {
       },
     },
     {
-      buttonData: assigneeState.users,
+      buttonData: assigneeState.users.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            queryDispatch({ type: "CHANGE_ASSIGNEE", data: el.title });
+          },
+        };
+      }),
       buttonText: "Assignee",
       labelText: "Filter by who's assigned",
       buttonWidth: "7rem",
@@ -88,12 +118,14 @@ const IssueMenu = ({ query, setQuery }) => {
       search: true,
     },
   ];
+
   const onClickIssueOpen = () => {
-    setQuery({ ...query, status: "open" });
+    queryDispatch({ type: "CHANGE_STATUS", data: "open" });
   };
   const onClickIssueClosed = () => {
-    setQuery({ ...query, status: "closed" });
+    queryDispatch({ type: "CHANGE_STATUS", data: "closed" });
   };
+
   // TODO: OPEN CLOSED BUTTON STYLING
   return (
     <StyledIssueMenuWrapper>

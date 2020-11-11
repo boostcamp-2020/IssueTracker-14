@@ -9,6 +9,7 @@ import O from "../../components/organisms/index";
 import { useIssueState, useIssueDispatch } from "../../stores/issue";
 import { useLabelDispatch } from "../../stores/label";
 import { useMilestoneDispatch } from "../../stores/milestone";
+import { useQueryState } from "../../stores/query";
 import fetchTargetData from "../../utils/fetchData";
 
 const IssuesPageWrapper = styled.div`
@@ -56,26 +57,21 @@ const queryToString = (query) => {
 
 const IssuesPage = () => {
   const history = useHistory();
+
   const issueState = useIssueState();
+  const queryState = useQueryState();
+
   const issueDispatch = useIssueDispatch();
   const labelDispatch = useLabelDispatch();
   const milestoneDispatch = useMilestoneDispatch();
 
-  const [query, setQuery] = useState({
-    status: "open",
-    author: "",
-    label: [],
-    assignee: "",
-    milestone: "",
-  });
-
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    fetchTargetData(`issues${queryToString(query)}`, issueDispatch);
+    fetchTargetData(`issues${queryToString(queryState.query)}`, issueDispatch);
     fetchTargetData("label", labelDispatch);
     fetchTargetData("milestone", milestoneDispatch);
-  }, [query]);
+  }, [queryState.query]);
 
   const onClickNewIssue = () => {
     history.push("/issues/new");
@@ -86,7 +82,7 @@ const IssuesPage = () => {
       <Header />
       <IssuesPageWrapper>
         <StyledNavigationWrapper>
-          <O.NavigationWrapperInput query={query} setQuery={setQuery} />
+          <O.NavigationWrapperInput />
           <M.NavigationWrapperLink />
           <M.ButtonDiv
             buttonColor={colors.green}
@@ -104,7 +100,7 @@ const IssuesPage = () => {
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
           <M.Container
-            menu={<O.IssueMenu query={query} setQuery={setQuery} />}
+            menu={<O.IssueMenu />}
             content={<O.IssueContent issues={issueState.issues} />}
           />
         </StyledIssueContentWrapper>

@@ -30,7 +30,7 @@ const Header = () => {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
-    localStorage.removeItem("username");
+    localStorage.removeItem("nickname");
     localStorage.removeItem("userImage");
     location.href = "/";
   };

@@ -19,6 +19,7 @@ const initialState = {
   error: null,
 };
 
+// TODO: Sort dispatch로 하기
 const issueReducer = (state, action) => {
   switch (action.type) {
     case "READ_LOADING":

@@ -14,6 +14,7 @@ const StyledNavigationWrapperLink = styled.div`
   margin: 0px 10px;
 `;
 
+// TODO: span tag div로 바꾸기
 const NavigationWrapperLink = () => {
   const labelState = useLabelState();
   const milestoneState = useMilestoneState();
