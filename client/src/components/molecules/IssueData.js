@@ -77,7 +77,7 @@ const calculateTime = (timeString) => {
   return `${Math.floor(timeDifference / 216000)} days ago`;
 };
 
-const IssueData = ({ props }) => {
+const IssueData = ({ props, selected, setSelected }) => {
   const [imageHover, setImageHover] = useState(false);
   const commentsLength = props.comments.length;
   const assigneesLength = props.assignees.length;
@@ -93,12 +93,17 @@ const IssueData = ({ props }) => {
   return (
     <StyledIssueData>
       <StyledCheckbox>
-        <A.Checkbox />
+        <A.Checkbox
+          onClick={() => {
+            console.log("click");
+            setSelected([...selected, props.id]);
+          }}
+        />
       </StyledCheckbox>
       <StyledIssueIcon>
         <A.Icon
           name={"alert"}
-          color={props.status === "open" ? "black" : "red"}
+          color={props.status === "open" ? "green" : "red"}
         />
       </StyledIssueIcon>
       <StyledImportant>

@@ -24,7 +24,7 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const IssueMenu = () => {
+const IssueMenu = ({ selected, setSelected }) => {
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -130,6 +130,10 @@ const IssueMenu = () => {
   return (
     <StyledIssueMenuWrapper>
       <A.Checkbox />
+      <span>{selected.length} selected</span>
+      {/* <span>{selected.length === 0 ? "" : selected.length + " selected"
+    
+    '}</span> */}
       <A.Button onClick={onClickIssueOpen}>
         {issueState.issueCount?.open}
       </A.Button>

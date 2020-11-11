@@ -77,6 +77,7 @@ const IssuesPage = () => {
     history.push("/issues/new");
   };
 
+  console.log(selected);
   return (
     <>
       <Header />
@@ -100,8 +101,14 @@ const IssuesPage = () => {
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
           <M.Container
-            menu={<O.IssueMenu />}
-            content={<O.IssueContent issues={issueState.issues} />}
+            menu={<O.IssueMenu selected={selected} setSelected={setSelected} />}
+            content={
+              <O.IssueContent
+                issues={issueState.issues}
+                selected={selected}
+                setSelected={setSelected}
+              />
+            }
           />
         </StyledIssueContentWrapper>
       </IssuesPageWrapper>
