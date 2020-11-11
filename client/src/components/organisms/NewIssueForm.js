@@ -5,6 +5,8 @@ import M from "../molecules/index";
 import colors from "../../constants/colors";
 import myAxios from "../../utils/myAxios";
 
+import marked from "marked";
+
 const StyledNewIsssueForm = styled.section`
   padding: 0.5rem 0.5rem;
   margin: 0 1rem;
@@ -49,6 +51,11 @@ const NewIssueForm = () => {
     setValue(e.target.value);
   };
 
+  const renderText = (text) => {
+    const __html = marked(text, { sanitize: true });
+    return { __html };
+  };
+
   return (
     <StyledNewIsssueForm>
       <A.Input
@@ -78,6 +85,7 @@ const NewIssueForm = () => {
           charLength={charLength}
           filePath={filePath}
         />
+        <div dangerouslySetInnerHTML={renderText(value)}></div>
         <M.FileInput onSubmitHandler={onSubmitHandler} />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
