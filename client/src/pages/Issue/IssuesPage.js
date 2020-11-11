@@ -7,6 +7,8 @@ import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import { useLabelDispatch } from "../../stores/label";
+import { useMilestoneDispatch } from "../../stores/milestone";
 import fetchTargetData from "../../utils/fetchData";
 
 const IssuesPageWrapper = styled.div`
@@ -56,6 +58,8 @@ const IssuesPage = () => {
   const history = useHistory();
   const issueState = useIssueState();
   const issueDispatch = useIssueDispatch();
+  const labelDispatch = useLabelDispatch();
+  const milestoneDispatch = useMilestoneDispatch();
 
   const [query, setQuery] = useState({
     status: "open",
@@ -64,10 +68,13 @@ const IssuesPage = () => {
     assignee: "",
     milestone: "",
   });
+
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    fetchTargetData(`/issues${queryToString(query)}`, issueDispatch);
+    fetchTargetData(`issues${queryToString(query)}`, issueDispatch);
+    fetchTargetData("label", labelDispatch);
+    fetchTargetData("milestone", milestoneDispatch);
   }, []);
 
   const onClickNewIssue = () => {
@@ -96,10 +103,7 @@ const IssuesPage = () => {
         </StyledNavigationWrapper>
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
-          <M.Container
-            menu={<O.IssueMenu issueCount={issueState.issueCount} />}
-            content={<O.IssueContent />}
-          />
+          <M.Container menu={<O.IssueMenu />} content={<O.IssueContent />} />
         </StyledIssueContentWrapper>
       </IssuesPageWrapper>
     </>

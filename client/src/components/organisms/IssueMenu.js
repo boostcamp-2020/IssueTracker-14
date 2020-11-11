@@ -7,6 +7,10 @@ import O from "./../organisms/index";
 import { useLabelState, useLabelDispatch } from "../../stores/label";
 import { useAssigneeState, useAssigneeDispatch } from "../../stores/assignee";
 import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import {
+  useMilestoneState,
+  useMilestoneDispatch,
+} from "../../stores/milestone";
 
 import fetchTargetData from "../../utils/fetchData";
 
@@ -19,7 +23,7 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const IssueMenu = ({ issueCount }) => {
+const IssueMenu = () => {
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -76,8 +80,8 @@ const IssueMenu = ({ issueCount }) => {
   return (
     <StyledIssueMenuWrapper>
       <A.Checkbox />
-      <span>{issueCount.open}</span>
-      <span>{issueCount.closed}</span>
+      <span>{issueState.issueCount?.open}</span>
+      <span>{issueState.issueCount?.closed}</span>
       <O.DropdownCluster dropdownOptions={issueDropdownOptions} />
     </StyledIssueMenuWrapper>
   );

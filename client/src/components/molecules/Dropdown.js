@@ -110,7 +110,7 @@ const Dropdown = ({
             onChange={handleSearch}
           />
         ) : null}
-        {buttonData === null ? (
+        {buttonData === [] ? (
           <A.Button
             width={dropdownWidth}
             height={buttonHeight}

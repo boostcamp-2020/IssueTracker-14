@@ -17,8 +17,7 @@ const milestoneReducer = (state, action) => {
     case "READ_LOADING":
       return {
         ...state,
-        loading: false,
-        milestones: null,
+        loading: true,
         error: null,
       };
 
@@ -34,7 +33,6 @@ const milestoneReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        milestones: null,
         error: action.error,
       };
 
