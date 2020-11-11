@@ -7,7 +7,8 @@ const StyledLabel = styled.button`
   border: 1px solid transparent;
   height: 1.25rem;
   font-size: 0.85rem;
-  width: ${({ children }) => (children?.length - 1) * 0.6 + 1.25}rem;
+  width: ${({ children }) =>
+    (children ? children.length - 1 : 0) * 0.6 + 1.25}rem;
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
   border-radius: 2em;
@@ -43,6 +44,7 @@ Label.defaultProps = {
   margin: "0rem",
   backgroundHexaColor: "#959da5",
   cursor: "pointer",
+  children: null,
 };
 
 export default Label;

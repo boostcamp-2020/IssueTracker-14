@@ -4,10 +4,10 @@ import myAxios from "../utils/myAxios";
 const initialState = {
   newIssue: {
     title: "",
-    milestone: {},
+    milestoneid: null,
     authorid: null,
-    labelList: [],
-    assigneeList: [],
+    labelIdList: [],
+    assigneeIdList: [],
     commentContent: null,
   },
   issues: [],
@@ -55,15 +55,12 @@ const issueReducer = (state, action) => {
       };
 
     case "ADD_ASSIGNEE":
-      return;
-
-    case "ADD_LABEL":
-      if (state.newIssue.assigneeList.includes(action.data)) {
+      if (state.newIssue.assigneeIdList.includes(action.data)) {
         return {
           ...state,
           newIssue: {
             ...state.newIssue,
-            assigneeList: state.newIssue.assigneeList.filter(
+            assigneeIdList: state.newIssue.assigneeIdList.filter(
               (el) => el !== action.data
             ),
           },
@@ -73,63 +70,74 @@ const issueReducer = (state, action) => {
           ...state,
           newIssue: {
             ...state.newIssue,
-            assigneeList: [...state.newIssue.assigneeList, action.data],
+            assigneeIdList: [...state.newIssue.assigneeIdList, action.data],
+          },
+        };
+      }
+
+    case "ADD_LABEL":
+      if (state.newIssue.labelIdList.includes(action.data)) {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            labelIdList: state.newIssue.labelIdList.filter(
+              (el) => el !== action.data
+            ),
+          },
+        };
+      } else {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            labelIdList: [...state.newIssue.labelIdList, action.data],
           },
         };
       }
 
     case "ADD_MILESTONE":
-      return;
+      if (state.newIssue.milestoneid === action.data) {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            milestoneid: null,
+          },
+        };
+      } else {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            milestoneid: action.data,
+          },
+        };
+      }
 
-    // case "CREATE_NEW_ISSUE":
-    //   try {
-    //     const createIssue = async () => {
-    //       const {
-    //         data: { message },
-    //       } = await myAxios.post("/issues", {
-    //         title: state.newIssue.title,
-    //         milestoneid: state.newIssue.milestoneid,
-    //         labelIdList: state.newIssue.labelIdList,
-    //         assigneeIdList: state.newIssue.assigneeIdList,
-    //         commentContent: state.newIssue.commentContent,
-    //       });
-    //       if (message === "success") {
-    //         alert("정상적으로 이슈가 생성되었습니다.");
-    //         return;
-    //       }
-    //     };
-    //     return createIssue();
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    //   return;
-
-    case "SET_ASSIGNEES":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          assigneeList: [...state.newIssue.assigneeList, action.data],
-        },
-      };
-
-    case "SET_LABELS":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          labelList: [...state.newIssue.labelList, action.data],
-        },
-      };
-
-    case "SET_MILESTONE":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          milestone: action.data,
-        },
-      };
+    case "CREATE_NEW_ISSUE":
+      try {
+        const createIssue = async () => {
+          const {
+            data: { message },
+          } = await myAxios.post("/issues", {
+            title: state.newIssue.title,
+            milestoneid: state.newIssue.milestoneid,
+            labelIdList: state.newIssue.labelIdList,
+            assigneeIdList: state.newIssue.assigneeIdList,
+            commentContent: state.newIssue.commentContent,
+          });
+          if (message === "success") {
+            alert("정상적으로 이슈가 생성되었습니다.");
+            return state;
+          }
+        };
+        createIssue();
+        return state;
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
 
     default:
       return state;

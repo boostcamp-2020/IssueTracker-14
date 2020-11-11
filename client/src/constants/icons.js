@@ -12,6 +12,7 @@ import {
   faCommentAlt,
   faSyncAlt,
   faCheckDouble,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
 
@@ -29,6 +30,7 @@ const icons = {
   message: <FontAwesomeIcon icon={faCommentAlt} />,
   refresh: <FontAwesomeIcon icon={faSyncAlt} />,
   checkDouble: <FontAwesomeIcon icon={faCheckDouble} />,
+  check: <FontAwesomeIcon icon={faCheck} />,
 };
 
 export default icons;

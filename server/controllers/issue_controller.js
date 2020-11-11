@@ -36,7 +36,7 @@ const createIssue = async (req, res) => {
       { transaction: t }
     );
 
-    Array.isArray(assigneeIdList) &&
+    Array.isArray(JSON.parse(assigneeIdList)) &&
       (await AssigneeModel.bulkCreate(
         JSON.parse(assigneeIdList).map((userid) => {
           return { issueid, userid };
@@ -44,7 +44,7 @@ const createIssue = async (req, res) => {
         { transaction: t }
       ));
 
-    Array.isArray(labelIdList) &&
+    Array.isArray(JSON.parse(labelIdList)) &&
       (await LabelHasIssueModel.bulkCreate(
         JSON.parse(labelIdList).map((labelid) => {
           return { issueid, labelid };

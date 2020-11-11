@@ -40,7 +40,10 @@ const NewIssueOptions = () => {
       }),
       buttonText: "Assignees",
       labelText: "Assign up to 10 people to this issue",
-      selected: issueState.newIssue.assigneeList,
+      selected:
+        assigneeState.users.filter((user) => {
+          return issueState.newIssue.assigneeIdList.includes(user.id);
+        }) || [],
       defaultText: "No one - assign yourself",
       fetchData: () => {
         fetchTargetData("user/all", assigneeDispatch);
@@ -57,7 +60,10 @@ const NewIssueOptions = () => {
       }),
       buttonText: "Labels",
       labelText: "Apply Label to this issue",
-      selected: issueState.newIssue.labelList,
+      selected:
+        labelState.labels.filter((label) => {
+          return issueState.newIssue.labelIdList.includes(label.id);
+        }) || [],
       defaultText: "None yet",
       fetchData: () => {
         fetchTargetData("label", labelDispatch);
@@ -74,7 +80,10 @@ const NewIssueOptions = () => {
       }),
       buttonText: "Milestone",
       labelText: "Set milestone",
-      selected: issueState.newIssue.milestoneId,
+      selected:
+        milestoneState.milestones.filter((milestone) => {
+          return issueState.newIssue.milestoneid === milestone.id;
+        }) || [],
       defaultText: "No milestone",
       fetchData: () => {
         fetchTargetData("milestone", milestoneDispatch);
