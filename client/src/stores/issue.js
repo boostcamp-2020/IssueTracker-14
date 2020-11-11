@@ -1,13 +1,12 @@
 import React, { useReducer, useContext, createContext } from "react";
-import myAxios from "../utils/myAxios";
 
 const initialState = {
   newIssue: {
     title: "",
-    milestone: {},
+    milestoneId: null,
     authorid: null,
-    labelList: [],
-    assigneeList: [],
+    labelIdList: [],
+    assigneeIdList: [],
     commentContent: null,
   },
   issues: [],
@@ -55,15 +54,12 @@ const issueReducer = (state, action) => {
       };
 
     case "ADD_ASSIGNEE":
-      return;
-
-    case "ADD_LABEL":
-      if (state.newIssue.assigneeList.includes(action.data)) {
+      if (state.newIssue.assigneeIdList.includes(action.data)) {
         return {
           ...state,
           newIssue: {
             ...state.newIssue,
-            assigneeList: state.newIssue.assigneeList.filter(
+            assigneeIdList: state.newIssue.assigneeIdList.filter(
               (el) => el !== action.data
             ),
           },
@@ -73,14 +69,50 @@ const issueReducer = (state, action) => {
           ...state,
           newIssue: {
             ...state.newIssue,
-            assigneeList: [...state.newIssue.assigneeList, action.data],
+            assigneeIdList: [...state.newIssue.assigneeIdList, action.data],
+          },
+        };
+      }
+
+    case "ADD_LABEL":
+      if (state.newIssue.labelIdList.includes(action.data)) {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            labelIdList: state.newIssue.labelIdList.filter(
+              (el) => el !== action.data
+            ),
+          },
+        };
+      } else {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            labelIdList: [...state.newIssue.labelIdList, action.data],
           },
         };
       }
 
     case "ADD_MILESTONE":
-      return;
-
+      if (state.newIssue.milestoneId === action.data) {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            milestoneId: null,
+          },
+        };
+      } else {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            milestoneId: action.data,
+          },
+        };
+      }
     // case "CREATE_NEW_ISSUE":
     //   try {
     //     const createIssue = async () => {
