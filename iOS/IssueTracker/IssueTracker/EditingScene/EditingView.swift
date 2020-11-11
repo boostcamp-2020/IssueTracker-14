@@ -13,7 +13,7 @@ protocol EditingViewDelegate: class {
     func saveButtonDidTouchUp(_ editingView: EditingView)
 }
 
-final class EditingView: UIView {
+class EditingView: UIView {
     
     private let closeButton: AnimatableButton = {
         let button = AnimatableButton()
@@ -53,8 +53,13 @@ final class EditingView: UIView {
     }()
     weak var delegate: EditingViewDelegate?
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         configure()
     }
     
@@ -62,10 +67,10 @@ final class EditingView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: borderView.bottomAnchor),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -16),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor)
+            contentView.topAnchor.constraint(equalTo: borderView.bottomAnchor, constant: 8),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            contentView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -36),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
     }
     
