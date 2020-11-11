@@ -196,7 +196,7 @@ extension IssueListViewController: IssueListViewEditTabBarDelegate {
 
 private extension IssueListViewController {
     @objc func selectAllButtonDidTouchUp() {
-        guard isEditing else { return }
+        guard isEditing else { coordinator?.showFilter(); return }
         if selectedCellsCount == issues.count {
             deselectAllItems()
         } else {
