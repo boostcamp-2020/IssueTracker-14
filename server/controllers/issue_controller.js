@@ -167,7 +167,7 @@ const readIssues = async (req, res) => {
         "description",
       ],
     });
-    //TODO: Comment count
+
     const issueCount = { open: 0, closed: 0 };
 
     const filteredIssues = issues.filter((issue) => {

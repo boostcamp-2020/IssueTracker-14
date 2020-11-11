@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import A from "../../components/atoms/index";
+import { useHistory } from "react-router-dom";
+import colors from "../../constants/colors";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 
@@ -24,23 +25,35 @@ const StyledNewMilestoneHeader = styled.div`
   margin: 20px 0;
 `;
 
-const NewMilestonePage = () => {
+const MilestonePage = () => {
+  const history = useHistory();
+
+  const onClickNewMilestone = () => {
+    history.push("/milestones/new");
+  };
+
   return (
     <>
       <O.Header />
       <IssuesPageWrapper>
         <StyledNewMilestoneHeader>
-          <M.Title>New Milestone</M.Title>
-          <A.Text hover={false} color={"darkGrey"}>
-            Create a new milestone to help organize your issues and pull
-            requests. Learn more about milestones and issues.
-          </A.Text>
-          <A.Line color={"gery"} />
+          <M.NavigationWrapperLink location={"milestone"} />
+          <M.ButtonDiv
+            buttonColor={colors.green}
+            width={"8rem"}
+            height={"2rem"}
+            onClick={onClickNewMilestone}
+            textColor={colors.white}
+            fontSize={"small"}
+            hover={false}
+            border={true}
+          >
+            New Milestone
+          </M.ButtonDiv>
         </StyledNewMilestoneHeader>
-        <O.NewMilestoneForm />
       </IssuesPageWrapper>
     </>
   );
 };
 
-export default NewMilestonePage;
+export default MilestonePage;

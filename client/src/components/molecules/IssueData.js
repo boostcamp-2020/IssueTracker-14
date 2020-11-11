@@ -141,10 +141,10 @@ const IssueData = ({
             return (
               <A.Label
                 key={idx}
-                backgroundHexaColor={el.label.color}
+                backgroundHexaColor={el.label?.color}
                 margin={"0rem 0rem 0rem 0.3rem"}
               >
-                {el.label.title}
+                {el.label?.title}
               </A.Label>
             );
           })}
