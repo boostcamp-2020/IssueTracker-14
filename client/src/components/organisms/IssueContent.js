@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import A from "./../atoms/index";
 import M from "./../molecules/index";
@@ -19,6 +19,7 @@ const IssueContent = ({
   totalSelected,
   setTotalSelected,
 }) => {
+
   return (
     <StyledIssueContent>
       {issues.map((issue) => (
