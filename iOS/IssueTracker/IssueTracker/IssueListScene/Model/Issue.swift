@@ -33,11 +33,6 @@ struct Comment: Decodable, Hashable {
     let content: String
 }
 
-struct MileStone: Decodable, Hashable {
-    let id: Int
-    let title: String
-}
-
 // 임시 데이터
 struct IssueDetail: Decodable, Hashable {
     let id: Int

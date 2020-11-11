@@ -1,5 +1,5 @@
 //
-//  UIViewController+Alert.swift
+//  UIViewController+alert.swift
 //  IssueTracker
 //
 //  Created by 최동규 on 2020/11/02.
