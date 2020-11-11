@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import A from "../atoms/index";
 
-const DropdownItem = ({ data, width, height, setVisible, dispatchData }) => {
+const DropdownItem = ({ data, width, height, dispatchData, selected }) => {
   const setData = (data) => {
     dispatchData(data);
-    setVisible("none");
+    setIsSelected(!isSelected);
   };
+
+  const [isSelected, setIsSelected] = useState(selected.includes(data.id));
 
   return (
     <A.Button
@@ -21,10 +23,13 @@ const DropdownItem = ({ data, width, height, setVisible, dispatchData }) => {
       borderBottom={"1px solid #959da5"}
       onClick={() => setData(data)}
     >
+      {isSelected ? <A.Icon name="check" /> : null}
       {data.imageurl !== undefined ? (
         <A.Image size={"15px"} imageUrl={data.imageurl} />
       ) : null}
+      {data.color ? <A.Label backgroundHexaColor={data.color} /> : null}
       <span>{data.title === undefined ? data.nickname : data.title}</span>
+      {data.description ? <span>{data.description}</span> : null}
     </A.Button>
   );
 };
