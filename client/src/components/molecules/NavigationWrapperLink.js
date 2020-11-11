@@ -12,7 +12,7 @@ const StyledNavigationWrapperLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px;
+  margin: 0px 5px;
 `;
 
 const StyledContentWrapper = styled.div`
@@ -29,7 +29,7 @@ const StyledCountDiv = styled.div`
   background-color: "#e3e3e4";
   border: 1px solid "#e3e3e4";
   border-radius: 6px;
-  width: 10%;
+  width: 1rem;
   height: 1rem;
   margin-left: 4px;
   color: "white";
@@ -41,34 +41,52 @@ const NavigationWrapperLink = ({ location }) => {
   const milestoneState = useMilestoneState();
   return (
     <StyledNavigationWrapperLink>
-      <A.Button
-        border={true}
-        rounded={false}
-        width={"8rem"}
-        height={"2rem"}
-        buttonColor={location === "label" ? colors.blue : colors.white}
-      >
-        <StyledContentWrapper>
-          <A.Icon name={"label"} />
-          <A.Text fontSize={"small"}>Label</A.Text>
-          {!location && (
-            <StyledCountDiv> {labelState?.labels?.length}</StyledCountDiv>
-          )}
-        </StyledContentWrapper>
-      </A.Button>
+      <Link to={""} style={{ textDecoration: "none" }}>
+        <A.Button
+          border={true}
+          rounded={false}
+          width={"8rem"}
+          height={"2rem"}
+          buttonColor={location === "label" ? colors.blue : colors.white}
+        >
+          <StyledContentWrapper>
+            <A.Icon
+              name={"label"}
+              color={location !== "label" ? "black" : "white"}
+            />
+            <A.Text
+              fontSize={"small"}
+              color={location !== "label" ? "black" : "white"}
+            >
+              Label
+            </A.Text>
+            {!location && (
+              <StyledCountDiv> {labelState?.labels?.length}</StyledCountDiv>
+            )}
+          </StyledContentWrapper>
+        </A.Button>
+      </Link>
       <Link to={"/milestones"} style={{ textDecoration: "none" }}>
         <A.Button
           border={true}
           rounded={false}
-          width={"9rem"}
+          width={"8rem"}
           height={"2rem"}
           backgroundColor={
             location === "milestone" ? colors.blue : colors.white
           }
         >
           <StyledContentWrapper>
-            <A.Icon name={"milestone"} />
-            <A.Text fontSize={"small"}>Milestone</A.Text>
+            <A.Icon
+              name={"milestone"}
+              color={location !== "milestone" ? "black" : "white"}
+            />
+            <A.Text
+              fontSize={"small"}
+              color={location !== "milestone" ? "black" : "white"}
+            >
+              Milestone
+            </A.Text>
             {!location && (
               <StyledCountDiv>
                 {milestoneState?.milestones?.length}
