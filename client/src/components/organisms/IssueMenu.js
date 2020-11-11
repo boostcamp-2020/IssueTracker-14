@@ -153,7 +153,7 @@ const IssueMenu = ({
   return (
     <StyledIssueMenuWrapper>
       {issueState.issues.length !== selected.length && selected.length !== 0 ? (
-        <A.Icon name="checkDouble" />
+        <A.Text fontSize={"0.6rem"}><A.Icon distance={"0"} name="checkDouble" /></A.Text>
       ) : (
         <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
       )}
