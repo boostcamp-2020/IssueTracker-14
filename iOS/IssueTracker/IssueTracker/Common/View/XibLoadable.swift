@@ -17,8 +17,6 @@ extension XibLoadable {
     }
     
     func loadNib() -> UIView? {
-        let bundle = Bundle(for: Self.self)
-        return bundle.loadNibNamed(Self.xibName,
-                                   owner: self)?.first as? UIView
+        return Bundle.main.loadNibNamed(Self.xibName, owner: self)?.first as? UIView
     }
 }
