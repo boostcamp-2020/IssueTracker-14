@@ -1,9 +1,10 @@
 import React, { useReducer, useContext, createContext } from "react";
+import myAxios from "../utils/myAxios";
 
 const initialState = {
   newIssue: {
     title: "",
-    milestoneId: null,
+    milestoneid: null,
     authorid: null,
     labelIdList: [],
     assigneeIdList: [],
@@ -96,12 +97,12 @@ const issueReducer = (state, action) => {
       }
 
     case "ADD_MILESTONE":
-      if (state.newIssue.milestoneId === action.data) {
+      if (state.newIssue.milestoneid === action.data) {
         return {
           ...state,
           newIssue: {
             ...state.newIssue,
-            milestoneId: null,
+            milestoneid: null,
           },
         };
       } else {
@@ -109,32 +110,34 @@ const issueReducer = (state, action) => {
           ...state,
           newIssue: {
             ...state.newIssue,
-            milestoneId: action.data,
+            milestoneid: action.data,
           },
         };
       }
-    // case "CREATE_NEW_ISSUE":
-    //   try {
-    //     const createIssue = async () => {
-    //       const {
-    //         data: { message },
-    //       } = await myAxios.post("/issues", {
-    //         title: state.newIssue.title,
-    //         milestoneid: state.newIssue.milestoneid,
-    //         labelIdList: state.newIssue.labelIdList,
-    //         assigneeIdList: state.newIssue.assigneeIdList,
-    //         commentContent: state.newIssue.commentContent,
-    //       });
-    //       if (message === "success") {
-    //         alert("정상적으로 이슈가 생성되었습니다.");
-    //         return;
-    //       }
-    //     };
-    //     return createIssue();
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    //   return;
+
+    case "CREATE_NEW_ISSUE":
+      try {
+        const createIssue = async () => {
+          const {
+            data: { message },
+          } = await myAxios.post("/issues", {
+            title: state.newIssue.title,
+            milestoneid: state.newIssue.milestoneid,
+            labelIdList: state.newIssue.labelIdList,
+            assigneeIdList: state.newIssue.assigneeIdList,
+            commentContent: state.newIssue.commentContent,
+          });
+          if (message === "success") {
+            alert("정상적으로 이슈가 생성되었습니다.");
+            return state;
+          }
+        };
+        createIssue();
+        return state;
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
 
     case "SET_ASSIGNEES":
       return {

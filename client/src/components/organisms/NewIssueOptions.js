@@ -82,7 +82,7 @@ const NewIssueOptions = () => {
       labelText: "Set milestone",
       selected:
         milestoneState.milestones.filter((milestone) => {
-          return issueState.newIssue.milestoneId === milestone.id;
+          return issueState.newIssue.milestoneid === milestone.id;
         }) || [],
       defaultText: "No milestone",
       fetchData: () => {
