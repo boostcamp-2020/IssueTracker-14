@@ -14,7 +14,7 @@ extension UIColor {
         guard !hexDigit.isEmpty,
               hexDigit.count == 6,
               hexDigit.allSatisfy({ $0.isHexDigit }),
-              let result = UInt64(hexDigit, radix: 16) else { return nil }
+              let result = Int(hexDigit, radix: 16) else { return nil }
         var red, blue, green: CGFloat
         red = CGFloat(result / 256 / 256) / 255
         blue = CGFloat(result / 256 % 256) / 255

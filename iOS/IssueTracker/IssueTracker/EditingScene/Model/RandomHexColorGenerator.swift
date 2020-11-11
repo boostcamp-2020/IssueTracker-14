@@ -16,14 +16,8 @@ final class RandomHexColorGenerator {
               current.count == 7,
               current.enumerated().allSatisfy({ $0 == 0 || $1.isHexDigit }) else { return nil }
         let uppercasedCurrent = current.uppercased()
-        var newValue = ""
-        for _ in 0..<6 {
-            newValue.append(hexDigit[hexDigit.index(hexDigit.startIndex, offsetBy: Int.random(in: 0..<16))])
-        }
+        let newValue = String((0..<6).compactMap({_ in hexDigit.randomElement()}))
         let result = "#\(newValue)"
-        if result == uppercasedCurrent {
-            return generateExcept(for: uppercasedCurrent)
-        }
-        return result
+        return result == uppercasedCurrent ? generateExcept(for: uppercasedCurrent) : result
     }
 }
