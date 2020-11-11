@@ -137,7 +137,12 @@ const IssueData = ({
       </StyledIssueIcon>
       <StyledImportant>
         <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
-          <Link to={`issues/${issue.id}`}>{issue.title}</Link>
+          <Link
+            to={`issues/${issue.id}`}
+            style={{ "text-decoration": "none", color: "inherit" }}
+          >
+            {issue.title}
+          </Link>
           {issue["label_has_issues"].map((el, idx) => {
             return (
               <A.Label
