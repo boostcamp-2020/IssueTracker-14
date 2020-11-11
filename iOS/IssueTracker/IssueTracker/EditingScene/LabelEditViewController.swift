@@ -52,9 +52,8 @@ extension LabelEditViewController: EditingViewDelegate {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 guard let error = error else {
-                    self.dismissWithAnimation(completion: {
-                        self.delegate?.labelChanged(self)
-                    })
+                    self.dismissWithAnimation()
+                    self.delegate?.labelChanged(self)
                     return
                 }
                 self.alert(message: error.localizedDescription)

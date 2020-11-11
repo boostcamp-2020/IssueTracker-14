@@ -77,7 +77,6 @@ private extension LabelListViewController {
             )
             return UISwipeActionsConfiguration(actions: [closeAction])
         }
-
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 }

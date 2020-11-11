@@ -36,12 +36,12 @@ extension DimmedViewController {
         ])
     }
     
-    @objc func dismissWithAnimation(completion: (() -> Void)? = nil) {
+    @objc func dismissWithAnimation() {
         let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear) { [weak self] in
             self?.backgroundView.alpha = 0
         }
         animator.addCompletion { [weak self] _ in
-            self?.dismiss(animated: true, completion: completion)
+            self?.dismiss(animated: true)
         }
         animator.startAnimation()
     }
