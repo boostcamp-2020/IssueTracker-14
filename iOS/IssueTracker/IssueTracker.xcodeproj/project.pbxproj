@@ -67,6 +67,9 @@
 		B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F54D7255B335100B800C8 /* String+customDateFormat.swift */; };
 		B951AE55255C5B3C00F6B9C7 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE54255C5B3C00F6B9C7 /* FilterTableViewController.swift */; };
 		B951AE69255C733500F6B9C7 /* FilterTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE68255C733500F6B9C7 /* FilterTableViewHeaderFooterView.swift */; };
+		B951AE6D255C7FF900F6B9C7 /* MileStoneEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */; };
+		B951AE72255C802100F6B9C7 /* MileStoneEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */; };
+		B951AE73255C802100F6B9C7 /* MileStoneEditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */; };
 		B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */; };
 		B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */; };
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
@@ -168,6 +171,9 @@
 		B94F54D7255B335100B800C8 /* String+customDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+customDateFormat.swift"; sourceTree = "<group>"; };
 		B951AE54255C5B3C00F6B9C7 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		B951AE68255C733500F6B9C7 /* FilterTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditViewController.swift; sourceTree = "<group>"; };
+		B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditingView.swift; sourceTree = "<group>"; };
+		B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MileStoneEditingView.xib; sourceTree = "<group>"; };
 		B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		B95A6C73254ACE9E00D9EC66 /* String+isEmailPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmailPattern.swift"; sourceTree = "<group>"; };
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
@@ -233,6 +239,9 @@
 				448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */,
 				448F3DA1255C0875006397F3 /* LabelEditingView.swift */,
 				448F3D85255BEFDD006397F3 /* LabelEditingView.xib */,
+				B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */,
+				B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */,
+				B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */,
 			);
 			path = EditingScene;
 			sourceTree = "<group>";
@@ -629,6 +638,7 @@
 				B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */,
 				B980376625484A16002FF4BF /* Assets.xcassets in Resources */,
 				B980376425484A14002FF4BF /* Main.storyboard in Resources */,
+				B951AE73255C802100F6B9C7 /* MileStoneEditingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +728,7 @@
 				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
 				B96FDADF255BCCBD00A1251C /* RandomHexColorGenerator.swift in Sources */,
 				B9FBB4FB25518488007207AE /* HomeTabBarCoordinator.swift in Sources */,
+				B951AE72255C802100F6B9C7 /* MileStoneEditingView.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
 				44791044255A7C2F004366B2 /* AnimatableButton.swift in Sources */,
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
@@ -764,6 +775,7 @@
 				B91AFB5125594085007AD8DD /* IssueListViewEditTabBar.swift in Sources */,
 				443A9CE22552B179009D3D34 /* IssueEndPoint.swift in Sources */,
 				442B3DA525525E9300069D18 /* Issue.swift in Sources */,
+				B951AE6D255C7FF900F6B9C7 /* MileStoneEditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
