@@ -27,7 +27,9 @@ const DropdownItem = ({ data, width, height, dispatchData, selected }) => {
       {data.imageurl !== undefined ? (
         <A.Image size={"15px"} imageUrl={data.imageurl} />
       ) : null}
+      {data.color ? <A.Label backgroundHexaColor={data.color} /> : null}
       <span>{data.title === undefined ? data.nickname : data.title}</span>
+      {data.description ? <span>{data.description}</span> : null}
     </A.Button>
   );
 };
