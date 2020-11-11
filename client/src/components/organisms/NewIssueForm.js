@@ -58,7 +58,9 @@ const NewIssueForm = () => {
       setCharLength(e.target.value.length);
       setTimeout(() => setCharLength(0), 2000);
     }, 2000);
-    
+    setValue(e.target.value);
+  };
+
   const renderText = (text) => {
     const __html = marked(text, { sanitize: true });
     return { __html };
@@ -108,8 +110,8 @@ const NewIssueForm = () => {
           height={"2rem"}
           border={true}
           disabled={!buttonActive}
+          hover={!buttonActive}
           opacity={buttonActive ? "1" : "0.5"}
-          onClick={onClickBtn}
         >
           Submit new issue
         </A.Button>

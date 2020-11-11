@@ -61,6 +61,7 @@ const Button = ({
     textAlign={textAlign}
     cursor={cursor}
     disabled={disabled}
+    hover={hover}
     {...rest}
   >
     {children}
