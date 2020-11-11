@@ -15,6 +15,7 @@ import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
 import NewIssuePage from "./pages/Issue/NewIssuePage";
+import EditIssuePage from "./pages/Issue/EditIssuePage";
 import MilestonePage from "./pages/Milestone/MilestonePage";
 import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
 
@@ -86,6 +87,11 @@ const App = () => {
                       component={NewMilestonePage}
                     />
                     <Route exact path="/issues/new" component={NewIssuePage} />
+                    <Route
+                      exact
+                      path="/issues/:issueId"
+                      component={EditIssuePage}
+                    />
                     <Route exact path="/login" component={LoginPage} />
                     <Route exact path="/signup" component={SignUpPage} />
                   </MilestoneProvider>
