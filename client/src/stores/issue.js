@@ -11,6 +11,10 @@ const initialState = {
     commentContent: null,
   },
   issues: [],
+  issueCount: {
+    open: 0,
+    closed: 0,
+  },
   loading: true,
   error: null,
 };
@@ -30,6 +34,7 @@ const issueReducer = (state, action) => {
         ...state,
         loading: false,
         issues: action.data.issues,
+        issueCount: action.data.issueCount,
         error: null,
       };
 

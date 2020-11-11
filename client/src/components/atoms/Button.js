@@ -48,6 +48,7 @@ const Button = ({
   textAlign,
   cursor,
   disabled,
+  hover,
   ...rest
 }) => (
   <StyledButton
