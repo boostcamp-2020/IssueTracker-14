@@ -712,13 +712,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PMZ-X8-vbI">
-                                                    <rect key="frame" x="16" y="8" width="188.5" height="59"/>
+                                                    <rect key="frame" x="16" y="8" width="178.5" height="59"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2kV-UU-I5J">
-                                                            <rect key="frame" x="0.0" y="0.0" width="188.5" height="19"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="178.5" height="17"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="스프린트" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9b-RJ-Xc8" customClass="PaddingLabel" customModule="IssueTracker" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="58.5" height="19"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="48.5" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -741,7 +741,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020년 12월 21일까지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zp2-2A-4Kf">
-                                                                    <rect key="frame" x="74.5" y="0.0" width="114" height="19"/>
+                                                                    <rect key="frame" x="64.5" y="0.0" width="114" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -749,7 +749,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="500" text="이번 배포를 위한 스프린트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPP-SI-9HA">
-                                                            <rect key="frame" x="0.0" y="27" width="145" height="32"/>
+                                                            <rect key="frame" x="0.0" y="25" width="145" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1216,13 +1216,13 @@
             <size key="intrinsicContentSize" width="94" height="33"/>
         </designable>
         <designable name="8aP-yj-Dpm">
-            <size key="intrinsicContentSize" width="74.5" height="27.5"/>
+            <size key="intrinsicContentSize" width="64.5" height="25.5"/>
         </designable>
         <designable name="ZCV-7a-4VR">
             <size key="intrinsicContentSize" width="56" height="30"/>
         </designable>
         <designable name="hr9-ne-Ry6">
-            <size key="intrinsicContentSize" width="56" height="19"/>
+            <size key="intrinsicContentSize" width="46" height="17"/>
         </designable>
         <designable name="k3Y-fo-ljF">
             <size key="intrinsicContentSize" width="17" height="22"/>
@@ -1231,7 +1231,7 @@
             <size key="intrinsicContentSize" width="21.5" height="22"/>
         </designable>
         <designable name="x9b-RJ-Xc8">
-            <size key="intrinsicContentSize" width="58.5" height="19"/>
+            <size key="intrinsicContentSize" width="48.5" height="17"/>
         </designable>
     </designables>
     <resources>
