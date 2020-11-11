@@ -57,6 +57,7 @@ const NavigationWrapperLink = ({ location }) => {
             <A.Text
               fontSize={"small"}
               color={location !== "label" ? "black" : "white"}
+              hover={false}
             >
               Label
             </A.Text>
@@ -84,6 +85,7 @@ const NavigationWrapperLink = ({ location }) => {
             <A.Text
               fontSize={"small"}
               color={location !== "milestone" ? "black" : "white"}
+              hover={false}
             >
               Milestone
             </A.Text>

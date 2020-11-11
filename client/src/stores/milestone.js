@@ -8,6 +8,10 @@ const initialState = {
     description: "",
   },
   milestones: [],
+  milestoneCount: {
+    open: 0,
+    closed: 0,
+  },
   loading: true,
   error: null,
 };
@@ -26,6 +30,7 @@ const milestoneReducer = (state, action) => {
         ...state,
         loading: false,
         milestones: action.data.milestones,
+        milestoneCount: action.data.milestoneCount,
         error: null,
       };
 
