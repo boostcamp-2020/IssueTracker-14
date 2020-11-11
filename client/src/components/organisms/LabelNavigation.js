@@ -72,91 +72,137 @@ const StyledLabelInputButtons = styled.div`
   align-items: flex-end;
   width: 12rem;
   margin: 0rem 1rem 1rem 12rem;
-  margin-right: 
+  margin-right: 1rem;
   margin-bottom: 1rem;
 `;
 
 const makeRandomColor = () => {
-  const string = '0123456789abcdef';
-  const colorChars = ['#'];
-  for (let i=0; i<6; i++) {
-    colorChars.push(string[Math.floor(Math.random()*(string.length-1))]);
+  const string = "0123456789abcdef";
+  const colorChars = ["#"];
+  for (let i = 0; i < 6; i++) {
+    colorChars.push(string[Math.floor(Math.random() * (string.length - 1))]);
   }
-  return colorChars.join('');
-}
+  return colorChars.join("");
+};
 
 const LabelNavigation = () => {
-
   const [inputName, setInputName] = useState("");
   const [labelName, setLabelName] = useState("Label preview");
 
-  const handleName = e => {
+  const handleName = (e) => {
     setInputName(e.target.value);
     setLabelName(e.target.value);
-    if (e.target.value==="") {
+    if (e.target.value === "") {
       setLabelName("Label preview");
-    };
-    
-  }
+    }
+  };
   const initColor = makeRandomColor();
-  console.log(initColor);
   const [labelColor, setLabelColor] = useState(initColor);
   const [inputColor, setInputColor] = useState(initColor);
-  const handleLabelColor = e => {
+  const handleLabelColor = (e) => {
     setLabelColor(e.target.value);
     setInputColor(e.target.value);
-    if (e.target.value==="") setInputColor("#")
-  }
+    if (e.target.value === "") setInputColor("#");
+  };
 
   return (
-  <StyledLabelNavigationWrapper>
-    <StyledLabelButtons>
-      <M.NavigationWrapperLink />
-      <M.ButtonDiv
-              buttonColor={"green"}
-              width={"8rem"}
-              height={"2rem"}
-              textColor={"white"}
-              fontSize={"small"}
+    <StyledLabelNavigationWrapper>
+      <StyledLabelButtons>
+        <M.NavigationWrapperLink />
+        <M.ButtonDiv
+          buttonColor={"green"}
+          width={"8rem"}
+          height={"2rem"}
+          textColor={"white"}
+          fontSize={"small"}
+          hover={false}
+          border={true}
+        >
+          New Label
+        </M.ButtonDiv>
+      </StyledLabelButtons>
+      <StyledLabelModal>
+        <StyledLabelPreview>
+          <A.Label backgroundHexaColor={labelColor} cursor={"default"}>
+            <A.Text
+              fontSize={"0.5rem"}
+              color={
+                decideFontColorFromHexa(labelColor) === "#000000"
+                  ? "black"
+                  : "white"
+              }
+              cursor={"default"}
               hover={false}
-              border={true}
-        >New Label</M.ButtonDiv>
-    </StyledLabelButtons>
-    <StyledLabelModal>
-      <StyledLabelPreview>
-        <A.Label backgroundHexaColor={labelColor} cursor={"default"}>
-          <A.Text fontSize={"0.5rem"} color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
-            {labelName}
-          </A.Text>
-        </A.Label>
-      </StyledLabelPreview>
-      <StyledLabelInput>
-        <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 1rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />
-        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem"} inputMargin={"0.2rem"} />
-        <StyledFormDiv>
-          <A.InputLabel label={"Color"} />
-          <StyledColor>
-            <A.Button width={"2.25rem"} height={"2.25rem"} backgroundColor={labelColor} hexa={true}>
-              <A.Text color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
-                <A.Icon name="refresh" />
-              </A.Text>
+            >
+              {labelName}
+            </A.Text>
+          </A.Label>
+        </StyledLabelPreview>
+        <StyledLabelInput>
+          <M.FormDiv
+            label={"Label name"}
+            placeholder={"Label name"}
+            bgColor={"white"}
+            margin={"0.5rem 0.5rem 0.5rem 1rem"}
+            inputMargin={"0.2rem"}
+            value={inputName}
+            onChange={handleName}
+          />
+          <M.FormDiv
+            label={"Description"}
+            placeholder={"Description (optional)"}
+            bgColor={"white"}
+            margin={"0.5rem 0.5rem"}
+            inputMargin={"0.2rem"}
+          />
+          <StyledFormDiv>
+            <A.InputLabel label={"Color"} />
+            <StyledColor>
+              <A.Button
+                width={"2.25rem"}
+                height={"2.25rem"}
+                backgroundColor={labelColor}
+                hexa={true}
+              >
+                <A.Text
+                  color={
+                    decideFontColorFromHexa(labelColor) === "#000000"
+                      ? "black"
+                      : "white"
+                  }
+                  cursor={"default"}
+                  hover={false}
+                >
+                  <A.Icon name="refresh" />
+                </A.Text>
+              </A.Button>
+              <A.Input
+                width={"8rem"}
+                bgColor={"white"}
+                margin={"0rem 0.2rem 0rem 0.5rem"}
+                value={inputColor}
+                onChange={handleLabelColor}
+              />
+            </StyledColor>
+          </StyledFormDiv>
+          <StyledLabelInputButtons>
+            <A.Button width={"3rem"} height={"2.25rem"} margin={"0.2rem"}>
+              Cancel
             </A.Button>
-            <A.Input
-              width={"8rem"}
-              bgColor={"white"}
-              margin={"0rem 0.2rem 0rem 0.5rem"}
-              value={inputColor}
-              onChange={handleLabelColor}
-            />
-          </StyledColor>
-        </StyledFormDiv>
-        <StyledLabelInputButtons>
-          <A.Button width={"3rem"} height={"2.25rem"} margin={"0.2rem"} >Cancel</A.Button>
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} >Create label</A.Button>
-        </StyledLabelInputButtons>
-      </StyledLabelInput>
-    </StyledLabelModal>
-  </StyledLabelNavigationWrapper>
-)};
+            <A.Button
+              width={"7rem"}
+              height={"2.25rem"}
+              margin={"0.2rem 0rem 0.2rem 0.2rem"}
+              backgroundColor={"green"}
+              color={"white"}
+            >
+              Create label
+            </A.Button>
+          </StyledLabelInputButtons>
+        </StyledLabelInput>
+      </StyledLabelModal>
+    </StyledLabelNavigationWrapper>
+  );
+};
 
 export default LabelNavigation;

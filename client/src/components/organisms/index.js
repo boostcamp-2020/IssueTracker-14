@@ -11,6 +11,7 @@ import IssueMenu from "./IssueMenu";
 import IssueContent from "./IssueContent";
 import LabelNavigation from "./LabelNavigation";
 import MilestoneMenu from "./MilestoneMenu";
+import MilestoneContent from "./MilestoneContent";
 
 export default {
   Footer,
@@ -26,4 +27,5 @@ export default {
   IssueContent,
   LabelNavigation,
   MilestoneMenu,
+  MilestoneContent,
 };

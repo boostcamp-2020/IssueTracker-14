@@ -1,6 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import {
+  useMilestoneState,
+  useMilestoneDispatch,
+} from "../../stores/milestone";
+import fetchData from "../../utils/fetchData";
 import colors from "../../constants/colors";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
@@ -25,13 +30,19 @@ const StyledNewMilestoneHeader = styled.div`
 `;
 
 const MilestonePage = () => {
+  const [status, setStatus] = useState("open");
   const history = useHistory();
+
+  const milestoneState = useMilestoneState();
+  const milestoneDispatch = useMilestoneDispatch();
 
   const onClickNewMilestone = () => {
     history.push("/milestones/new");
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetchData("milestone", milestoneDispatch);
+  }, [status]);
 
   return (
     <>
@@ -54,7 +65,15 @@ const MilestonePage = () => {
             New Milestone
           </M.ButtonDiv>
         </StyledNewMilestoneHeader>
-        <M.Container menu={<O.MilestoneMenu />} />
+        <M.Container
+          menu={<O.MilestoneMenu status={status} setStatus={setStatus} />}
+          content={
+            <O.MilestoneContent
+              milestones={milestoneState.milestones}
+              status={status}
+            />
+          }
+        />
       </IssuesPageWrapper>
     </>
   );
