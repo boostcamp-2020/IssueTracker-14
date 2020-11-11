@@ -139,33 +139,6 @@ const issueReducer = (state, action) => {
       }
       return state;
 
-    case "SET_ASSIGNEES":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          assigneeList: [...state.newIssue.assigneeList, action.data],
-        },
-      };
-
-    case "SET_LABELS":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          labelList: [...state.newIssue.labelList, action.data],
-        },
-      };
-
-    case "SET_MILESTONE":
-      return {
-        ...state,
-        newIssue: {
-          ...state.newIssue,
-          milestone: action.data,
-        },
-      };
-
     default:
       return state;
   }
