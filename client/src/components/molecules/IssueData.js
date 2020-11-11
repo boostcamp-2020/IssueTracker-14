@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import A from "./../atoms/index";
 
@@ -77,10 +77,17 @@ const calculateTime = (timeString) => {
   return `${Math.floor(timeDifference / 216000)} days ago`;
 };
 
-const IssueData = ({ props, selected, setSelected }) => {
+const IssueData = ({
+  issue,
+  selected,
+  setSelected,
+  totalSelected,
+  setTotalSelected,
+}) => {
   const [imageHover, setImageHover] = useState(false);
-  const commentsLength = props.comments.length;
-  const assigneesLength = props.assignees.length;
+  const [isChecked, setIsChecked] = useState(false);
+  const commentsLength = issue.comments.length;
+  const assigneesLength = issue.assignees.length;
 
   const mouseOnImage = () => {
     setImageHover(true);
@@ -90,26 +97,47 @@ const IssueData = ({ props, selected, setSelected }) => {
     setImageHover(false);
   };
 
+  const handleCheckbox = () => {
+    setIsChecked(!isChecked);
+    if (selected.includes(issue.id)) {
+      setSelected(selected.filter((el) => el !== issue.id));
+    } else {
+      setSelected([...selected, issue.id]);
+    }
+    selected.length === 0 ? setTotalSelected(false) : setTotalSelected(true);
+  };
+
+  useEffect(() => {
+    if (totalSelected) {
+      setIsChecked(true);
+    }
+    if (!totalSelected) {
+      setIsChecked(false);
+      setSelected([]);
+    }
+  }, [totalSelected]);
+
+  if (isChecked) {
+    if (!selected.includes(issue.id)) {
+      setSelected([...selected, issue.id]);
+    }
+  }
+
   return (
     <StyledIssueData>
       <StyledCheckbox>
-        <A.Checkbox
-          onClick={() => {
-            console.log("click");
-            setSelected([...selected, props.id]);
-          }}
-        />
+        <A.Checkbox checked={isChecked} onClick={handleCheckbox} />
       </StyledCheckbox>
       <StyledIssueIcon>
         <A.Icon
           name={"alert"}
-          color={props.status === "open" ? "green" : "red"}
+          color={issue.status === "open" ? "green" : "red"}
         />
       </StyledIssueIcon>
       <StyledImportant>
         <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
-          {props.title}
-          {props["label_has_issues"].map((el, idx) => {
+          {issue.title}
+          {issue["label_has_issues"].map((el, idx) => {
             return (
               <A.Label
                 key={idx}
@@ -122,14 +150,14 @@ const IssueData = ({ props, selected, setSelected }) => {
           })}
         </A.Text>
         <A.Text fontSize={"0.75rem"}>
-          #{props.id} opened {calculateTime(props.createdAt)} by{" "}
-          {props.user.nickname}
+          #{issue.id} opened {calculateTime(issue.createdAt)} by{" "}
+          {issue.user.nickname}
         </A.Text>
       </StyledImportant>
       <StyledTrivial>
         <StyledAssignee onMouseLeave={mouseOffImage}>
           <>
-            {props.assignees.map((el, idx) => {
+            {issue.assignees.map((el, idx) => {
               if (el.user.imageurl !== null)
                 return (
                   <A.Image

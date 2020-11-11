@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import A from "./../atoms/index";
 import M from "./../molecules/index";
@@ -24,7 +24,12 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
-const IssueMenu = ({ selected, setSelected }) => {
+const IssueMenu = ({
+  selected,
+  setSelected,
+  totalSelected,
+  setTotalSelected,
+}) => {
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -122,14 +127,23 @@ const IssueMenu = ({ selected, setSelected }) => {
   const onClickIssueOpen = () => {
     queryDispatch({ type: "CHANGE_STATUS", data: "open" });
   };
+
   const onClickIssueClosed = () => {
     queryDispatch({ type: "CHANGE_STATUS", data: "closed" });
+  };
+
+  const onClickTotalCheckbox = () => {
+    totalSelected === false ? setTotalSelected(true) : setTotalSelected(false);
   };
 
   // TODO: OPEN CLOSED BUTTON STYLING
   return (
     <StyledIssueMenuWrapper>
-      <A.Checkbox />
+      {issueState.length > selected.length && selected.length > 0 ? (
+        <A.Icon />
+      ) : (
+        <A.Checkbox onClick={onClickTotalCheckbox} />
+      )}
       <span>{selected.length} selected</span>
       {/* <span>{selected.length === 0 ? "" : selected.length + " selected"
     

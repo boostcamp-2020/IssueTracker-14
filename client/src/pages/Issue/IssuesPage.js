@@ -66,6 +66,7 @@ const IssuesPage = () => {
   const milestoneDispatch = useMilestoneDispatch();
 
   const [selected, setSelected] = useState([]);
+  const [totalSelected, setTotalSelected] = useState(false);
 
   useEffect(() => {
     fetchTargetData(`issues${queryToString(queryState.query)}`, issueDispatch);
@@ -77,7 +78,6 @@ const IssuesPage = () => {
     history.push("/issues/new");
   };
 
-  console.log(selected);
   return (
     <>
       <Header />
@@ -101,12 +101,21 @@ const IssuesPage = () => {
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
           <M.Container
-            menu={<O.IssueMenu selected={selected} setSelected={setSelected} />}
+            menu={
+              <O.IssueMenu
+                selected={selected}
+                setSelected={setSelected}
+                totalSelected={totalSelected}
+                setTotalSelected={setTotalSelected}
+              />
+            }
             content={
               <O.IssueContent
                 issues={issueState.issues}
                 selected={selected}
                 setSelected={setSelected}
+                totalSelected={totalSelected}
+                setTotalSelected={setTotalSelected}
               />
             }
           />

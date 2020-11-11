@@ -12,15 +12,23 @@ const StyledIssueContent = styled.div`
   width: 100%;
 `;
 
-const IssueContent = ({ issues, selected, setSelected }) => {
+const IssueContent = ({
+  issues,
+  selected,
+  setSelected,
+  totalSelected,
+  setTotalSelected,
+}) => {
   return (
     <StyledIssueContent>
       {issues.map((issue) => (
         <M.IssueData
           key={issue.id}
-          props={issue}
+          issue={issue}
           selected={selected}
           setSelected={setSelected}
+          totalSelected={totalSelected}
+          setTotalSelected={setTotalSelected}
         />
       ))}
     </StyledIssueContent>
