@@ -10,6 +10,8 @@ import {
   faCog,
   faExclamationCircle,
   faCommentAlt,
+  faSyncAlt,
+  faCheckDouble,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGithubAlt } from "@fortawesome/free-brands-svg-icons";
@@ -26,6 +28,8 @@ const icons = {
   cog: <FontAwesomeIcon icon={faCog} />,
   alert: <FontAwesomeIcon icon={faExclamationCircle} />,
   message: <FontAwesomeIcon icon={faCommentAlt} />,
+  refresh: <FontAwesomeIcon icon={faSyncAlt} />,
+  checkDouble: <FontAwesomeIcon icon={faCheckDouble} />,
   check: <FontAwesomeIcon icon={faCheck} />,
 };
 

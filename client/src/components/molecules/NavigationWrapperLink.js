@@ -12,7 +12,7 @@ const StyledNavigationWrapperLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px;
+  margin: 0px;
 `;
 
 const StyledContentWrapper = styled.div`

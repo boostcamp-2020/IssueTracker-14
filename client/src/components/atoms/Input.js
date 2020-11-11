@@ -31,6 +31,7 @@ const Input = ({
   rounded,
   id,
   onChange,
+  value,
   ...rest
 }) => (
   <StyledInput
@@ -44,6 +45,7 @@ const Input = ({
     name={name}
     width={width}
     onChange={onChange}
+    value={value}
     {...rest}
   />
 );
