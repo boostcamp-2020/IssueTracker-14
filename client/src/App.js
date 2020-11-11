@@ -89,7 +89,7 @@ const App = () => {
                     <Route exact path="/issues/new" component={NewIssuePage} />
                     <Route
                       exact
-                      path="/issues/:issueId"
+                      path="/issue/:issueId"
                       component={EditIssuePage}
                     />
                     <Route exact path="/login" component={LoginPage} />
