@@ -62,8 +62,6 @@ const NavigationWrapperInput = () => {
 
   const onKeyDownHandler = (event) => {
     if (event.which === 13) {
-      console.log(inputValue);
-      console.log("entered");
       queryDispatch({ type: "CHANGE_VALUE", data: queryParser(inputValue) });
     }
   };
@@ -121,6 +119,8 @@ const NavigationWrapperInput = () => {
         padding={"0.5rem 0rem"}
         display={"table-cell"}
         width={"100%"}
+        height={"2rem"}
+        margin={"0 4px"}
         value={inputValue}
         onChange={onChangeHandler}
         onKeyDown={onKeyDownHandler}
