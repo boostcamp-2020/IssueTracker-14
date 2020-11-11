@@ -71,6 +71,10 @@ const IssuesPage = () => {
     fetchTargetData(`issues${queryToString(queryState.query)}`, issueDispatch);
     fetchTargetData("label", labelDispatch);
     fetchTargetData("milestone", milestoneDispatch);
+
+    if (issueState.issues.length===selected.length) setTotalSelected(true)
+    else if (totalSelected === true) setTotalSelected(false);
+    if (selected.length===0) setTotalSelected(false);
   }, [queryState.query]);
 
   const onClickNewIssue = () => {
@@ -85,11 +89,11 @@ const IssuesPage = () => {
           <O.NavigationWrapperInput />
           <M.NavigationWrapperLink />
           <M.ButtonDiv
-            buttonColor={colors.green}
+            buttonColor={"green"}
             width={"8rem"}
             height={"2rem"}
             onClick={onClickNewIssue}
-            textColor={colors.white}
+            textColor={"white"}
             fontSize={"small"}
             hover={false}
             border={true}

@@ -9,7 +9,7 @@ const StyledFormDiv = styled.div`
   align-items: flex-start;
   height: auto;
   width: 100%;
-  margin: 0.5rem 0;
+  margin: ${({ margin }) => margin};
 `;
 
 const FormDiv = ({
@@ -22,8 +22,12 @@ const FormDiv = ({
   onChange,
   rounded,
   placeholder,
+  bgColor,
+  margin,
+  inputMargin,
+  value,
 }) => (
-  <StyledFormDiv>
+  <StyledFormDiv margin={margin}>
     <A.InputLabel label={label} htmlFor={htmlFor} />
     <A.Input
       id={htmlFor}
@@ -34,6 +38,9 @@ const FormDiv = ({
       onChange={onChange}
       rounded={rounded}
       placeholder={placeholder}
+      bgColor={bgColor}
+      margin={inputMargin}
+      value={value}
     />
   </StyledFormDiv>
 );
@@ -43,6 +50,7 @@ FormDiv.defaultProps = {
   // margin: "0.75rem",
   fontSize: "0.75rem",
   width: "100%",
+  margin: "0.5rem 0",
 };
 
 export default FormDiv;

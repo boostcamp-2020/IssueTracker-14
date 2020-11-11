@@ -16,7 +16,7 @@ const StyledButton = styled.button`
     size === "big" ? 16 : size === "medium" ? 12 : 8}px;
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: ${({ color }) => colors[color]};
-  background-color: ${({ backgroundColor }) => colors[backgroundColor]};
+  background-color: ${({ hexa, backgroundColor }) => hexa ? backgroundColor : colors[backgroundColor]};
   cursor: ${(cursor) => cursor};
   text-align: ${({ textAlign }) => textAlign};
 
@@ -47,6 +47,7 @@ const Button = ({
   children,
   textAlign,
   cursor,
+  hexa,
   disabled,
   hover,
   ...rest
@@ -61,6 +62,7 @@ const Button = ({
     onClick={onClick}
     textAlign={textAlign}
     cursor={cursor}
+    hexa={hexa}
     disabled={disabled}
     hover={hover}
     {...rest}
@@ -83,6 +85,7 @@ Button.defaultProps = {
   display: "block",
   width: "100%",
   height: "2rem",
+  hexa: "false",
   disabled: false,
 };
 
