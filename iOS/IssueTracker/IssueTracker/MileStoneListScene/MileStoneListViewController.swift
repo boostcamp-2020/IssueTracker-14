@@ -20,10 +20,10 @@ final class MileStoneListViewController: UIViewController {
         MileStone(id: 2, title: "milstone2", status: "open", description: "SwiftUI를 위한 스프린트",
                   createAt: "2020-11-03T08:08:28.000Z",
                   duedate: "2020-11-03T08:08:28.000Z", updatedAt: "2020-11-03T08:08:28.000Z"),
-        MileStone(id: 3, title: "milstone3", status: "closed", description: "컴바인을 위한 스프린트",
+        MileStone(id: 3, title: "m", status: "closed", description: "컴바인을 위한 스프린트",
                   createAt: "2020-11-03T08:08:28.000Z",
                   duedate: "2020-11-14T08:08:28.000Z", updatedAt: "2020-11-03T08:08:28.000Z"),
-        MileStone(id: 4, title: "조금긴milstone11",
+        MileStone(id: 4, title: "조금긴milstone11aaaaaaaaaaaaaaaaaaa",
                   description: "예외테스트예외테스트예외테스트예외테스트예외테스트예외테스트\n예외테스트외테스트예외테스트", createAt: "2020-11-03T08:08:28.000Z",
                   duedate: "2020-11-03T08:08:28.000Z", updatedAt: "2020-11-03T08:08:28.000Z")
     ] {
