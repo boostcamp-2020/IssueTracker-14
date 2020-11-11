@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
 import A from "./../atoms/index";
 
@@ -101,27 +102,28 @@ const IssueData = ({
     setIsChecked(!isChecked);
     if (selected.includes(issue.id)) {
       setSelected(selected.filter((el) => el !== issue.id));
+      return setTotalSelected(false);
     } else {
       setSelected([...selected, issue.id]);
+      if (selected.length===issueState.issues.length) {
+        return setTotalSelected(true);
+      };
     }
-    selected.length === 0 ? setTotalSelected(false) : setTotalSelected(true);
   };
 
-  useEffect(() => {
-    if (totalSelected) {
-      setIsChecked(true);
-    }
-    if (!totalSelected) {
-      setIsChecked(false);
-      setSelected([]);
-    }
-  }, [totalSelected]);
+  const issueState = useIssueState();
 
-  if (isChecked) {
-    if (!selected.includes(issue.id)) {
-      setSelected([...selected, issue.id]);
-    }
-  }
+    useEffect(()=>{
+      if (totalSelected===true) {
+        handleCheckbox(true);
+        setSelected(issueState.issues.map(el => el.id));
+      }
+      if (totalSelected===false && issueState.issues.length===selected.length) {
+        handleCheckbox(false);
+        return setSelected([]);
+      };
+      
+    }, [totalSelected])
 
   return (
     <StyledIssueData>

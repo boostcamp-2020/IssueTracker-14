@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import A from "./../atoms/index";
 import M from "./../molecules/index";
@@ -30,6 +30,13 @@ const IssueMenu = ({
   totalSelected,
   setTotalSelected,
 }) => {
+
+  const [currentStataus, setCurrentStataus] = useState("open");
+
+  useEffect(()=>{
+    setSelected([]);
+  }, [currentStataus]);
+
   const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
@@ -125,24 +132,30 @@ const IssueMenu = ({
   ];
 
   const onClickIssueOpen = () => {
+    setCurrentStataus("open");
     queryDispatch({ type: "CHANGE_STATUS", data: "open" });
   };
 
   const onClickIssueClosed = () => {
+    setCurrentStataus("closed");
     queryDispatch({ type: "CHANGE_STATUS", data: "closed" });
   };
 
   const onClickTotalCheckbox = () => {
-    totalSelected === false ? setTotalSelected(true) : setTotalSelected(false);
+    if (totalSelected){
+      setTotalSelected(false);
+    } else {
+      setTotalSelected(true);
+    }
   };
 
   // TODO: OPEN CLOSED BUTTON STYLING
   return (
     <StyledIssueMenuWrapper>
-      {issueState.length > selected.length && selected.length > 0 ? (
-        <A.Icon />
+      {issueState.issues.length !== selected.length && selected.length !== 0 ? (
+        <A.Icon name="checkDouble" />
       ) : (
-        <A.Checkbox onClick={onClickTotalCheckbox} />
+        <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
       )}
       <span>{selected.length} selected</span>
       {/* <span>{selected.length === 0 ? "" : selected.length + " selected"
