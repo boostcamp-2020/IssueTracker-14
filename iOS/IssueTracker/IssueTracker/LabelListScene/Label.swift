@@ -9,7 +9,13 @@ import Foundation
 
 struct Label: Hashable, Decodable {
     let id: Int
-    let title: String
-    let color: String
-    let description: String?
+    var title: String
+    var color: String
+    var description: String?
+    
+    mutating func reset() {
+        title = ""
+        color = "#FFFFFF"
+        description = nil
+    }
 }

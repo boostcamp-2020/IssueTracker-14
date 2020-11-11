@@ -112,9 +112,9 @@ private extension IssueListViewController {
                 style: .destructive,
                 title: Constant.closeActionTitle,
                 handler: { [weak self] _, _, _ in
-                    guard let self = self else { return }
-                    let id = self.issues[indexPath.item].id
-                    self.closeIssue(with: id)
+                    guard let self = self,
+                          let issue = self.dataSource.itemIdentifier(for: indexPath) else { return }
+                    self.closeIssue(with: issue.id)
                     self.issues.remove(at: indexPath.item)
                 }
             )

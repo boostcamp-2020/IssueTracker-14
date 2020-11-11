@@ -11,11 +11,14 @@ struct LabelEndPoint: RequestType {
     
     enum Path: CustomStringConvertible {
         case labels
+        case label(id: Int)
         
         var description: String {
             switch self {
             case .labels:
                 return "/label"
+            case let .label(id):
+                return "/label/\(id)"
             }
         }
     }

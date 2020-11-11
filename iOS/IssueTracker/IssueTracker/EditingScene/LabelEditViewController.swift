@@ -7,13 +7,34 @@
 
 import UIKit
 
+protocol LabelEditViewControllerDelegate: class {
+    func labelChanged(_ labelEditViewController: LabelEditViewController)
+}
+
 final class LabelEditViewController: DimmedViewController {
+    
+    private let editingView: LabelEditingView = LabelEditingView()
+    private let useCase: LabelUseCaseType
+    private var label: Label {
+        didSet {
+            editingView.update(with: label)
+        }
+    }
+    weak var delegate: LabelEditViewControllerDelegate?
+    
+    init(useCase: LabelUseCaseType, label: Label) {
+        self.useCase = useCase
+        self.label = label
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init?(coder: NSCoder) is not supported.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let editingView = LabelEditingView()
-        editingView.delegate = self
-        addContentView(editingView)
+        configureEditingView()
     }
 }
 
@@ -23,10 +44,49 @@ extension LabelEditViewController: EditingViewDelegate {
     }
     
     func resetButtonDidTouchUp(_ editingView: EditingView) {
-        
+        label.reset()
     }
     
     func saveButtonDidTouchUp(_ editingView: EditingView) {
-        dismissWithAnimation()
+        useCase.save(label: label) { [weak self] error in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                guard let error = error else {
+                    self.dismissWithAnimation(completion: {
+                        self.delegate?.labelChanged(self)
+                    })
+                    return
+                }
+                self.alert(message: error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension LabelEditViewController: LabelEditingViewDelegate {
+    func titleChanged(_ labelEditingView: LabelEditingView, value: String) {
+        label.title = value
+    }
+    
+    func descriptionChanged(_ labelEditingView: LabelEditingView, value: String) {
+        label.description = value
+    }
+    
+    func colorChanged(_ labelEditingView: LabelEditingView, value: String) {
+        label.color = value
+    }
+    
+    func colorGenerated(_ labelEditingView: LabelEditingView) {
+        guard let color = RandomHexColorGenerator.generateExcept(for: label.color) else { return }
+        label.color = color
+    }
+}
+
+private extension LabelEditViewController {
+    func configureEditingView() {
+        editingView.delegate = self
+        editingView.labelEditingDelegate = self
+        addContentView(editingView)
+        editingView.update(with: label)
     }
 }
