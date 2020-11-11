@@ -15,12 +15,7 @@ final class LabelListViewController: UIViewController {
     @IBOutlet private weak var labelCollectionView: UICollectionView!
     weak var coordinator: LabelCoordinator?
     private let useCase: LabelListUseCaseType
-    private var labels: [Label] = [
-        Label(id: 1, title: "hello", color: "", description: "asdf"),
-        Label(id: 2, title: "asdf", color: "", description: "vzxcvz"),
-        Label(id: 3, title: "afewfwa", color: "", description: "asdfasdfasdf"),
-        Label(id: 4, title: "ff", color: "", description: nil)
-    ] {
+    private var labels: [Label] = [] {
         didSet {
             updateList()
         }

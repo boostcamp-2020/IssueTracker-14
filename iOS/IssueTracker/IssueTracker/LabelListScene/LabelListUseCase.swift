@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol LabelListUseCaseType {
     func loadList(completion: @escaping (Result<[Label], UseCaseError>) -> Void)
 }
