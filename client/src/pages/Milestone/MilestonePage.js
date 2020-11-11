@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import colors from "../../constants/colors";
@@ -20,7 +20,6 @@ const StyledNewMilestoneHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: space-between;
-  flex-direction: column;
   width: 100%;
   margin: 20px 0;
 `;
@@ -32,12 +31,16 @@ const MilestonePage = () => {
     history.push("/milestones/new");
   };
 
+  useEffect(() => {}, []);
+
   return (
     <>
       <O.Header />
       <IssuesPageWrapper>
         <StyledNewMilestoneHeader>
-          <M.NavigationWrapperLink location={"milestone"} />
+          <div>
+            <M.NavigationWrapperLink location={"milestone"} />
+          </div>
           <M.ButtonDiv
             buttonColor={colors.green}
             width={"8rem"}
@@ -51,6 +54,7 @@ const MilestonePage = () => {
             New Milestone
           </M.ButtonDiv>
         </StyledNewMilestoneHeader>
+        <M.Container menu={<O.MilestoneMenu />} />
       </IssuesPageWrapper>
     </>
   );

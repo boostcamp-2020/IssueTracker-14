@@ -1,5 +1,6 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
@@ -30,20 +31,27 @@ const StyledFormFooter = styled.div`
 `;
 
 const NewMilestoneForm = () => {
-  const dispatch = useMilestoneDispatch();
+  const [content, setContent] = useState("");
+  const milestoneDispatch = useMilestoneDispatch();
+  const history = useHistory();
+
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
-    dispatch({
+    milestoneDispatch({
       type: "ON_CHANGE_INPUTS",
       name,
       value,
     });
+    if (name === "description") {
+      setContent(e.target.value);
+    }
   }, []);
 
   const onClickNewMilestone = useCallback(() => {
-    dispatch({
+    milestoneDispatch({
       type: "CREATE_NEW_MILESTONE",
     });
+    history.push("/milestones");
   }, []);
 
   return (
@@ -80,6 +88,7 @@ const NewMilestoneForm = () => {
           rows={"20"}
           width={"100%"}
           placeholder={"Leave a description"}
+          value={content}
           name={"description"}
           onChange={onChange}
           height={"100%"}
