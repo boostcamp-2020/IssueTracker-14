@@ -22,7 +22,9 @@ const StyledButton = styled.button`
 
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
+  align-items: ${({ alignItems }) => alignItems};
   z-index: ${({ zIndex }) => zIndex};
+  opacity: ${({ opacity }) => opacity};
 
   &:hover {
     background-color: ${({ backgroundColor }) => colors[backgroundColor]};
@@ -46,6 +48,7 @@ const Button = ({
   textAlign,
   cursor,
   hexa,
+  disabled,
   ...rest
 }) => (
   <StyledButton
@@ -59,6 +62,7 @@ const Button = ({
     textAlign={textAlign}
     cursor={cursor}
     hexa={hexa}
+    disabled={disabled}
     {...rest}
   >
     {children}
@@ -80,6 +84,7 @@ Button.defaultProps = {
   width: "100%",
   height: "2rem",
   hexa: "false",
+  disabled: false,
 };
 
 export default Button;

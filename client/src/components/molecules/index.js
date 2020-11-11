@@ -10,6 +10,8 @@ import IssueData from "./IssueData";
 import FileInput from "./FileInput";
 import Title from "./Title";
 import Tabs from "./Tabs";
+import Overlay from "./Overlay";
+import DropdownItem from "./DropdownItem";
 
 export default {
   ButtonDiv,
@@ -24,4 +26,6 @@ export default {
   FileInput,
   Title,
   Tabs,
+  Overlay,
+  DropdownItem,
 };

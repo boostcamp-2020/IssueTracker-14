@@ -7,10 +7,13 @@ import {
 } from "../../stores/milestone";
 import { useLabelState, useLabelDispatch } from "../../stores/label";
 import { useAssigneeState, useAssigneeDispatch } from "../../stores/assignee";
+import { useIssueState, useIssueDispatch } from "../../stores/issue";
 
 import fetchTargetData from "../../utils/fetchData";
 
-const StyledNewIssueOptions = styled.div``;
+const StyledNewIssueOptions = styled.div`
+  width: 20vw;
+`;
 
 const NewIssueOptions = () => {
   const milestoneState = useMilestoneState();
@@ -22,12 +25,16 @@ const NewIssueOptions = () => {
   const assigneeState = useAssigneeState();
   const assigneeDispatch = useAssigneeDispatch();
 
+  const issueState = useIssueState();
+  const issueDispatch = useIssueDispatch();
+
   const IssueOptions = [
     {
       buttonData: assigneeState.users,
       buttonText: "Assignees",
       labelText: "Assign up to 10 people to this issue",
-      text: "No one - assign Yourself",
+      selected: issueState.newIssue.assigneeList,
+      defaultText: "No one - assign yourself",
       fetchData: () => {
         fetchTargetData("user/all", assigneeDispatch);
       },
@@ -36,7 +43,8 @@ const NewIssueOptions = () => {
       buttonData: labelState.labels,
       buttonText: "Labels",
       labelText: "Apply Label to this issue",
-      text: "None yet",
+      selected: issueState.newIssue.labelList,
+      defaultText: "None yet",
       fetchData: () => {
         fetchTargetData("label", labelDispatch);
       },
@@ -45,7 +53,8 @@ const NewIssueOptions = () => {
       buttonData: milestoneState.milestones,
       buttonText: "Milestone",
       labelText: "Set milestone",
-      text: "No milestone",
+      selected: issueState.newIssue.milestoneId,
+      defaultText: "No milestone",
       fetchData: () => {
         fetchTargetData("milestone", milestoneDispatch);
       },
@@ -55,18 +64,29 @@ const NewIssueOptions = () => {
   return (
     <StyledNewIssueOptions>
       {IssueOptions.map(
-        ({ buttonData, buttonText, labelText, text, fetchData }, idx) => {
-          console.log(buttonData);
+        (
+          {
+            buttonData,
+            buttonText,
+            labelText,
+            selected,
+            defaultText,
+            fetchData,
+          },
+          idx
+        ) => {
           return (
             <M.DropdownWithText
               key={idx}
+              optionId={idx}
               buttonData={buttonData}
               buttonText={buttonText}
               labelText={labelText}
               showDropdown={"none"}
               search={true}
               icon={"cog"}
-              text={text}
+              selected={selected}
+              defaultText={defaultText}
               fontSize={"0.8rem"}
               fetchData={fetchData}
             />

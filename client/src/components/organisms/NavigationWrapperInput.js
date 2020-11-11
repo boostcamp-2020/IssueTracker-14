@@ -10,11 +10,11 @@ const StyledNavigationWrapperInput = styled.div`
 `;
 
 const inputFilterButtons = [
-  { name: "Open issues", onClick: () => {} },
-  { name: "Your issues", onClick: () => {} },
-  { name: "Everything assigned to you", onClick: () => {} },
-  { name: "Everything mentioning you", onClick: () => {} },
-  { name: "Closed issues", onClick: () => {} },
+  { id: 1, title: "Open issues", onClick: () => {} },
+  { id: 2, title: "Your issues", onClick: () => {} },
+  { id: 3, title: "Everything assigned to you", onClick: () => {} },
+  { id: 4, title: "Everything mentioning you", onClick: () => {} },
+  { id: 5, title: "Closed issues", onClick: () => {} },
 ];
 
 const NavigationWrapperInput = () => (

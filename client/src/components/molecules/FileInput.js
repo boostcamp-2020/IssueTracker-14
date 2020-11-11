@@ -11,7 +11,7 @@ const StyledFileInput = styled.div`
   cursor: pointer;
 `;
 
-const FileInput = () => {
+const FileInput = ({ onSubmitHandler }) => {
   return (
     <StyledFileInput>
       <A.InputLabel
@@ -34,6 +34,7 @@ const FileInput = () => {
         left={"0"}
         top={"0"}
         cursor={"pointer"}
+        onChange={onSubmitHandler}
       />
     </StyledFileInput>
   );
