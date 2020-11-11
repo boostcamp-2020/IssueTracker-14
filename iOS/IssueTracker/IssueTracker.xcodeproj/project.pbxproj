@@ -15,12 +15,16 @@
 		442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */; };
 		443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */; };
 		443A9CE22552B179009D3D34 /* IssueEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A9CE12552B179009D3D34 /* IssueEndPoint.swift */; };
-		44791038255A70CB004366B2 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791037255A70CB004366B2 /* EditingViewController.swift */; };
+		44791038255A70CB004366B2 /* DimmedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791037255A70CB004366B2 /* DimmedViewController.swift */; };
 		4479103C255A7522004366B2 /* EditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479103B255A7522004366B2 /* EditingView.swift */; };
 		44791044255A7C2F004366B2 /* AnimatableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791043255A7C2F004366B2 /* AnimatableButton.swift */; };
 		44791048255AB7CE004366B2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44791047255AB7CE004366B2 /* Label.swift */; };
 		4479104C255AB80A004366B2 /* LabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */; };
 		447C96F82549745B008D326F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C96F72549745B008D326F /* SignUpViewController.swift */; };
+		448F3D86255BEFDD006397F3 /* LabelEditingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448F3D85255BEFDD006397F3 /* LabelEditingView.xib */; };
+		448F3D8E255BFE1A006397F3 /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F3D8D255BFE1A006397F3 /* XibLoadable.swift */; };
+		448F3D92255BFE6E006397F3 /* LabelEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */; };
+		448F3DA2255C0875006397F3 /* LabelEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F3DA1255C0875006397F3 /* LabelEditingView.swift */; };
 		449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CE3282559332100A56AEB /* IssueCreateViewController.swift */; };
 		44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCDE02558D95F0023457B /* UseCaseError.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
@@ -101,12 +105,16 @@
 		442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueCollectionViewCell.xib; sourceTree = "<group>"; };
 		443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListUseCase.swift; sourceTree = "<group>"; };
 		443A9CE12552B179009D3D34 /* IssueEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueEndPoint.swift; sourceTree = "<group>"; };
-		44791037255A70CB004366B2 /* EditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
+		44791037255A70CB004366B2 /* DimmedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmedViewController.swift; sourceTree = "<group>"; };
 		4479103B255A7522004366B2 /* EditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingView.swift; sourceTree = "<group>"; };
 		44791043255A7C2F004366B2 /* AnimatableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableButton.swift; sourceTree = "<group>"; };
 		44791047255AB7CE004366B2 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCollectionViewCell.swift; sourceTree = "<group>"; };
 		447C96F72549745B008D326F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		448F3D85255BEFDD006397F3 /* LabelEditingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelEditingView.xib; sourceTree = "<group>"; };
+		448F3D8D255BFE1A006397F3 /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEditViewController.swift; sourceTree = "<group>"; };
+		448F3DA1255C0875006397F3 /* LabelEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEditingView.swift; sourceTree = "<group>"; };
 		449CE3282559332100A56AEB /* IssueCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCreateViewController.swift; sourceTree = "<group>"; };
 		44ABCDE02558D95F0023457B /* UseCaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseError.swift; sourceTree = "<group>"; };
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
@@ -205,8 +213,11 @@
 		44791036255A70A9004366B2 /* EditingScene */ = {
 			isa = PBXGroup;
 			children = (
-				44791037255A70CB004366B2 /* EditingViewController.swift */,
+				44791037255A70CB004366B2 /* DimmedViewController.swift */,
 				4479103B255A7522004366B2 /* EditingView.swift */,
+				448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */,
+				448F3DA1255C0875006397F3 /* LabelEditingView.swift */,
+				448F3D85255BEFDD006397F3 /* LabelEditingView.xib */,
 			);
 			path = EditingScene;
 			sourceTree = "<group>";
@@ -363,6 +374,7 @@
 				B9007861255466510035D307 /* ShadowView.swift */,
 				B9007865255466650035D307 /* ShadowButton.swift */,
 				44791043255A7C2F004366B2 /* AnimatableButton.swift */,
+				448F3D8D255BFE1A006397F3 /* XibLoadable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,6 +588,7 @@
 			files = (
 				442D5C4025517F2800FB2B2A /* IssueCollectionViewCell.xib in Resources */,
 				4403B41025494C1000503E17 /* .swiftlint.yml in Resources */,
+				448F3D86255BEFDD006397F3 /* LabelEditingView.xib in Resources */,
 				B980376925484A16002FF4BF /* LaunchScreen.storyboard in Resources */,
 				B980376625484A16002FF4BF /* Assets.xcassets in Resources */,
 				B980376425484A14002FF4BF /* Main.storyboard in Resources */,
@@ -655,6 +668,7 @@
 				B91AFB57255940EF007AD8DD /* HomeTabBarController.swift in Sources */,
 				44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */,
 				B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */,
+				448F3D92255BFE6E006397F3 /* LabelEditViewController.swift in Sources */,
 				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
 				B90743282551DB9A00E1D2E6 /* SettingViewController.swift in Sources */,
 				449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */,
@@ -671,11 +685,12 @@
 				442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */,
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
 				B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */,
+				448F3D8E255BFE1A006397F3 /* XibLoadable.swift in Sources */,
 				B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
-				44791038255A70CB004366B2 /* EditingViewController.swift in Sources */,
+				44791038255A70CB004366B2 /* DimmedViewController.swift in Sources */,
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
 				44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */,
 				B949F990254EFB9100477211 /* LoginInfo.swift in Sources */,
@@ -683,6 +698,7 @@
 				B9007866255466660035D307 /* ShadowButton.swift in Sources */,
 				4479103C255A7522004366B2 /* EditingView.swift in Sources */,
 				B9007862255466510035D307 /* ShadowView.swift in Sources */,
+				448F3DA2255C0875006397F3 /* LabelEditingView.swift in Sources */,
 				44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */,
 				B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */,
 				B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */,
