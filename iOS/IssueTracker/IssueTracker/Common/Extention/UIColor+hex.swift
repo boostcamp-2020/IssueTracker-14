@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIColor {
+    var isDarkness: Bool {
+        return cgColor.components?[0...2].reduce(0, +) ?? 0 < 0.8
+    }
+    
     convenience init?(from hex: String) {
         var hexDigit = hex.uppercased()
         hexDigit.removeFirst()

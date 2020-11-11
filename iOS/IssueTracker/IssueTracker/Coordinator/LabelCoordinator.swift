@@ -21,10 +21,14 @@ final class LabelCoordinator: NavigationCoordinator {
     }
     
     func start() {
-        let viewContoller = storyboard.instantiateViewController(
-            identifier: LabelListViewController.identifier) as LabelListViewController
-        viewContoller.coordinator = self
-        navigationController?.pushViewController(viewContoller, animated: true)
+        let viewController = storyboard.instantiateViewController(
+            identifier: LabelListViewController.identifier,
+            creator: {[unowned self] coder -> LabelListViewController? in
+            let useCase = LabelListUseCase(networkService: self.networkService)
+            return LabelListViewController(coder: coder, useCase: useCase) }
+        )
+        viewController.coordinator = self
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

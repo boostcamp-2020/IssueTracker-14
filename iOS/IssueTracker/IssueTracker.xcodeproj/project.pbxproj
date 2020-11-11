@@ -68,6 +68,9 @@
 		B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */; };
 		B96FDADF255BCCBD00A1251C /* RandomHexColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */; };
 		B96FDAE5255C03CC00A1251C /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */; };
+		B96FDAEA255C0E7700A1251C /* LabelListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDAE9255C0E7700A1251C /* LabelListUseCase.swift */; };
+		B96FDAF0255C0E8200A1251C /* LabelEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDAEF255C0E8200A1251C /* LabelEndPoint.swift */; };
+		B96FDAF4255C107C00A1251C /* LabelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDAF3255C107C00A1251C /* LabelResponse.swift */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
 		B980376125484A14002FF4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* LoginViewController.swift */; };
@@ -160,6 +163,9 @@
 		B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNickNamePattern.swift"; sourceTree = "<group>"; };
 		B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHexColorGenerator.swift; sourceTree = "<group>"; };
 		B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		B96FDAE9255C0E7700A1251C /* LabelListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListUseCase.swift; sourceTree = "<group>"; };
+		B96FDAEF255C0E8200A1251C /* LabelEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEndPoint.swift; sourceTree = "<group>"; };
+		B96FDAF3255C107C00A1251C /* LabelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelResponse.swift; sourceTree = "<group>"; };
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B980375C25484A14002FF4BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B980375E25484A14002FF4BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +300,9 @@
 				B90743012551C4A600E1D2E6 /* LabelListViewController.swift */,
 				4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */,
 				44791047255AB7CE004366B2 /* Label.swift */,
+				B96FDAE9255C0E7700A1251C /* LabelListUseCase.swift */,
+				B96FDAEF255C0E8200A1251C /* LabelEndPoint.swift */,
+				B96FDAF3255C107C00A1251C /* LabelResponse.swift */,
 			);
 			path = LabelListScene;
 			sourceTree = "<group>";
@@ -675,6 +684,7 @@
 				44791048255AB7CE004366B2 /* Label.swift in Sources */,
 				44EA5D95255032A8008AB0EB /* IssueListViewController.swift in Sources */,
 				B907430A2551C5E400E1D2E6 /* LabelCoordinator.swift in Sources */,
+				B96FDAF4255C107C00A1251C /* LabelResponse.swift in Sources */,
 				B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */,
 				B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */,
 				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
@@ -706,6 +716,8 @@
 				B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
 				B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */,
+				B96FDAEA255C0E7700A1251C /* LabelListUseCase.swift in Sources */,
+				B96FDAF0255C0E8200A1251C /* LabelEndPoint.swift in Sources */,
 				B94B3655255039E900369C59 /* UIViewController+alert.swift in Sources */,
 				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
 				B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */,

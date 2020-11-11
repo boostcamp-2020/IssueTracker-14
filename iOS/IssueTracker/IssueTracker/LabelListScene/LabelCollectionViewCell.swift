@@ -28,6 +28,9 @@ final class LabelCollectionViewCell: UICollectionViewListCell {
     func update(with label: Label) {
         labelLabel.text = label.title
         descriptionLabel.text = label.description
+        guard let labelBackgroundColor = UIColor(from: label.color) else { return }
+        labelLabel.backgroundColor = labelBackgroundColor
+        labelLabel.textColor = labelBackgroundColor.isDarkness ? .systemBackground : .label
     }
 }
 
