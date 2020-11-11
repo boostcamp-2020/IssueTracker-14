@@ -1,4 +1,5 @@
 const { milestone: MilestoneModel } = require("../db/models");
+const { issue: IssueModel } = require("../db/models");
 
 const createMilestone = async (req, res) => {
   try {
@@ -35,12 +36,25 @@ const readMilestones = async (req, res) => {
   try {
     const { status } = req.query;
     const milestones = await MilestoneModel.findAll({
+      include: [{ model: IssueModel, attributes: ["id", "status"] }],
       where: status !== undefined && { status },
+      attributes: ["id", "title", "duedate", "status", "description"],
     });
     if (!Array.isArray(milestones)) {
       return res.status(500).json({ message: "fail" });
     }
-    return res.status(200).json({ message: "success", milestones: milestones });
+    const milestoneCount = { open: 0, closed: 0 };
+
+    milestones.forEach((milestone) => {
+      milestone.status === "open"
+        ? milestoneCount.open++
+        : milestoneCount.closed++;
+    });
+    return res.status(200).json({
+      message: "success",
+      milestoneCount,
+      milestones: milestones,
+    });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }

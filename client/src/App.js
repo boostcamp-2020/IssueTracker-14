@@ -15,6 +15,7 @@ import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
 import NewIssuePage from "./pages/Issue/NewIssuePage";
+import MilestonePage from "./pages/Milestone/MilestonePage";
 import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
 
 const StyledRootContainer = styled.div`
@@ -78,6 +79,7 @@ const App = () => {
                     <QueryProvider>
                       <Route exact path="/" component={IssuesPage} />
                     </QueryProvider>
+                    <Route exact path="/milestones" component={MilestonePage} />
                     <Route
                       exact
                       path="/milestones/new"
@@ -96,7 +98,7 @@ const App = () => {
         <Route exact path="/issues/new" component={LoginForm} />
         <Route exact path="/issues/:issueid" component={LoginForm} />
         <Route exact path="/labels" component={LoginForm} />
-        <Route exact path="/milestones" component={LoginForm} />
+        
         
         <Route path="/milestones/edit/:milestoneid" component={LoginForm} />
       */}

@@ -24,10 +24,29 @@ const queryStringify = (query) => {
   const queryMilestone = query.milestone
     ? ` milestone: ${query.milestone}`
     : "";
-  return `is: ${query.status}${queryAuthor}${queryLabel}${queryAssignee}${queryMilestone}`;
+  return `status: ${query.status}${queryAuthor}${queryLabel}${queryAssignee}${queryMilestone}`;
 };
 
-const queryParser = (query) => {};
+const queryParser = (inputValue) => {
+  const changedQueryState = {
+    status: "open",
+    author: "",
+    label: [],
+    assignee: "",
+    milestone: "",
+  };
+  const splitedInputValue = inputValue.replace(/ /g, "").split(";");
+  splitedInputValue.forEach((el) => {
+    const [key, value] = el.split(":");
+    if (key !== "label") {
+      changedQueryState[key] = value;
+    }
+    if (key == "label" && !changedQueryState["label"].includes(value)) {
+      changedQueryState[key].push(value);
+    }
+  });
+  return changedQueryState;
+};
 
 const NavigationWrapperInput = () => {
   const queryState = useQueryState();
@@ -40,7 +59,14 @@ const NavigationWrapperInput = () => {
   const onChangeHandler = (event) => {
     setInputValue(event.target.value);
   };
-  // TODO: value로 query parser 거치고 dispatch change_value
+
+  const onKeyDownHandler = (event) => {
+    if (event.which === 13) {
+      console.log(inputValue);
+      console.log("entered");
+      queryDispatch({ type: "CHANGE_VALUE", data: queryParser(inputValue) });
+    }
+  };
 
   const inputFilterButtons = [
     {
@@ -79,7 +105,6 @@ const NavigationWrapperInput = () => {
     },
   ];
 
-  // TODO: enter event 로 setQuery dispatch
   return (
     <StyledNavigationWrapperInput>
       <M.Dropdown
@@ -98,6 +123,7 @@ const NavigationWrapperInput = () => {
         width={"100%"}
         value={inputValue}
         onChange={onChangeHandler}
+        onKeyDown={onKeyDownHandler}
       />
     </StyledNavigationWrapperInput>
   );
