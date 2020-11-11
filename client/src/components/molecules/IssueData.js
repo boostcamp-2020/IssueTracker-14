@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
 import A from "./../atoms/index";
@@ -138,7 +139,12 @@ const IssueData = ({
       </StyledIssueIcon>
       <StyledImportant>
         <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
-          {issue.title}
+          <Link
+            to={`issue/${issue.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {issue.title}
+          </Link>
           {issue["label_has_issues"].map((el, idx) => {
             return (
               <A.Label
