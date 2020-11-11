@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
@@ -16,7 +16,16 @@ const StyledTextArea = styled.textarea`
   height: ${({ height }) => height};
 `;
 
-const TextArea = ({ placeholder, width, height, rows, name, ...rest }) => {
+const TextArea = ({
+  placeholder,
+  width,
+  height,
+  rows,
+  name,
+  filePath,
+  value,
+  ...rest
+}) => {
   return (
     <StyledTextArea
       placeholder={placeholder}
@@ -24,6 +33,7 @@ const TextArea = ({ placeholder, width, height, rows, name, ...rest }) => {
       name={name}
       width={width}
       height={height}
+      value={value}
       {...rest}
     />
   );

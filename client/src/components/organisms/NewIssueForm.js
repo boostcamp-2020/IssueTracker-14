@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
+import myAxios from "../../utils/myAxios";
+
+import marked from "marked";
 
 const StyledNewIsssueForm = styled.section`
   padding: 0.5rem 0.5rem;
@@ -24,16 +27,30 @@ const StyledButtonWrapper = styled.div`
 `;
 
 const NewIssueForm = () => {
+  const [value, setValue] = useState("");
   const [charLength, setCharLength] = useState(0);
+  const [filePath, setFilePath] = useState("");
   const [buttonActive, setButtonActive] = useState(false);
-
-  const onClickBtn = () => {
-    alert("eeeee");
-  };
 
   const onChangeTitle = (e) => {
     if (e.target.value) setButtonActive(true);
     if (e.target.value.length === 0) setButtonActive(false);
+  };
+
+  const onSubmitHandler = async (e) => {
+    if (e.target.files !== null) {
+      try {
+        const fd = new FormData();
+        fd.append("filename", e.target.files[0]);
+        const {
+          data: { filePath },
+        } = await myAxios.filepost(fd);
+        setFilePath(filePath);
+        setValue(`${value}\n(${filePath})`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   const onChangeTextArea = (e) => {
@@ -41,6 +58,10 @@ const NewIssueForm = () => {
       setCharLength(e.target.value.length);
       setTimeout(() => setCharLength(0), 2000);
     }, 2000);
+    
+  const renderText = (text) => {
+    const __html = marked(text, { sanitize: true });
+    return { __html };
   };
 
   return (
@@ -68,10 +89,13 @@ const NewIssueForm = () => {
           placeholder={"Leave a commment"}
           rounded={true}
           bgColor={"middleWhite"}
+          value={value}
           onChange={onChangeTextArea}
           charLength={charLength}
+          filePath={filePath}
         />
-        <M.FileInput />
+        <div dangerouslySetInnerHTML={renderText(value)}></div>
+        <M.FileInput onSubmitHandler={onSubmitHandler} />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
         <Link to="/">

@@ -7,11 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "server": "nodemon ./app.js",
-    "dev":"concurrently \"npm run server\" \"npm run start --prefix ../client\""
+    "dev": "concurrently \"npm run server\" \"npm run start --prefix ../client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "2.788.0",
     "bcrypt-nodejs": "0.0.3",
     "concurrently": "5.3.0",
     "core-js": "3.6.5",
@@ -23,6 +24,8 @@
     "http-errors": "1.8.0",
     "jsonwebtoken": "8.5.1",
     "morgan": "1.10.0",
+    "multer": "1.4.2",
+    "multer-s3": "2.9.0",
     "mysql2": "2.2.5",
     "passport": "0.4.1",
     "passport-github": "1.1.0",
