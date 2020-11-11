@@ -17,15 +17,41 @@ const StyledHeader = styled.div`
   font-size: 185%;
 `;
 
-const Header = () => (
-  <StyledHeader>
-    <Link to={"/"} style={{ textDecoration: "none" }}>
-      <A.Text hover color={"white"}>
-        <A.Icon name={"book"} cursor={"text"} />
-        헤더입니다.
-      </A.Text>
-    </Link>
-  </StyledHeader>
-);
+const StyledLogoutWrapper = styled.div`
+  position: absolute;
+  right: 2rem;
+  top: 0;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+`;
+
+const Header = () => {
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
+    localStorage.removeItem("userImage");
+    location.href = "/";
+  };
+
+  return (
+    <>
+      <StyledHeader>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <A.Text hover color={"white"}>
+            <A.Icon name={"book"} cursor={"text"} />
+            IssueTracker-Team14
+          </A.Text>
+        </Link>
+      </StyledHeader>
+      <StyledLogoutWrapper>
+        <A.Button width="auto" onClick={logout}>
+          로그아웃
+        </A.Button>
+      </StyledLogoutWrapper>
+    </>
+  );
+};
 
 export default Header;

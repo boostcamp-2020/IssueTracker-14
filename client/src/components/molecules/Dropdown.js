@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
+import M from "../molecules/index";
 
 const StyledDropdown = styled.div`
   position: relative;
@@ -9,6 +10,7 @@ const StyledDropdown = styled.div`
 const StyledTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 `;
 
 const StyledHidden = styled.div`
@@ -20,10 +22,12 @@ const StyledHidden = styled.div`
       : "0rem"};
   background-color: #ffffff;
   z-index: 1;
+  border-radius: 4px;
+  border: 1px solid #959da5;
 `;
 
-// TODO: dropdown open시 다른 곳 누르면 꺼지게
 const Dropdown = ({
+  optionId,
   buttonData,
   buttonWidth,
   search,
@@ -39,6 +43,7 @@ const Dropdown = ({
   btnJustify,
   btnPadding,
   fetchData,
+  clickItem,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -69,6 +74,7 @@ const Dropdown = ({
         <span>{buttonText}</span>
         <A.Icon name={icon} location={"right"} />
       </A.Button>
+
       <StyledHidden
         showDropdown={showDropdown}
         buttonWidth={buttonWidth}
@@ -78,9 +84,12 @@ const Dropdown = ({
         <A.Button
           width={dropdownWidth}
           height={buttonHeight}
-          border={true}
+          border={false}
+          rounded={false}
+          borderBottom={"1px solid #959da5"}
           textAlign={"left"}
           cursor={"text"}
+          backgroundColor={"middleWhite"}
         >
           <StyledTitle>
             <span>{labelText}</span>
@@ -112,25 +121,29 @@ const Dropdown = ({
           </A.Button>
         ) : (
           buttonData
-          .filter((el) => {
-            if (el.title) return el.title.includes(searchName);
-            return true;
-          })
-          .map((el) => {
-            return (
-              <A.Button
-                key={el.id}
-                width={dropdownWidth}
-                height={buttonHeight}
-                border={true}
-                textAlign={"left"}
-              >
-                <span>{el.title === undefined ? el.nickname : el.title}</span>
-              </A.Button>
-            );
-          })
+            .filter((el) => {
+              if (el.title) return el.title.includes(searchName);
+              return true;
+            })
+            .map((data, idx) => {
+              return (
+                <M.DropdownItem
+                  optionId={optionId}
+                  key={idx}
+                  data={data}
+                  width={dropdownWidth}
+                  height={buttonHeight}
+                  onClick={clickItem}
+                  setVisible={setShowDropdown}
+                />
+              );
+            })
         )}
       </StyledHidden>
+      <M.Overlay
+        hidden={showDropdown === "none" ? true : false}
+        onClick={handleDropdown}
+      />
     </StyledDropdown>
   );
 };
@@ -147,7 +160,7 @@ Dropdown.defaultProps = {
   search: true,
   icon: "dropdown",
   showDropdown: "none",
-  fetchData: ()=>{},
+  fetchData: () => {},
 };
 
 export default Dropdown;

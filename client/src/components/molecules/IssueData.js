@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import A from './../atoms/index';
-import M from './../molecules/index';
-import O from './../organisms/index';
+import React, { useState } from "react";
+import styled from "styled-components";
+import A from "./../atoms/index";
 
 const StyledIssueData = styled.div`
   position: relative;
@@ -14,132 +12,156 @@ const StyledIssueData = styled.div`
 `;
 
 const StyledCheckbox = styled.div`
-    display: flex;
-    width: 3rem;
-    height: 3.5rem;
-    justify-content: right;
-    align-items: center;
-`
+  display: flex;
+  width: 3rem;
+  height: 3.5rem;
+  justify-content: right;
+  align-items: center;
+`;
 
 const StyledIssueIcon = styled.div`
-    display; flex;
-    width: 3rem;
-    height: 3.5rem;
-    text-align: center;
-    line-height: 3.5rem;
-    font-size: 1.2rem
-`
+  display: flex;
+  width: 3rem;
+  height: 3.5rem;
+  text-align: center;
+  line-height: 3.5rem;
+  font-size: 1.2rem;
+`;
 
 const StyledImportant = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+`;
 
 const StyledTrivial = styled.div`
-    display: flex;
-    width: 11rem;
-`
+  display: flex;
+  width: 11rem;
+`;
 
 const StyledComment = styled.div`
-    display: flex;
-    width: 4.5rem;
-    justify-content: center;
-    align-items: center;
-`
+  display: flex;
+  width: 4.5rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 const StyledAssignee = styled.div`
-    positoin: relative;
-    display: flex;
-    width: 7rem;
-    justify-content: center;
-    align-items: center;
-`
+  position: relative;
+  display: flex;
+  width: 7rem;
+  justify-content: center;
+  align-items: center;
+`;
 
-const calculateTime = timeString => {
-    const now = new Date();
-    const timeObject = new Date(timeString);
-    const timeDifference = (now - timeObject) / 1000;
-    if (timeDifference<60){
-        return `${timeDifference} seconds ago`;
-    }
-    if (timeDifference<3600){
-        return `${Math.floor(timeDifference/60)} minutes ago`;
-    }
-    if (timeDifference<216000){
-        return `${Math.floor(timeDifference/3600)} hours ago`;
-    }
-    const todayDate = now.getDate();
-    const timeDate = timeObject.getDate();
-    const dateDifference = todayDate - timeDate;
-    if (timeDifference>216000 && dateDifference===1) {
-        return "yesterday"
-    }
-    return `${Math.floor(timeDifference/216000)} days ago`
-}
+const calculateTime = (timeString) => {
+  const now = new Date();
+  const timeObject = new Date(timeString);
+  const timeDifference = (now - timeObject) / 1000;
+  if (timeDifference < 60) {
+    return `${timeDifference} seconds ago`;
+  }
+  if (timeDifference < 3600) {
+    return `${Math.floor(timeDifference / 60)} minutes ago`;
+  }
+  if (timeDifference < 216000) {
+    return `${Math.floor(timeDifference / 3600)} hours ago`;
+  }
+  const todayDate = now.getDate();
+  const timeDate = timeObject.getDate();
+  const dateDifference = todayDate - timeDate;
+  if (timeDifference > 216000 && dateDifference === 1) {
+    return "yesterday";
+  }
+  return `${Math.floor(timeDifference / 216000)} days ago`;
+};
 
-const IssueData = ({props}) => {
-    const [imageHover, setImageHover] = useState(false)
-    const commentsLength = props.comments.length;
-    const assigneesLength = props.assignees.length;
+const IssueData = ({ props }) => {
+  const [imageHover, setImageHover] = useState(false);
+  const commentsLength = props.comments.length;
+  const assigneesLength = props.assignees.length;
 
-    const mouseOnImage = () => {
-        setImageHover(true);
-    }
+  const mouseOnImage = () => {
+    setImageHover(true);
+  };
 
-    const mouseOffImage = () => {
-        setImageHover(false);
-    }
+  const mouseOffImage = () => {
+    setImageHover(false);
+  };
 
-    return (
+  return (
     <StyledIssueData>
-        <StyledCheckbox>
-            <A.Checkbox />
-        </StyledCheckbox>
-        <StyledIssueIcon>
-            <A.Icon name={"alert"} color={props.status==="open" ?  "black" : "red"} />
-        </StyledIssueIcon>
-        <StyledImportant>
-            <A.Text fontSize={"1.25rem"} fontWeight={"bold"} >{props.title}
-            {props["label_has_issues"].map((el,idx)=>{
+      <StyledCheckbox>
+        <A.Checkbox />
+      </StyledCheckbox>
+      <StyledIssueIcon>
+        <A.Icon
+          name={"alert"}
+          color={props.status === "open" ? "black" : "red"}
+        />
+      </StyledIssueIcon>
+      <StyledImportant>
+        <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
+          {props.title}
+          {props["label_has_issues"].map((el, idx) => {
+            return (
+              <A.Label
+                key={idx}
+                backgroundHexaColor={el.label.color}
+                margin={"0rem 0rem 0rem 0.3rem"}
+              >
+                {el.label.title}
+              </A.Label>
+            );
+          })}
+        </A.Text>
+        <A.Text fontSize={"0.75rem"}>
+          #{props.id} opened {calculateTime(props.createdAt)} by{" "}
+          {props.user.nickname}
+        </A.Text>
+      </StyledImportant>
+      <StyledTrivial>
+        <StyledAssignee onMouseLeave={mouseOffImage}>
+          <>
+            {props.assignees.map((el, idx) => {
+              if (el.user.imageurl !== null)
                 return (
-                    <A.Label key={idx} backgroundHexaColor={el.label.color} margin={"0rem 0rem 0rem 0.3rem"}>{el.label.title}</A.Label>
-                )
+                  <A.Image
+                    key={`assignee-${el.id}`}
+                    size={"1.5rem"}
+                    imageUrl={el.user.imageurl}
+                    position={"absolute"}
+                    right={`${
+                      6.2 +
+                      assigneesLength +
+                      (imageHover ? assigneesLength - idx - 1 : 0) -
+                      0.7 * (idx + 1)
+                    }rem`}
+                    cursor={"pointer"}
+                    onClick={() => {
+                      alert(el.id);
+                    }}
+                    onMouseEnter={mouseOnImage}
+                  />
+                );
             })}
-            </A.Text>
-            <A.Text fontSize={"0.75rem"}>
-                #{props.id} opened {calculateTime(props.createdAt)} by {props.user.nickname}
-            </A.Text>
-        </StyledImportant>
-        <StyledTrivial>
-            <StyledAssignee onMouseLeave={mouseOffImage}>
-                <>
-                {props.assignees.map((el, idx)=>{
-                    if (el.user.imageurl!==null) return (
-                    <A.Image
-                        key={`assignee-${el.id}`}
-                        size={"1.5rem"}
-                        imageUrl={el.user.imageurl}
-                        position={"absolute"}
-                        right={`${6.2 + assigneesLength + (imageHover ? assigneesLength - idx - 1 : 0) - 0.7 * (idx + 1)}rem`}
-                        cursor={"pointer"}
-                        onClick={() => {alert(el.id)}}
-                        onMouseEnter={mouseOnImage}
-                    />
-                    );
-                })}
-                </>
-            </StyledAssignee>
-            <StyledComment>
-                <A.Text fontSize={"1rem"}>
-                    {commentsLength===0 ? "" : (<><A.Icon name={"message"} color={"black"} /> {commentsLength}</>) }
-                </A.Text>
-            </StyledComment>
-        </StyledTrivial>
+          </>
+        </StyledAssignee>
+        <StyledComment>
+          <A.Text fontSize={"1rem"}>
+            {commentsLength === 0 ? (
+              ""
+            ) : (
+              <>
+                <A.Icon name={"message"} color={"black"} /> {commentsLength}
+              </>
+            )}
+          </A.Text>
+        </StyledComment>
+      </StyledTrivial>
     </StyledIssueData>
-    )
-}
-
+  );
+};
 
 export default IssueData;

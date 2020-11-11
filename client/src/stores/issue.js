@@ -4,10 +4,10 @@ import myAxios from "../utils/myAxios";
 const initialState = {
   newIssue: {
     title: "",
-    milestoneid: null,
+    milestone: {},
     authorid: null,
-    labelIdList: null,
-    assigneeIdList: null,
+    labelList: [],
+    assigneeList: [],
     commentContent: null,
   },
   issues: [],
@@ -50,28 +50,55 @@ const issueReducer = (state, action) => {
         },
       };
 
-    case "CREATE_NEW_ISSUE":
-      try {
-        const createIssue = async () => {
-          const {
-            data: { message },
-          } = await myAxios.post("/issues", {
-            title: state.newIssue.title,
-            milestoneid: state.newIssue.milestoneid,
-            labelIdList: state.newIssue.labelIdList,
-            assigneeIdList: state.newIssue.assigneeIdList,
-            commentContent: state.newIssue.commentContent,
-          });
-          if (message === "success") {
-            alert("정상적으로 이슈가 생성되었습니다.");
-            return;
-          }
-        };
-        return createIssue();
-      } catch (error) {
-        console.log(error);
-      }
-      return;
+    // case "CREATE_NEW_ISSUE":
+    //   try {
+    //     const createIssue = async () => {
+    //       const {
+    //         data: { message },
+    //       } = await myAxios.post("/issues", {
+    //         title: state.newIssue.title,
+    //         milestoneid: state.newIssue.milestoneid,
+    //         labelIdList: state.newIssue.labelIdList,
+    //         assigneeIdList: state.newIssue.assigneeIdList,
+    //         commentContent: state.newIssue.commentContent,
+    //       });
+    //       if (message === "success") {
+    //         alert("정상적으로 이슈가 생성되었습니다.");
+    //         return;
+    //       }
+    //     };
+    //     return createIssue();
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    //   return;
+
+    case "SET_ASSIGNEES":
+      return {
+        ...state,
+        newIssue: {
+          ...state.newIssue,
+          assigneeList: [...state.newIssue.assigneeList, action.data],
+        },
+      };
+
+    case "SET_LABELS":
+      return {
+        ...state,
+        newIssue: {
+          ...state.newIssue,
+          labelList: [...state.newIssue.labelList, action.data],
+        },
+      };
+
+    case "SET_MILESTONE":
+      return {
+        ...state,
+        newIssue: {
+          ...state.newIssue,
+          milestone: action.data,
+        },
+      };
 
     default:
       return state;

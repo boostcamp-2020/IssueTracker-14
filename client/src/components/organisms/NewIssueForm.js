@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
@@ -29,6 +30,12 @@ const NewIssueForm = () => {
   const [value, setValue] = useState("");
   const [charLength, setCharLength] = useState(0);
   const [filePath, setFilePath] = useState("");
+  const [buttonActive, setButtonActive] = useState(false);
+
+  const onChangeTitle = (e) => {
+    if (e.target.value) setButtonActive(true);
+    if (e.target.value.length === 0) setButtonActive(false);
+  };
 
   const onSubmitHandler = async (e) => {
     if (e.target.files !== null) {
@@ -47,10 +54,11 @@ const NewIssueForm = () => {
   };
 
   const onChangeTextArea = (e) => {
-    setTimeout(() => setCharLength(e.target.value.length), 2000);
-    setValue(e.target.value);
-  };
-
+    setTimeout(() => {
+      setCharLength(e.target.value.length);
+      setTimeout(() => setCharLength(0), 2000);
+    }, 2000);
+    
   const renderText = (text) => {
     const __html = marked(text, { sanitize: true });
     return { __html };
@@ -68,6 +76,7 @@ const NewIssueForm = () => {
         rounded={true}
         height={"auto"}
         width={"100%"}
+        onChange={onChangeTitle}
       />
       <M.Tabs tabList={["Write", "Priview"]} />
       <StyledFormTextAreaWrapper>
@@ -89,13 +98,18 @@ const NewIssueForm = () => {
         <M.FileInput onSubmitHandler={onSubmitHandler} />
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
-        <A.Button width={"auto"}>Cancel</A.Button>
+        <Link to="/">
+          <A.Button width={"auto"}>Cancel</A.Button>
+        </Link>
         <A.Button
           color={"white"}
           backgroundColor={"green"}
           width={"8rem"}
           height={"2rem"}
           border={true}
+          disabled={!buttonActive}
+          opacity={buttonActive ? "1" : "0.5"}
+          onClick={onClickBtn}
         >
           Submit new issue
         </A.Button>

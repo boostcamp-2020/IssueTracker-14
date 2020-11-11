@@ -8,6 +8,7 @@ import { UserProvider } from "./stores/user";
 import { MilestoneProvider } from "./stores/milestone";
 import { LabelProvider } from "./stores/label";
 import { AssigneeProvider } from "./stores/assignee";
+import { IssueProvider } from "./stores/issue";
 
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
@@ -38,9 +39,12 @@ const App = () => {
 
   const checkToken = async () => {
     const {
-      data: { message },
+      data: { message, user },
     } = await myAxios.get("/user/status");
     if (message === "ok") {
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("username", user.nickname);
+      localStorage.setItem("userImage", user.imageUrl);
       setIsAuth(true);
       return true;
     }
@@ -66,21 +70,23 @@ const App = () => {
       <StyledRootContainer>
         <Switch>
           <UserProvider>
-            <Route exact path="/" component={IssuesPage} />
-            <AssigneeProvider>
-              <LabelProvider>
-                <MilestoneProvider>
-                  <Route
-                    exact
-                    path="/milestones/new"
-                    component={NewMilestonePage}
-                  />
-                  <Route exact path="/issues/new" component={NewIssuePage} />
-                  <Route exact path="/login" component={LoginPage} />
-                  <Route exact path="/signup" component={SignUpPage} />
-                </MilestoneProvider>
-              </LabelProvider>
-            </AssigneeProvider>
+            <IssueProvider>
+              <AssigneeProvider>
+                <LabelProvider>
+                  <MilestoneProvider>
+                    <Route exact path="/" component={IssuesPage} />
+                    <Route
+                      exact
+                      path="/milestones/new"
+                      component={NewMilestonePage}
+                    />
+                    <Route exact path="/issues/new" component={NewIssuePage} />
+                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/signup" component={SignUpPage} />
+                  </MilestoneProvider>
+                </LabelProvider>
+              </AssigneeProvider>
+            </IssueProvider>
           </UserProvider>
         </Switch>
         {/*
