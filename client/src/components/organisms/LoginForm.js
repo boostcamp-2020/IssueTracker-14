@@ -46,12 +46,6 @@ const LoginForm = ({ size }) => {
     });
   }, []);
 
-  const onClickGithubLogin = useCallback(() => {
-    dispatch({
-      type: "POST_GITHUB_USER",
-    });
-  }, []);
-
   const GithubLoginUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/user/oauth/github"

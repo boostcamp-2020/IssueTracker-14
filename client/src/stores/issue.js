@@ -19,13 +19,13 @@ const initialState = {
   error: null,
 };
 
+// TODO: Sort dispatch로 하기
 const issueReducer = (state, action) => {
   switch (action.type) {
     case "READ_LOADING":
       return {
         ...state,
-        loading: false,
-        issues: null,
+        loading: true,
         error: null,
       };
 
@@ -42,7 +42,6 @@ const issueReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        issues: null,
         error: action.error,
       };
 
@@ -54,6 +53,33 @@ const issueReducer = (state, action) => {
           [action.name]: action.value,
         },
       };
+
+    case "ADD_ASSIGNEE":
+      return;
+
+    case "ADD_LABEL":
+      if (state.newIssue.assigneeList.includes(action.data)) {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            assigneeList: state.newIssue.assigneeList.filter(
+              (el) => el !== action.data
+            ),
+          },
+        };
+      } else {
+        return {
+          ...state,
+          newIssue: {
+            ...state.newIssue,
+            assigneeList: [...state.newIssue.assigneeList, action.data],
+          },
+        };
+      }
+
+    case "ADD_MILESTONE":
+      return;
 
     // case "CREATE_NEW_ISSUE":
     //   try {

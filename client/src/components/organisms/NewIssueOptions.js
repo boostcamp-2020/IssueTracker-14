@@ -30,7 +30,14 @@ const NewIssueOptions = () => {
 
   const IssueOptions = [
     {
-      buttonData: assigneeState.users,
+      buttonData: assigneeState.users.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            issueDispatch({ type: "ADD_ASSIGNEE", data: el.id });
+          },
+        };
+      }),
       buttonText: "Assignees",
       labelText: "Assign up to 10 people to this issue",
       selected: issueState.newIssue.assigneeList,
@@ -40,7 +47,14 @@ const NewIssueOptions = () => {
       },
     },
     {
-      buttonData: labelState.labels,
+      buttonData: labelState.labels.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            issueDispatch({ type: "ADD_LABEL", data: el.id });
+          },
+        };
+      }),
       buttonText: "Labels",
       labelText: "Apply Label to this issue",
       selected: issueState.newIssue.labelList,
@@ -50,7 +64,14 @@ const NewIssueOptions = () => {
       },
     },
     {
-      buttonData: milestoneState.milestones,
+      buttonData: milestoneState.milestones.map((el) => {
+        return {
+          ...el,
+          dispatchData: () => {
+            issueDispatch({ type: "ADD_MILESTONE", data: el.id });
+          },
+        };
+      }),
       buttonText: "Milestone",
       labelText: "Set milestone",
       selected: issueState.newIssue.milestoneId,

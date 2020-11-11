@@ -110,7 +110,7 @@ const Dropdown = ({
             onChange={handleSearch}
           />
         ) : null}
-        {buttonData === null ? (
+        {buttonData === [] ? (
           <A.Button
             width={dropdownWidth}
             height={buttonHeight}
@@ -123,6 +123,7 @@ const Dropdown = ({
           buttonData
             .filter((el) => {
               if (el.title) return el.title.includes(searchName);
+              if (el.nickname) return el.nickname.includes(searchName);
               return true;
             })
             .map((data, idx) => {
@@ -133,8 +134,9 @@ const Dropdown = ({
                   data={data}
                   width={dropdownWidth}
                   height={buttonHeight}
-                  onClick={clickItem}
+                  dispatchData={data.dispatchData}
                   setVisible={setShowDropdown}
+                  {...rest}
                 />
               );
             })

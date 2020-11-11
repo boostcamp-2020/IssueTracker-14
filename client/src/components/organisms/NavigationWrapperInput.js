@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
+import { useQueryState, useQueryDispatch } from "../../stores/query";
 
 const StyledNavigationWrapperInput = styled.div`
   position: relative;
@@ -9,35 +10,76 @@ const StyledNavigationWrapperInput = styled.div`
   width: 100%;
 `;
 
-const inputFilterButtons = [
-  { id: 1, title: "Open issues", onClick: () => {} },
-  { id: 2, title: "Your issues", onClick: () => {} },
-  { id: 3, title: "Everything assigned to you", onClick: () => {} },
-  { id: 4, title: "Everything mentioning you", onClick: () => {} },
-  { id: 5, title: "Closed issues", onClick: () => {} },
-];
-
-const queryParser = (query) => {
-  const queryAuthor = query.author ? `author: ${query.author}` : "";
+const queryStringify = (query) => {
+  const queryAuthor = query.author ? ` author: ${query.author}` : "";
   const queryLabel = (() => {
     if (query.label.length !== 0) {
       return query.label.reduce((acc, label) => {
-        return acc + `label: ${label}`;
+        return acc + ` label: ${label}`;
       }, "");
     }
     return "";
   })();
-  const queryAssignee = query.assignee ? `assignee: ${query.assignee}` : "";
-  const queryMilestone = query.milestone ? `milestone: ${query.milestone}` : "";
-  return `is: ${query.status} ${queryAuthor} ${queryLabel} ${queryAssignee} ${queryMilestone}`;
+  const queryAssignee = query.assignee ? ` assignee: ${query.assignee}` : "";
+  const queryMilestone = query.milestone
+    ? ` milestone: ${query.milestone}`
+    : "";
+  return `is: ${query.status}${queryAuthor}${queryLabel}${queryAssignee}${queryMilestone}`;
 };
 
-const NavigationWrapperInput = ({ query, setQuery }) => {
-  const [inputValue, setInputValue] = useState(queryParser(query));
+const queryParser = (query) => {};
+
+const NavigationWrapperInput = () => {
+  const queryState = useQueryState();
+  const queryDispatch = useQueryDispatch();
+
+  const [inputValue, setInputValue] = useState(
+    queryStringify(queryState.query)
+  );
+
   const onChangeHandler = (event) => {
     setInputValue(event.target.value);
   };
-  // TODO: enter event 로 setQuery
+  // TODO: value로 query parser 거치고 dispatch change_value
+
+  const inputFilterButtons = [
+    {
+      id: 1,
+      title: "Open issues",
+      dispatchData: () => {
+        queryDispatch({ type: "CHANGE_STATUS", data: "open" });
+      },
+    },
+    {
+      id: 2,
+      title: "Your issues",
+      dispatchData: () => {
+        queryDispatch({
+          type: "CHANGE_AUTHOR",
+          data: localStorage.getItem("nickname"),
+        });
+      },
+    },
+    {
+      id: 3,
+      title: "Everything assigned to you",
+      dispatchData: () => {
+        queryDispatch({
+          type: "CHANGE_ASSIGNEE",
+          data: localStorage.getItem("nickname"),
+        });
+      },
+    },
+    {
+      id: 4,
+      title: "Closed issues",
+      dispatchData: () => {
+        queryDispatch({ type: "CHANGE_STATUS", data: "closed" });
+      },
+    },
+  ];
+
+  // TODO: enter event 로 setQuery dispatch
   return (
     <StyledNavigationWrapperInput>
       <M.Dropdown

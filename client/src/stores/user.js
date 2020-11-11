@@ -49,12 +49,6 @@ const userReducer = (state, action) => {
       };
       return checkLocalUserInfo();
 
-    case "POST_GITHUB_USER":
-      const checkGithubUserInfo = async () => {
-        await myAxios.get("/user/oauth/github");
-      };
-      return checkGithubUserInfo();
-
     case "POST_SIGNUP_USER":
       const signUpNewUser = async () => {
         const {

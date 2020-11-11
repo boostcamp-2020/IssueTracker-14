@@ -38,7 +38,6 @@ const SignUpForm = () => {
   }, []);
 
   const onClickSignup = useCallback(() => {
-    console.log("click");
     dispatch({
       type: "POST_SIGNUP_USER",
     });
