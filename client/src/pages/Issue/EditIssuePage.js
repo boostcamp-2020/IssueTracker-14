@@ -29,7 +29,6 @@ const EditIssuePage = ({ match }) => {
     <>
       <Header />
       <EditIssuePageWrapper>
-        <A.Image padding={"0 0.5rem"} />
         <O.EditIssueForm issue={issue} />
       </EditIssuePageWrapper>
     </>
