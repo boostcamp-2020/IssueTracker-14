@@ -66,6 +66,8 @@
 		B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */; };
 		B95A6C7C254AD19200D9EC66 /* PatternChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */; };
 		B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */; };
+		B96FDADF255BCCBD00A1251C /* RandomHexColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */; };
+		B96FDAE5255C03CC00A1251C /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */; };
 		B980375D25484A14002FF4BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375C25484A14002FF4BF /* AppDelegate.swift */; };
 		B980375F25484A14002FF4BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980375E25484A14002FF4BF /* SceneDelegate.swift */; };
 		B980376125484A14002FF4BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B980376025484A14002FF4BF /* LoginViewController.swift */; };
@@ -156,6 +158,8 @@
 		B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isPasswordPattern.swift"; sourceTree = "<group>"; };
 		B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternChecker.swift; sourceTree = "<group>"; };
 		B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isNickNamePattern.swift"; sourceTree = "<group>"; };
+		B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHexColorGenerator.swift; sourceTree = "<group>"; };
+		B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		B980375925484A14002FF4BF /* IssueTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IssueTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B980375C25484A14002FF4BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B980375E25484A14002FF4BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 		44791036255A70A9004366B2 /* EditingScene */ = {
 			isa = PBXGroup;
 			children = (
+				B96FDADB255BC89900A1251C /* Model */,
 				44791037255A70CB004366B2 /* EditingViewController.swift */,
 				4479103B255A7522004366B2 /* EditingView.swift */,
 			);
@@ -386,8 +391,17 @@
 				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
 				B94B3654255039E900369C59 /* UIViewController+alert.swift */,
 				B94F54D7255B335100B800C8 /* String+customDateFormat.swift */,
+				B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */,
 			);
 			path = Extention;
+			sourceTree = "<group>";
+		};
+		B96FDADB255BC89900A1251C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		B980375025484A14002FF4BF = {
@@ -664,6 +678,7 @@
 				B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */,
 				B95A6C80254ADA1C00D9EC66 /* String+isNickNamePattern.swift in Sources */,
 				B95A6C78254AD03300D9EC66 /* String+isPasswordPattern.swift in Sources */,
+				B96FDADF255BCCBD00A1251C /* RandomHexColorGenerator.swift in Sources */,
 				B9FBB4FB25518488007207AE /* HomeTabBarCoordinator.swift in Sources */,
 				B95A6C70254AA86800D9EC66 /* NetworkRequest.swift in Sources */,
 				44791044255A7C2F004366B2 /* AnimatableButton.swift in Sources */,
@@ -698,6 +713,7 @@
 				B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */,
 				B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */,
 				B90743022551C4A600E1D2E6 /* LabelListViewController.swift in Sources */,
+				B96FDAE5255C03CC00A1251C /* UIColor+hex.swift in Sources */,
 				4479104C255AB80A004366B2 /* LabelCollectionViewCell.swift in Sources */,
 				B91AFB4B255938B6007AD8DD /* IssueDetailTableViewCell.swift in Sources */,
 				B949F998254F07D900477211 /* LoginUseCase.swift in Sources */,
