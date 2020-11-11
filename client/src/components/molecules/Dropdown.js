@@ -43,7 +43,7 @@ const Dropdown = ({
   btnJustify,
   btnPadding,
   fetchData,
-  clickItem,
+  selected,
   ...rest
 }) => {
   const [showDropdown, setShowDropdown] = useState("none");
@@ -58,7 +58,6 @@ const Dropdown = ({
   };
 
   const handleSearch = (e) => setSearchName(e.target.value);
-
   return (
     <StyledDropdown>
       <A.Button
@@ -129,13 +128,12 @@ const Dropdown = ({
             .map((data, idx) => {
               return (
                 <M.DropdownItem
-                  optionId={optionId}
                   key={idx}
                   data={data}
                   width={dropdownWidth}
                   height={buttonHeight}
                   dispatchData={data.dispatchData}
-                  setVisible={setShowDropdown}
+                  selected={selected}
                   {...rest}
                 />
               );
@@ -163,6 +161,7 @@ Dropdown.defaultProps = {
   icon: "dropdown",
   showDropdown: "none",
   fetchData: () => {},
+  selected: [],
 };
 
 export default Dropdown;

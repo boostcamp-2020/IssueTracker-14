@@ -36,6 +36,7 @@ const DropDownWithText = ({
         showDropdown={showDropdown}
         icon={icon}
         fetchData={fetchData}
+        selected={selected}
         search={false}
       ></M.Dropdown>
       {!selected || selected.length === 0 ? (
@@ -56,6 +57,14 @@ const DropDownWithText = ({
           }
 
           if (optionId === 1) {
+            return (
+              <A.Text key={el.id} hover={false} fontSize={fontSize}>
+                {el.title}
+              </A.Text>
+            );
+          }
+
+          if (optionId === 2) {
             return (
               <A.Text key={el.id} hover={false} fontSize={fontSize}>
                 {el.title}
