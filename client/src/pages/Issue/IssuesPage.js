@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import colors from "../../constants/colors";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
-import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 import { useIssueState, useIssueDispatch } from "../../stores/issue";
