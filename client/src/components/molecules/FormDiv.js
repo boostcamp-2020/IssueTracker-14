@@ -25,6 +25,7 @@ const FormDiv = ({
   bgColor,
   margin,
   inputMargin,
+  value,
 }) => (
   <StyledFormDiv margin={margin}>
     <A.InputLabel label={label} htmlFor={htmlFor} />
@@ -39,6 +40,7 @@ const FormDiv = ({
       placeholder={placeholder}
       bgColor={bgColor}
       margin={inputMargin}
+      value={value}
     />
   </StyledFormDiv>
 );
