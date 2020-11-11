@@ -138,8 +138,8 @@ const IssueData = ({
       <StyledImportant>
         <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
           <Link
-            to={`issues/${issue.id}`}
-            style={{ "text-decoration": "none", color: "inherit" }}
+            to={`issue/${issue.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
           >
             {issue.title}
           </Link>
