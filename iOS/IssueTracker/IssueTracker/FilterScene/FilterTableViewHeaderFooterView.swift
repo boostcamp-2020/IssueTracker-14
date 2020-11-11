@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilterTableViewHeaderFooterView: UITableViewHeaderFooterView {
+final class FilterTableViewHeaderFooterView: UITableViewHeaderFooterView {
 
     static var identifier: String {
         return String(describing: Self.self)

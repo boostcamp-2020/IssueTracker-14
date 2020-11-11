@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilterTableViewController: UITableViewController {
+final class FilterTableViewController: UITableViewController {
     
     private enum Constant {
         static let firstSectionHeaderTitle: String = "다음 중에 조건을 고르세요"
@@ -17,8 +17,8 @@ class FilterTableViewController: UITableViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    @IBOutlet var conditions: [UITableViewCell]!
-    @IBOutlet var detailConditions: [UITableViewCell]!
+    @IBOutlet private var conditions: [UITableViewCell]!
+    @IBOutlet private var detailConditions: [UITableViewCell]!
     private var seletedRowInFirstSection = 0
     
     override func viewDidLoad() {
@@ -79,6 +79,7 @@ extension FilterTableViewController {
         return nil
     }
 }
+
 private extension FilterTableViewController {
     func configure() {
         configureNavigationBar()
