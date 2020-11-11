@@ -10,7 +10,6 @@ const AssigneeReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        users: null,
         error: null,
       };
 
@@ -26,7 +25,6 @@ const AssigneeReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        users: null,
         error: action.error,
       };
 

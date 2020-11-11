@@ -17,8 +17,7 @@ const LabelReducer = (state, action) => {
     case "READ_LOADING":
       return {
         ...state,
-        loading: false,
-        labels: null,
+        loading: true,
         error: null,
       };
 
@@ -34,7 +33,6 @@ const LabelReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        labels: null,
         error: action.error,
       };
 

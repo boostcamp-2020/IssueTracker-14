@@ -13,17 +13,15 @@ const NewIssuePageWrapper = styled.div`
 `;
 
 const NewIssuePage = () => {
-  const imageUrl = localStorage.getItem("userImage");
+  const imageUrl =
+    localStorage.getItem("userImage") === null
+      ? localStorage.getItem("userImage")
+      : "https://avatars1.githubusercontent.com/u/52521323?v=4";
   return (
     <>
       <Header />
       <NewIssuePageWrapper>
-        <A.Image
-          imageUrl={
-            imageUrl || "https://github.com/identicons/app/oauth_app/1404563"
-          }
-          padding={"0 0.5rem"}
-        />
+        <A.Image imageUrl={imageUrl} padding={"0 0.5rem"} />
         <O.NewIssueForm />
         <O.NewIssueOptions />
       </NewIssuePageWrapper>

@@ -49,6 +49,7 @@ const Button = ({
   cursor,
   hexa,
   disabled,
+  hover,
   ...rest
 }) => (
   <StyledButton
@@ -63,6 +64,7 @@ const Button = ({
     cursor={cursor}
     hexa={hexa}
     disabled={disabled}
+    hover={hover}
     {...rest}
   >
     {children}

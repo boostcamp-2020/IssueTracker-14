@@ -1,24 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import A from "../atoms/index";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
 
-const DropdownItem = ({ optionId, data, width, height, setVisible }) => {
-  const issueState = useIssueState();
-  const issueDispatch = useIssueDispatch();
-
+const DropdownItem = ({ data, width, height, setVisible, dispatchData }) => {
   const setData = (data) => {
-    if (optionId === 0) {
-      issueDispatch({ type: "SET_ASSIGNEES", data });
-      setVisible("none");
-    }
-    if (optionId === 1) {
-      issueDispatch({ type: "SET_LABELS", data });
-      setVisible("none");
-    }
-    if (optionId === 2) {
-      issueDispatch({ type: "SET_MILESTONE", data });
-      setVisible("none");
-    }
+    dispatchData(data);
+    setVisible("none");
   };
 
   return (
@@ -41,6 +27,10 @@ const DropdownItem = ({ optionId, data, width, height, setVisible }) => {
       <span>{data.title === undefined ? data.nickname : data.title}</span>
     </A.Button>
   );
+};
+
+DropdownItem.defaultProps = {
+  dispatchData: () => {},
 };
 
 export default DropdownItem;

@@ -9,6 +9,7 @@ import { MilestoneProvider } from "./stores/milestone";
 import { LabelProvider } from "./stores/label";
 import { AssigneeProvider } from "./stores/assignee";
 import { IssueProvider } from "./stores/issue";
+import { QueryProvider } from "./stores/query";
 
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
@@ -43,7 +44,7 @@ const App = () => {
     } = await myAxios.get("/user/status");
     if (message === "ok") {
       localStorage.setItem("userId", user.id);
-      localStorage.setItem("username", user.nickname);
+      localStorage.setItem("nickname", user.nickname);
       localStorage.setItem("userImage", user.imageUrl);
       setIsAuth(true);
       return true;
@@ -74,7 +75,9 @@ const App = () => {
               <AssigneeProvider>
                 <LabelProvider>
                   <MilestoneProvider>
-                    <Route exact path="/" component={IssuesPage} />
+                    <QueryProvider>
+                      <Route exact path="/" component={IssuesPage} />
+                    </QueryProvider>
                     <Route
                       exact
                       path="/milestones/new"

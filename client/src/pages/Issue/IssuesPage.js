@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import colors from "../../constants/colors";
 import styled from "styled-components";
@@ -6,6 +6,11 @@ import Header from "../../components/organisms/Header";
 import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
+import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import { useLabelDispatch } from "../../stores/label";
+import { useMilestoneDispatch } from "../../stores/milestone";
+import { useQueryState } from "../../stores/query";
+import fetchTargetData from "../../utils/fetchData";
 
 const IssuesPageWrapper = styled.div`
   position: relative;
@@ -35,8 +40,39 @@ const StyledIssueContentWrapper = styled.div`
   width: 100%;
 `;
 
+const queryToString = (query) => {
+  const queryAuthor = query.author ? `&author=${query.author}` : "";
+  const queryLabel = (() => {
+    if (query.label.length !== 0) {
+      return query.label.reduce((acc, label) => {
+        return acc + `&label=${label}`;
+      }, "");
+    }
+    return "";
+  })();
+  const queryAssignee = query.assignee ? `&assignee=${query.assignee}` : "";
+  const queryMilestone = query.milestone ? `&milestone=${query.milestone}` : "";
+  return `?status=${query.status}${queryAuthor}${queryLabel}${queryAssignee}${queryMilestone}`;
+};
+
 const IssuesPage = () => {
   const history = useHistory();
+
+  const issueState = useIssueState();
+  const queryState = useQueryState();
+
+  const issueDispatch = useIssueDispatch();
+  const labelDispatch = useLabelDispatch();
+  const milestoneDispatch = useMilestoneDispatch();
+
+  const [selected, setSelected] = useState([]);
+  const [totalSelected, setTotalSelected] = useState(false);
+
+  useEffect(() => {
+    fetchTargetData(`issues${queryToString(queryState.query)}`, issueDispatch);
+    fetchTargetData("label", labelDispatch);
+    fetchTargetData("milestone", milestoneDispatch);
+  }, [queryState.query]);
 
   const onClickNewIssue = () => {
     history.push("/issues/new");
@@ -65,8 +101,23 @@ const IssuesPage = () => {
         <StyledIssueContentWrapper>
           <M.ClearIssueFilter />
           <M.Container
-            menu={<O.IssueMenu />}
-            content={<O.IssueContent />}
+            menu={
+              <O.IssueMenu
+                selected={selected}
+                setSelected={setSelected}
+                totalSelected={totalSelected}
+                setTotalSelected={setTotalSelected}
+              />
+            }
+            content={
+              <O.IssueContent
+                issues={issueState.issues}
+                selected={selected}
+                setSelected={setSelected}
+                totalSelected={totalSelected}
+                setTotalSelected={setTotalSelected}
+              />
+            }
           />
         </StyledIssueContentWrapper>
       </IssuesPageWrapper>
