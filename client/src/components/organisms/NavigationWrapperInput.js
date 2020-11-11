@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
@@ -17,24 +17,48 @@ const inputFilterButtons = [
   { id: 5, title: "Closed issues", onClick: () => {} },
 ];
 
-const NavigationWrapperInput = () => (
-  <StyledNavigationWrapperInput>
-    <M.Dropdown
-      buttonData={inputFilterButtons}
-      buttonText={"Filters"}
-      labelText={"Filter Issues"}
-      buttonWidth={"5rem"}
-      reverse={false}
-      border={true}
-      search={false}
-    />
-    <A.Input
-      margin="0rem"
-      padding={"0.5rem 0rem"}
-      display={"table-cell"}
-      width={"100%"}
-    />
-  </StyledNavigationWrapperInput>
-);
+const queryParser = (query) => {
+  const queryAuthor = query.author ? `author: ${query.author}` : "";
+  const queryLabel = (() => {
+    if (query.label.length !== 0) {
+      return query.label.reduce((acc, label) => {
+        return acc + `label: ${label}`;
+      }, "");
+    }
+    return "";
+  })();
+  const queryAssignee = query.assignee ? `assignee: ${query.assignee}` : "";
+  const queryMilestone = query.milestone ? `milestone: ${query.milestone}` : "";
+  return `is: ${query.status} ${queryAuthor} ${queryLabel} ${queryAssignee} ${queryMilestone}`;
+};
+
+const NavigationWrapperInput = ({ query, setQuery }) => {
+  const [inputValue, setInputValue] = useState(queryParser(query));
+  const onChangeHandler = (event) => {
+    setInputValue(event.target.value);
+  };
+  // TODO: enter event 로 setQuery
+  return (
+    <StyledNavigationWrapperInput>
+      <M.Dropdown
+        buttonData={inputFilterButtons}
+        buttonText={"Filters"}
+        labelText={"Filter Issues"}
+        buttonWidth={"5rem"}
+        reverse={false}
+        border={true}
+        search={false}
+      />
+      <A.Input
+        margin="0rem"
+        padding={"0.5rem 0rem"}
+        display={"table-cell"}
+        width={"100%"}
+        value={inputValue}
+        onChange={onChangeHandler}
+      />
+    </StyledNavigationWrapperInput>
+  );
+};
 
 export default NavigationWrapperInput;

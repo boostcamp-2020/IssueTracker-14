@@ -21,6 +21,8 @@ const signup = async (req, res) => {
           nickname,
           password: bcryptPassword,
           provider: "local",
+          imageurl:
+            "https://user-images.githubusercontent.com/63051473/98755346-b1bb1480-240b-11eb-9cb2-f404cbe0b388.png",
         });
         return res.status(201).json({ message: "success" });
       } catch (error) {
@@ -99,6 +101,8 @@ const appleLogin = async (req, res) => {
         password: hashcode,
         nickname: name,
         provider: "apple",
+        imageurl:
+          "https://user-images.githubusercontent.com/63051473/98754424-0493cc80-240a-11eb-972b-eb846bb33c02.png",
       },
     });
     const jwtoken = getToken({
