@@ -82,7 +82,7 @@ const LabelCard = ({ label }) => {
             </A.Label>
           </StyledLabelIcon>
           <StyledDescription>
-            <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>{label.description}</A.Text>
+            <A.Text fontSize={"1.25rem"} color={"textGrey"}>{label.description}</A.Text>
           </StyledDescription>
           <StyledButtons><A.Button onClick={turnOnEditMode}>Edit</A.Button><A.Button onClick={deleteLabel}>Delete</A.Button></StyledButtons>
         </StyledLabelCard>
