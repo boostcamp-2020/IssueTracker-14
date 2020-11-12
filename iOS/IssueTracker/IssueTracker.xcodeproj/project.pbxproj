@@ -92,6 +92,7 @@
 		B98C9C86254FFD77002B9CB9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */; };
 		B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF5A6025499FA60052910D /* NetworkService.swift */; };
 		B9C95549255D1EA700E7B449 /* GithubLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C95548255D1EA700E7B449 /* GithubLoginViewController.swift */; };
+		B9C95551255D32D000E7B449 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C95550255D32D000E7B449 /* FilterViewController.swift */; };
 		B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */; };
 		B9FBB4FB25518488007207AE /* HomeTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */; };
 /* End PBXBuildFile section */
@@ -199,6 +200,7 @@
 		B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		B9BF5A6025499FA60052910D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B9C95548255D1EA700E7B449 /* GithubLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoginViewController.swift; sourceTree = "<group>"; };
+		B9C95550255D32D000E7B449 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				B951AE54255C5B3C00F6B9C7 /* FilterTableViewController.swift */,
+				B9C95550255D32D000E7B449 /* FilterViewController.swift */,
 			);
 			path = FilterScene;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				B96FDAF0255C0E8200A1251C /* LabelEndPoint.swift in Sources */,
 				B94B3655255039E900369C59 /* UIViewController+alert.swift in Sources */,
 				447C96F82549745B008D326F /* SignUpViewController.swift in Sources */,
+				B9C95551255D32D000E7B449 /* FilterViewController.swift in Sources */,
 				B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */,
 				B90E674A255AF42500E990B1 /* MileStone.swift in Sources */,
 				B90743302551DC2C00E1D2E6 /* MileStoneCoordinator.swift in Sources */,
