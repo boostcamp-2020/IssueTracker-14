@@ -17,7 +17,6 @@ extension UIColor {
         var hexDigit = hex.uppercased()
         hexDigit.removeFirst()
         guard !hexDigit.isEmpty,
-              hexDigit.count == 6,
               hexDigit.allSatisfy({ $0.isHexDigit }),
               let result = Int(hexDigit, radix: 16) else { return nil }
         var red, blue, green: CGFloat

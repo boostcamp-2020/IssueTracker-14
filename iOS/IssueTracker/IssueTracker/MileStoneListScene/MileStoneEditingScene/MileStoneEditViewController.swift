@@ -15,9 +15,12 @@ final class MileStoneEditViewController: DimmedViewController {
     
     private let editingView: MileStoneEditingView = MileStoneEditingView()
     private let useCase: MileStoneUseCaseType
-    private var mileStone: MileStone  {
+    private let mileStoneEditingPatternChecker: MileStoneEditingPatternChecker = MileStoneEditingPatternChecker()
+    private var mileStone: MileStone {
         didSet {
             editingView.update(with: mileStone)
+            editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(milestone: mileStone)
+            editingView.saveButton.alpha = editingView.saveButton.isEnabled ? 1 : 0.2
         }
     }
     weak var delegate: MileStoneEditViewControllerDelegate?
@@ -35,8 +38,11 @@ final class MileStoneEditViewController: DimmedViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         editingView.delegate = self
+        editingView.mileStoneEditingDelegate = self
         addContentView(editingView)
         editingView.update(with: mileStone)
+        mileStone.duedate = mileStone.customDuedate(format: "yyyy-MM-dd")
+        editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(milestone: mileStone)
     }
 }
 
@@ -77,5 +83,17 @@ extension MileStoneEditViewController: MileStoneEditingViewDelegate {
     
     func duedateChanged(_ mileStoneEditingView: MileStoneEditingView, value: String) {
         mileStone.duedate = value
+        let result = mileStoneEditingPatternChecker.isValid(duedate: value)
+        switch result {
+        case let .failure(.invalidDate(msg)):
+            editingView.errorLabel.text = msg
+            editingView.errorLabel.isHidden = false
+        case .success:
+            editingView.errorLabel.isHidden = true
+        }
+    }
+    
+    func editingDidChanged(_ labelEditingView: MileStoneEditingView, isEditing: Bool) {
+            activeView = isEditing ? editingView : nil
     }
 }

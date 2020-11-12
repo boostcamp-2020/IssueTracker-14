@@ -47,13 +47,6 @@ private extension MileStoneListViewController {
     }
 }
 
-private extension MileStoneListViewController {
-    func mileStoneViewLayout() -> UICollectionViewCompositionalLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        return UICollectionViewCompositionalLayout.list(using: configuration)
-    }
-}
-
 extension MileStoneListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let selectedMileStone = dataSource.itemIdentifier(for: indexPath) else { return }
@@ -68,6 +61,26 @@ extension MileStoneListViewController: UICollectionViewDelegate {
                 }
             }
         }
+    }
+}
+
+private extension MileStoneListViewController {
+    func mileStoneCollectionViewLayout() -> UICollectionViewCompositionalLayout {
+        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
+            let closeAction = UIContextualAction(
+                style: .destructive,
+                title: "Delete",
+                handler: { [weak self] _, _, _ in
+                    guard let self = self,
+                          let label = self.dataSource.itemIdentifier(for: indexPath) else { return }
+                    self.remove(with: label.id)
+                    self.mileStones.remove(at: indexPath.item)
+                }
+            )
+            return UISwipeActionsConfiguration(actions: [closeAction])
+        }
+        return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 }
 
@@ -118,7 +131,7 @@ private extension MileStoneListViewController {
     
     func configureCollectionView() {
         mileStoneCollectionView.dataSource = dataSource
-        mileStoneCollectionView.setCollectionViewLayout(mileStoneViewLayout(), animated: true)
+        mileStoneCollectionView.setCollectionViewLayout(mileStoneCollectionViewLayout(), animated: true)
         mileStoneCollectionView.delegate = self
     }
 }

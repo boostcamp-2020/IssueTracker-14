@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="descriptionTextField" destination="zmI-Da-533" id="Fm7-sI-NXR"/>
                 <outlet property="duedateTextField" destination="uYa-rC-7EO" id="0lV-cQ-cgf"/>
+                <outlet property="errorLabel" destination="eU3-Dq-KFx" id="Jna-vF-86n"/>
                 <outlet property="titleTextField" destination="r93-Cc-Ktl" id="6cl-2C-6la"/>
             </connections>
         </placeholder>
@@ -42,6 +43,9 @@
                                             <rect key="frame" x="62" y="28.5" width="238" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="0zg-0z-z2o"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </stackView>
@@ -72,7 +76,10 @@
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="yyyy-mm-dd (선택)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uYa-rC-7EO">
                                             <rect key="frame" x="60" y="17.5" width="240" height="32.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="hEN-tS-4VQ"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -107,6 +114,9 @@
                                             <rect key="frame" x="62" y="28.5" width="238" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="vYV-hu-xEf"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </stackView>
@@ -121,6 +131,15 @@
                         </stackView>
                     </subviews>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU3-Dq-KFx">
+                    <rect key="frame" x="16" y="136.5" width="268" height="10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="TnJ-QP-ghe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="67M-9e-lkr"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,6 +148,9 @@
                 <constraint firstItem="IAd-OK-bw7" firstAttribute="leading" secondItem="d8L-RN-VoY" secondAttribute="leading" id="Wtj-J8-GLD"/>
                 <constraint firstItem="IAd-OK-bw7" firstAttribute="top" secondItem="d8L-RN-VoY" secondAttribute="top" id="aMR-IM-3LB"/>
                 <constraint firstAttribute="trailing" secondItem="IAd-OK-bw7" secondAttribute="trailing" id="c0H-gE-CQV"/>
+                <constraint firstItem="eU3-Dq-KFx" firstAttribute="leading" secondItem="67M-9e-lkr" secondAttribute="leading" constant="16" id="gWS-pg-rw5"/>
+                <constraint firstItem="eU3-Dq-KFx" firstAttribute="top" secondItem="B6z-dE-LJR" secondAttribute="top" constant="3" id="iBH-3Q-gPb"/>
+                <constraint firstAttribute="trailing" secondItem="eU3-Dq-KFx" secondAttribute="trailing" constant="16" id="sag-NF-RTv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-345" y="-47"/>
@@ -140,6 +162,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
