@@ -1,7 +1,8 @@
-import React from "react";
-import colors from "../../constants/colors";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useLabelState, useLabelDispatch } from "../../stores/label";
+import fetchTargetData from "../../utils/fetchData";
 import styled from "styled-components";
-import Header from "../../components/organisms/Header";
 import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
@@ -35,18 +36,24 @@ const StyledLabelContentWrapper = styled.div`
 `;
 
 const LabelsPage = () => {
-
+  const labelState = useLabelState();
+  const labelDispatch = useLabelDispatch();
+  
+  useEffect(() => {
+    fetchTargetData("label", labelDispatch);
+  }, []);
+  
   return (
     <>
-      <Header />
+      <O.Header />
       <LabelsPageWrapper>
         <StyledLabelNavigationWrapper>
             <O.LabelNavigation />
         </StyledLabelNavigationWrapper>
         <StyledLabelContentWrapper>
             <M.Container
-                menu={<A.Text>메뉴바</A.Text>}
-                content={<A.Text>컨텐츠</A.Text>}
+                menu={<O.LabelMenu labels={labelState.labels} />}
+                content={<O.LabelContent labels={labelState.labels} />}
             />
         </StyledLabelContentWrapper>
       </LabelsPageWrapper>

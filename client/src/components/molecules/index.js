@@ -7,6 +7,7 @@ import FormDiv from "./FormDiv";
 import FormTextArea from "./FormTextArea";
 import NavigationWrapperLink from "./NavigationWrapperLink";
 import IssueCard from "./IssueCard";
+import LabelModal from "./LabelModal";
 import FileInput from "./FileInput";
 import Title from "./Title";
 import Tabs from "./Tabs";
@@ -24,6 +25,7 @@ export default {
   FormTextArea,
   NavigationWrapperLink,
   IssueCard,
+  LabelModal,
   FileInput,
   Title,
   Tabs,

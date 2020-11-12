@@ -34,7 +34,7 @@ const myAxios = {
   },
 
   delete: function (path) {
-    return axios.put(URL + path, headerConfig);
+    return axios.delete(URL + path, headerConfig);
   },
 
   filepost: function (data) {

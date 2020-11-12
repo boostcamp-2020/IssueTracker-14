@@ -50,22 +50,52 @@ const LabelReducer = (state, action) => {
         const createLabel = async () => {
           const {
             data: { message },
-          } = await myAxios.post("/label", {
-            title: state.newLabel.title,
-            duedate: state?.newLabel?.color,
-            description: state?.newLabel?.description,
-          });
+          } = await myAxios.post("/label", action.body);
           if (message === "success") {
             alert("정상적으로 Label이 생성되었습니다.");
             return;
           }
         };
-        return createLabel();
+        createLabel();
       } catch (error) {
         console.log(error);
       }
-      return;
+      return state;
 
+    case "UPDATE_LABEL":
+      try {
+        const updateLabel = async () => {
+          const {
+            data: { message },
+          } = await myAxios.put(`/label/${action.labelId}`, action.body);
+          if (message === "success") {
+            alert("정상적으로 Label이 업데이트되었습니다.");
+            return;
+          }
+        };
+        updateLabel();
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
+      
+    case "DELETE_LABEL":
+      try {
+        const deleteLabel = async () => {
+          const {
+            data: { message },
+          } = await myAxios.delete(`/label/${action.labelId}`);
+          if (message === "success") {
+            alert("정상적으로 Label이 삭제되었습니다.");
+            return;
+          }
+        };
+        deleteLabel();
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
+  
     default:
       return state;
   }
