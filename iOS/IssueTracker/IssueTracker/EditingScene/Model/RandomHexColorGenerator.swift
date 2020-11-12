@@ -15,13 +15,13 @@ final class RandomHexColorGenerator {
         return "#\(newValue)"
     }
     
-    static func generateExcept(for current: String) -> String? {
+    static func generate(exceptFor current: String) -> String? {
         guard !current.isEmpty,
               current.first == "#",
               current.count == 7,
               current.enumerated().allSatisfy({ $0 == 0 || $1.isHexDigit }) else { return nil }
         let uppercasedCurrent = current.uppercased()
         let result = generate()
-        return result == uppercasedCurrent ? generateExcept(for: uppercasedCurrent) : result
+        return result == uppercasedCurrent ? generate(exceptFor: uppercasedCurrent) : result
     }
 }

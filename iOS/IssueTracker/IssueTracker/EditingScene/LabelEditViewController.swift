@@ -77,7 +77,7 @@ extension LabelEditViewController: LabelEditingViewDelegate {
     }
     
     func colorGenerated(_ labelEditingView: LabelEditingView) {
-        guard let color = RandomHexColorGenerator.generateExcept(for: label.color) else { return }
+        guard let color = RandomHexColorGenerator.generate(exceptFor: label.color) else { return }
         label.color = color
     }
 }
