@@ -8,11 +8,19 @@
 import Foundation
 
 extension String {
-    func customDateFormat() -> String? {
+    func customDateFormat(format: String) -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         guard let date = dateFormatter.date(from: self) else { return nil }
-        dateFormatter.dateFormat = "yyyy년 M월 d일까지"
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+    
+    func inverseCustomDateFormat(format: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        guard let date = dateFormatter.date(from: self) else { return nil }
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return dateFormatter.string(from: date)
     }
 }

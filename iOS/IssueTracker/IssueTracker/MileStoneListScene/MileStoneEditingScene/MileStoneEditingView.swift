@@ -9,6 +9,10 @@ import UIKit
 
 final class MileStoneEditingView: EditingView, XibLoadable {
     
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var duedateTextField: UITextField!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -24,5 +28,13 @@ private extension MileStoneEditingView {
     func configure() {
         guard let contentView = loadNib() else { return }
         addContentView(contentView)
+    }
+}
+
+extension MileStoneEditingView {
+    func update(with mileStone: MileStone) {
+        titleTextField.text = mileStone.title
+        descriptionTextField.text = mileStone.description
+        duedateTextField.text = mileStone.duedate?.customDateFormat(format: "yyyy-MM-dd")
     }
 }
