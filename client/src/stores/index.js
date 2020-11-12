@@ -13,7 +13,7 @@ import {
 import { QueryProvider, useQueryState, useQueryDispatch } from "./query";
 import { UserProvider, useUserState, useUserDispatch } from "./user";
 
-export {
+export default {
   AssigneeProvider,
   useAssigneeState,
   useAssigneeDispatch,

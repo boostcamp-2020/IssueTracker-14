@@ -4,15 +4,13 @@ import A from "./../atoms/index";
 import M from "./../molecules/index";
 import O from "./../organisms/index";
 
-import {
-  useMilestoneState,
-  useMilestoneDispatch,
-} from "../../stores/milestone";
+import Store from "../../stores/index";
 
 const StyledMilestoneCountWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  width: 15rem;
 `;
 
 const StyledContentWrapper = styled.div`
@@ -23,9 +21,9 @@ const StyledContentWrapper = styled.div`
 `;
 
 const MilestoneMenu = ({ status, setStatus }) => {
-  const milestoneState = useMilestoneState();
-  const openMilestone = milestoneState.milestoneCount.open;
-  const closedMilestone = milestoneState.milestoneCount.closed;
+  const milestoneState = Store.useMilestoneState();
+  const openMilestone = milestoneState.milestoneCount?.open;
+  const closedMilestone = milestoneState.milestoneCount?.closed;
 
   const onClickOpenMilestone = () => {
     setStatus("open");
@@ -39,38 +37,36 @@ const MilestoneMenu = ({ status, setStatus }) => {
     <StyledMilestoneCountWrapper>
       <A.Button
         border={false}
-        width={"6rem"}
+        width={"8rem"}
         onClick={() => onClickOpenMilestone()}
       >
         <StyledContentWrapper>
-          <A.Icon
-            name={"milestone"}
-            color={status === "open" ? "black" : "grey"}
-          ></A.Icon>
           <A.Text
-            fontSize={"small"}
+            fontSize={"medium"}
             color={status === "open" ? "black" : "grey"}
           >
-            {" "}
+            <A.Icon
+              name={"milestone"}
+              color={status === "open" ? "black" : "grey"}
+            ></A.Icon>{" "}
             {openMilestone} Open
           </A.Text>
         </StyledContentWrapper>
       </A.Button>
       <A.Button
         border={false}
-        width={"6rem"}
+        width={"8rem"}
         onClick={() => onClickClosedMilestone()}
       >
         <StyledContentWrapper>
-          <A.Icon
-            name={"checkDouble"}
-            color={status === "closed" ? "black" : "grey"}
-          ></A.Icon>
           <A.Text
-            fontSize={"small"}
+            fontSize={"medium"}
             color={status === "closed" ? "black" : "grey"}
           >
-            {" "}
+            <A.Icon
+              name={"checkDouble"}
+              color={status === "closed" ? "black" : "grey"}
+            ></A.Icon>{" "}
             {closedMilestone} Closed
           </A.Text>
         </StyledContentWrapper>

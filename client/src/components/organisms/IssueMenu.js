@@ -3,16 +3,7 @@ import styled from "styled-components";
 import A from "./../atoms/index";
 import M from "./../molecules/index";
 import O from "./../organisms/index";
-
-import { useLabelState, useLabelDispatch } from "../../stores/label";
-import { useAssigneeState, useAssigneeDispatch } from "../../stores/assignee";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
-import {
-  useMilestoneState,
-  useMilestoneDispatch,
-} from "../../stores/milestone";
-import { useQueryState, useQueryDispatch } from "../../stores/query";
-
+import Store from "../../stores/index";
 import fetchTargetData from "../../utils/fetchData";
 
 const StyledIssueMenuWrapper = styled.div`
@@ -33,7 +24,7 @@ const StyledContentWrapper = styled.div`
 
 const StyledButtonWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 15rem;
 `;
@@ -50,19 +41,20 @@ const IssueMenu = ({
     setSelected([]);
   }, [currentStataus]);
 
-  const milestoneState = useMilestoneState();
-  const milestoneDispatch = useMilestoneDispatch();
+  const milestoneState = Store.useMilestoneState();
+  const milestoneDispatch = Store.useMilestoneDispatch();
 
-  const labelState = useLabelState();
-  const labelDispatch = useLabelDispatch();
+  const labelState = Store.useLabelState();
+  const labelDispatch = Store.useLabelDispatch();
 
-  const assigneeState = useAssigneeState();
-  const assigneeDispatch = useAssigneeDispatch();
+  const assigneeState = Store.useAssigneeState();
+  const assigneeDispatch = Store.useAssigneeDispatch();
 
-  const issueState = useIssueState();
-  const issueDispatch = useIssueDispatch();
+  const issueState = Store.useIssueState();
+  const issueDispatch = Store.useIssueDispatch();
 
-  const queryDispatch = useQueryDispatch();
+  const queryState = Store.useQueryState();
+  const queryDispatch = Store.useQueryDispatch();
 
   const issueDropdownOptions = [
     {
@@ -192,46 +184,57 @@ const IssueMenu = ({
     }
   };
 
-  // TODO: OPEN CLOSED BUTTON STYLING
   return (
     <StyledIssueMenuWrapper>
-      {issueState.issues.length !== selected.length && selected.length !== 0 ? (
-        <A.Text fontSize={"0.6rem"}>
-          <A.Icon distance={"0"} name="checkDouble" />
-        </A.Text>
-      ) : (
-        <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
-      )}
-      <span>{selected.length} selected</span>
       <StyledButtonWrapper>
-        <A.Button onClick={onClickIssueOpen}>
-          <StyledContentWrapper>
-            <A.Text
-              fontSize={"medium"}
-              color={currentStataus === "open" ? "black" : "grey"}
-            >
-              <A.Icon
-                name={"alert"}
-                color={currentStataus === "open" ? "green" : "grey"}
-              />
-              {issueState.issueCount?.open} Open
-            </A.Text>
-          </StyledContentWrapper>
-        </A.Button>
-        <A.Button onClick={onClickIssueClosed}>
-          <StyledContentWrapper>
-            <A.Text
-              fontSize={"medium"}
-              color={currentStataus === "closed" ? "black" : "grey"}
-            >
-              <A.Icon
-                name={"alert"}
-                color={currentStataus === "closed" ? "red" : "grey"}
-              />
-              {issueState.issueCount?.closed} Closed
-            </A.Text>
-          </StyledContentWrapper>
-        </A.Button>
+        {issueState.issues.length !== selected.length &&
+        selected.length !== 0 ? (
+          <A.Text fontSize={"0.6rem"}>
+            <A.Icon distance={"0"} name="checkDouble" />
+          </A.Text>
+        ) : (
+          <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
+        )}
+        {selected.length !== 0 ? (
+          <A.Text fontSize={"small"}>{selected.length} selected</A.Text>
+        ) : (
+          <>
+            <A.Button onClick={onClickIssueOpen}>
+              <StyledContentWrapper>
+                <A.Text
+                  fontSize={"medium"}
+                  color={queryState.query.status === "open" ? "black" : "grey"}
+                >
+                  <A.Icon
+                    name={"alert"}
+                    color={
+                      queryState.query.status === "open" ? "green" : "grey"
+                    }
+                  />
+                  {issueState.issueCount?.open} Open
+                </A.Text>
+              </StyledContentWrapper>
+            </A.Button>
+            <A.Button onClick={onClickIssueClosed}>
+              <StyledContentWrapper>
+                <A.Text
+                  fontSize={"medium"}
+                  color={
+                    queryState.query.status === "closed" ? "black" : "grey"
+                  }
+                >
+                  <A.Icon
+                    name={"alert"}
+                    color={
+                      queryState.query.status === "closed" ? "red" : "grey"
+                    }
+                  />
+                  {issueState.issueCount?.closed} Closed
+                </A.Text>
+              </StyledContentWrapper>
+            </A.Button>
+          </>
+        )}
       </StyledButtonWrapper>
       {selected.length !== 0 ? (
         <M.Dropdown {...oneDropdownOption} />

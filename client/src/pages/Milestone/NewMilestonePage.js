@@ -18,7 +18,7 @@ const IssuesPageWrapper = styled.div`
 const StyledNewMilestoneHeader = styled.div`
   display: flex;
   justify-content: center;
-  align-items: space-between;
+  align-items: flex-start;
   flex-direction: column;
   width: 100%;
   margin: 20px 0;
@@ -35,7 +35,7 @@ const NewMilestonePage = () => {
             Create a new milestone to help organize your issues and pull
             requests. Learn more about milestones and issues.
           </A.Text>
-          <A.Line color={"gery"} />
+          <A.Line color={"grey"} />
         </StyledNewMilestoneHeader>
         <O.NewMilestoneForm />
       </IssuesPageWrapper>

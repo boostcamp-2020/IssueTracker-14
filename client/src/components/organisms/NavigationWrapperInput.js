@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
@@ -65,6 +65,10 @@ const NavigationWrapperInput = () => {
       queryDispatch({ type: "CHANGE_VALUE", data: queryParser(inputValue) });
     }
   };
+
+  useEffect(() => {
+    setInputValue(queryStringify(queryState.query));
+  }, [queryState.query]);
 
   const inputFilterButtons = [
     {

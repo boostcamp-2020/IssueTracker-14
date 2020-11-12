@@ -9,13 +9,19 @@ const StyledClearIssueFilter = styled.div`
   padding: 0px 0px 0px 12px;
 `;
 
-const ClearIssueFilter = ({ onClick }) => (
-  <StyledClearIssueFilter onClick={onClick}>
-    <A.Text color={"black"} fontSize={"1.2rem"} hover={false}>
-      <A.Icon location={"left"} name={"reset"} />
-      Clear current search query, filters, and sorts
-    </A.Text>
-  </StyledClearIssueFilter>
-);
+const ClearIssueFilter = ({ onClick }) => {
+  return (
+    <StyledClearIssueFilter
+      onClick={() => {
+        location.href = "/";
+      }}
+    >
+      <A.Text color={"black"} fontSize={"1.2rem"} hover={false}>
+        <A.Icon location={"left"} name={"reset"} />
+        Clear current search query, filters, and sorts
+      </A.Text>
+    </StyledClearIssueFilter>
+  );
+};
 
 export default ClearIssueFilter;

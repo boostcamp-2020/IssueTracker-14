@@ -38,16 +38,14 @@ const Header = () => {
   return (
     <>
       <StyledHeader>
-        <Link to={"/"} style={{ textDecoration: "none" }}>
-          <A.Text hover color={"white"}>
-            <A.Icon name={"book"} cursor={"text"} />
-            IssueTracker-Team14
-          </A.Text>
-        </Link>
+        <A.Text hover color={"white"} onClick={() => (location.href = "/")}>
+          <A.Icon name={"book"} cursor={"text"} />
+          IssueTracker-Team14
+        </A.Text>
       </StyledHeader>
       <StyledLogoutWrapper>
-        <A.Button width="auto" onClick={logout}>
-          로그아웃
+        <A.Button width="auto" onClick={logout} backgroundColor={"black"}>
+          <A.Text color={"white"}>Logout</A.Text>
         </A.Button>
       </StyledLogoutWrapper>
     </>

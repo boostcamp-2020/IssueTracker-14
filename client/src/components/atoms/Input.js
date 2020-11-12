@@ -57,6 +57,7 @@ Input.defaultProps = {
   rounded: false,
   placeholder: "",
   height: "2.3rem",
+  value: undefined,
 };
 
 export default Input;

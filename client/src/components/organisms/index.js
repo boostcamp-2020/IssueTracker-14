@@ -13,8 +13,10 @@ import EditIssueForm from "./EditIssueForm";
 import LabelNavigation from "./LabelNavigation";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
+import EditMilestoneForm from "./EditMilestoneForm";
 
 export default {
+  EditMilestoneForm,
   Footer,
   Header,
   DropdownCluster,

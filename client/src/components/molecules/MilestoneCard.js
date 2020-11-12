@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import A from "../atoms/index";
 
 const StyledMilestoneCard = styled.div`
   position: relative;
@@ -11,7 +13,19 @@ const StyledMilestoneCard = styled.div`
 `;
 
 const MilestoneCard = ({ milestone }) => {
-  return <StyledMilestoneCard>{milestone.title}</StyledMilestoneCard>;
+  return (
+    <StyledMilestoneCard>
+      <Link
+        to={{
+          pathname: `/milestones/edit/${milestone.id}`,
+          state: { milestone },
+        }}
+        style={{ textDecoration: "none" }}
+      >
+        <A.Text fontSize={"2rem"}>{milestone.title}</A.Text>
+      </Link>
+    </StyledMilestoneCard>
+  );
 };
 
 export default MilestoneCard;

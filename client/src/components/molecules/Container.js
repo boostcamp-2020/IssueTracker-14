@@ -15,6 +15,8 @@ const StyledMenuWrapper = styled.div`
   display: flex;
   height: 3.5rem;
   box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   border: 1px solid #000000;
   border-bottom: ${({ empty }) => (empty ? "1px solid #000000" : "none")};
   width: 100%;
@@ -29,6 +31,8 @@ const StyledContentWrapper = styled.div`
   width: 100%;
   min-height: ${({ empty }) => (empty ? "20rem" : "0rem")};
   border: 1px solid #000000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   border-top: none;
   justify-content: center;
   align-items: ${({ empty }) => (empty ? "center" : "start")};
