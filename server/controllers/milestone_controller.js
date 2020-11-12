@@ -70,7 +70,7 @@ const updateMilestone = async (req, res) => {
     await MilestoneModel.update(
       {
         title,
-        duedate,
+        duedate: duedate === null && null,
         description,
         status,
       },

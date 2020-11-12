@@ -102,7 +102,7 @@ const IssuesPage = () => {
           </M.ButtonDiv>
         </StyledNavigationWrapper>
         <StyledIssueContentWrapper>
-          <M.ClearIssueFilter />
+          {queryState.isChanged && <M.ClearIssueFilter />}
           <M.Container
             menu={
               <O.IssueMenu
