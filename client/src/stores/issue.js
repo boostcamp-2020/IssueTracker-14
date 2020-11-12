@@ -163,7 +163,7 @@ const issueReducer = (state, action) => {
       try {
         const editIssue = async () => {
           await myAxios.put(`/issues/${action.data.id}`, {
-            title: state.newIssue.title,
+            title: action.data.title,
             status: action.data.status,
           });
         };

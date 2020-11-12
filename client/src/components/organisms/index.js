@@ -10,6 +10,7 @@ import SignUpForm from "./SignUpForm";
 import IssueMenu from "./IssueMenu";
 import IssueContent from "./IssueContent";
 import EditIssueForm from "./EditIssueForm";
+import EditIssueTitle from "./EditIssueTitle";
 import LabelNavigation from "./LabelNavigation";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
@@ -27,6 +28,7 @@ export default {
   IssueMenu,
   IssueContent,
   EditIssueForm,
+  EditIssueTitle,
   LabelNavigation,
   MilestoneMenu,
   MilestoneContent,
