@@ -29,13 +29,12 @@ const StyledButtonWrapper = styled.div`
 
 const NewIssueForm = () => {
   const issueDispatch = useIssueDispatch();
-  const issueState = useIssueState();
-  const history = useHistory();
 
   const [content, setContent] = useState("");
   const [charLength, setCharLength] = useState(0);
   const [filePath, setFilePath] = useState("");
   const [buttonActive, setButtonActive] = useState(false);
+  const [tabStatus, setTabStatus] = useState("Write");
 
   const onChangeTitle = (e) => {
     if (e.target.value) setButtonActive(true);
@@ -83,21 +82,12 @@ const NewIssueForm = () => {
 
   // TODO: post 400 에러 해결
   const onSubmitNewIssue = () => {
-    myAxios
-      .post("/issues", {
-        title: issueState.newIssue.title,
-        milestoneid: issueState.newIssue.milestoneid,
-        labelIdList: issueState.newIssue.labelIdList,
-        assigneeIdList: issueState.newIssue.assigneeIdList,
-        commentContent: issueState.newIssue.commentContent,
-      })
-      .then((response) => {
-        alert("이슈 생성 성공");
-        history.push("/");
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    issueDispatch({ type: "CREATE_NEW_ISSUE" });
+  };
+
+  const onClickTab = (e) => {
+    if (tabStatus === e.target.innerHTML) return;
+    setTabStatus(e.target.innerHTML);
   };
 
   return (
@@ -115,24 +105,32 @@ const NewIssueForm = () => {
         width={"100%"}
         onChange={onChangeTitle}
       />
-      <M.Tabs tabList={["Write", "Priview"]} />
+      <M.Tabs tabList={["Write", "Priview"]} onClick={onClickTab} />
       <StyledFormTextAreaWrapper>
-        <M.FormTextArea
-          label={"Write"}
-          htmlFor={"comment"}
-          name={"commentContent"}
-          rows={"20"}
-          width={"100%"}
-          placeholder={"Leave a commment"}
-          rounded={true}
-          bgColor={"middleWhite"}
-          value={content}
-          onChange={onChangeTextArea}
-          charLength={charLength}
-          filePath={filePath}
-        />
-        <div dangerouslySetInnerHTML={renderText(content)}></div>
-        <M.FileInput onSubmitHandler={onSubmitHandler} />
+        {tabStatus === "Write" ? (
+          <>
+            <M.FormTextArea
+              label={"Write"}
+              htmlFor={"comment"}
+              name={"commentContent"}
+              rows={"20"}
+              width={"100%"}
+              placeholder={"Leave a commment"}
+              rounded={true}
+              bgColor={"middleWhite"}
+              value={content}
+              onChange={onChangeTextArea}
+              charLength={charLength}
+              filePath={filePath}
+            />
+            <M.FileInput onSubmitHandler={onSubmitHandler} />
+          </>
+        ) : (
+          <div
+            style={{ minHeight: "16rem", padding: "0 1rem" }}
+            dangerouslySetInnerHTML={renderText(content)}
+          ></div>
+        )}
       </StyledFormTextAreaWrapper>
       <StyledButtonWrapper>
         <Link to="/">

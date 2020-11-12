@@ -10,6 +10,9 @@ import SignUpForm from "./SignUpForm";
 import IssueMenu from "./IssueMenu";
 import IssueContent from "./IssueContent";
 import EditIssueForm from "./EditIssueForm";
+import EditIssueTitle from "./EditIssueTitle";
+import EditIssueHeader from "./EditIssueHeader";
+import EditIssueOptions from "./EditIssueOptions";
 import LabelNavigation from "./LabelNavigation";
 import LabelMenu from "./LabelMenu";
 import LabelCard from "./LabelCard";
@@ -32,6 +35,9 @@ export default {
   IssueMenu,
   IssueContent,
   EditIssueForm,
+  EditIssueTitle,
+  EditIssueHeader,
+  EditIssueOptions,
   LabelNavigation,
   LabelMenu,
   LabelCard,

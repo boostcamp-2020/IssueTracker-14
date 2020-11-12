@@ -15,8 +15,8 @@ const NewIssuePageWrapper = styled.div`
 const NewIssuePage = () => {
   const imageUrl =
     localStorage.getItem("userImage") === null
-      ? localStorage.getItem("userImage")
-      : "https://avatars1.githubusercontent.com/u/52521323?v=4";
+      ? "https://avatars1.githubusercontent.com/u/52521323?v=4"
+      : localStorage.getItem("userImage");
   return (
     <>
       <Header />

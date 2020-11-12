@@ -1,87 +1,68 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import calculateTime from "../../utils/calculateTime";
+
+import { useIssueDispatch, useIssueState } from "../../stores/issue";
 
 const StyledEditIsssueForm = styled.section`
-  padding: 0.5rem 0.5rem;
-  margin: 0 1rem;
-  width: 60vw;
+  width: 100%;
 `;
 
-const StyledTitleWrapper = styled.div`
+const StyledEditCommentWrapper = styled.div`
+  padding: 0 0;
+  border: 1px solid #e3e3e4;
+`;
+
+const StyledEditCommentHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  background-color: #f1f8ff;
+  padding: 0.5rem;
 `;
 
-const StyledFormTextAreaWrapper = styled.div`
-  border-top: 1px solid ${colors["lightGrey"]};
-  padding: 1rem 0;
-  margin-top: -1px;
+const StyledFlex = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 
-const EditIssueForm = ({ issue }) => {
-  const issueDispatch = useIssueDispatch();
-
-  const [isEditing, setIsEditing] = useState(false);
-
-  if (issue === undefined) {
-    return <div>Loading...</div>;
-  }
-
-  const onChangeTitle = (e) => {
-    issueDispatch({
-      type: "ON_CHANGE_INPUTS",
-      value: e.target.value,
-      name: e.target.name,
-    });
-  };
-
+const EditIssueForm = ({ user, comments }) => {
   return (
     <StyledEditIsssueForm>
-      <StyledTitleWrapper>
-        {isEditing ? (
-          <A.Input
-            type={"text"}
-            name={"title"}
-            margin={"0"}
-            padding={"0.5rem"}
-            fontSize={"1rem"}
-            bgColor={"middleWhite"}
-            rounded={true}
-            width={"80%"}
-            height={"auto"}
-            defaultValue={issue.title}
-            onChange={onChangeTitle}
-          />
-        ) : (
-          <A.Text hover={false} fontSize={"2rem"}>
-            {issue.title}#{issue.id}
-          </A.Text>
-        )}
-
-        <A.Button
-          backgroundColor={"middleWhite"}
-          border={true}
-          borderColor={"black"}
-          width={"auto"}
-          size={"big"}
-          onClick={() => setIsEditing(!isEditing)}
-        >
-          Edit
-        </A.Button>
-      </StyledTitleWrapper>
-      <A.Text>{issue.status}</A.Text>
-      <A.Text>{issue.user.nickname}</A.Text>
-      <A.Text>{issue.updatedAt}</A.Text>
-      <A.Text>{issue.comments.length}</A.Text>
-      <StyledFormTextAreaWrapper>
-        <div>{issue.description || issue.comments[0].content}</div>
-        <M.FileInput />
-      </StyledFormTextAreaWrapper>
+      {comments.length === 0 ? (
+        <A.Text>No description</A.Text>
+      ) : (
+        comments.map((comment) => {
+          return (
+            <StyledEditCommentWrapper key={comment.id}>
+              <StyledEditCommentHeader>
+                <A.Text>
+                  <span style={{ fontWeight: "bold" }}>
+                    {comment.user.nickname}
+                  </span>{" "}
+                  <span>commented {calculateTime(comment.updatedAt)}</span>
+                </A.Text>
+                {user.id === comment.user.id ? (
+                  <StyledFlex>
+                    <A.Text>Owner</A.Text>
+                    <A.Button width={"auto"} backgroundColor={"inherit"}>
+                      Edit
+                    </A.Button>
+                  </StyledFlex>
+                ) : (
+                  <></>
+                )}
+              </StyledEditCommentHeader>
+              <A.Text>{comment.content} </A.Text>
+            </StyledEditCommentWrapper>
+          );
+        })
+      )}
+      <M.FileInput />
     </StyledEditIsssueForm>
   );
 };

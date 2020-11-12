@@ -12,6 +12,11 @@ import {
 } from "./milestone";
 import { QueryProvider, useQueryState, useQueryDispatch } from "./query";
 import { UserProvider, useUserState, useUserDispatch } from "./user";
+import {
+  CommentProvider,
+  useCommentState,
+  useCommentDispatch,
+} from "./comment";
 
 export default {
   AssigneeProvider,
@@ -32,4 +37,7 @@ export default {
   UserProvider,
   useUserState,
   useUserDispatch,
+  CommentProvider,
+  useCommentState,
+  useCommentDispatch,
 };
