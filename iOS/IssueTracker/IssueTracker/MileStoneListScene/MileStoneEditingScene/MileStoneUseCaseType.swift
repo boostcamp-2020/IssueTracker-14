@@ -22,7 +22,7 @@ struct MileStoneEditUseCase: MileStoneUseCaseType {
     func save(mileStone: MileStone, completion: @escaping (UseCaseError?) -> Void) {
         let info: [String: String?] = [
             "title": mileStone.title,
-            "duedate": mileStone.duedate?.inverseCustomDateFormat(format: "yyyy-MM-dd"),
+            "duedate": mileStone.inverseCustomDate(format: "yyyy-MM-dd"),
             "description": mileStone.description
         ]
         guard let data = try? JSONEncoder().encode(info) else {
@@ -52,7 +52,7 @@ struct MileStoneCreateUseCase: MileStoneUseCaseType {
     func save(mileStone: MileStone, completion: @escaping (UseCaseError?) -> Void) {
         let info = [
             "title": mileStone.title,
-            "duedate": mileStone.duedate?.inverseCustomDateFormat(format: "yyyy-MM-dd"),
+            "duedate": mileStone.inverseCustomDate(format: "yyyy-MM-dd"),
             "description": mileStone.description
         ]
         guard let data = try? JSONEncoder().encode(info) else {

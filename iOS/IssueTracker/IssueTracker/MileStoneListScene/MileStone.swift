@@ -32,4 +32,22 @@ struct MileStone: Decodable, Hashable {
         duedate = nil
         description = nil
     }
+    
+    func customDuedate(format: String) -> String? {
+        guard let duedate = duedate else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        guard let date = dateFormatter.date(from: duedate) else { return nil }
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+    
+    func inverseCustomDate(format: String) -> String? {
+        guard let duedate = duedate else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        guard let date = dateFormatter.date(from: duedate) else { return nil }
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return dateFormatter.string(from: date)
+    }
 }

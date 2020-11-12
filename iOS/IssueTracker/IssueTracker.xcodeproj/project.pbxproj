@@ -69,7 +69,6 @@
 		B949F998254F07D900477211 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F997254F07D900477211 /* LoginUseCase.swift */; };
 		B949F99D254F085000477211 /* LoginEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B949F99C254F085000477211 /* LoginEndPoint.swift */; };
 		B94B3655255039E900369C59 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B3654255039E900369C59 /* UIViewController+alert.swift */; };
-		B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94F54D7255B335100B800C8 /* String+customDateFormat.swift */; };
 		B951AE55255C5B3C00F6B9C7 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE54255C5B3C00F6B9C7 /* FilterTableViewController.swift */; };
 		B951AE6D255C7FF900F6B9C7 /* MileStoneEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */; };
 		B951AE72255C802100F6B9C7 /* MileStoneEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */; };
@@ -94,6 +93,7 @@
 		B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */; };
 		B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */; };
 		B98C9C86254FFD77002B9CB9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */; };
+		B98D63E5255DA41300964151 /* MileStoneEditingPatternChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D63E4255DA41300964151 /* MileStoneEditingPatternChecker.swift */; };
 		B9A47E3D255D453500118AE9 /* MileStoneListUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E3C255D453500118AE9 /* MileStoneListUsecase.swift */; };
 		B9A47E41255D454F00118AE9 /* MileStoneEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E40255D454F00118AE9 /* MileStoneEndPoint.swift */; };
 		B9A47E47255D456300118AE9 /* MileStoneListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E46255D456300118AE9 /* MileStoneListResponse.swift */; };
@@ -183,7 +183,6 @@
 		B949F997254F07D900477211 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		B949F99C254F085000477211 /* LoginEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndPoint.swift; sourceTree = "<group>"; };
 		B94B3654255039E900369C59 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
-		B94F54D7255B335100B800C8 /* String+customDateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+customDateFormat.swift"; sourceTree = "<group>"; };
 		B951AE54255C5B3C00F6B9C7 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditViewController.swift; sourceTree = "<group>"; };
 		B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditingView.swift; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		B98D63E4255DA41300964151 /* MileStoneEditingPatternChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditingPatternChecker.swift; sourceTree = "<group>"; };
 		B9A47E3C255D453500118AE9 /* MileStoneListUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListUsecase.swift; sourceTree = "<group>"; };
 		B9A47E40255D454F00118AE9 /* MileStoneEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEndPoint.swift; sourceTree = "<group>"; };
 		B9A47E46255D456300118AE9 /* MileStoneListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListResponse.swift; sourceTree = "<group>"; };
@@ -290,6 +290,7 @@
 				B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */,
 				B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */,
 				B9A47E4C255D4C5B00118AE9 /* MileStoneUseCaseType.swift */,
+				B98D63E4255DA41300964151 /* MileStoneEditingPatternChecker.swift */,
 			);
 			path = MileStoneEditingScene;
 			sourceTree = "<group>";
@@ -459,7 +460,6 @@
 				B95A6C77254AD03300D9EC66 /* String+isPasswordPattern.swift */,
 				B95A6C7F254ADA1C00D9EC66 /* String+isNickNamePattern.swift */,
 				B94B3654255039E900369C59 /* UIViewController+alert.swift */,
-				B94F54D7255B335100B800C8 /* String+customDateFormat.swift */,
 				B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */,
 			);
 			path = Extention;
@@ -699,6 +699,7 @@
 				B907431F2551DB5700E1D2E6 /* MileStoneListViewController.swift in Sources */,
 				B91AFB57255940EF007AD8DD /* HomeTabBarController.swift in Sources */,
 				44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */,
+				B98D63E5255DA41300964151 /* MileStoneEditingPatternChecker.swift in Sources */,
 				B95A6C7C254AD19200D9EC66 /* SignUpPatternChecker.swift in Sources */,
 				448F3D92255BFE6E006397F3 /* LabelEditViewController.swift in Sources */,
 				B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */,
@@ -721,7 +722,6 @@
 				B980376125484A14002FF4BF /* LoginViewController.swift in Sources */,
 				442D5C3F25517F2800FB2B2A /* IssueCollectionViewCell.swift in Sources */,
 				443A9CDA2552B0D0009D3D34 /* IssueListUseCase.swift in Sources */,
-				B94F54D8255B335200B800C8 /* String+customDateFormat.swift in Sources */,
 				448F3D8E255BFE1A006397F3 /* XibLoadable.swift in Sources */,
 				B91AFB3825593839007AD8DD /* IssueDetailViewController.swift in Sources */,
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
