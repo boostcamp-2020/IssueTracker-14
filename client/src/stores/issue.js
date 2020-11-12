@@ -49,20 +49,24 @@ const issueReducer = (state, action) => {
       try {
         const arr = action.array;
         const doAsyncMessage = async () => {
-          await arr.forEach(id=>
-          {
-            const sendUpdate = async () => {
-              await myAxios.put(`/issues/${id}`, { issueid: id, status: action.status });
-            }
-            sendUpdate();
+          await arr.forEach((id) => {
+            setTimeout(sendUpdate(id), 10);
           });
-          location.href = "/";
-        }
+        };
+        console.log(arr);
+        const sendUpdate = async (id) => {
+          await myAxios.put(`/issues/${id}`, {
+            issueid: id,
+            status: action.status,
+          });
+        };
+
         doAsyncMessage();
-          return {...state};
+        location.href = "/";
+        return { ...state };
       } catch (error) {
         console.log(error);
-      };
+      }
 
     case "ON_CHANGE_INPUTS":
       return {

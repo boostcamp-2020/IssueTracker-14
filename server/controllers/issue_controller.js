@@ -21,6 +21,9 @@ const createIssue = async (req, res) => {
     } = req.body;
     const { id: authorid } = req.user;
 
+    const AssigneeIdList = JSON.parse(assigneeIdList);
+    const LabelIdList = JSON.parse(labelIdList);
+
     const { id: issueid } = await IssueModel.create(
       {
         title,
@@ -36,21 +39,22 @@ const createIssue = async (req, res) => {
       { transaction: t }
     );
 
-    Array.isArray(JSON.parse(assigneeIdList)) &&
+    Array.isArray(AssigneeIdList) &&
       (await AssigneeModel.bulkCreate(
-        JSON.parse(assigneeIdList).map((userid) => {
+        AssigneeIdList.map((userid) => {
           return { issueid, userid };
         }),
         { transaction: t }
       ));
 
-    Array.isArray(JSON.parse(labelIdList)) &&
+    Array.isArray(LabelIdList) &&
       (await LabelHasIssueModel.bulkCreate(
-        JSON.parse(labelIdList).map((labelid) => {
+        LabelIdList.map((labelid) => {
           return { issueid, labelid };
         }),
         { transaction: t }
       ));
+
     await t.commit();
     return res.status(200).json({ message: "success" });
   } catch (error) {
@@ -206,4 +210,30 @@ const updateIssue = async (req, res) => {
   }
 };
 
-module.exports = { createIssue, readIssue, readIssues, updateIssue };
+const updateIssues = async (req, res) => {
+  try {
+    const { status, issueIdList } = req.body;
+    const IssueIdList = JSON.parse(issueIdList);
+    console.log(status, issueIdList);
+    Array.isArray(IssueIdList) &&
+      (await IssueModel.bulkCreate(
+        IssueIdList.map(
+          (issueId) => {
+            return { id: issueId, status };
+          },
+          { fields: ["id", "title", "milestondid"], updateOnDuplicate: ["id"] }
+        )
+      ));
+    return res.status(200).json({ message: "success" });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
+module.exports = {
+  createIssue,
+  readIssue,
+  readIssues,
+  updateIssue,
+  updateIssues,
+};
