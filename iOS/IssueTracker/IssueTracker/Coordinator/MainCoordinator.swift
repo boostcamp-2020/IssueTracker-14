@@ -31,6 +31,15 @@ final class MainCoordinator: NavigationCoordinator {
 }
 
 extension MainCoordinator {
+    func showGithubLogin(delegate: GithubLoginViewControllerDelegate) {
+        let viewContoller = storyboard.instantiateViewController(
+            identifier: GithubLoginViewController.identifier
+        ) as GithubLoginViewController
+        viewContoller.coordinator = self
+        viewContoller.delegate = delegate
+        navigationController?.present(viewContoller, animated: true)
+    }
+    
     func showSignUp() {
         let viewContoller = storyboard.instantiateViewController(
             identifier: SignUpViewController.identifier,

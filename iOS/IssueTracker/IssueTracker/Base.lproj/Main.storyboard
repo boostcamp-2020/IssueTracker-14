@@ -470,6 +470,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="githubLoginButtonDidTouchUP:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5Y-Hg-Lir"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -883,6 +886,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yCz-Mr-jr4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-733.33333333333337" y="1547.5446428571429"/>
+        </scene>
+        <!--Github Login View Controller-->
+        <scene sceneID="DjW-3o-DxS">
+            <objects>
+                <viewController storyboardIdentifier="GithubLoginViewController" id="5Np-5v-ghB" customClass="GithubLoginViewController" customModule="IssueTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kGv-xY-wDL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPB-s8-g1O">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KTX-xm-0yn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KTX-xm-0yn" firstAttribute="bottom" secondItem="sPB-s8-g1O" secondAttribute="bottom" id="6F1-Ks-dfQ"/>
+                            <constraint firstItem="sPB-s8-g1O" firstAttribute="leading" secondItem="KTX-xm-0yn" secondAttribute="leading" id="ShA-2x-QbT"/>
+                            <constraint firstItem="sPB-s8-g1O" firstAttribute="top" secondItem="KTX-xm-0yn" secondAttribute="top" id="nvP-ln-GUx"/>
+                            <constraint firstItem="KTX-xm-0yn" firstAttribute="trailing" secondItem="sPB-s8-g1O" secondAttribute="trailing" id="wOj-BA-Eoi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="sPB-s8-g1O" id="h3c-4D-egF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Oj-0l-ZTH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63" y="1806"/>
         </scene>
         <!--Label List View Controller-->
         <scene sceneID="6Pc-4f-Hg1">

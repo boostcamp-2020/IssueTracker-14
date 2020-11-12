@@ -41,6 +41,10 @@ final class LoginViewController: UIViewController {
         configureInputViews()
     }
     
+    @IBAction func githubLoginButtonDidTouchUP(_ sender: UIButton) {
+        coordinator?.showGithubLogin(delegate: self)
+    }
+    
     @IBAction func loginButtonDidTouchUp(_ sender: Any) {
         guard let email = emailInputView.textField.text,
               let password = passwordInputView.textField.text else { return }
@@ -144,5 +148,11 @@ extension LoginViewController: UITextFieldDelegate {
         guard let emailText = emailInputView.textField.text,
               let passwordText = passwordInputView.textField.text else { return }
         localLoginButton.isEnabled = (!emailText.isEmpty && !passwordText.isEmpty)
+    }
+}
+
+extension LoginViewController: GithubLoginViewControllerDelegate {
+    func loginComplete(token: String) {
+        coordinator?.showIssueList(userToken: token)
     }
 }
