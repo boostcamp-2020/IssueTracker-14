@@ -116,6 +116,8 @@ const NewCommentForm = ({ issueId, issueStatus, setIssueStatus }) => {
             backgroundColor={"green"}
             color={"white"}
             disabled={!buttonActive}
+            hover={!buttonActive}
+            opacity={buttonActive ? "1" : "0.5"}
             onClick={onCreateComment}
           >
             Comment
