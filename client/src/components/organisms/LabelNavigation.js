@@ -39,7 +39,7 @@ const LabelNavigation = () => {
               onClick={toggleCreateMode}
         >New Label</M.ButtonDiv>
     </StyledLabelButtons>
-    {createMode ? "" : <M.LabelModal editMode={false} toggleCreateMode={toggleCreateMode} />}
+    {createMode ? <M.LabelModal editMode={false} toggleCreateMode={toggleCreateMode}/> : ""}
   </StyledLabelNavigationWrapper>
 )};
 
