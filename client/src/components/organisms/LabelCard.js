@@ -56,14 +56,16 @@ const LabelCard = ({ label }) => {
   };
 
   const deleteLabel = async () => {
-    try {
-      labelDispatch({
-        type: "DELETE_LABEL",
-        labelId: label.id,
-      });
-      await fetchTargetData("label", labelDispatch);
-    } catch (err) {
-      console.log(err);
+    if (confirm("정말 삭제하시겠습니까?")){
+      try {
+        labelDispatch({
+          type: "DELETE_LABEL",
+          labelId: label.id,
+        });
+        await fetchTargetData("label", labelDispatch);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
