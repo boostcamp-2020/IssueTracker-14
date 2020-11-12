@@ -14,6 +14,7 @@ import { QueryProvider } from "./stores/query";
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
 import IssuesPage from "./pages/Issue/IssuesPage";
+import LabelPage from "./pages/Label/LabelPage";
 import NewIssuePage from "./pages/Issue/NewIssuePage";
 import EditIssuePage from "./pages/Issue/EditIssuePage";
 import MilestonePage from "./pages/Milestone/MilestonePage";
@@ -80,6 +81,7 @@ const App = () => {
                     <QueryProvider>
                       <Route exact path="/" component={IssuesPage} />
                     </QueryProvider>
+                    <Route exact path="/labels" component={LabelPage} />
                     <Route exact path="/milestones" component={MilestonePage} />
                     <Route
                       exact

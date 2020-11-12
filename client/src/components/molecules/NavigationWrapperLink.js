@@ -41,7 +41,7 @@ const NavigationWrapperLink = ({ location }) => {
   const milestoneState = useMilestoneState();
   return (
     <StyledNavigationWrapperLink>
-      <Link to={""} style={{ textDecoration: "none" }}>
+      <Link to={"/labels"} style={{ textDecoration: "none" }}>
         <A.Button
           border={true}
           rounded={false}
