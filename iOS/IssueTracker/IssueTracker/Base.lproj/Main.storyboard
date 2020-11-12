@@ -471,7 +471,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="githubLoginButtonDidTouchUP:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5Y-Hg-Lir"/>
+                                    <action selector="githubLoginButtonDidTouchUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j5Y-Hg-Lir"/>
                                 </connections>
                             </button>
                         </subviews>

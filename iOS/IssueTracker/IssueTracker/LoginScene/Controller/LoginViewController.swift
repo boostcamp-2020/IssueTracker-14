@@ -41,11 +41,21 @@ final class LoginViewController: UIViewController {
         configureInputViews()
     }
     
-    @IBAction func githubLoginButtonDidTouchUP(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @IBAction private func githubLoginButtonDidTouchUp(_ sender: UIButton) {
         coordinator?.showGithubLogin(delegate: self)
     }
     
-    @IBAction func loginButtonDidTouchUp(_ sender: Any) {
+    @IBAction private func loginButtonDidTouchUp(_ sender: Any) {
         guard let email = emailInputView.textField.text,
               let password = passwordInputView.textField.text else { return }
         let loginInfo = LocalLoginInfo(email: email, password: password)
@@ -59,16 +69,6 @@ final class LoginViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
