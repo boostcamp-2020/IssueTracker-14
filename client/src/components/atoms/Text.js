@@ -16,6 +16,7 @@ const StyledText = styled.p`
   &:hover {
     color: ${({ hover }) => hover && colors.blue};
   }
+  display: ${({ display }) => display};
 `;
 
 const Text = ({ children, color, fontSize, fontWeight, hover, ...rest }) => (

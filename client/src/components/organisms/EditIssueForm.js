@@ -30,7 +30,16 @@ const EditIssueForm = ({ issue }) => {
         title={issue.title}
         status={issue.status}
       />
-      <A.Text>{issue.status}</A.Text>
+      <A.Button
+        cursor={"default"}
+        backgroundColor={issue.status === "open" ? "green" : "red"}
+        width={"auto"}
+      >
+        <A.Icon name="alert" color={"white"}></A.Icon>
+        <A.Text color={"white"} display={"inline"}>
+          {issue.status}
+        </A.Text>
+      </A.Button>
       <A.Text>{issue.user.nickname}</A.Text>
       <A.Text>{issue.updatedAt}</A.Text>
       <A.Text>{issue.comments.length}</A.Text>
