@@ -10,7 +10,7 @@ import XCTest
 
 final class PatternCheckerTests: XCTestCase {
     
-    let patternChecker: PatternChecker = PatternChecker()
+    let patternChecker: SignUpPatternChecker = SignUpPatternChecker()
     
     func testVaildId() {
         XCTAssertTrue(patternChecker.isValid(email: "test@gmail.com"))

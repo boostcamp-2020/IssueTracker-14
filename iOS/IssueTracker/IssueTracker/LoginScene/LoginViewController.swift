@@ -18,7 +18,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
-    private let patternChecker: PatternChecker = PatternChecker()
+    private let patternChecker: SignUpPatternChecker = SignUpPatternChecker()
     private let loginUseCase: LoginUseCaseType
     weak var coordinator: LoginCoordinator?
     

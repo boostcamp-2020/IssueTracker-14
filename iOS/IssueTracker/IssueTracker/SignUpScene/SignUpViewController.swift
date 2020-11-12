@@ -17,7 +17,7 @@ final class SignUpViewController: KeyboardObservableViewController {
     @IBOutlet private weak var passwordConfirmInputView: InputView!
     @IBOutlet private weak var nameInputView: InputView!
     @IBOutlet private weak var completeButton: UIButton!
-    private let patternChecker: PatternChecker = PatternChecker()
+    private let patternChecker: SignUpPatternChecker = SignUpPatternChecker()
     private let signUpUseCase: SignUpUseCase
     weak var coordinator: LoginCoordinator?
     

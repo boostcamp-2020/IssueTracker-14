@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PatternChecker {
+final class SignUpPatternChecker {
     
     private(set) var info: SignUpInfo = SignUpInfo()
     var isComplete: Bool {
