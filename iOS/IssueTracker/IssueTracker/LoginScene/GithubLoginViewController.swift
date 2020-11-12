@@ -20,7 +20,7 @@ final class GithubLoginViewController: UIViewController {
     @IBOutlet private weak var webView: WKWebView!
     private let githubLoginURL: URL? = URL(string: "http://115.85.183.106:3000/api/user/oauth/github")
     private let queryName: String = "access_token"
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: LoginCoordinator?
     weak var delegate: GithubLoginViewControllerDelegate?
     
     override func viewDidLoad() {
