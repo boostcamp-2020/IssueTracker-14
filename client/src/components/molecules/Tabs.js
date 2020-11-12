@@ -8,7 +8,7 @@ const StyledTabs = styled.div`
   margin-bottom: 0;
 `;
 
-const Tabs = ({ tabList }) => {
+const Tabs = ({ tabList, onClick }) => {
   return (
     <StyledTabs>
       {tabList.map((tab, id) => {
@@ -22,6 +22,7 @@ const Tabs = ({ tabList }) => {
             borderColor="#e3e3e4"
             zIndex={"1"}
             width={"auto"}
+            onClick={onClick}
           >
             {tab}
           </A.Button>
