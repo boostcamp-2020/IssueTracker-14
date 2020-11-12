@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import colors from "../../constants/colors";
+import { useHistory, Link } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import M from "../../components/molecules/index";
@@ -18,7 +17,7 @@ const IssuesPageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 3rem auto;
-  width: 80%;
+  width: 70%;
 `;
 
 const StyledNavigationWrapper = styled.div`
@@ -77,10 +76,6 @@ const IssuesPage = () => {
     if (selected.length === 0) setTotalSelected(false);
   }, [queryState.query]);
 
-  const onClickNewIssue = () => {
-    history.push("/issues/new");
-  };
-
   return (
     <>
       <Header />
@@ -88,18 +83,19 @@ const IssuesPage = () => {
         <StyledNavigationWrapper>
           <O.NavigationWrapperInput />
           <M.NavigationWrapperLink />
-          <M.ButtonDiv
-            buttonColor={"green"}
-            width={"8rem"}
-            height={"2rem"}
-            onClick={onClickNewIssue}
-            textColor={"white"}
-            fontSize={"small"}
-            hover={false}
-            border={true}
-          >
-            New Issue
-          </M.ButtonDiv>
+          <Link to={"/issues/new"} style={{ textDecoration: "none" }}>
+            <M.ButtonDiv
+              buttonColor={"green"}
+              width={"8rem"}
+              height={"2rem"}
+              textColor={"white"}
+              fontSize={"small"}
+              hover={false}
+              border={true}
+            >
+              New Issue
+            </M.ButtonDiv>
+          </Link>
         </StyledNavigationWrapper>
         <StyledIssueContentWrapper>
           {queryState.isChanged && <M.ClearIssueFilter />}

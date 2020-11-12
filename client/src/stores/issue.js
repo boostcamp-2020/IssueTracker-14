@@ -147,6 +147,7 @@ const issueReducer = (state, action) => {
             assigneeIdList: state.newIssue.assigneeIdList,
             commentContent: state.newIssue.commentContent,
           });
+          console.log(state.newIssue);
           if (message === "success") {
             alert("정상적으로 이슈가 생성되었습니다.");
             return state;

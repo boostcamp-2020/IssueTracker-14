@@ -11,10 +11,10 @@ router.get(
   "/status",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { id, nickname, imageUrl } = req.user;
+    const { id, nickname, imageurl } = req.user;
     res.status(201).json({
       message: "ok",
-      user: { id, nickname, imageUrl: imageUrl || null },
+      user: { id, nickname, imageUrl: imageurl || null },
     });
   }
 );

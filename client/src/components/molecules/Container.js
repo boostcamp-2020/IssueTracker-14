@@ -17,8 +17,8 @@ const StyledMenuWrapper = styled.div`
   box-sizing: border-box;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border: 1px solid #000000;
-  border-bottom: ${({ empty }) => (empty ? "1px solid #000000" : "none")};
+  border: 1px solid #d1d5da;
+  border-bottom: ${({ empty }) => (empty ? "1px solid #d1d5da" : "none")};
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@ const StyledContentWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   min-height: ${({ empty }) => (empty ? "20rem" : "0rem")};
-  border: 1px solid #000000;
+  border: 1px solid #d1d5da;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top: none;

@@ -10,8 +10,11 @@ const StyledIssueCard = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  border-top: 1px solid #000000;
+  border-top: 1px solid #d1d5da;
   width: 100%;
+  &:hover {
+    background-color: #e3e3e4;
+  }
 `;
 
 const StyledCheckbox = styled.div`
@@ -135,18 +138,24 @@ const IssueCard = ({
             >
               {issue.title}
             </Link>
-            {issue["label_has_issues"].map((el, idx) => {
-              return (
-                <A.Label
-                  key={idx}
-                  backgroundHexaColor={el.label?.color}
-                  margin={"0rem 0rem 0rem 0.3rem"}
-                >
-                  {el.label?.title}
-                </A.Label>
-              );
-            })}
           </A.Text>
+          {issue["label_has_issues"].map((el, idx) => {
+            return (
+              <A.Label
+                key={idx}
+                backgroundHexaColor={el.label?.color}
+                margin={"0rem 0rem 0rem 0.3rem"}
+              >
+                {el.label?.title !== undefined ? (
+                  el.label.title
+                ) : (
+                  <A.Text fontSize={"small"} color={"white"} hover={false}>
+                    라벨 삭제됨.
+                  </A.Text>
+                )}
+              </A.Label>
+            );
+          })}
         </StyledTextWithLabel>
         <A.Text fontSize={"0.75rem"}>
           #{issue.id} opened {calculateTime(issue.createdAt)} by{" "}
