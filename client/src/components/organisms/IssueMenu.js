@@ -24,16 +24,29 @@ const StyledIssueMenuWrapper = styled.div`
   align-items: center;
 `;
 
+const StyledContentWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+`;
+
 const IssueMenu = ({
   selected,
   setSelected,
   totalSelected,
   setTotalSelected,
 }) => {
-
   const [currentStataus, setCurrentStataus] = useState("open");
 
-  useEffect(()=>{
+  useEffect(() => {
     setSelected([]);
   }, [currentStataus]);
 
@@ -133,22 +146,33 @@ const IssueMenu = ({
   ];
 
   const oneDropdownOption = {
-    buttonData: [{ 
-      title: "Open",
-      dispatchData: () => {
-        issueDispatch({ type: "UPDATE_ISSUE", status: "open", array: selected });
+    buttonData: [
+      {
+        title: "Open",
+        dispatchData: () => {
+          issueDispatch({
+            type: "UPDATE_ISSUE_STATUS",
+            status: "open",
+            array: selected,
+          });
+        },
       },
-    },{ 
-      title: "Closed",
-      dispatchData: () => {
-        issueDispatch({ type: "UPDATE_ISSUE", status: "closed", array: selected });
+      {
+        title: "Closed",
+        dispatchData: () => {
+          issueDispatch({
+            type: "UPDATE_ISSUE_STATUS",
+            status: "closed",
+            array: selected,
+          });
+        },
       },
-    }],
+    ],
     search: false,
     buttonText: "Mark as",
     labelText: "Actions",
     buttonWidth: "5rem",
-  }
+  };
 
   const onClickIssueOpen = () => {
     setCurrentStataus("open");
@@ -161,7 +185,7 @@ const IssueMenu = ({
   };
 
   const onClickTotalCheckbox = () => {
-    if (totalSelected){
+    if (totalSelected) {
       setTotalSelected(false);
     } else {
       setTotalSelected(true);
@@ -172,20 +196,43 @@ const IssueMenu = ({
   return (
     <StyledIssueMenuWrapper>
       {issueState.issues.length !== selected.length && selected.length !== 0 ? (
-        <A.Text fontSize={"0.6rem"}><A.Icon distance={"0"} name="checkDouble" /></A.Text>
+        <A.Text fontSize={"0.6rem"}>
+          <A.Icon distance={"0"} name="checkDouble" />
+        </A.Text>
       ) : (
         <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
       )}
       <span>{selected.length} selected</span>
-      {/* <span>{selected.length === 0 ? "" : selected.length + " selected"
-    
-    '}</span> */}
-      <A.Button onClick={onClickIssueOpen}>
-        {issueState.issueCount?.open}
-      </A.Button>
-      <A.Button onClick={onClickIssueClosed}>
-        {issueState.issueCount?.closed}
-      </A.Button>
+      <StyledButtonWrapper>
+        <A.Button onClick={onClickIssueOpen}>
+          <StyledContentWrapper>
+            <A.Text
+              fontSize={"medium"}
+              color={currentStataus === "open" ? "black" : "grey"}
+            >
+              <A.Icon
+                name={"alert"}
+                color={currentStataus === "open" ? "green" : "grey"}
+              />
+              {issueState.issueCount?.open} Open
+            </A.Text>
+          </StyledContentWrapper>
+        </A.Button>
+        <A.Button onClick={onClickIssueClosed}>
+          <StyledContentWrapper>
+            <A.Text
+              fontSize={"medium"}
+              color={currentStataus === "closed" ? "black" : "grey"}
+            >
+              <A.Icon
+                name={"alert"}
+                color={currentStataus === "closed" ? "red" : "grey"}
+              />
+              {issueState.issueCount?.closed} Closed
+            </A.Text>
+          </StyledContentWrapper>
+        </A.Button>
+      </StyledButtonWrapper>
       {selected.length !== 0 ? (
         <M.Dropdown {...oneDropdownOption} />
       ) : (

@@ -1,8 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
-import colors from "../../constants/colors";
-import A from "../atoms/index";
 import M from "../molecules/index";
 import O from "../organisms/index";
 
@@ -20,7 +17,6 @@ const StyledLabelButtons = styled.div`
   margin-bottom: 1.5rem;
   width: 100%;
 `;
-
 
 const LabelNavigation = () => {
   return (

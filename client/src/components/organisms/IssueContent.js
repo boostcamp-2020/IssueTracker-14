@@ -19,7 +19,6 @@ const IssueContent = ({
   totalSelected,
   setTotalSelected,
 }) => {
-
   return (
     <StyledIssueContent>
       {issues.map((issue) => (
