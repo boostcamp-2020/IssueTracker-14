@@ -50,11 +50,7 @@ const LabelReducer = (state, action) => {
         const createLabel = async () => {
           const {
             data: { message },
-          } = await myAxios.post("/label", {
-            title: state.newLabel.title,
-            duedate: state?.newLabel?.color,
-            description: state?.newLabel?.description,
-          });
+          } = await myAxios.post("/label", action.body);
           if (message === "success") {
             alert("정상적으로 Label이 생성되었습니다.");
             return;

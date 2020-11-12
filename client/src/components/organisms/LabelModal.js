@@ -109,6 +109,26 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
         if (e.target.value==="") setInputColor("#");
     }
 
+    const createLabel = () => {
+      if (inputName!==""&&inputColor!=="#"){
+        const body = {
+          title: inputName,
+          dsecription: inputDescription,
+          color: inputColor
+        }
+        try {
+          labelDispatch({
+            type: "CREATE_NEW_LABEL",
+            body
+          })
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        alert("제대로 된 값을 입력해주세요.")
+      }
+    }
+
     const updateLabel = () => {
       if (inputName!==""&&inputColor!=="#"){
         const body = {
@@ -164,7 +184,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
           {editMode ? 
           <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} >Edit Mode</A.Button>
           :
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} >Create label</A.Button>
+          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={createLabel} >Create label</A.Button>
         }
         </StyledLabelInputButtons>
       </StyledLabelInput>
