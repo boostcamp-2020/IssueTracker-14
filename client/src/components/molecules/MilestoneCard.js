@@ -16,7 +16,10 @@ const MilestoneCard = ({ milestone }) => {
   return (
     <StyledMilestoneCard>
       <Link
-        to={`/milestones/edit/${milestone.id}`}
+        to={{
+          pathname: `/milestones/edit/${milestone.id}`,
+          state: { milestone },
+        }}
         style={{ textDecoration: "none" }}
       >
         <A.Text fontSize={"2rem"}>{milestone.title}</A.Text>

@@ -16,7 +16,8 @@ const StyledButton = styled.button`
     size === "big" ? 16 : size === "medium" ? 12 : 8}px;
   border-radius: ${({ rounded }) => (rounded ? 4 : 0)}px;
   color: ${({ color }) => colors[color]};
-  background-color: ${({ hexa, backgroundColor }) => hexa ? backgroundColor : colors[backgroundColor]};
+  background-color: ${({ hexa, backgroundColor }) =>
+    hexa ? backgroundColor : colors[backgroundColor]};
   cursor: ${(cursor) => cursor};
   text-align: ${({ textAlign }) => textAlign};
 

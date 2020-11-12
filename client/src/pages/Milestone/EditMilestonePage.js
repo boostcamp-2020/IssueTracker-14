@@ -24,7 +24,7 @@ const StyledEditMilestoneHeader = styled.div`
   margin: 20px 0;
 `;
 
-const EditMilestonePage = () => {
+const EditMilestonePage = ({ location }) => {
   return (
     <>
       <O.Header />
@@ -32,7 +32,7 @@ const EditMilestonePage = () => {
         <StyledEditMilestoneHeader>
           <M.NavigationWrapperLink location={"milestone"} />
         </StyledEditMilestoneHeader>
-        <O.NewMilestoneForm />
+        <O.EditMilestoneForm milestone={location.state.milestone} />
       </IssuesPageWrapper>
     </>
   );

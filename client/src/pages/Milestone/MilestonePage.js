@@ -48,7 +48,7 @@ const MilestonePage = () => {
 
   useEffect(() => {
     fetchData("milestone", milestoneDispatch);
-  }, [status]);
+  }, []);
 
   return (
     <>
