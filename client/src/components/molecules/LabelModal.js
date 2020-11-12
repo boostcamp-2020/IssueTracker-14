@@ -123,6 +123,14 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
             body
           })
           await fetchTargetData("label", labelDispatch);
+
+          setInputName("");
+          setLabelName("Label preview");
+          setInputDescription("");
+          const randomColor = makeRandomColor();
+          setInputColor(randomColor);
+          setLabelColor(randomColor);
+          
         } catch (err) {
           console.log(err);
         }
