@@ -5,7 +5,7 @@ import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
 import { useMilestoneDispatch } from "../../stores/milestone";
-
+import fetchData from "../../utils/fetchData";
 const StyledNewMilestoneForm = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,10 +47,11 @@ const NewMilestoneForm = () => {
     }
   }, []);
 
-  const onClickNewMilestone = useCallback(() => {
-    milestoneDispatch({
+  const onClickNewMilestone = useCallback(async () => {
+    await milestoneDispatch({
       type: "CREATE_NEW_MILESTONE",
     });
+    await fetchData("milestone", milestoneDispatch);
     history.push("/milestones");
   }, []);
 
@@ -94,16 +95,18 @@ const NewMilestoneForm = () => {
           height={"100%"}
         />
       </StyledDescription>
+      <A.Line color={"grey"} />
       <StyledFormFooter>
         <M.ButtonDiv
-          buttonColor={colors.green}
+          onClick={onClickNewMilestone}
+          buttonColor={"green"}
           width={"8rem"}
           height={"2rem"}
-          onClick={onClickNewMilestone}
-          textColor={colors.white}
+          textColor={"white"}
           fontSize={"small"}
           hover={false}
           border={true}
+          margin={"10px 0"}
         >
           Create Milestone
         </M.ButtonDiv>

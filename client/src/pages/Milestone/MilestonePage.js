@@ -29,11 +29,17 @@ const StyledNewMilestoneHeader = styled.div`
   margin: 20px 0;
 `;
 
+const StyledNavigationWrapper = styled.div`
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 const MilestonePage = () => {
   const [status, setStatus] = useState("open");
   const history = useHistory();
 
-  const milestoneState = useMilestoneState();
   const milestoneDispatch = useMilestoneDispatch();
 
   const onClickNewMilestone = () => {
@@ -49,30 +55,25 @@ const MilestonePage = () => {
       <O.Header />
       <IssuesPageWrapper>
         <StyledNewMilestoneHeader>
-          <div>
+          <StyledNavigationWrapper>
             <M.NavigationWrapperLink location={"milestone"} />
-          </div>
-          <M.ButtonDiv
-            buttonColor={colors.green}
-            width={"8rem"}
-            height={"2rem"}
-            onClick={onClickNewMilestone}
-            textColor={colors.white}
-            fontSize={"small"}
-            hover={false}
-            border={true}
-          >
-            New Milestone
-          </M.ButtonDiv>
+            <M.ButtonDiv
+              buttonColor={"green"}
+              width={"8rem"}
+              height={"2rem"}
+              textColor={"white"}
+              fontSize={"small"}
+              hover={false}
+              border={true}
+              onClick={onClickNewMilestone}
+            >
+              New Milestone
+            </M.ButtonDiv>
+          </StyledNavigationWrapper>
         </StyledNewMilestoneHeader>
         <M.Container
           menu={<O.MilestoneMenu status={status} setStatus={setStatus} />}
-          content={
-            <O.MilestoneContent
-              milestones={milestoneState.milestones}
-              status={status}
-            />
-          }
+          content={<O.MilestoneContent status={status} />}
         />
       </IssuesPageWrapper>
     </>

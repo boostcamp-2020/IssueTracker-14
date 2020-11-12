@@ -4,8 +4,8 @@ import myAxios from "../utils/myAxios";
 const initialState = {
   newMilestone: {
     title: "",
-    duedate: "",
-    description: "",
+    duedate: null,
+    description: null,
   },
   milestones: [],
   milestoneCount: {

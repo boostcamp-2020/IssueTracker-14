@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import M from "../molecules/index";
+import Store from "../../stores/index";
 
 const StyledMilestoneContent = styled.div`
   position: relative;
@@ -10,14 +11,17 @@ const StyledMilestoneContent = styled.div`
   width: 100%;
 `;
 
-const MilestoneContent = ({ milestones, status }) => {
+const MilestoneContent = ({ status }) => {
+  const milestoneState = Store.useMilestoneState();
+  const milestones = milestoneState.milestones;
   return (
     <StyledMilestoneContent>
-      {milestones
-        .filter((milestone) => milestone.status === status)
-        .map((milestone) => (
-          <M.MilestoneCard key={milestone.id} milestone={milestone} />
-        ))}
+      {milestones !== undefined &&
+        milestones
+          .filter((milestone) => milestone.status === status)
+          .map((milestone) => (
+            <M.MilestoneCard key={milestone.id} milestone={milestone} />
+          ))}
     </StyledMilestoneContent>
   );
 };

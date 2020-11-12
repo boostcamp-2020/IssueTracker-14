@@ -18,6 +18,7 @@ import NewIssuePage from "./pages/Issue/NewIssuePage";
 import EditIssuePage from "./pages/Issue/EditIssuePage";
 import MilestonePage from "./pages/Milestone/MilestonePage";
 import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
+import EditMilestonePage from "./pages/Milestone/EditMilestonePage";
 
 const StyledRootContainer = styled.div`
   position: absolute;
@@ -86,6 +87,10 @@ const App = () => {
                       path="/milestones/new"
                       component={NewMilestonePage}
                     />
+                    <Route
+                      path="/milestones/edit/:milestoneid"
+                      component={EditMilestonePage}
+                    />
                     <Route exact path="/issues/new" component={NewIssuePage} />
                     <Route
                       exact
@@ -104,9 +109,6 @@ const App = () => {
         <Route exact path="/issues/new" component={LoginForm} />
         <Route exact path="/issues/:issueid" component={LoginForm} />
         <Route exact path="/labels" component={LoginForm} />
-        
-        
-        <Route path="/milestones/edit/:milestoneid" component={LoginForm} />
       */}
       </StyledRootContainer>
     </AuthContext.Provider>
