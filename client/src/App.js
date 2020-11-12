@@ -78,34 +78,26 @@ const App = () => {
               <AssigneeProvider>
                 <LabelProvider>
                   <MilestoneProvider>
-                    <CommentProvider>
-                      <QueryProvider>
-                        <Route exact path="/" component={IssuesPage} />
-                      </QueryProvider>
+                    <QueryProvider>
+                      <Route exact path="/" component={IssuesPage} />
+                    </QueryProvider>
 
-                      <Route
-                        exact
-                        path="/milestones"
-                        component={MilestonePage}
-                      />
-                      <Route
-                        exact
-                        path="/milestones/new"
-                        component={NewMilestonePage}
-                      />
-                      <Route
-                        exact
-                        path="/issues/new"
-                        component={NewIssuePage}
-                      />
+                    <Route exact path="/milestones" component={MilestonePage} />
+                    <Route
+                      exact
+                      path="/milestones/new"
+                      component={NewMilestonePage}
+                    />
+                    <Route exact path="/issues/new" component={NewIssuePage} />
+                    <CommentProvider>
                       <Route
                         exact
                         path="/issue/:issueId"
                         component={EditIssuePage}
                       />
-                      <Route exact path="/login" component={LoginPage} />
-                      <Route exact path="/signup" component={SignUpPage} />
                     </CommentProvider>
+                    <Route exact path="/login" component={LoginPage} />
+                    <Route exact path="/signup" component={SignUpPage} />
                   </MilestoneProvider>
                 </LabelProvider>
               </AssigneeProvider>

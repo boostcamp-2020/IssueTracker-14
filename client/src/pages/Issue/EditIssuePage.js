@@ -24,7 +24,6 @@ const EditIssuePage = ({ match, location }) => {
 
   const { issueId } = match.params;
   const { issue } = location.state;
-  console.log(issue);
 
   useEffect(
     () => fetchTargetData(`/issue/${issueId}/comment`, commentDispatch),
