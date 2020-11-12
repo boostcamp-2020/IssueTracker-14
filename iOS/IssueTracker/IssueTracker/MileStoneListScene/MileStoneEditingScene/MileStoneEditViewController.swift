@@ -15,7 +15,11 @@ final class MileStoneEditViewController: DimmedViewController {
     
     private let editingView: MileStoneEditingView = MileStoneEditingView()
     private let useCase: MileStoneUseCaseType
-    private var mileStone: MileStone
+    private var mileStone: MileStone  {
+        didSet {
+            editingView.update(with: mileStone)
+        }
+    }
     weak var delegate: MileStoneEditViewControllerDelegate?
     
     init(useCase: MileStoneUseCaseType, mileStone: MileStone) {
@@ -49,10 +53,6 @@ extension MileStoneEditViewController: EditingViewDelegate {
     }
     
     func saveButtonDidTouchUp(_ editingView: EditingView) {
-        guard let editingView = editingView as? MileStoneEditingView else { return }
-        mileStone.title = editingView.titleTextField.text ?? ""
-        mileStone.duedate = editingView.duedateTextField.text
-        mileStone.description = editingView.descriptionTextField.text
         useCase.save(mileStone: mileStone) { [weak self] error in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -64,5 +64,18 @@ extension MileStoneEditViewController: EditingViewDelegate {
                 self.alert(message: error.localizedDescription)
             }
         }
+    }
+}
+extension MileStoneEditViewController: MileStoneEditingViewDelegate {
+    func titleChanged(_ mileStoneEditingView: MileStoneEditingView, value: String) {
+        mileStone.title = value
+    }
+    
+    func descriptionChanged(_ mileStoneEditingView: MileStoneEditingView, value: String) {
+        mileStone.description = value
+    }
+    
+    func duedateChanged(_ mileStoneEditingView: MileStoneEditingView, value: String) {
+        mileStone.duedate = value
     }
 }

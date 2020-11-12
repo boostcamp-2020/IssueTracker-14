@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol MileStoneEditingViewDelegate: class {
+    func titleChanged(_ mileStoneEditingView: MileStoneEditingView, value: String)
+    func descriptionChanged(_ mileStoneEditingView: MileStoneEditingView, value: String)
+    func duedateChanged(_ mileStoneEditingView: MileStoneEditingView, value: String)
+}
+
 final class MileStoneEditingView: EditingView, XibLoadable {
     
     @IBOutlet weak var titleTextField: UITextField!
