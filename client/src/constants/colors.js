@@ -12,6 +12,7 @@ const colors = {
   blue: "#0368d6",
   red: "#cb2431",
   black: "#000000",
+  textGrey: "#576069",
   lightGrey: "#e3e3e4",
   ivory: "#f3f4f6",
   sky: "#f1f8ff",
