@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import M from "../molecules/index";
 import Store from "../../stores/index";
@@ -14,6 +14,7 @@ const StyledMilestoneContent = styled.div`
 const MilestoneContent = ({ status }) => {
   const milestoneState = Store.useMilestoneState();
   const milestones = milestoneState.milestones;
+  useEffect(() => {}, [milestones]);
   return (
     <StyledMilestoneContent>
       {milestones !== undefined &&
