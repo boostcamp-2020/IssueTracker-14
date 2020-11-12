@@ -10,7 +10,7 @@ import UIKit
 final class HomeTabBarCoordinator: TabBarCoordinator {
     
     var tabBarController: UITabBarController
-    weak var parentCoordinator: MainCoordinator?
+    weak var parentCoordinator: LoginCoordinator?
     private let networkService: NetworkServiceProviding
     private var chlidCoordinators: [NavigationCoordinator] = []
     
