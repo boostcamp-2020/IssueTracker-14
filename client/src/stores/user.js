@@ -35,19 +35,24 @@ const userReducer = (state, action) => {
       };
 
     case "POST_USER":
-      const checkLocalUserInfo = async () => {
-        const {
-          data: { message, token },
-        } = await myAxios.post("/user/login", {
-          nickname: state.login.nickname,
-          password: state.login.password,
-        });
-        if (message === "success") {
-          localStorage.setItem("token", token);
-          location.href = "/";
-        }
-      };
-      return checkLocalUserInfo();
+      try {
+        const checkLocalUserInfo = async () => {
+          const {
+            data: { message, token },
+          } = await myAxios.post("/user/login", {
+            nickname: state.login.nickname,
+            password: state.login.password,
+          });
+          if (message === "success") {
+            localStorage.setItem("token", token);
+            location.href = "/";
+          }
+        };
+        checkLocalUserInfo();
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
 
     case "POST_SIGNUP_USER":
       const signUpNewUser = async () => {
