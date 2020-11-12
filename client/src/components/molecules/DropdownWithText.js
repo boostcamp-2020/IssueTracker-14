@@ -67,9 +67,7 @@ const DropDownWithText = ({
               <Fragment key={el.id}>
                 <StyledFlex>
                   <A.Label backgroundHexaColor={el.color}></A.Label>
-                  <A.Text hover={false} fontSize={fontSize}>
                     {el.title}
-                  </A.Text>
                 </StyledFlex>
                 <A.Text hover={false} fontSize={fontSize}>
                   {el.description}

@@ -12,6 +12,7 @@ const StyledEditIssuePageWrapper = styled.div`
   margin: 0 auto;
   padding: 3rem;
   width: 80vw;
+  min-width: 50rem;
 `;
 
 const StyledEditIssueMain = styled.div`

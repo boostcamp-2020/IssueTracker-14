@@ -156,7 +156,6 @@ Dropdown.defaultProps = {
   labelText: "드랍다운 설명하는 칸",
   reverse: true,
   border: false,
-  buttonColor: "white",
   search: true,
   icon: "dropdown",
   showDropdown: "none",

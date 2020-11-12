@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import colors from "../../constants/colors";
 import styled from "styled-components";
 import A from "../atoms/index";
@@ -28,8 +28,10 @@ const StyledLoginFormDivWrapper = styled.div`
   align-items: center;
 `;
 
-const LoginForm = ({ size }) => {
+const LoginForm = () => {
   const dispatch = useUserDispatch();
+  const [nickname,setNickname] = useState("");
+  const [password,setPassword] = useState("");
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -38,12 +40,39 @@ const LoginForm = ({ size }) => {
       name,
       value,
     });
+    switch (name) {
+      case "nickname":
+        setNickname(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+    }
+    
   }, []);
 
   const onClickLocalLogin = useCallback(() => {
-    dispatch({
-      type: "POST_USER",
-    });
+    const nicknameError = [];
+    const passwordError = [];
+
+    if (nickname.length<6 || nickname.length>12){
+      nicknameError.push("닉네임은 6글자 이상 12글자 이하로 입력해주세요.");
+    }
+
+    if (password.length<6 || password.length>12){
+      passwordError.push("비밀번호는 6글자 이상 12글자 이하로 입력해주세요.");
+    }
+
+    alert(nickname);
+    alert(password);
+
+    if (nicknameError.length===0&&passwordError.length===0) {
+      dispatch({
+        type: "POST_USER",
+      }) ;
+    } else {
+      alert(`${nicknameError.length!==0 && nicknameError[0]}\n${passwordError.length!==0 && passwordError[0]}`)
+    }
   }, []);
 
   const GithubLoginUrl =
@@ -56,9 +85,10 @@ const LoginForm = ({ size }) => {
         <M.FormDiv
           label="아이디"
           for="input-id"
-          type="email"
+          type="text"
           onChange={onChange}
           name={"nickname"}
+          value={nickname}
         />
         <M.FormDiv
           label="비밀번호"
@@ -66,6 +96,7 @@ const LoginForm = ({ size }) => {
           type="password"
           onChange={onChange}
           name={"password"}
+          value={password}
         />
         <M.ButtonDiv
           buttonColor={colors.grey}

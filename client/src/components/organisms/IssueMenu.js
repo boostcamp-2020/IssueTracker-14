@@ -133,7 +133,7 @@ const IssueMenu = ({
       buttonText: "Sort",
       labelText: "Sort by",
       buttonWidth: "5rem",
-      search: true,
+      search: false,
     },
   ];
 

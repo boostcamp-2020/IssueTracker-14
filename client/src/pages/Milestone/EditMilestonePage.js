@@ -12,6 +12,7 @@ const IssuesPageWrapper = styled.div`
   margin: 3rem auto;
   width: 70%;
   height: auto;
+  min-width: 50rem;
 `;
 
 const StyledEditMilestoneHeader = styled.div`

@@ -79,7 +79,7 @@ Button.defaultProps = {
   rounded: true,
   icon: undefined,
   color: "black",
-  backgroundColor: "white",
+  backgroundColor: "transparent",
   label: "기본 버튼",
   textAlign: "center",
   cursor: "pointer",

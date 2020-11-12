@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLabelDispatch } from "../../stores/label";
 import fetchTargetData from "../../utils/fetchData";
-import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
 import styled from "styled-components";
+import colors from "../../constants/colors";
 import A from "./../atoms/index";
 import M from "./../molecules/index";
-import O from "./../organisms/index";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ const StyledLabelCard = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  border-top: 1px solid #000000;
+  border-top: 1px solid ${colors["lightGrey"]};
   width: 100%;
   padding: 0rem 2rem;
 `;
@@ -78,15 +77,16 @@ const LabelCard = ({ label }) => {
         <StyledLabelCard>
           <StyledLabelIcon>
             <A.Label backgroundHexaColor={label.color}>
-              <A.Text fontSize={"0.5rem"} color={decideFontColorFromHexa(label.color)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
-                {label.title}
-              </A.Text>
+              {label.title}
             </A.Label>
           </StyledLabelIcon>
           <StyledDescription>
-            <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>{label.description}</A.Text>
+            <A.Text fontSize={"1.25rem"} color={"textGrey"}>{label.description}</A.Text>
           </StyledDescription>
-          <StyledButtons><A.Button onClick={turnOnEditMode}>Edit</A.Button><A.Button onClick={deleteLabel}>Delete</A.Button></StyledButtons>
+          <StyledButtons>
+            <A.Button onClick={turnOnEditMode}>Edit</A.Button>
+            <A.Button onClick={deleteLabel}>Delete</A.Button>
+          </StyledButtons>
         </StyledLabelCard>
       </StyledWrapper>}
     </>

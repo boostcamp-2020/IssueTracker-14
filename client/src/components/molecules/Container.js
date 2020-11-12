@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../constants/colors";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -8,6 +9,7 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 0.5rem 0rem 1.5rem 0rem;
   width: 100%;
+  min-width: 50rem;
 `;
 
 const StyledMenuWrapper = styled.div`
@@ -22,6 +24,7 @@ const StyledMenuWrapper = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  background-color: ${colors["lightGrey"]};
 `;
 
 const StyledContentWrapper = styled.div`
