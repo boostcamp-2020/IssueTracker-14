@@ -16,7 +16,7 @@ const ClearIssueFilter = ({ onClick }) => {
         location.href = "/";
       }}
     >
-      <A.Text color={"black"} fontSize={"1.2rem"} hover={false}>
+      <A.Text color={"darkGrey"} fontSize={"1.2rem"} hover={false}>
         <A.Icon location={"left"} name={"reset"} />
         Clear current search query, filters, and sorts
       </A.Text>
