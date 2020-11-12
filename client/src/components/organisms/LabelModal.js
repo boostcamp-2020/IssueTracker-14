@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
@@ -67,27 +67,17 @@ const StyledLabelInputButtons = styled.div`
 `;
 
 
-const LabelModal = ({ editMode }) => {
+const LabelModal = ({ editMode, turnOffEditMode, givenTitle, givenDescription, givenColor  }) => {
 
-    const handleRandomColor = () => {
-        const randomColor = makeRandomColor();
-        setLabelColor(randomColor);
-        setInputColor(randomColor);
-    }
-
-    const handleLabelColor = e => {
-        setLabelColor(e.target.value);
-        setInputColor(e.target.value);
-        if (e.target.value==="") setInputColor("#")
-    }
-
-    const [inputName, setInputName] = useState("");
-    const [labelName, setLabelName] = useState("Label preview");
+    const [inputName, setInputName] = useState(editMode ? givenTitle : "");
+    const [labelName, setLabelName] = useState(editMode ? givenTitle : "Label preview");
+    const [inputDescription, setInputDescription] = useState(editMode ? givenDescription : "");
+    const [labelDescription, setLabelDescription] = useState(editMode ? givenDescription : "Description (optional)");
 
     const initColor = makeRandomColor();
     
-    const [labelColor, setLabelColor] = useState(initColor);
-    const [inputColor, setInputColor] = useState(initColor);
+    const [labelColor, setLabelColor] = useState(editMode ? givenColor : initColor);
+    const [inputColor, setInputColor] = useState(editMode ? givenColor : initColor);
 
     const handleName = e => {
         setInputName(e.target.value);
@@ -95,6 +85,26 @@ const LabelModal = ({ editMode }) => {
         if (e.target.value==="") {
         setLabelName("Label preview");
         };
+    }
+
+    const handleDescription = e => {
+      setInputDescription(e.target.value);
+      setLabelDescription(e.target.value);
+      if (e.target.value==="") {
+      setLabelName("Description (optional)");
+      };
+    }
+
+    const handleRandomColor = () => {
+      const randomColor = makeRandomColor();
+      setLabelColor(randomColor);
+      setInputColor(randomColor);
+    }
+
+    const handleLabelColor = e => {
+        setLabelColor(e.target.value);
+        setInputColor(e.target.value);
+        if (e.target.value==="") setInputColor("#");
     }
 
     return (
@@ -108,11 +118,11 @@ const LabelModal = ({ editMode }) => {
       </StyledLabelPreview>
       <StyledLabelInput>
         <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />
-        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0.5rem"} inputMargin={"0.2rem"} />
+        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0.5rem"} inputMargin={"0.2rem"} value={inputDescription} onChange={handleDescription} />
         <StyledFormDiv>
           <A.InputLabel label={"Color"} />
           <StyledColor>
-            <A.Button width={"2.25rem"} height={"2.25rem"} backgroundColor={labelColor} onClick={handleRandomColor} hexa={true}>
+            <A.Button width={"2.25rem"} height={"2.25rem"} margin={"0rem 0rem 0rem 0.5rem"} backgroundColor={labelColor} onClick={handleRandomColor} hexa={true}>
               <A.Text color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
                 <A.Icon name="refresh" />
               </A.Text>
@@ -127,7 +137,7 @@ const LabelModal = ({ editMode }) => {
           </StyledColor>
         </StyledFormDiv>
         <StyledLabelInputButtons>
-          <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} >Cancel</A.Button>
+          <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={turnOffEditMode} >Cancel</A.Button>
           {editMode ? 
           <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} >Edit Mode</A.Button>
           :

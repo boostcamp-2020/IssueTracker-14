@@ -51,11 +51,15 @@ const LabelCard = ({ label }) => {
   const turnOnEditMode = () => {
     setEditMode(true);
   }
+  
+  const turnOffEditMode = () => {
+    setEditMode(false);
+  }
 
   return (
     <>
       {editMode ?
-      <O.LabelModal editMode={true} />
+      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
       :
       <StyledWrapper>
         <StyledLabelCard>
