@@ -39,6 +39,7 @@ const readMilestones = async (req, res) => {
       include: [{ model: IssueModel, attributes: ["id", "status"] }],
       where: status !== undefined && { status },
       attributes: ["id", "title", "duedate", "status", "description"],
+      order: [["duedate", "DESC"]],
     });
     if (!Array.isArray(milestones)) {
       return res.status(500).json({ message: "fail" });
