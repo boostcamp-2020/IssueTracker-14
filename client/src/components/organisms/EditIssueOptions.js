@@ -29,18 +29,9 @@ const EditIssueOptions = ({ issue }) => {
   const issueDispatch = useIssueDispatch();
 
   useEffect(() => {
-    issue.assignees.length !== 0 &&
-      issue.assigness.forEach((assignee) => {
-        issueDispatch({ type: "ADD_ASSIGNEE", data: assignee.id });
-      });
-    issue.label_has_issues.length !== 0 &&
-      issue.label_has_issues.forEach((el) => {
-        if (el.label === null) return;
-        issueDispatch({ type: "ADD_LABEL", data: el.label.id });
-      });
-    issue.milestone !== null &&
-      issueDispatch({ type: "ADD_MILESTONE", data: issue.milestone.id });
-  }, []);
+    console.log("렌더");
+    return;
+  }, [assigneeState.users]);
 
   const IssueOptions = [
     {

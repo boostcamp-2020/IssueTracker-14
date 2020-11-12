@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import M from "../molecules/index";
 import {
@@ -27,6 +27,10 @@ const NewIssueOptions = () => {
 
   const issueState = useIssueState();
   const issueDispatch = useIssueDispatch();
+
+  useEffect(() => {
+    fetchTargetData("/user/all", assigneeDispatch);
+  }, []);
 
   const IssueOptions = [
     {
@@ -105,6 +109,7 @@ const NewIssueOptions = () => {
           },
           idx
         ) => {
+          console.log(selected);
           return (
             <M.DropdownWithText
               key={idx}
