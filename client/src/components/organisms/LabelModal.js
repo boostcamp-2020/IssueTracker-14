@@ -5,6 +5,7 @@ import M from "../molecules/index";
 import colors from "../../constants/colors";
 import makeRandomColor from "../../utils/makeRandomColor";
 import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
+import { useLabelDispatch } from "../../stores/label";
 
 const StyledLabelModal = styled.div`
   display: flex;
@@ -67,7 +68,8 @@ const StyledLabelInputButtons = styled.div`
 `;
 
 
-const LabelModal = ({ editMode, turnOffEditMode, givenTitle, givenDescription, givenColor  }) => {
+const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescription, givenColor  }) => {
+    const labelDispatch = useLabelDispatch();
 
     const [inputName, setInputName] = useState(editMode ? givenTitle : "");
     const [labelName, setLabelName] = useState(editMode ? givenTitle : "Label preview");
@@ -76,8 +78,8 @@ const LabelModal = ({ editMode, turnOffEditMode, givenTitle, givenDescription, g
 
     const initColor = makeRandomColor();
     
-    const [labelColor, setLabelColor] = useState(editMode ? givenColor : initColor);
     const [inputColor, setInputColor] = useState(editMode ? givenColor : initColor);
+    const [labelColor, setLabelColor] = useState(editMode ? givenColor : initColor);
 
     const handleName = e => {
         setInputName(e.target.value);
@@ -105,6 +107,27 @@ const LabelModal = ({ editMode, turnOffEditMode, givenTitle, givenDescription, g
         setLabelColor(e.target.value);
         setInputColor(e.target.value);
         if (e.target.value==="") setInputColor("#");
+    }
+
+    const updateLabel = () => {
+      if (inputName!==""&&inputColor!=="#"){
+        const body = {
+          title: inputName,
+          dsecription: inputDescription,
+          color: inputColor
+        }
+        try {
+          labelDispatch({
+            type: "UPDATE_LABEL",
+            labelId,
+            body
+          })
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        alert("제대로 된 값을 입력해주세요.")
+      }
     }
 
     return (
@@ -139,7 +162,7 @@ const LabelModal = ({ editMode, turnOffEditMode, givenTitle, givenDescription, g
         <StyledLabelInputButtons>
           <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={turnOffEditMode} >Cancel</A.Button>
           {editMode ? 
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} >Edit Mode</A.Button>
+          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} >Edit Mode</A.Button>
           :
           <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} >Create label</A.Button>
         }

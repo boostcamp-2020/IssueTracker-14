@@ -66,6 +66,23 @@ const LabelReducer = (state, action) => {
       }
       return;
 
+    case "UPDATE_LABEL":
+      try {
+        const updateLabel = async () => {
+          const {
+            data: { message },
+          } = await myAxios.put(`/label/${action.labelId}`, action.body);
+          if (message === "success") {
+            alert("정상적으로 Label이 업데이트되었습니다.");
+            return;
+          }
+        };
+        return updateLabel();
+      } catch (error) {
+        console.log(error);
+      }
+      return;
+  
     default:
       return state;
   }

@@ -59,7 +59,7 @@ const LabelCard = ({ label }) => {
   return (
     <>
       {editMode ?
-      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
+      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} labelId={label.id} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
       :
       <StyledWrapper>
         <StyledLabelCard>
