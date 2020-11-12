@@ -20,7 +20,8 @@ const StyledButton = styled.button`
     hexa ? backgroundColor : colors[backgroundColor]};
   cursor: ${(cursor) => cursor};
   text-align: ${({ textAlign }) => textAlign};
-
+  disabled: ${({ disabled }) => disabled};
+  opacity: ${({ disabled }) => disabled ? 0.5 : 1 };
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
   align-items: ${({ alignItems }) => alignItems};
