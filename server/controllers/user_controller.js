@@ -75,17 +75,16 @@ const localLogin = async (req, res) => {
   }
 };
 
+const frontURL =
+  process.env.NODE_ENV === "development"
+    ? process.env.FRONT_DOMAIN_DEVELOP
+    : process.env.FRONT_DOMAIN_PRODUCTION;
+
 const githubLogin = (req, res) => {
   try {
     const { email, nickname, id } = req.user;
     const jwtoken = getToken({ id, email, nickname });
-    return res
-      .status(200)
-      .redirect(
-        process.env.NODE_ENV === "development"
-          ? `http://localhost:8000?access_token=${jwtoken}`
-          : `http://issuetracker.2oneweek.site?access_token=${jwtoken}`
-      );
+    return res.status(200).redirect(`${frontURL}?access_token=${jwtoken}`);
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
