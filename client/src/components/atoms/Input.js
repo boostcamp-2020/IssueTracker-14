@@ -19,7 +19,7 @@ const StyledInput = styled.input`
   top: ${({ top }) => top};
   left: ${({ left }) => left};
   &:focus {
-    box-shadow: box-shadow: 0 0 0 2px #f00000;
+    box-shadow: 0 0 0 2px #f00000;
     border: 2px solid ${colors["lightBlue"]};
     border-radius: 4px;
   }

@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import colors from "../../constants/colors";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import { Link } from "react-router-dom";
-import { useUserDispatch } from "../../stores/user";
+import Store from "../../stores/index";
 
 const StyledLoginForm = styled.div`
   display: flex;
@@ -29,74 +29,46 @@ const StyledLoginFormDivWrapper = styled.div`
 `;
 
 const LoginForm = () => {
-  const dispatch = useUserDispatch();
-  const [nickname,setNickname] = useState("");
-  const [password,setPassword] = useState("");
+  const userDispatch = Store.useUserDispatch();
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
-    dispatch({
+    userDispatch({
       type: "CHANGE_LOGIN_INPUT",
       name,
       value,
     });
-    switch (name) {
-      case "nickname":
-        setNickname(value);
-        break;
-      case "password":
-        setPassword(value);
-        break;
-    }
-    
   }, []);
 
   const onClickLocalLogin = useCallback(() => {
-    const nicknameError = [];
-    const passwordError = [];
-
-    if (nickname.length<6 || nickname.length>12){
-      nicknameError.push("닉네임은 6글자 이상 12글자 이하로 입력해주세요.");
-    }
-
-    if (password.length<6 || password.length>12){
-      passwordError.push("비밀번호는 6글자 이상 12글자 이하로 입력해주세요.");
-    }
-
-    alert(nickname);
-    alert(password);
-
-    if (nicknameError.length===0&&passwordError.length===0) {
-      dispatch({
-        type: "POST_USER",
-      }) ;
-    } else {
-      alert(`${nicknameError.length!==0 && nicknameError[0]}\n${passwordError.length!==0 && passwordError[0]}`)
-    }
+    userDispatch({
+      type: "POST_USER",
+    });
   }, []);
 
   const GithubLoginUrl =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/user/oauth/github"
       : "http://115.85.183.106:3000/api/user/oauth/github";
+
   return (
     <StyledLoginForm>
       <StyledLoginFormDivWrapper>
         <M.FormDiv
-          label="아이디"
-          for="input-id"
-          type="text"
+          label={"아이디"}
+          for={"input-id"}
+          type={"text"}
           onChange={onChange}
           name={"nickname"}
-          value={nickname}
+          rounded
         />
         <M.FormDiv
-          label="비밀번호"
-          for="input-pw"
-          type="password"
+          label={"비밀번호"}
+          for={"input-pw"}
+          type={"password"}
           onChange={onChange}
           name={"password"}
-          value={password}
+          rounded
         />
         <M.ButtonDiv
           buttonColor={colors.grey}
