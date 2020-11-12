@@ -13,6 +13,7 @@ const colors = {
   red: "#cb2431",
   black: "#000000",
   lightGrey: "#e3e3e4",
+  ivory: "#f3f4f6",
 };
 
 export default colors;
