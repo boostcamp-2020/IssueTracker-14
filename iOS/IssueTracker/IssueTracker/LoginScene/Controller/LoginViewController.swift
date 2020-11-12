@@ -41,7 +41,21 @@ final class LoginViewController: UIViewController {
         configureInputViews()
     }
     
-    @IBAction func loginButtonDidTouchUp(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @IBAction private func githubLoginButtonDidTouchUp(_ sender: UIButton) {
+        coordinator?.showGithubLogin(delegate: self)
+    }
+    
+    @IBAction private func loginButtonDidTouchUp(_ sender: Any) {
         guard let email = emailInputView.textField.text,
               let password = passwordInputView.textField.text else { return }
         let loginInfo = LocalLoginInfo(email: email, password: password)
@@ -55,16 +69,6 @@ final class LoginViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -144,5 +148,11 @@ extension LoginViewController: UITextFieldDelegate {
         guard let emailText = emailInputView.textField.text,
               let passwordText = passwordInputView.textField.text else { return }
         localLoginButton.isEnabled = (!emailText.isEmpty && !passwordText.isEmpty)
+    }
+}
+
+extension LoginViewController: GithubLoginViewControllerDelegate {
+    func loginComplete(token: String) {
+        coordinator?.showIssueList(userToken: token)
     }
 }
