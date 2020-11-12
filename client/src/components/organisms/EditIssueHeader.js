@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import O from "../organisms/index";
@@ -15,23 +15,23 @@ const StyledFlex = styled.div`
   align-items: center;
 `;
 
-const EditIssueHeader = ({ issue }) => {
+const EditIssueHeader = ({ issue, issueStatus }) => {
   return (
     <StyledEditIsssueHeader>
       <O.EditIssueTitle
         id={issue.id}
         title={issue.title}
-        status={issue.status}
+        status={issueStatus}
       />
       <StyledFlex>
         <A.Button
           cursor={"default"}
-          backgroundColor={issue.status === "open" ? "green" : "red"}
+          backgroundColor={issueStatus === "open" ? "green" : "red"}
           width={"auto"}
         >
           <A.Icon name="alert" color={"white"}></A.Icon>
           <A.Text color={"white"} display={"inline"}>
-            {issue.status}
+            {issueStatus}
           </A.Text>
         </A.Button>
         <A.Text>
