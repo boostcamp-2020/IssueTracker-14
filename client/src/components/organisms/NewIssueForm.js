@@ -86,6 +86,7 @@ const NewIssueForm = () => {
   };
 
   const onClickTab = (e) => {
+    if (tabStatus === e.target.innerHTML) return;
     setTabStatus(e.target.innerHTML);
   };
 
