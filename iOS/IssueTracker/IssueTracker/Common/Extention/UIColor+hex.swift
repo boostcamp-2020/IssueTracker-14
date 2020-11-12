@@ -13,7 +13,7 @@ extension UIColor {
     }
     
     convenience init?(from hex: String) {
-        guard hex.count > 1 else { return nil }
+        guard hex.count == 7 else { return nil }
         var hexDigit = hex.uppercased()
         hexDigit.removeFirst()
         guard !hexDigit.isEmpty,
