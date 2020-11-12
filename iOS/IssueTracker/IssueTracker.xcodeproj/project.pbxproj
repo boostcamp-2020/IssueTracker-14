@@ -89,7 +89,7 @@
 		B9840B6F25518D7E0042E259 /* IssueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9840B6E25518D7E0042E259 /* IssueCoordinator.swift */; };
 		B98C9C79254FDC99002B9CB9 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */; };
 		B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */; };
-		B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */; };
+		B98C9C86254FFD77002B9CB9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */; };
 		B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF5A6025499FA60052910D /* NetworkService.swift */; };
 		B9C95549255D1EA700E7B449 /* GithubLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C95548255D1EA700E7B449 /* GithubLoginViewController.swift */; };
 		B9FBB4EB25517D66007207AE /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */; };
@@ -196,7 +196,7 @@
 		B9840B6E25518D7E0042E259 /* IssueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCoordinator.swift; sourceTree = "<group>"; };
 		B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
-		B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		B9BF5A6025499FA60052910D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B9C95548255D1EA700E7B449 /* GithubLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubLoginViewController.swift; sourceTree = "<group>"; };
 		B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -222,65 +222,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		443A9CD82552B0B4009D3D34 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				442B3DA425525E9300069D18 /* Issue.swift */,
-				443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */,
-				443A9CE12552B179009D3D34 /* IssueEndPoint.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		44791036255A70A9004366B2 /* EditingScene */ = {
-			isa = PBXGroup;
-			children = (
-				44791037255A70CB004366B2 /* DimmedViewController.swift */,
-				B96FDADB255BC89900A1251C /* Model */,
-				4479103B255A7522004366B2 /* EditingView.swift */,
-				444C9A3E255C6CAA0098C437 /* LabelUseCaseType.swift */,
-				448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */,
-				448F3DA1255C0875006397F3 /* LabelEditingView.swift */,
-				448F3D85255BEFDD006397F3 /* LabelEditingView.xib */,
-				B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */,
-				B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */,
-				B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */,
-			);
-			path = EditingScene;
-			sourceTree = "<group>";
-		};
 		447C96F625497449008D326F /* SignUpScene */ = {
-			isa = PBXGroup;
-			children = (
-				44E910A1254ACEB1000949A1 /* Model */,
-				B9BF5A5E25499F640052910D /* Controller */,
-			);
-			path = SignUpScene;
-			sourceTree = "<group>";
-		};
-		44E910A1254ACEB1000949A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B95A6C7B254AD19200D9EC66 /* PatternChecker.swift */,
 				44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */,
 				44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */,
 				44E910A5254ACF2A000949A1 /* SignUpInfo.swift */,
+				447C96F72549745B008D326F /* SignUpViewController.swift */,
 			);
-			path = Model;
+			path = SignUpScene;
 			sourceTree = "<group>";
 		};
 		44EA5D9325503296008AB0EB /* IssueListScene */ = {
 			isa = PBXGroup;
 			children = (
+				B9840B6E25518D7E0042E259 /* IssueCoordinator.swift */,
 				B91AFB5025594085007AD8DD /* IssueListViewEditTabBar.swift */,
 				B91AFB56255940EE007AD8DD /* HomeTabBarController.swift */,
 				44EA5D94255032A8008AB0EB /* IssueListViewController.swift */,
 				449CE3282559332100A56AEB /* IssueCreateViewController.swift */,
 				442D5C3D25517F2800FB2B2A /* IssueCollectionViewCell.swift */,
 				442D5C3E25517F2800FB2B2A /* IssueCollectionViewCell.xib */,
-				443A9CD82552B0B4009D3D34 /* Model */,
+				442B3DA425525E9300069D18 /* Issue.swift */,
+				443A9CD92552B0D0009D3D34 /* IssueListUseCase.swift */,
+				443A9CE12552B179009D3D34 /* IssueEndPoint.swift */,
+				B951AE51255C5B1400F6B9C7 /* FilterScene */,
+				B91AFB412559387F007AD8DD /* IssueDetailScene */,
 			);
 			path = IssueListScene;
+			sourceTree = "<group>";
+		};
+		44EC3606255D2C9800398E11 /* LabelEditingScene */ = {
+			isa = PBXGroup;
+			children = (
+				B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */,
+				444C9A3E255C6CAA0098C437 /* LabelUseCaseType.swift */,
+				448F3D91255BFE6E006397F3 /* LabelEditViewController.swift */,
+				448F3DA1255C0875006397F3 /* LabelEditingView.swift */,
+				448F3D85255BEFDD006397F3 /* LabelEditingView.xib */,
+			);
+			path = LabelEditingScene;
+			sourceTree = "<group>";
+		};
+		44EC3607255D2CB400398E11 /* MileStoneEditingScene */ = {
+			isa = PBXGroup;
+			children = (
+				B951AE6C255C7FF900F6B9C7 /* MileStoneEditViewController.swift */,
+				B951AE70255C802100F6B9C7 /* MileStoneEditingView.swift */,
+				B951AE71255C802100F6B9C7 /* MileStoneEditingView.xib */,
+			);
+			path = MileStoneEditingScene;
+			sourceTree = "<group>";
+		};
+		44EC3608255D2D3900398E11 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */,
+				B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */,
+				B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		9E4FCDB20009D47AC3AF8E66 /* Pods */ = {
@@ -313,23 +315,17 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */ = {
-			isa = PBXGroup;
-			children = (
-				B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */,
-			);
-			path = IssueDetailPullUpScene;
-			sourceTree = "<group>";
-		};
 		B90743002551C40400E1D2E6 /* LabelListScene */ = {
 			isa = PBXGroup;
 			children = (
+				B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */,
 				B90743012551C4A600E1D2E6 /* LabelListViewController.swift */,
 				4479104B255AB80A004366B2 /* LabelCollectionViewCell.swift */,
 				44791047255AB7CE004366B2 /* Label.swift */,
 				B96FDAE9255C0E7700A1251C /* LabelListUseCase.swift */,
 				B96FDAEF255C0E8200A1251C /* LabelEndPoint.swift */,
 				B96FDAF3255C107C00A1251C /* LabelListResponse.swift */,
+				44EC3606255D2C9800398E11 /* LabelEditingScene */,
 			);
 			path = LabelListScene;
 			sourceTree = "<group>";
@@ -337,9 +333,11 @@
 		B90743142551DAE800E1D2E6 /* MileStoneListScene */ = {
 			isa = PBXGroup;
 			children = (
+				B907432F2551DC2C00E1D2E6 /* MileStoneCoordinator.swift */,
 				B907431E2551DB5700E1D2E6 /* MileStoneListViewController.swift */,
 				B90E6749255AF42500E990B1 /* MileStone.swift */,
 				B90E674D255AF43800E990B1 /* MileStoneCollectionViewCell.swift */,
+				44EC3607255D2CB400398E11 /* MileStoneEditingScene */,
 			);
 			path = MileStoneListScene;
 			sourceTree = "<group>";
@@ -347,6 +345,7 @@
 		B90743262551DB6F00E1D2E6 /* SettingScene */ = {
 			isa = PBXGroup;
 			children = (
+				B90743342551DC3300E1D2E6 /* SettingCoordinator.swift */,
 				B90743272551DB9A00E1D2E6 /* SettingViewController.swift */,
 			);
 			path = SettingScene;
@@ -373,6 +372,7 @@
 				B91AFB42255938A3007AD8DD /* IssueInfoView.swift */,
 				B91AFB4A255938B6007AD8DD /* IssueDetailTableViewCell.swift */,
 				B91AFB3725593839007AD8DD /* IssueDetailViewController.swift */,
+				B9013EBD2554227700B98C10 /* IssueDetailPullUpViewController.swift */,
 			);
 			path = IssueDetailScene;
 			sourceTree = "<group>";
@@ -380,8 +380,12 @@
 		B923F01D2549597E004AD001 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				B949F98E254EFB7A00477211 /* Model */,
-				B9BF5A5D25499F480052910D /* Controller */,
+				B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */,
+				B949F98F254EFB9100477211 /* LoginInfo.swift */,
+				B949F997254F07D900477211 /* LoginUseCase.swift */,
+				B949F99C254F085000477211 /* LoginEndPoint.swift */,
+				B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */,
+				B980376025484A14002FF4BF /* LoginViewController.swift */,
 				B9C95548255D1EA700E7B449 /* GithubLoginViewController.swift */,
 			);
 			path = LoginScene;
@@ -390,6 +394,7 @@
 		B923F01E254959D2004AD001 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				44EC3608255D2D3900398E11 /* Coordinator */,
 				B95A6C72254ACE7300D9EC66 /* Extention */,
 				B9BF5A5F25499F850052910D /* Model */,
 				B923F01F254959DF004AD001 /* View */,
@@ -406,19 +411,10 @@
 				B9007865255466650035D307 /* ShadowButton.swift */,
 				44791043255A7C2F004366B2 /* AnimatableButton.swift */,
 				448F3D8D255BFE1A006397F3 /* XibLoadable.swift */,
+				44791037255A70CB004366B2 /* DimmedViewController.swift */,
+				4479103B255A7522004366B2 /* EditingView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B949F98E254EFB7A00477211 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B949F98F254EFB9100477211 /* LoginInfo.swift */,
-				B949F997254F07D900477211 /* LoginUseCase.swift */,
-				B949F99C254F085000477211 /* LoginEndPoint.swift */,
-				B98C9C78254FDC99002B9CB9 /* LoginResponse.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B951AE51255C5B1400F6B9C7 /* FilterScene */ = {
@@ -440,14 +436,6 @@
 				B96FDAE4255C03CC00A1251C /* UIColor+hex.swift */,
 			);
 			path = Extention;
-			sourceTree = "<group>";
-		};
-		B96FDADB255BC89900A1251C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B96FDADE255BCCBD00A1251C /* RandomHexColorGenerator.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B980375025484A14002FF4BF = {
@@ -474,43 +462,22 @@
 		B980375B25484A14002FF4BF /* IssueTracker */ = {
 			isa = PBXGroup;
 			children = (
-				B951AE51255C5B1400F6B9C7 /* FilterScene */,
 				44EA5D8325502AE2008AB0EB /* IssueTracker.entitlements */,
 				B923F01E254959D2004AD001 /* Common */,
 				B923F01D2549597E004AD001 /* LoginScene */,
 				447C96F625497449008D326F /* SignUpScene */,
 				44EA5D9325503296008AB0EB /* IssueListScene */,
-				B9FBB4FF2551851D007207AE /* Coordinator */,
 				B90743002551C40400E1D2E6 /* LabelListScene */,
 				B90743142551DAE800E1D2E6 /* MileStoneListScene */,
 				B90743262551DB6F00E1D2E6 /* SettingScene */,
 				B980375C25484A14002FF4BF /* AppDelegate.swift */,
-				B9013EBC255421DC00B98C10 /* IssueDetailPullUpScene */,
 				B980375E25484A14002FF4BF /* SceneDelegate.swift */,
-				B91AFB412559387F007AD8DD /* IssueDetailScene */,
-				44791036255A70A9004366B2 /* EditingScene */,
 				B980376225484A14002FF4BF /* Main.storyboard */,
 				B980376525484A16002FF4BF /* Assets.xcassets */,
 				B980376725484A16002FF4BF /* LaunchScreen.storyboard */,
 				B980376A25484A16002FF4BF /* Info.plist */,
 			);
 			path = IssueTracker;
-			sourceTree = "<group>";
-		};
-		B9BF5A5D25499F480052910D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				B980376025484A14002FF4BF /* LoginViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		B9BF5A5E25499F640052910D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				447C96F72549745B008D326F /* SignUpViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		B9BF5A5F25499F850052910D /* Model */ = {
@@ -521,21 +488,6 @@
 				B95A6C6F254AA86800D9EC66 /* NetworkRequest.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B9FBB4FF2551851D007207AE /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				B98C9C85254FFD77002B9CB9 /* MainCoordinator.swift */,
-				B9FBB4FA25518488007207AE /* HomeTabBarCoordinator.swift */,
-				B9840B6E25518D7E0042E259 /* IssueCoordinator.swift */,
-				B90743092551C5E400E1D2E6 /* LabelCoordinator.swift */,
-				B907432F2551DC2C00E1D2E6 /* MileStoneCoordinator.swift */,
-				B90743342551DC3300E1D2E6 /* SettingCoordinator.swift */,
-				B9FBB4EA25517D66007207AE /* TabBarCoordinator.swift */,
-				B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		C0E82A140EF021EEFC5989DB /* Frameworks */ = {
@@ -760,7 +712,7 @@
 				B9C95549255D1EA700E7B449 /* GithubLoginViewController.swift in Sources */,
 				B90743352551DC3300E1D2E6 /* SettingCoordinator.swift in Sources */,
 				B951AE55255C5B3C00F6B9C7 /* FilterTableViewController.swift in Sources */,
-				B98C9C86254FFD77002B9CB9 /* MainCoordinator.swift in Sources */,
+				B98C9C86254FFD77002B9CB9 /* LoginCoordinator.swift in Sources */,
 				44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */,
 				B9BF5A6125499FA60052910D /* NetworkService.swift in Sources */,
 				B96FDAEA255C0E7700A1251C /* LabelListUseCase.swift in Sources */,

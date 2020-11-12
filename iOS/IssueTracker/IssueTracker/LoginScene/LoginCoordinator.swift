@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  LoginCoordinator.swift
 //  IssueTracker
 //
 //  Created by 최동규 on 2020/11/02.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainCoordinator: NavigationCoordinator {
+final class LoginCoordinator: NavigationCoordinator {
     var navigationController: UINavigationController?
     private let storyboard = UIStoryboard(name: "Main", bundle: nil)
     private var networkService: NetworkServiceProviding
@@ -30,7 +30,7 @@ final class MainCoordinator: NavigationCoordinator {
     }
 }
 
-extension MainCoordinator {
+extension LoginCoordinator {
     func showGithubLogin(delegate: GithubLoginViewControllerDelegate) {
         let viewContoller = storyboard.instantiateViewController(
             identifier: GithubLoginViewController.identifier

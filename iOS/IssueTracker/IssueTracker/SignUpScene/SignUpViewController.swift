@@ -19,7 +19,7 @@ final class SignUpViewController: UIViewController {
     @IBOutlet private weak var completeButton: UIButton!
     private let patternChecker: PatternChecker = PatternChecker()
     private let signUpUseCase: SignUpUseCase
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: LoginCoordinator?
     
     init?(coder: NSCoder, useCase: SignUpUseCase) {
         signUpUseCase = useCase

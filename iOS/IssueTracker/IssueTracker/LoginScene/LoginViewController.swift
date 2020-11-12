@@ -20,7 +20,7 @@ final class LoginViewController: UIViewController {
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
     private let patternChecker: PatternChecker = PatternChecker()
     private let loginUseCase: LoginUseCaseType
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: LoginCoordinator?
     
     @IBAction func signUpButtonDidTouchUp(_ sender: Any) {
         coordinator?.showSignUp()
