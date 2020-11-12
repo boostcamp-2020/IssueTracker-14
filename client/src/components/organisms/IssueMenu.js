@@ -30,10 +30,9 @@ const IssueMenu = ({
   totalSelected,
   setTotalSelected,
 }) => {
-
   const [currentStataus, setCurrentStataus] = useState("open");
 
-  useEffect(()=>{
+  useEffect(() => {
     setSelected([]);
   }, [currentStataus]);
 
@@ -133,22 +132,33 @@ const IssueMenu = ({
   ];
 
   const oneDropdownOption = {
-    buttonData: [{ 
-      title: "Open",
-      dispatchData: () => {
-        issueDispatch({ type: "UPDATE_ISSUE", status: "open", array: selected });
+    buttonData: [
+      {
+        title: "Open",
+        dispatchData: () => {
+          issueDispatch({
+            type: "UPDATE_ISSUE_STATUS",
+            status: "open",
+            array: selected,
+          });
+        },
       },
-    },{ 
-      title: "Closed",
-      dispatchData: () => {
-        issueDispatch({ type: "UPDATE_ISSUE", status: "closed", array: selected });
+      {
+        title: "Closed",
+        dispatchData: () => {
+          issueDispatch({
+            type: "UPDATE_ISSUE_STATUS",
+            status: "closed",
+            array: selected,
+          });
+        },
       },
-    }],
+    ],
     search: false,
     buttonText: "Mark as",
     labelText: "Actions",
     buttonWidth: "5rem",
-  }
+  };
 
   const onClickIssueOpen = () => {
     setCurrentStataus("open");
@@ -161,7 +171,7 @@ const IssueMenu = ({
   };
 
   const onClickTotalCheckbox = () => {
-    if (totalSelected){
+    if (totalSelected) {
       setTotalSelected(false);
     } else {
       setTotalSelected(true);
@@ -172,7 +182,9 @@ const IssueMenu = ({
   return (
     <StyledIssueMenuWrapper>
       {issueState.issues.length !== selected.length && selected.length !== 0 ? (
-        <A.Text fontSize={"0.6rem"}><A.Icon distance={"0"} name="checkDouble" /></A.Text>
+        <A.Text fontSize={"0.6rem"}>
+          <A.Icon distance={"0"} name="checkDouble" />
+        </A.Text>
       ) : (
         <A.Checkbox checked={totalSelected} onClick={onClickTotalCheckbox} />
       )}

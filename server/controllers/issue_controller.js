@@ -212,18 +212,24 @@ const updateIssue = async (req, res) => {
 
 const updateIssues = async (req, res) => {
   try {
-    const { status, issueIdList } = req.body;
-    const IssueIdList = JSON.parse(issueIdList);
-    console.log(status, issueIdList);
-    Array.isArray(IssueIdList) &&
-      (await IssueModel.bulkCreate(
-        IssueIdList.map(
-          (issueId) => {
-            return { id: issueId, status };
-          },
-          { fields: ["id", "title", "milestondid"], updateOnDuplicate: ["id"] }
-        )
-      ));
+    const { issueIdList, status } = req.body;
+    const issues = await IssueModel.findAll();
+    const issueList = issues
+      .map((issue) => {
+        if (issueIdList.includes(issue.id)) {
+          return {
+            id: issue.id,
+            title: issue.title,
+            status: status,
+            description: issue.description,
+            authorid: issue.authorid,
+            milestoneid: issue.milestoneid,
+          };
+        }
+        return;
+      })
+      .filter((issue) => issue !== undefined);
+    await IssueModel.bulkCreate(issueList, { updateOnDuplicate: ["status"] });
     return res.status(200).json({ message: "success" });
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
