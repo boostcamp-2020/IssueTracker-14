@@ -6,6 +6,7 @@ const StyledLabelNavigationWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  min-width: 50rem;
   width: 100%;
 `;
 

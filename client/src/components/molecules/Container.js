@@ -9,6 +9,7 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 0.5rem 0rem 1.5rem 0rem;
   width: 100%;
+  min-width: 50rem;
 `;
 
 const StyledMenuWrapper = styled.div`

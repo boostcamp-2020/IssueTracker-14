@@ -19,6 +19,7 @@ const StyledLabelModal = styled.div`
   border-top: ${({ editMode }) => editMode ? "1px solid #000000" : "none"};
   background-color: ${({ editMode }) => editMode ? colors["white"] : colors["lightGrey"]};
   border-radius: 0.25rem;
+  min-width: 50rem;
   width: 100%;
 `;
 
@@ -64,7 +65,7 @@ const StyledLabelInputButtons = styled.div`
   justify-content: justify-content;
   align-items: flex-end;
   width: 12rem;
-  margin: 0rem 1rem 1rem 12rem;
+  margin: 0rem 1rem 0.8rem 12rem;
   margin-right: 2rem;
 `;
 
