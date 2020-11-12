@@ -12,7 +12,7 @@ import IssueContent from "./IssueContent";
 import EditIssueForm from "./EditIssueForm";
 import LabelNavigation from "./LabelNavigation";
 import LabelMenu from "./LabelMenu";
-import LabelModal from "./LabelModal";
+import LabelCard from "./LabelCard";
 import LabelContent from "./LabelContent";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
@@ -32,7 +32,7 @@ export default {
   EditIssueForm,
   LabelNavigation,
   LabelMenu,
-  LabelModal,
+  LabelCard,
   LabelContent,
   MilestoneMenu,
   MilestoneContent,
