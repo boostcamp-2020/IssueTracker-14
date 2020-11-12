@@ -7,6 +7,7 @@ import calculateTime from "../../utils/calculateTime";
 const StyledEditIsssueHeader = styled.div`
   padding-bottom: 1rem;
   border-bottom: 1px solid #d1d5da;
+  margin-bottom: 1rem;
 `;
 
 const StyledFlex = styled.div`
