@@ -12,6 +12,7 @@ import IssueContent from "./IssueContent";
 import EditIssueForm from "./EditIssueForm";
 import EditIssueTitle from "./EditIssueTitle";
 import EditIssueHeader from "./EditIssueHeader";
+import EditIssueOptions from "./EditIssueOptions";
 import LabelNavigation from "./LabelNavigation";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
@@ -31,6 +32,7 @@ export default {
   EditIssueForm,
   EditIssueTitle,
   EditIssueHeader,
+  EditIssueOptions,
   LabelNavigation,
   MilestoneMenu,
   MilestoneContent,

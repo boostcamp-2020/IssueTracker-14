@@ -11,7 +11,7 @@ const StyledEditIssuePageWrapper = styled.div`
   top: 6rem;
   margin: 0 auto;
   padding: 3rem;
-  width: 60vw;
+  width: 80vw;
 `;
 
 const StyledEditIssueMain = styled.div`
@@ -26,7 +26,7 @@ const EditIssuePage = ({ match, location }) => {
   const { issue } = location.state;
 
   useEffect(
-    () => fetchTargetData(`/issue/${issueId}/comment`, commentDispatch),
+    () => fetchTargetData(`issues/${issueId}/comment`, commentDispatch),
     []
   );
 
@@ -37,7 +37,8 @@ const EditIssuePage = ({ match, location }) => {
         <O.EditIssueHeader issue={issue} />
         <StyledEditIssueMain>
           <A.Image imageUrl={issue.user.imageUrl} padding={"0 0.5rem"} />
-          <O.EditIssueForm issue={issue} comments={commentState.comments} />
+          <O.EditIssueForm user={issue.user} comments={commentState.comments} />
+          <O.EditIssueOptions issue={issue} />
         </StyledEditIssueMain>
       </StyledEditIssuePageWrapper>
     </>

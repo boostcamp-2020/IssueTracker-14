@@ -17,7 +17,7 @@ const commentReducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        commnets: action.data.comments,
+        comments: action.data.comments,
         error: null,
       };
 

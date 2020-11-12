@@ -12,11 +12,13 @@ const StyledText = styled.p`
   font-size: ${({ fontSize }) => fontSize};
   cursor: ${({ cursor }) => cursor};
   margin: 0.3rem;
-  padding: 0;
+  padding: ${({ padding }) => padding};
   &:hover {
     color: ${({ hover }) => hover && colors.blue};
   }
   display: ${({ display }) => display};
+  background-color: ${({ backgroundColor }) => colors[backgroundColor]};
+  border: ${({ border }) => border};
 `;
 
 const Text = ({ children, color, fontSize, fontWeight, hover, ...rest }) => (
@@ -37,6 +39,7 @@ Text.defaultProps = {
   hover: true,
   cursor: "pointer",
   align: "center",
+  padding: 0,
 };
 
 export default Text;
