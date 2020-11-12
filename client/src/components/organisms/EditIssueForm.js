@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import colors from "../../constants/colors";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import { useIssueDispatch, useIssueState } from "../../stores/issue";
 
 const StyledEditIsssueForm = styled.section`
   padding: 0.5rem 0.5rem;
@@ -24,13 +24,15 @@ const StyledFormTextAreaWrapper = styled.div`
 `;
 
 const EditIssueForm = ({ issue }) => {
-  const issueDispatch = useIssueDispatch();
-
-  const [isEditing, setIsEditing] = useState(false);
-
   if (issue === undefined) {
     return <div>Loading...</div>;
   }
+
+  const issueState = useIssueState();
+  const issueDispatch = useIssueDispatch();
+
+  const [newTitle, setNewTitle] = useState(issue.title);
+  const [isEditing, setIsEditing] = useState(false);
 
   const onChangeTitle = (e) => {
     issueDispatch({
@@ -38,6 +40,17 @@ const EditIssueForm = ({ issue }) => {
       value: e.target.value,
       name: e.target.name,
     });
+  };
+
+  const onClickEditButton = () => {
+    if (isEditing) {
+      issueDispatch({
+        type: "EDIT_ISSUE",
+        data: { id: issue.id, status: issue.status },
+      });
+      setNewTitle(issueState.newIssue.title);
+    }
+    setIsEditing(!isEditing);
   };
 
   return (
@@ -59,7 +72,7 @@ const EditIssueForm = ({ issue }) => {
           />
         ) : (
           <A.Text hover={false} fontSize={"2rem"}>
-            {issue.title}#{issue.id}
+            {newTitle}#{issue.id}
           </A.Text>
         )}
 
@@ -69,7 +82,7 @@ const EditIssueForm = ({ issue }) => {
           borderColor={"black"}
           width={"auto"}
           size={"big"}
-          onClick={() => setIsEditing(!isEditing)}
+          onClick={onClickEditButton}
         >
           Edit
         </A.Button>
@@ -79,7 +92,11 @@ const EditIssueForm = ({ issue }) => {
       <A.Text>{issue.updatedAt}</A.Text>
       <A.Text>{issue.comments.length}</A.Text>
       <StyledFormTextAreaWrapper>
-        <div>{issue.description || issue.comments[0].content}</div>
+        <div>
+          {issue.description || issue.comments[0]
+            ? issue.comments[0].content
+            : "no description"}
+        </div>
         <M.FileInput />
       </StyledFormTextAreaWrapper>
     </StyledEditIsssueForm>

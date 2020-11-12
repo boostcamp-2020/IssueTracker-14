@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
-import A from "../../components/atoms/index";
 import O from "../../components/organisms/index";
 import myAxios from "../../utils/myAxios";
 
