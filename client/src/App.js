@@ -10,6 +10,7 @@ import { LabelProvider } from "./stores/label";
 import { AssigneeProvider } from "./stores/assignee";
 import { IssueProvider } from "./stores/issue";
 import { QueryProvider } from "./stores/query";
+import { CommentProvider } from "./stores/comment";
 
 import LoginPage from "./pages/User/LoginPage";
 import SignUpPage from "./pages/User/SignUpPage";
@@ -77,23 +78,34 @@ const App = () => {
               <AssigneeProvider>
                 <LabelProvider>
                   <MilestoneProvider>
-                    <QueryProvider>
-                      <Route exact path="/" component={IssuesPage} />
-                    </QueryProvider>
-                    <Route exact path="/milestones" component={MilestonePage} />
-                    <Route
-                      exact
-                      path="/milestones/new"
-                      component={NewMilestonePage}
-                    />
-                    <Route exact path="/issues/new" component={NewIssuePage} />
-                    <Route
-                      exact
-                      path="/issue/:issueId"
-                      component={EditIssuePage}
-                    />
-                    <Route exact path="/login" component={LoginPage} />
-                    <Route exact path="/signup" component={SignUpPage} />
+                    <CommentProvider>
+                      <QueryProvider>
+                        <Route exact path="/" component={IssuesPage} />
+                      </QueryProvider>
+
+                      <Route
+                        exact
+                        path="/milestones"
+                        component={MilestonePage}
+                      />
+                      <Route
+                        exact
+                        path="/milestones/new"
+                        component={NewMilestonePage}
+                      />
+                      <Route
+                        exact
+                        path="/issues/new"
+                        component={NewIssuePage}
+                      />
+                      <Route
+                        exact
+                        path="/issue/:issueId"
+                        component={EditIssuePage}
+                      />
+                      <Route exact path="/login" component={LoginPage} />
+                      <Route exact path="/signup" component={SignUpPage} />
+                    </CommentProvider>
                   </MilestoneProvider>
                 </LabelProvider>
               </AssigneeProvider>

@@ -28,7 +28,6 @@ const EditIssueForm = ({ issue }) => {
           </>;
         })
       )}
-      {issue.comments.map(el)}
       <StyledFormTextAreaWrapper>
         <div>
           {issue.description || issue.comments[0]

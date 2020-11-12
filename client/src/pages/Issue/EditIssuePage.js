@@ -3,8 +3,8 @@ import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import O from "../../components/organisms/index";
 import A from "../../components/atoms/index";
-import myAxios from "../../utils/myAxios";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
+import fetchTargetData from "../../utils/fetchData";
+import { useCommentState, useCommentDispatch } from "../../stores/comment";
 
 const StyledEditIssuePageWrapper = styled.div`
   position: relative;
@@ -19,16 +19,17 @@ const StyledEditIssueMain = styled.div`
 `;
 
 const EditIssuePage = ({ match, location }) => {
+  const commentState = useCommentState();
+  const commentDispatch = useCommentDispatch();
+
   const { issueId } = match.params;
   const { issue } = location.state;
   console.log(issue);
 
-  useEffect(() => {
-    // myAxios
-    //   .get(`/issues/${issueId}`)
-    //   .then((response) => setIssue(response.data.issue))
-    //   .catch((err) => alert(err));
-  }, []);
+  useEffect(
+    () => fetchTargetData(`/issue/${issueId}/comment`, commentDispatch),
+    []
+  );
 
   return (
     <>
@@ -37,7 +38,7 @@ const EditIssuePage = ({ match, location }) => {
         <O.EditIssueHeader issue={issue} />
         <StyledEditIssueMain>
           <A.Image imageUrl={issue.user.imageUrl} padding={"0 0.5rem"} />
-          <O.EditIssueForm issue={issue} />
+          <O.EditIssueForm issue={issue} comments={commentState.comments} />
         </StyledEditIssueMain>
       </StyledEditIssuePageWrapper>
     </>
