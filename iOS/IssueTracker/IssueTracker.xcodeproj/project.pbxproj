@@ -40,7 +40,7 @@
 		B9007862255466510035D307 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007861255466510035D307 /* ShadowView.swift */; };
 		B9007866255466660035D307 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9007865255466650035D307 /* ShadowButton.swift */; };
 		B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E552554035800B98C10 /* LoginUseCaseTests.swift */; };
-		B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */; };
+		B9013E5D2554038300B98C10 /* SingUpPatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E5C2554038300B98C10 /* SingUpPatternCheckerTests.swift */; };
 		B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */; };
 		B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E85255404BA00B98C10 /* MockNetworkService.swift */; };
 		B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9013E942554057200B98C10 /* Issue+Encodable.swift */; };
@@ -94,6 +94,9 @@
 		B98C9C7E254FFB5F002B9CB9 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */; };
 		B98C9C86254FFD77002B9CB9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */; };
 		B98D63E5255DA41300964151 /* MileStoneEditingPatternChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D63E4255DA41300964151 /* MileStoneEditingPatternChecker.swift */; };
+		B98D63EB255DDEAA00964151 /* MileStoneUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D63EA255DDEAA00964151 /* MileStoneUseCaseTests.swift */; };
+		B98D63EF255DDF8D00964151 /* MileStoneListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D63EE255DDF8D00964151 /* MileStoneListUseCaseTests.swift */; };
+		B98D63F5255DE3E000964151 /* MileStoneEditingPatternCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98D63F4255DE3E000964151 /* MileStoneEditingPatternCheckerTests.swift */; };
 		B9A47E3D255D453500118AE9 /* MileStoneListUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E3C255D453500118AE9 /* MileStoneListUsecase.swift */; };
 		B9A47E41255D454F00118AE9 /* MileStoneEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E40255D454F00118AE9 /* MileStoneEndPoint.swift */; };
 		B9A47E47255D456300118AE9 /* MileStoneListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A47E46255D456300118AE9 /* MileStoneListResponse.swift */; };
@@ -152,7 +155,7 @@
 		B9007861255466510035D307 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		B9007865255466650035D307 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		B9013E552554035800B98C10 /* LoginUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTests.swift; sourceTree = "<group>"; };
-		B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCheckerTests.swift; sourceTree = "<group>"; };
+		B9013E5C2554038300B98C10 /* SingUpPatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpPatternCheckerTests.swift; sourceTree = "<group>"; };
 		B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTests.swift; sourceTree = "<group>"; };
 		B9013E85255404BA00B98C10 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		B9013E942554057200B98C10 /* Issue+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+Encodable.swift"; sourceTree = "<group>"; };
@@ -210,6 +213,9 @@
 		B98C9C7D254FFB5F002B9CB9 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		B98C9C85254FFD77002B9CB9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		B98D63E4255DA41300964151 /* MileStoneEditingPatternChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditingPatternChecker.swift; sourceTree = "<group>"; };
+		B98D63EA255DDEAA00964151 /* MileStoneUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneUseCaseTests.swift; sourceTree = "<group>"; };
+		B98D63EE255DDF8D00964151 /* MileStoneListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListUseCaseTests.swift; sourceTree = "<group>"; };
+		B98D63F4255DE3E000964151 /* MileStoneEditingPatternCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEditingPatternCheckerTests.swift; sourceTree = "<group>"; };
 		B9A47E3C255D453500118AE9 /* MileStoneListUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListUsecase.swift; sourceTree = "<group>"; };
 		B9A47E40255D454F00118AE9 /* MileStoneEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneEndPoint.swift; sourceTree = "<group>"; };
 		B9A47E46255D456300118AE9 /* MileStoneListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneListResponse.swift; sourceTree = "<group>"; };
@@ -378,11 +384,14 @@
 		B90C76AE25530ABC00134AEE /* IssueTrackerUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B98D63F4255DE3E000964151 /* MileStoneEditingPatternCheckerTests.swift */,
+				B98D63EE255DDF8D00964151 /* MileStoneListUseCaseTests.swift */,
+				B98D63EA255DDEAA00964151 /* MileStoneUseCaseTests.swift */,
 				B9013EAE2554069F00B98C10 /* NetworkServiceTests.swift */,
 				B9013E8D2554054C00B98C10 /* Extension */,
 				B9013E842554049E00B98C10 /* Mock */,
 				B9013E63255403A600B98C10 /* SignUpUseCaseTests.swift */,
-				B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */,
+				B9013E5C2554038300B98C10 /* SingUpPatternCheckerTests.swift */,
 				B9013E552554035800B98C10 /* LoginUseCaseTests.swift */,
 				B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */,
 				44D51A5C255D647B00780FD4 /* LabelListUseCaseTests.swift */,
@@ -674,8 +683,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				44D51A6B255D6E0600780FD4 /* LabelUseCaseTests.swift in Sources */,
-				B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */,
+				B9013E5D2554038300B98C10 /* SingUpPatternCheckerTests.swift in Sources */,
+				B98D63EB255DDEAA00964151 /* MileStoneUseCaseTests.swift in Sources */,
 				44D51A5D255D647B00780FD4 /* LabelListUseCaseTests.swift in Sources */,
+				B98D63EF255DDF8D00964151 /* MileStoneListUseCaseTests.swift in Sources */,
 				B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */,
 				B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */,
 				B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */,
@@ -686,6 +697,7 @@
 				B9013E992554059000B98C10 /* MileStone+Encodable.swift in Sources */,
 				B9013EA72554061100B98C10 /* LoginResponse+Encodable.swift in Sources */,
 				B9013E562554035800B98C10 /* LoginUseCaseTests.swift in Sources */,
+				B98D63F5255DE3E000964151 /* MileStoneEditingPatternCheckerTests.swift in Sources */,
 				B9013E952554057200B98C10 /* Issue+Encodable.swift in Sources */,
 				B9013EAF2554069F00B98C10 /* NetworkServiceTests.swift in Sources */,
 			);

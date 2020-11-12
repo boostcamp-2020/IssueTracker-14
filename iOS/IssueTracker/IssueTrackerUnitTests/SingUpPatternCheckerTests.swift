@@ -8,7 +8,7 @@
 import XCTest
 @testable import IssueTracker
 
-final class PatternCheckerTests: XCTestCase {
+final class SingUpPatternCheckerTests: XCTestCase {
     
     let patternChecker: SignUpPatternChecker = SignUpPatternChecker()
     
