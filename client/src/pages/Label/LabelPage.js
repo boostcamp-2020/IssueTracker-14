@@ -39,9 +39,10 @@ const LabelsPage = () => {
   const labelState = useLabelState();
   const labelDispatch = useLabelDispatch();
   
+  
   useEffect(() => {
-    fetchTargetData("label", labelDispatch);
-  }, []);
+    return fetchTargetData("label", labelDispatch);
+  }, [labelState.labels]);
   
   return (
     <>

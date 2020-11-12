@@ -4,6 +4,7 @@ import fetchTargetData from "../../utils/fetchData";
 import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
 import styled from "styled-components";
 import A from "./../atoms/index";
+import M from "./../molecules/index";
 import O from "./../organisms/index";
 
 const StyledWrapper = styled.div`
@@ -58,7 +59,7 @@ const LabelCard = ({ label }) => {
 
   const deleteLabel = async () => {
     try {
-      await labelDispatch({
+      labelDispatch({
         type: "DELETE_LABEL",
         labelId: label.id,
       });

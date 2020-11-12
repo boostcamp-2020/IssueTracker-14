@@ -69,7 +69,7 @@ const StyledLabelInputButtons = styled.div`
 `;
 
 
-const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescription, givenColor, deleteLabel  }) => {
+const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, givenTitle, givenDescription, givenColor, deleteLabel  }) => {
     const labelDispatch = useLabelDispatch();
 
     const [inputName, setInputName] = useState(editMode ? givenTitle : "");
@@ -123,6 +123,14 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
             body
           })
           await fetchTargetData("label", labelDispatch);
+
+          setInputName("");
+          setLabelName("Label preview");
+          setInputDescription("");
+          const randomColor = makeRandomColor();
+          setInputColor(randomColor);
+          setLabelColor(randomColor);
+
         } catch (err) {
           console.log(err);
         }
@@ -145,6 +153,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
             body
           });
           await fetchTargetData("label", labelDispatch);
+          turnOffEditMode();
         } catch (err) {
           console.log(err);
         }
@@ -184,7 +193,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
           </StyledColor>
         </StyledFormDiv>
         <StyledLabelInputButtons>
-          <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={turnOffEditMode} >Cancel</A.Button>
+          <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={editMode ? turnOffEditMode : toggleCreateMode} >Cancel</A.Button>
           {editMode ? 
           <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} >Edit Mode</A.Button>
           :
