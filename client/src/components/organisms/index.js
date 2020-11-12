@@ -9,6 +9,7 @@ import NewMilestoneForm from "./NewMilestoneForm";
 import SignUpForm from "./SignUpForm";
 import IssueMenu from "./IssueMenu";
 import IssueContent from "./IssueContent";
+import EditIssueForm from "./EditIssueForm";
 import LabelNavigation from "./LabelNavigation";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
@@ -25,6 +26,7 @@ export default {
   SignUpForm,
   IssueMenu,
   IssueContent,
+  EditIssueForm,
   LabelNavigation,
   MilestoneMenu,
   MilestoneContent,

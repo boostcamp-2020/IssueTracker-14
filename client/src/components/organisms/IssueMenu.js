@@ -47,6 +47,7 @@ const IssueMenu = ({
   const assigneeDispatch = useAssigneeDispatch();
 
   const issueState = useIssueState();
+  const issueDispatch = useIssueDispatch();
 
   const queryDispatch = useQueryDispatch();
 
@@ -131,6 +132,24 @@ const IssueMenu = ({
     },
   ];
 
+  const oneDropdownOption = {
+    buttonData: [{ 
+      title: "Open",
+      dispatchData: () => {
+        issueDispatch({ type: "UPDATE_ISSUE", status: "open", array: selected });
+      },
+    },{ 
+      title: "Closed",
+      dispatchData: () => {
+        issueDispatch({ type: "UPDATE_ISSUE", status: "closed", array: selected });
+      },
+    }],
+    search: false,
+    buttonText: "Mark as",
+    labelText: "Actions",
+    buttonWidth: "5rem",
+  }
+
   const onClickIssueOpen = () => {
     setCurrentStataus("open");
     queryDispatch({ type: "CHANGE_STATUS", data: "open" });
@@ -167,7 +186,11 @@ const IssueMenu = ({
       <A.Button onClick={onClickIssueClosed}>
         {issueState.issueCount?.closed}
       </A.Button>
-      <O.DropdownCluster dropdownOptions={issueDropdownOptions} />
+      {selected.length !== 0 ? (
+        <M.Dropdown {...oneDropdownOption} />
+      ) : (
+        <O.DropdownCluster dropdownOptions={issueDropdownOptions} />
+      )}
     </StyledIssueMenuWrapper>
   );
 };

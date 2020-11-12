@@ -81,6 +81,7 @@ const NewIssueForm = () => {
     return { __html };
   };
 
+  // TODO: post 400 에러 해결
   const onSubmitNewIssue = () => {
     myAxios
       .post("/issues", {
