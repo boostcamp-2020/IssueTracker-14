@@ -4,6 +4,7 @@ import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
 import A from "./../atoms/index";
 import calculateTime from "../../utils/calculateTime";
+import { useQueryDispatch } from "../../stores/query";
 
 const StyledIssueCard = styled.div`
   position: relative;
@@ -80,6 +81,8 @@ const IssueCard = ({
   const [isChecked, setIsChecked] = useState(false);
   const commentsLength = issue.comments.length;
   const assigneesLength = issue.assignees.length;
+
+  const queryDispatch = useQueryDispatch();
 
   const mouseOnImage = () => {
     setImageHover(true);
@@ -173,15 +176,13 @@ const IssueCard = ({
                     size={"1.5rem"}
                     imageUrl={el.user.imageurl}
                     position={"absolute"}
-                    right={`${
-                      6.2 +
-                      assigneesLength +
-                      (imageHover ? assigneesLength - idx - 1 : 0) -
-                      0.7 * (idx + 1)
-                    }rem`}
+                    right={`${2.5 +(assigneesLength - 1 - idx) * (imageHover ? 1.65 : 1)}rem`}
                     cursor={"pointer"}
                     onClick={() => {
-                      alert(el.id);
+                      queryDispatch({
+                        type: "CHANGE_ASSIGNEE",
+                        data: el.user.nickname,
+                      });
                     }}
                     onMouseEnter={mouseOnImage}
                   />
