@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa"
+import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
 
-const StyledLabel = styled.button`
-  box-sizing: border-box;
+const StyledLabel = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 0;
   border: 1px solid transparent;
   height: 1.25rem;
   font-size: 0.85rem;
@@ -12,7 +15,8 @@ const StyledLabel = styled.button`
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
   border-radius: 2em;
-  color: ${({ backgroundHexaColor }) => decideFontColorFromHexa(backgroundHexaColor)};
+  color: ${({ backgroundHexaColor }) =>
+    decideFontColorFromHexa(backgroundHexaColor)};
   background-color: ${({ backgroundHexaColor }) => backgroundHexaColor};
   cursor: ${({ cursor }) => cursor};
 `;

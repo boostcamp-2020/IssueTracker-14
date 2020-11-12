@@ -72,9 +72,9 @@ const IssuesPage = () => {
     fetchTargetData("label", labelDispatch);
     fetchTargetData("milestone", milestoneDispatch);
 
-    if (issueState.issues.length===selected.length) setTotalSelected(true)
+    if (issueState.issues.length === selected.length) setTotalSelected(true);
     else if (totalSelected === true) setTotalSelected(false);
-    if (selected.length===0) setTotalSelected(false);
+    if (selected.length === 0) setTotalSelected(false);
   }, [queryState.query]);
 
   const onClickNewIssue = () => {

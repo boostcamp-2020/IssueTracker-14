@@ -12,6 +12,7 @@ const milestoneToIssueController = require("../../controllers/issue_item_control
 router.get("/", issueController.readIssues);
 router.get("/:issueid", issueController.readIssue);
 router.post("/", issueController.createIssue);
+router.put("/changestatus", issueController.updateIssues);
 router.put("/:issueid", issueController.updateIssue);
 
 router.get("/:issueid/comment", commentController.readComments);

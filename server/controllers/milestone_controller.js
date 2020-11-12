@@ -4,7 +4,7 @@ const { issue: IssueModel } = require("../db/models");
 const createMilestone = async (req, res) => {
   try {
     const { title, duedate, description } = req.body;
-    if (Date.now() > new Date(duedate)) {
+    if (Date.now() > new Date(duedate) && duedate !== null) {
       return res.status(400).json({ message: "fail" });
     }
     await MilestoneModel.create({
@@ -64,7 +64,7 @@ const updateMilestone = async (req, res) => {
   try {
     const { milestoneid: id } = req.params;
     const { title, duedate, description, status } = req.body;
-    if (Date.now() > new Date(duedate)) {
+    if (Date.now() > new Date(duedate) && duedate !== null) {
       return res.status(400).json({ message: "fail" });
     }
     await MilestoneModel.update(

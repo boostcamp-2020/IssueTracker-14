@@ -6,7 +6,7 @@ import DropdownWithText from "./DropdownWithText";
 import FormDiv from "./FormDiv";
 import FormTextArea from "./FormTextArea";
 import NavigationWrapperLink from "./NavigationWrapperLink";
-import IssueData from "./IssueData";
+import IssueCard from "./IssueCard";
 import FileInput from "./FileInput";
 import Title from "./Title";
 import Tabs from "./Tabs";
@@ -23,7 +23,7 @@ export default {
   FormDiv,
   FormTextArea,
   NavigationWrapperLink,
-  IssueData,
+  IssueCard,
   FileInput,
   Title,
   Tabs,

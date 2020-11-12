@@ -19,11 +19,10 @@ const IssueContent = ({
   totalSelected,
   setTotalSelected,
 }) => {
-
   return (
     <StyledIssueContent>
       {issues.map((issue) => (
-        <M.IssueData
+        <M.IssueCard
           key={issue.id}
           issue={issue}
           selected={selected}

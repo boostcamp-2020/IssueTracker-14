@@ -11,7 +11,13 @@ const StyledIcon = styled.span`
 `;
 
 const Icon = ({ name, location, distance, onClick, cursor, color }) => (
-  <StyledIcon location={location} distance={distance} onClick={onClick} cursor={cursor} color={color} >
+  <StyledIcon
+    location={location}
+    distance={distance}
+    onClick={onClick}
+    cursor={cursor}
+    color={color}
+  >
     {icons[name]}
   </StyledIcon>
 );

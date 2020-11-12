@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
-import A from "./../atoms/index";
+import A from "../atoms/index";
 
-const StyledIssueData = styled.div`
+const StyledIssueCard = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -57,6 +57,14 @@ const StyledAssignee = styled.div`
   align-items: center;
 `;
 
+const StyledTextWithLabel = styled.div`
+  position: relative;
+  display: flex;
+  width: auto;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
 const calculateTime = (timeString) => {
   const now = new Date();
   const timeObject = new Date(timeString);
@@ -79,7 +87,7 @@ const calculateTime = (timeString) => {
   return `${Math.floor(timeDifference / 216000)} days ago`;
 };
 
-const IssueData = ({
+const IssueCard = ({
   issue,
   selected,
   setSelected,
@@ -106,28 +114,30 @@ const IssueData = ({
       return setTotalSelected(false);
     } else {
       setSelected([...selected, issue.id]);
-      if (selected.length===issueState.issues.length) {
+      if (selected.length === issueState.issues.length) {
         return setTotalSelected(true);
-      };
+      }
     }
   };
 
   const issueState = useIssueState();
 
-    useEffect(()=>{
-      if (totalSelected===true) {
-        handleCheckbox(true);
-        setSelected(issueState.issues.map(el => el.id));
-      }
-      if (totalSelected===false && issueState.issues.length===selected.length) {
-        handleCheckbox(false);
-        return setSelected([]);
-      };
-      
-    }, [totalSelected])
+  useEffect(() => {
+    if (totalSelected === true) {
+      handleCheckbox(true);
+      setSelected(issueState.issues.map((el) => el.id));
+    }
+    if (
+      totalSelected === false &&
+      issueState.issues.length === selected.length
+    ) {
+      handleCheckbox(false);
+      return setSelected([]);
+    }
+  }, [totalSelected]);
 
   return (
-    <StyledIssueData>
+    <StyledIssueCard>
       <StyledCheckbox>
         <A.Checkbox checked={isChecked} onClick={handleCheckbox} />
       </StyledCheckbox>
@@ -138,13 +148,15 @@ const IssueData = ({
         />
       </StyledIssueIcon>
       <StyledImportant>
-        <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
-          <Link
-            to={`issue/${issue.id}`}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            {issue.title}
-          </Link>
+        <StyledTextWithLabel>
+          <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
+            <Link
+              to={`issue/${issue.id}`}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {issue.title}
+            </Link>
+          </A.Text>
           {issue["label_has_issues"].map((el, idx) => {
             return (
               <A.Label
@@ -156,7 +168,8 @@ const IssueData = ({
               </A.Label>
             );
           })}
-        </A.Text>
+        </StyledTextWithLabel>
+
         <A.Text fontSize={"0.75rem"}>
           #{issue.id} opened {calculateTime(issue.createdAt)} by{" "}
           {issue.user.nickname}
@@ -201,8 +214,8 @@ const IssueData = ({
           </A.Text>
         </StyledComment>
       </StyledTrivial>
-    </StyledIssueData>
+    </StyledIssueCard>
   );
 };
 
-export default IssueData;
+export default IssueCard;
