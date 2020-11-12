@@ -18,6 +18,6 @@ final class MileStoneCollectionViewCell: UICollectionViewCell {
     func update(with mileStone: MileStone) {
         mileStoneLabel.text = mileStone.title
         descriptionLabel.text = mileStone.description
-        dueDateLabel.text = mileStone.duedate?.customDateFormat()
+        dueDateLabel.text = mileStone.duedate?.customDateFormat(format: "yyyy년 M월 d일까지")
     }
 }

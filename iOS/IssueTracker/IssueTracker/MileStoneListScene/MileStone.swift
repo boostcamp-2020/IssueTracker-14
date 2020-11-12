@@ -9,11 +9,11 @@ import Foundation
 
 struct MileStone: Decodable, Hashable {
     let id: Int
-    let title: String
+    var title: String
     let status: String?
-    let description: String?
+    var description: String?
     let createAt: String?
-    let duedate: String?
+    var duedate: String?
     let updatedAt: String?
     
     init(id: Int, title: String, status: String?=nil, description: String?=nil,
@@ -25,5 +25,11 @@ struct MileStone: Decodable, Hashable {
         self.createAt = createAt
         self.duedate = duedate
         self.updatedAt = updatedAt
+    }
+    
+    mutating func reset() {
+        title = ""
+        duedate = nil
+        description = nil
     }
 }

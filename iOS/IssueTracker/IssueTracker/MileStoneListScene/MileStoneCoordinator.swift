@@ -22,16 +22,34 @@ final class MileStoneCoordinator: NavigationCoordinator {
     
     func start() {
         let viewContoller = storyboard.instantiateViewController(
-            identifier: MileStoneListViewController.identifier) as MileStoneListViewController
+            identifier: MileStoneListViewController.identifier,
+         creator: {[unowned self] coder -> MileStoneListViewController? in
+            let useCase = MileStoneListUseCase(networkService: self.networkService)
+            return MileStoneListViewController(coder: coder, useCase: useCase) }
+            )
         viewContoller.coordinator = self
         navigationController?.pushViewController(viewContoller, animated: true)
     }
 }
 
 extension MileStoneCoordinator {
-    func showEdit() {
-        let editingViewController = MileStoneEditViewController()
-        editingViewController.modalPresentationStyle = .overFullScreen
-        navigationController?.present(editingViewController, animated: true)
+    func showEdit(mileStone: MileStone, _ delegate: MileStoneEditViewControllerDelegate) {
+        let viewController = MileStoneEditViewController(
+            useCase: MileStoneEditUseCase(networkService: networkService),
+            mileStone: mileStone
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.delegate = delegate
+        navigationController?.present(viewController, animated: true)
+    }
+    
+    func showCreate(mileStone: MileStone, _ delegate: MileStoneEditViewControllerDelegate) {
+        let viewController = MileStoneEditViewController(
+            useCase: MileStoneCreateUseCase(networkService: networkService),
+            mileStone: mileStone
+        )
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.delegate = delegate
+        navigationController?.present(viewController, animated: true)
     }
 }
