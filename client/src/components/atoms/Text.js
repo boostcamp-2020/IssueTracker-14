@@ -19,6 +19,7 @@ const StyledText = styled.p`
   display: ${({ display }) => display};
   background-color: ${({ backgroundColor }) => colors[backgroundColor]};
   border: ${({ border }) => border};
+  border-radius: ${({ borderRadius }) => borderRadius};
 `;
 
 const Text = ({ children, color, fontSize, fontWeight, hover, ...rest }) => (

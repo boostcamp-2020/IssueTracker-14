@@ -7,7 +7,7 @@ const calculateTime = (timeString) => {
   const timeObject = new Date(timeString);
   const timeDifference = (now - timeObject) / 1000;
   if (timeDifference < MINUTE) {
-    return `${timeDifference} seconds ago`;
+    return `${Math.floor(timeDifference)} seconds ago`;
   }
   if (timeDifference < HOUR) {
     return `${Math.floor(timeDifference / MINUTE)} minutes ago`;

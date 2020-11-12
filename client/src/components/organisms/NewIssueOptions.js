@@ -109,7 +109,6 @@ const NewIssueOptions = () => {
           },
           idx
         ) => {
-          console.log(selected);
           return (
             <M.DropdownWithText
               key={idx}

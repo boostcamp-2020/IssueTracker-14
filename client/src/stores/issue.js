@@ -75,7 +75,6 @@ const issueReducer = (state, action) => {
       };
 
     case "ADD_ASSIGNEE":
-      console.log(state.newIssue.assigneeIdList);
       if (state.newIssue.assigneeIdList.includes(action.data)) {
         return {
           ...state,
