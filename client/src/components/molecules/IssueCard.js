@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
-import A from "./../atoms/index";
+import A from "../atoms/index";
 
-const StyledIssueData = styled.div`
+const StyledIssueCard = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -78,7 +78,7 @@ const calculateTime = (timeString) => {
   return `${Math.floor(timeDifference / 216000)} days ago`;
 };
 
-const IssueData = ({
+const IssueCard = ({
   issue,
   selected,
   setSelected,
@@ -126,7 +126,7 @@ const IssueData = ({
     }, [totalSelected])
 
   return (
-    <StyledIssueData>
+    <StyledIssueCard>
       <StyledCheckbox>
         <A.Checkbox checked={isChecked} onClick={handleCheckbox} />
       </StyledCheckbox>
@@ -195,8 +195,8 @@ const IssueData = ({
           </A.Text>
         </StyledComment>
       </StyledTrivial>
-    </StyledIssueData>
+    </StyledIssueCard>
   );
 };
 
-export default IssueData;
+export default IssueCard;
