@@ -87,6 +87,16 @@ extension LabelEditingView: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         labelEditingDelegate?.editingDidChanged(self, isEditing: false)
     }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        guard textField == colorTextField else { return true }
+        guard let text = textField.text,
+              let changedRange = Range(range, in: text) else { return false }
+        let count = text.count - (text[changedRange].count + string.count)
+        return count <= 7
+    }
 }
 
 private extension LabelEditingView {
