@@ -12,6 +12,7 @@ const IssuesPageWrapper = styled.div`
   align-items: center;
   margin: 3rem auto;
   width: 70%;
+  min-width: 50rem;
   height: auto;
 `;
 
