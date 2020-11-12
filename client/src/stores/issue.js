@@ -157,7 +157,20 @@ const issueReducer = (state, action) => {
       } catch (error) {
         console.log(error);
       }
-      return state;
+
+    case "EDIT_ISSUE":
+      try {
+        const editIssue = async () => {
+          await myAxios.put(`/issues/${action.data.id}`, {
+            title: action.data.title,
+            status: action.data.status,
+          });
+        };
+        editIssue();
+        return state;
+      } catch (error) {
+        console.log(error);
+      }
 
     default:
       return state;

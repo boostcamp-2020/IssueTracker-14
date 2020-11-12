@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
-import A from "../atoms/index";
+import A from "./../atoms/index";
+import calculateTime from "../../utils/calculateTime";
 
 const StyledIssueCard = styled.div`
   position: relative;
@@ -64,28 +65,6 @@ const StyledTextWithLabel = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-
-const calculateTime = (timeString) => {
-  const now = new Date();
-  const timeObject = new Date(timeString);
-  const timeDifference = (now - timeObject) / 1000;
-  if (timeDifference < 60) {
-    return `${timeDifference} seconds ago`;
-  }
-  if (timeDifference < 3600) {
-    return `${Math.floor(timeDifference / 60)} minutes ago`;
-  }
-  if (timeDifference < 216000) {
-    return `${Math.floor(timeDifference / 3600)} hours ago`;
-  }
-  const todayDate = now.getDate();
-  const timeDate = timeObject.getDate();
-  const dateDifference = todayDate - timeDate;
-  if (timeDifference > 216000 && dateDifference === 1) {
-    return "yesterday";
-  }
-  return `${Math.floor(timeDifference / 216000)} days ago`;
-};
 
 const IssueCard = ({
   issue,
@@ -151,25 +130,24 @@ const IssueCard = ({
         <StyledTextWithLabel>
           <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
             <Link
-              to={`issue/${issue.id}`}
+              to={{ pathname: `issue/${issue.id}`, state: { issue } }}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               {issue.title}
             </Link>
+            {issue["label_has_issues"].map((el, idx) => {
+              return (
+                <A.Label
+                  key={idx}
+                  backgroundHexaColor={el.label?.color}
+                  margin={"0rem 0rem 0rem 0.3rem"}
+                >
+                  {el.label?.title}
+                </A.Label>
+              );
+            })}
           </A.Text>
-          {issue["label_has_issues"].map((el, idx) => {
-            return (
-              <A.Label
-                key={idx}
-                backgroundHexaColor={el.label?.color}
-                margin={"0rem 0rem 0rem 0.3rem"}
-              >
-                {el.label?.title}
-              </A.Label>
-            );
-          })}
         </StyledTextWithLabel>
-
         <A.Text fontSize={"0.75rem"}>
           #{issue.id} opened {calculateTime(issue.createdAt)} by{" "}
           {issue.user.nickname}

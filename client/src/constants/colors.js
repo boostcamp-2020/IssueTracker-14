@@ -14,6 +14,7 @@ const colors = {
   black: "#000000",
   lightGrey: "#e3e3e4",
   ivory: "#f3f4f6",
+  sky: "#f1f8ff",
 };
 
 export default colors;
