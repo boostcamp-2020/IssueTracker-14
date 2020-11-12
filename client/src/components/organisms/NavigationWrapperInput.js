@@ -61,7 +61,10 @@ const NavigationWrapperInput = () => {
   };
 
   const onKeyDownHandler = (event) => {
-    if (event.which === 13) {
+    if (event.which === 13 && inputValue.length !== 0) {
+      queryDispatch({ type: "CHANGE_VALUE", data: queryParser(inputValue) });
+    }
+    if (event.which === 13 && inputValue.length !== 0) {
       queryDispatch({ type: "CHANGE_VALUE", data: queryParser(inputValue) });
     }
   };
@@ -128,6 +131,7 @@ const NavigationWrapperInput = () => {
         value={inputValue}
         onChange={onChangeHandler}
         onKeyDown={onKeyDownHandler}
+        placeholder={"Search all issues"}
       />
     </StyledNavigationWrapperInput>
   );

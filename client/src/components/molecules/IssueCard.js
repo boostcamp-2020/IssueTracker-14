@@ -11,8 +11,8 @@ const StyledIssueCard = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  border-top: 1px solid #d1d5da;
   width: 100%;
+  border-top: 1px solid #d1d5da;
   &:hover {
     background-color: #e3e3e4;
   }

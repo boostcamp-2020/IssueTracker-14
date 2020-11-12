@@ -19,6 +19,7 @@ const StyledLabelModal = styled.div`
   border-top: ${({ editMode }) => editMode ? `1px solid ${colors["lightGrey"]}` : "none"};
   background-color: ${({ editMode }) => editMode ? colors["white"] : colors["lightGrey"]};
   border-radius: 0.25rem;
+  margin-top: 2rem;
   min-width: 50rem;
   width: 100%;
 `;
@@ -69,47 +70,80 @@ const StyledLabelInputButtons = styled.div`
   margin-right: 2rem;
 `;
 
+const LabelModal = ({
+  editMode,
+  labelId,
+  turnOffEditMode,
+  toggleCreateMode,
+  givenTitle,
+  givenDescription,
+  givenColor,
+  deleteLabel,
+}) => {
+  const labelDispatch = useLabelDispatch();
 
-const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, givenTitle, givenDescription, givenColor, deleteLabel  }) => {
-    const labelDispatch = useLabelDispatch();
+  const [inputName, setInputName] = useState(editMode ? givenTitle : "");
+  const [labelName, setLabelName] = useState(
+    editMode ? givenTitle : "Label preview"
+  );
+  const [inputDescription, setInputDescription] = useState(
+    editMode ? givenDescription : ""
+  );
+  const [labelDescription, setLabelDescription] = useState(
+    editMode ? givenDescription : "Description (optional)"
+  );
 
-    const [inputName, setInputName] = useState(editMode ? givenTitle : "");
-    const [labelName, setLabelName] = useState(editMode ? givenTitle : "Label preview");
-    const [inputDescription, setInputDescription] = useState(editMode ? givenDescription : "");
-    const [labelDescription, setLabelDescription] = useState(editMode ? givenDescription : "Description (optional)");
+  const initColor = makeRandomColor();
 
-    const initColor = makeRandomColor();
-    
-    const [inputColor, setInputColor] = useState(editMode ? givenColor : initColor);
-    const [labelColor, setLabelColor] = useState(editMode ? givenColor : initColor);
+  const [inputColor, setInputColor] = useState(
+    editMode ? givenColor : initColor
+  );
+  const [labelColor, setLabelColor] = useState(
+    editMode ? givenColor : initColor
+  );
 
-    const handleName = e => {
-        setInputName(e.target.value);
-        setLabelName(e.target.value);
-        if (e.target.value==="") {
-        setLabelName("Label preview");
-        };
+  const handleName = (e) => {
+    setInputName(e.target.value);
+    setLabelName(e.target.value);
+    if (e.target.value === "") {
+      setLabelName("Label preview");
     }
+  };
 
-    const handleDescription = e => {
-      setInputDescription(e.target.value);
-      setLabelDescription(e.target.value);
-      if (e.target.value==="") {
+  const handleDescription = (e) => {
+    setInputDescription(e.target.value);
+    setLabelDescription(e.target.value);
+    if (e.target.value === "") {
       setLabelName("Description (optional)");
+    }
+  };
+
+  const handleRandomColor = () => {
+    const randomColor = makeRandomColor();
+    setLabelColor(randomColor);
+    setInputColor(randomColor);
+  };
+
+  const handleLabelColor = (e) => {
+    setLabelColor(e.target.value);
+    setInputColor(e.target.value);
+    if (e.target.value === "") setInputColor("#");
+  };
+
+  const createLabel = async () => {
+    if (inputName !== "" && inputColor !== "#") {
+      const body = {
+        title: inputName,
+        description: inputDescription,
+        color: inputColor,
       };
-    }
+      try {
+        await labelDispatch({
+          type: "CREATE_NEW_LABEL",
+          body,
+        });
+        await fetchTargetData("label", labelDispatch);
 
-    const handleRandomColor = () => {
-      const randomColor = makeRandomColor();
-      setLabelColor(randomColor);
-      setInputColor(randomColor);
-    }
-
-    const handleLabelColor = e => {
-        setLabelColor(e.target.value);
-        setInputColor(e.target.value);
-        if (e.target.value==="") setInputColor("#");
-    }
 
     const createLabel = async () => {
       if (inputName!==""&&inputColor!=="#"){
@@ -136,47 +170,87 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, give
           console.log(err);
         }
       }
+    } else {
+      alert("제대로 된 값을 입력해주세요.");
     }
+  };
 
-    const updateLabel = async () => {
-      if (inputName!==""&&inputColor!=="#"){
-        const body = {
-          title: inputName,
-          description: inputDescription,
-          color: inputColor
-        }
-        try {
-          await labelDispatch({
-            type: "UPDATE_LABEL",
-            labelId,
-            body
-          });
-          await fetchTargetData("label", labelDispatch);
-          turnOffEditMode();
-        } catch (err) {
-          console.log(err);
-        }
-      } else {
-        alert("제대로 된 값을 입력해주세요.")
+  const updateLabel = async () => {
+    if (inputName !== "" && inputColor !== "#") {
+      const body = {
+        title: inputName,
+        description: inputDescription,
+        color: inputColor,
+      };
+      try {
+        await labelDispatch({
+          type: "UPDATE_LABEL",
+          labelId,
+          body,
+        });
+        await fetchTargetData("label", labelDispatch);
+        turnOffEditMode();
+      } catch (err) {
+        console.log(err);
       }
+    } else {
+      alert("제대로 된 값을 입력해주세요.");
     }
+  };
 
-    return (
+  return (
     <StyledLabelModal editMode={editMode}>
       <StyledLabelPreview>
         <A.Label backgroundHexaColor={labelColor} cursor={"default"}>
-            {labelName}
+          {labelName}
         </A.Label>
-        {editMode ? <A.Text fontSize={"0.75rem"} onClick={deleteLabel}>Delete</A.Text> : ""}
+        {editMode ? (
+          <A.Text fontSize={"0.75rem"} onClick={deleteLabel}>
+            Delete
+          </A.Text>
+        ) : (
+          ""
+        )}
       </StyledLabelPreview>
       <StyledLabelInput>
-        <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />
-        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0.5rem"} inputMargin={"0.2rem"} value={inputDescription} onChange={handleDescription} />
+        <M.FormDiv
+          label={"Label name"}
+          placeholder={"Label name"}
+          bgColor={"white"}
+          margin={"0.5rem 0.5rem 0.5rem 0rem"}
+          inputMargin={"0.2rem"}
+          value={inputName}
+          onChange={handleName}
+        />
+        <M.FormDiv
+          label={"Description"}
+          placeholder={"Description (optional)"}
+          bgColor={"white"}
+          margin={"0.5rem 0.5rem 0.5rem 0.5rem"}
+          inputMargin={"0.2rem"}
+          value={inputDescription}
+          onChange={handleDescription}
+        />
         <StyledFormDiv>
           <A.InputLabel label={"Color"} />
           <StyledColor>
-            <A.Button width={"2.25rem"} height={"2.25rem"} margin={"0rem 0rem 0rem 0.5rem"} backgroundColor={labelColor} onClick={handleRandomColor} hexa={true}>
-              <A.Text color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
+            <A.Button
+              width={"2.25rem"}
+              height={"2.25rem"}
+              margin={"0rem 0rem 0rem 0.5rem"}
+              backgroundColor={labelColor}
+              onClick={handleRandomColor}
+              hexa={true}
+            >
+              <A.Text
+                color={
+                  decideFontColorFromHexa(labelColor) === "#000000"
+                    ? "black"
+                    : "white"
+                }
+                cursor={"default"}
+                hover={false}
+              >
                 <A.Icon name="refresh" />
               </A.Text>
             </A.Button>
@@ -199,7 +273,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, give
         </StyledLabelInputButtons>
       </StyledLabelInput>
     </StyledLabelModal>
-    )
-}
+  );
+};
 
 export default LabelModal;

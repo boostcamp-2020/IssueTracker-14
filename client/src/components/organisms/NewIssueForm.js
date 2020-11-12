@@ -80,7 +80,6 @@ const NewIssueForm = () => {
     return { __html };
   };
 
-  // TODO: post 400 에러 해결
   const onSubmitNewIssue = () => {
     issueDispatch({ type: "CREATE_NEW_ISSUE" });
   };
@@ -102,7 +101,7 @@ const NewIssueForm = () => {
         bgColor={"middleWhite"}
         rounded={true}
         height={"auto"}
-        width={"100%"}
+        width={"80%"}
         onChange={onChangeTitle}
       />
       <M.Tabs tabList={["Write", "Priview"]} onClick={onClickTab} />

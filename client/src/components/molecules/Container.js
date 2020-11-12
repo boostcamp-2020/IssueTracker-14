@@ -40,7 +40,6 @@ const StyledContentWrapper = styled.div`
   justify-content: center;
   align-items: ${({ empty }) => (empty ? "center" : "start")};
 `;
-// TODO: Empty일 경우 처리
 
 const Container = ({ menu, content, empty }) => (
   <StyledContainer>

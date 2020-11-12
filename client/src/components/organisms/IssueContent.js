@@ -12,6 +12,15 @@ const StyledIssueContent = styled.div`
   width: 100%;
 `;
 
+const StyledIssueContentEmpty = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 20rem;
+`;
+
 const IssueContent = ({
   issues,
   selected,
@@ -21,16 +30,26 @@ const IssueContent = ({
 }) => {
   return (
     <StyledIssueContent>
-      {issues.map((issue) => (
-        <M.IssueCard
-          key={issue.id}
-          issue={issue}
-          selected={selected}
-          setSelected={setSelected}
-          totalSelected={totalSelected}
-          setTotalSelected={setTotalSelected}
-        />
-      ))}
+      {issues.length !== 0 ? (
+        issues.map((issue) => (
+          <M.IssueCard
+            key={issue.id}
+            issue={issue}
+            selected={selected}
+            setSelected={setSelected}
+            totalSelected={totalSelected}
+            setTotalSelected={setTotalSelected}
+          />
+        ))
+      ) : (
+        <StyledIssueContentEmpty>
+          <A.Text fontSize={"2rem"} color={"darkGrey"}>
+            <A.Icon name={"alert"} color={"darkGrey"}></A.Icon>
+          </A.Text>
+          <A.Text></A.Text>
+          <A.Text fontSize={"2rem"}>No results matched your search.</A.Text>
+        </StyledIssueContentEmpty>
+      )}
     </StyledIssueContent>
   );
 };

@@ -61,7 +61,6 @@ const milestoneReducer = (state, action) => {
       };
 
     case "CREATE_NEW_MILESTONE":
-      console.log(state.newMilestone);
       try {
         const createMilestone = async () => {
           const {
@@ -125,9 +124,29 @@ const milestoneReducer = (state, action) => {
       };
     }
 
-    case "CLOSED_MILESTONE": {
+    case "DELETE_MILESTONE": {
       try {
         const deleteMilestone = async () => {
+          const {
+            data: { message },
+          } = await myAxios.delete(`/milestone/${action.data}`);
+          if (message === "success") {
+            alert("정상적으로 Milestone이 삭제했습니다.");
+          }
+        };
+        deleteMilestone();
+      } catch (error) {
+        alert("에러발생");
+        console.log(error);
+      }
+      return {
+        ...state,
+      };
+    }
+
+    case "CLOSED_MILESTONE": {
+      try {
+        const updateMilestoneClosed = async () => {
           const {
             data: { message },
           } = await myAxios.put(`/milestone/${action.data}`, {
@@ -137,7 +156,7 @@ const milestoneReducer = (state, action) => {
             alert("정상적으로 Milestone이 Close했습니다.");
           }
         };
-        deleteMilestone();
+        updateMilestoneClosed();
       } catch (error) {
         alert("에러발생");
         console.log(error);
