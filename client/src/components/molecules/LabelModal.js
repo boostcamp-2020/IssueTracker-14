@@ -166,9 +166,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, give
     <StyledLabelModal editMode={editMode}>
       <StyledLabelPreview>
         <A.Label backgroundHexaColor={labelColor} cursor={"default"}>
-          <A.Text fontSize={"0.5rem"} color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
             {labelName}
-          </A.Text>
         </A.Label>
         {editMode ? <A.Text fontSize={"0.75rem"} onClick={deleteLabel}>Delete</A.Text> : ""}
       </StyledLabelPreview>

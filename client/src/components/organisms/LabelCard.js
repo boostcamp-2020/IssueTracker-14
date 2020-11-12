@@ -78,9 +78,7 @@ const LabelCard = ({ label }) => {
         <StyledLabelCard>
           <StyledLabelIcon>
             <A.Label backgroundHexaColor={label.color}>
-              <A.Text fontSize={"0.5rem"} color={decideFontColorFromHexa(label.color)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
-                {label.title}
-              </A.Text>
+              {label.title}
             </A.Label>
           </StyledLabelIcon>
           <StyledDescription>
