@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLabelState } from "../../stores/issue";
+import { useLabelDispatch } from "../../stores/label";
+import fetchTargetData from "../../utils/fetchData";
 import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
 import styled from "styled-components";
 import A from "./../atoms/index";
@@ -41,11 +42,10 @@ const StyledButtons = styled.div`
   width: 11rem;
 `;
 
-const StyledEditor = styled.div`
-  
-`
-
 const LabelCard = ({ label }) => {
+
+  const labelDispatch = useLabelDispatch();
+
   const [editMode, setEditMode] = useState(false);
 
   const turnOnEditMode = () => {
@@ -56,10 +56,22 @@ const LabelCard = ({ label }) => {
     setEditMode(false);
   }
 
+  const deleteLabel = async () => {
+    try {
+      await labelDispatch({
+        type: "DELETE_LABEL",
+        labelId: label.id,
+      });
+      await fetchTargetData("label", labelDispatch);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       {editMode ?
-      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} labelId={label.id} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
+      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} deleteLabel={deleteLabel} labelId={label.id} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
       :
       <StyledWrapper>
         <StyledLabelCard>
@@ -73,7 +85,7 @@ const LabelCard = ({ label }) => {
           <StyledDescription>
             <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>{label.description}</A.Text>
           </StyledDescription>
-          <StyledButtons><A.Button onClick={turnOnEditMode}>Edit</A.Button><A.Button>Delete</A.Button></StyledButtons>
+          <StyledButtons><A.Button onClick={turnOnEditMode}>Edit</A.Button><A.Button onClick={deleteLabel}>Delete</A.Button></StyledButtons>
         </StyledLabelCard>
       </StyledWrapper>}
     </>

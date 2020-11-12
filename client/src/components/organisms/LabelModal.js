@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import fetchTargetData from "../../utils/fetchData";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
@@ -26,10 +28,9 @@ const StyledLabelPreview = styled.div`
   box-sizing: border-box;
   padding: 0rem 2rem;
   position: relative;
-  justify-content: start;
+  justify-content: space-between;
   width: 100%;
 `;
-
 
 const StyledLabelInput = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const StyledLabelInputButtons = styled.div`
 `;
 
 
-const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescription, givenColor  }) => {
+const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescription, givenColor, deleteLabel  }) => {
     const labelDispatch = useLabelDispatch();
 
     const [inputName, setInputName] = useState(editMode ? givenTitle : "");
@@ -109,7 +110,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
         if (e.target.value==="") setInputColor("#");
     }
 
-    const createLabel = () => {
+    const createLabel = async () => {
       if (inputName!==""&&inputColor!=="#"){
         const body = {
           title: inputName,
@@ -117,10 +118,11 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
           color: inputColor
         }
         try {
-          labelDispatch({
+          await labelDispatch({
             type: "CREATE_NEW_LABEL",
             body
           })
+          await fetchTargetData("label", labelDispatch);
         } catch (err) {
           console.log(err);
         }
@@ -129,7 +131,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
       }
     }
 
-    const updateLabel = () => {
+    const updateLabel = async () => {
       if (inputName!==""&&inputColor!=="#"){
         const body = {
           title: inputName,
@@ -137,11 +139,12 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
           color: inputColor
         }
         try {
-          labelDispatch({
+          await labelDispatch({
             type: "UPDATE_LABEL",
             labelId,
             body
-          })
+          });
+          await fetchTargetData("label", labelDispatch);
         } catch (err) {
           console.log(err);
         }
@@ -158,6 +161,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
             {labelName}
           </A.Text>
         </A.Label>
+        {editMode ? <A.Text fontSize={"0.75rem"} onClick={deleteLabel}>Delete</A.Text> : ""}
       </StyledLabelPreview>
       <StyledLabelInput>
         <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />

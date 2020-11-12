@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { useLabelState, useLabelDispatch } from "../../stores/label";
 import fetchTargetData from "../../utils/fetchData";
 import styled from "styled-components";
-import Header from "../../components/organisms/Header";
 import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
@@ -37,8 +36,6 @@ const StyledLabelContentWrapper = styled.div`
 `;
 
 const LabelsPage = () => {
-  const history = useHistory();
-
   const labelState = useLabelState();
   const labelDispatch = useLabelDispatch();
   

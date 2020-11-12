@@ -1,4 +1,5 @@
 import React from "react";
+import { useLabelDispatch } from "../../stores/label";
 import styled from "styled-components";
 import A from "./../atoms/index";
 

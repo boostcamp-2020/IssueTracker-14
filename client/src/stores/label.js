@@ -56,11 +56,11 @@ const LabelReducer = (state, action) => {
             return;
           }
         };
-        return createLabel();
+        createLabel();
       } catch (error) {
         console.log(error);
       }
-      return;
+      return state;
 
     case "UPDATE_LABEL":
       try {
@@ -73,11 +73,28 @@ const LabelReducer = (state, action) => {
             return;
           }
         };
-        return updateLabel();
+        updateLabel();
       } catch (error) {
         console.log(error);
       }
-      return;
+      return state;
+      
+    case "DELETE_LABEL":
+      try {
+        const deleteLabel = async () => {
+          const {
+            data: { message },
+          } = await myAxios.delete(`/label/${action.labelId}`);
+          if (message === "success") {
+            alert("정상적으로 Label이 삭제되었습니다.");
+            return;
+          }
+        };
+        deleteLabel();
+      } catch (error) {
+        console.log(error);
+      }
+      return state;
   
     default:
       return state;

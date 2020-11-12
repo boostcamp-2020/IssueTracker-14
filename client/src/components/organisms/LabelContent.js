@@ -12,10 +12,7 @@ const StyledLabelContent = styled.div`
   width: 100%;
 `;
 
-const LabelContent = ({
-  labels
-}) => {
-
+const LabelContent = ({ labels }) => {
   return (
     <StyledLabelContent>
       {labels.map((label) => (
