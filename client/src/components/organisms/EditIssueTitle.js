@@ -86,7 +86,7 @@ const EditIssueTitle = ({ id, title, status }) => {
       ) : (
         <StyledTitleWrapper>
           <A.Text hover={false} fontSize={"2rem"}>
-            {defaultTitle}#{id}
+            {defaultTitle} <span style={{ color: "grey" }}>#{id}</span>
           </A.Text>
           <A.Button
             backgroundColor={"middleWhite"}
