@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: KeyboardObservableViewController {
     
     static var identifier: String {
         return String(describing: Self.self)
@@ -50,6 +50,27 @@ final class SignUpViewController: UIViewController {
     }
 }
 
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailInputView.textField:
+            emailInputView.textField.resignFirstResponder()
+            passwordInputView.textField.becomeFirstResponder()
+        case passwordInputView.textField:
+            passwordInputView.textField.resignFirstResponder()
+            passwordConfirmInputView.textField.becomeFirstResponder()
+        case passwordConfirmInputView.textField:
+            passwordConfirmInputView.textField.resignFirstResponder()
+            nameInputView.textField.becomeFirstResponder()
+        case nameInputView.textField:
+            nameInputView.textField.resignFirstResponder()
+        default:
+            break
+        }
+        return true
+    }
+}
+
 extension SignUpViewController: InputViewDelegate {
     func textDidChanged(_ inputView: InputView, text: String) {
         switch inputView {
@@ -66,6 +87,14 @@ extension SignUpViewController: InputViewDelegate {
             break
         }
         completeButton.isEnabled = patternChecker.isComplete
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeView = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeView = nil
     }
 }
 

@@ -15,7 +15,11 @@ final class InputView: UIView {
     
     private let label: UILabel = UILabel()
     let textField: UITextField = UITextField()
-    weak var delegate: InputViewDelegate?
+    weak var delegate: InputViewDelegate? {
+        didSet {
+            textField.delegate = delegate as? UITextFieldDelegate
+        }
+    }
 
     @IBInspectable var title: String? {
         get { label.text }

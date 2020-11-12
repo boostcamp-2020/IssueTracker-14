@@ -80,6 +80,10 @@ extension LabelEditViewController: LabelEditingViewDelegate {
         guard let color = RandomHexColorGenerator.generate(exceptFor: label.color) else { return }
         label.color = color
     }
+    
+    func editingDidChanged(_ labelEditingView: LabelEditingView, isEditing: Bool) {
+        activeView = isEditing ? editingView : nil
+    }
 }
 
 private extension LabelEditViewController {

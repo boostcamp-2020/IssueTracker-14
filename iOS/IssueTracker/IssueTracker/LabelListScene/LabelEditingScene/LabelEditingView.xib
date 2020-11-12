@@ -95,7 +95,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-E4-FWe">
                             <rect key="frame" x="0.0" y="150.5" width="300" height="59.5"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-gX-8Va">
+                                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alignment="bottom" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-gX-8Va">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="50.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="색상" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8o-Ko-vmM">
@@ -108,7 +108,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s22-UE-QbD">
-                                            <rect key="frame" x="62" y="28.5" width="99" height="22"/>
+                                            <rect key="frame" x="58" y="28.5" width="105" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -116,10 +116,10 @@
                                             </connections>
                                         </textField>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iW-uv-Ewr" customClass="ShadowView" customModule="IssueTracker" customModuleProvider="target">
-                                            <rect key="frame" x="177" y="20.5" width="74" height="30"/>
+                                            <rect key="frame" x="175" y="20.5" width="80" height="30"/>
                                             <color key="backgroundColor" systemColor="systemTealColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="74" id="HmS-8q-QQf"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="500" constant="74" id="HmS-8q-QQf"/>
                                                 <constraint firstAttribute="height" constant="30" id="WT3-Oe-qNU"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -167,6 +167,7 @@
             <constraints>
                 <constraint firstItem="Kpz-AW-IOy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FXC-sc-pK7"/>
                 <constraint firstAttribute="bottom" secondItem="Kpz-AW-IOy" secondAttribute="bottom" id="S09-rK-USQ"/>
+                <constraint firstItem="s22-UE-QbD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.35" id="aYJ-Td-xlg"/>
                 <constraint firstAttribute="trailing" secondItem="Kpz-AW-IOy" secondAttribute="trailing" id="roq-OC-A8Q"/>
                 <constraint firstItem="Kpz-AW-IOy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xuv-AA-Y0p"/>
             </constraints>

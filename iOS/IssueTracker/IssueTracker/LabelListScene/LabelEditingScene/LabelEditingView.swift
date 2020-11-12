@@ -12,6 +12,7 @@ protocol LabelEditingViewDelegate: class {
     func descriptionChanged(_ labelEditingView: LabelEditingView, value: String)
     func colorChanged(_ labelEditingView: LabelEditingView, value: String)
     func colorGenerated(_ labelEditingView: LabelEditingView)
+    func editingDidChanged(_ labelEditingView: LabelEditingView, isEditing: Bool)
 }
 
 final class LabelEditingView: EditingView, XibLoadable {
@@ -49,6 +50,22 @@ extension LabelEditingView {
 }
 
 extension LabelEditingView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case titleTextField:
+            titleTextField.resignFirstResponder()
+            descriptionTextField.becomeFirstResponder()
+        case descriptionTextField:
+            descriptionTextField.resignFirstResponder()
+            colorTextField.becomeFirstResponder()
+        case colorTextField:
+            colorTextField.resignFirstResponder()
+        default:
+            break
+        }
+        return true
+    }
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let value = textField.text else { return }
         switch textField {
@@ -61,6 +78,24 @@ extension LabelEditingView: UITextFieldDelegate {
         default:
             break
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        labelEditingDelegate?.editingDidChanged(self, isEditing: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        labelEditingDelegate?.editingDidChanged(self, isEditing: false)
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        guard textField == colorTextField else { return true }
+        guard let text = textField.text,
+              let changedRange = Range(range, in: text) else { return false }
+        let count = text.count - (text[changedRange].count + string.count)
+        return count <= 7
     }
 }
 
