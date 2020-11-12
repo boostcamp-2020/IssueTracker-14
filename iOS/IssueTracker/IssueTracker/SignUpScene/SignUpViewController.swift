@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: KeyboardObservableViewController {
     
     static var identifier: String {
         return String(describing: Self.self)
@@ -19,7 +19,6 @@ final class SignUpViewController: UIViewController {
     @IBOutlet private weak var completeButton: UIButton!
     private let patternChecker: PatternChecker = PatternChecker()
     private let signUpUseCase: SignUpUseCase
-    private var activeTextField: UITextField?
     weak var coordinator: LoginCoordinator?
     
     init?(coder: NSCoder, useCase: SignUpUseCase) {
@@ -34,7 +33,6 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureInputViews()
-        configureObservers()
     }
     
     @IBAction private func completeButtonTouchUp(_ sender: UIButton) {
@@ -92,11 +90,11 @@ extension SignUpViewController: InputViewDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        activeTextField = textField
+        activeView = textField
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        activeTextField = nil
+        activeView = nil
     }
 }
 
@@ -106,41 +104,5 @@ private extension SignUpViewController {
         passwordInputView.delegate = self
         passwordConfirmInputView.delegate = self
         nameInputView.delegate = self
-    }
-}
-
-private extension SignUpViewController {
-    func configureObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillHide),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-    
-    @objc func keyboardWillShow(_ notification: NSNotification) {
-        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-              let textField = activeTextField else { return }
-        let keyboardHeight = keyboardFrame.cgRectValue.height
-        let textFieldOrigin = textField.frame.origin
-        let textFieldHeight = textField.convert(textFieldOrigin, to: nil).y + textField.frame.height
-        let displayAreaHeight = view.frame.height - keyboardHeight
-        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
-            self?.view.transform = textFieldHeight > displayAreaHeight ?
-                CGAffineTransform(translationX: 0, y: -(textFieldHeight - displayAreaHeight)) : .identity
-        }.startAnimation()
-    }
-    
-    @objc func keyboardWillHide() {
-        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
-            self?.view.transform = .identity
-        }.startAnimation()
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DimmedViewController: UIViewController {
+class DimmedViewController: KeyboardObservableViewController {
     
     private let backgroundView: UIView = UIView()
     
@@ -20,6 +20,19 @@ class DimmedViewController: UIViewController {
         super.viewDidAppear(animated)
         UIViewPropertyAnimator(duration: 0.25, curve: .linear) { [weak self] in
             self?.backgroundView.alpha = 0.3
+        }.startAnimation()
+    }
+    
+    override func keyboardWillShow(_ notification: NSNotification) {
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let activeView = activeView else { return }
+        let keyboardHeight = keyboardFrame.cgRectValue.height
+        let activeViewOrigin = activeView.frame.origin
+        let activeViewHeight = activeViewOrigin.y + activeView.frame.height
+        let displayAreaHeight = view.frame.height - keyboardHeight
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
+            self?.view.transform = activeViewHeight > displayAreaHeight ?
+                CGAffineTransform(translationX: 0, y: -(activeViewHeight - displayAreaHeight)) : .identity
         }.startAnimation()
     }
 }

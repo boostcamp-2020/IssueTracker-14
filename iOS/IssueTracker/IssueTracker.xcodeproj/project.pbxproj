@@ -28,6 +28,7 @@
 		448F3DA2255C0875006397F3 /* LabelEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F3DA1255C0875006397F3 /* LabelEditingView.swift */; };
 		449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CE3282559332100A56AEB /* IssueCreateViewController.swift */; };
 		44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCDE02558D95F0023457B /* UseCaseError.swift */; };
+		44D51A55255D4BF200780FD4 /* KeyboardObservableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D51A54255D4BF200780FD4 /* KeyboardObservableViewController.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
@@ -129,6 +130,7 @@
 		448F3DA1255C0875006397F3 /* LabelEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelEditingView.swift; sourceTree = "<group>"; };
 		449CE3282559332100A56AEB /* IssueCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCreateViewController.swift; sourceTree = "<group>"; };
 		44ABCDE02558D95F0023457B /* UseCaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseError.swift; sourceTree = "<group>"; };
+		44D51A54255D4BF200780FD4 /* KeyboardObservableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservableViewController.swift; sourceTree = "<group>"; };
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		44E910A5254ACF2A000949A1 /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				448F3D8D255BFE1A006397F3 /* XibLoadable.swift */,
 				44791037255A70CB004366B2 /* DimmedViewController.swift */,
 				4479103B255A7522004366B2 /* EditingView.swift */,
+				44D51A54255D4BF200780FD4 /* KeyboardObservableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				B95A6C74254ACE9E00D9EC66 /* String+isEmailPattern.swift in Sources */,
 				B9013EBE2554227700B98C10 /* IssueDetailPullUpViewController.swift in Sources */,
 				4403B40D25494B5400503E17 /* InputView.swift in Sources */,
+				44D51A55255D4BF200780FD4 /* KeyboardObservableViewController.swift in Sources */,
 				44791038255A70CB004366B2 /* DimmedViewController.swift in Sources */,
 				444C9A3F255C6CAA0098C437 /* LabelUseCaseType.swift in Sources */,
 				442B3DAA255265B800069D18 /* PaddingLabel.swift in Sources */,
