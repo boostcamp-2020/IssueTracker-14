@@ -34,7 +34,9 @@ const StyledLabelModal = styled.div`
 
 const StyledLabelPreview = styled.div`
   display: flex;
-  margin: 1rem 0rem 0.5rem 2.5rem;
+  margin: 1.5rem 0rem;
+  box-sizing: border-box;
+  padding: 0rem 2rem;
   position: relative;
   justify-content: start;
   width: 100%;
@@ -44,6 +46,8 @@ const StyledLabelInput = styled.div`
   display: flex;
   position: relative;
   justify-content: space-between;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
   width: 100%;
 `;
 
@@ -54,7 +58,6 @@ const StyledFormDiv = styled.div`
   align-items: flex-start;
   height: auto;
   width: 16rem;
-  margin: 0.5rem;
 `;
 
 const StyledColor = styled.div`
@@ -62,7 +65,6 @@ const StyledColor = styled.div`
   justify-content: center;
   align-items: space-between;
   width: 100%;
-  margin: 0.5rem 0;
 `;
 
 const StyledLabelInputButtons = styled.div`
@@ -72,8 +74,7 @@ const StyledLabelInputButtons = styled.div`
   align-items: flex-end;
   width: 12rem;
   margin: 0rem 1rem 1rem 12rem;
-  margin-right: 
-  margin-bottom: 1rem;
+  margin-right: 2rem;
 `;
 
 const makeRandomColor = () => {
@@ -96,16 +97,22 @@ const LabelNavigation = () => {
     if (e.target.value==="") {
       setLabelName("Label preview");
     };
-    
   }
+
   const initColor = makeRandomColor();
-  console.log(initColor);
+  
   const [labelColor, setLabelColor] = useState(initColor);
   const [inputColor, setInputColor] = useState(initColor);
   const handleLabelColor = e => {
     setLabelColor(e.target.value);
     setInputColor(e.target.value);
     if (e.target.value==="") setInputColor("#")
+  }
+
+  const handleRandomColor = () => {
+    const randomColor = makeRandomColor();
+    setLabelColor(randomColor);
+    setInputColor(randomColor);
   }
 
   return (
@@ -131,12 +138,12 @@ const LabelNavigation = () => {
         </A.Label>
       </StyledLabelPreview>
       <StyledLabelInput>
-        <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 1rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />
-        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem"} inputMargin={"0.2rem"} />
+        <M.FormDiv label={"Label name"} placeholder={"Label name"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0rem"} inputMargin={"0.2rem"} value={inputName} onChange={handleName} />
+        <M.FormDiv label={"Description"} placeholder={"Description (optional)"} bgColor={"white"} margin={"0.5rem 0.5rem 0.5rem 0.5rem"} inputMargin={"0.2rem"} />
         <StyledFormDiv>
           <A.InputLabel label={"Color"} />
           <StyledColor>
-            <A.Button width={"2.25rem"} height={"2.25rem"} backgroundColor={labelColor} hexa={true}>
+            <A.Button width={"2.25rem"} height={"2.25rem"} backgroundColor={labelColor} onClick={handleRandomColor} hexa={true}>
               <A.Text color={decideFontColorFromHexa(labelColor)==="#000000" ? "black" : "white"} cursor={"default"} hover={false}>
                 <A.Icon name="refresh" />
               </A.Text>
