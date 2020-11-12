@@ -9,9 +9,6 @@ import UIKit
 
 final class FilterTableViewController: UITableViewController {
     
-    static var identifier: String {
-        return String(describing: Self.self)
-    }
     @IBOutlet private var conditions: [UITableViewCell]!
     @IBOutlet private var detailConditions: [UITableViewCell]!
     private var seletedRowInFirstSection: Int = 0
@@ -64,7 +61,7 @@ private extension FilterTableViewController {
     func configureTableView() {
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.allowsMultipleSelection = true
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
         conditions[0].accessoryType = .checkmark
         conditions.forEach { cell in
             cell.selectionStyle = .none
@@ -73,15 +70,5 @@ private extension FilterTableViewController {
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
         }
-    }
-}
-
-private extension FilterTableViewController {
-    @IBAction func doneButtonDidTouchUp(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
-    
-    @IBAction func cancelButtonDidTouchUp(_ sender: UIButton) {
-        dismiss(animated: true)
     }
 }
