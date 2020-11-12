@@ -10,6 +10,9 @@ import SignUpForm from "./SignUpForm";
 import IssueMenu from "./IssueMenu";
 import IssueContent from "./IssueContent";
 import LabelNavigation from "./LabelNavigation";
+import LabelMenu from "./LabelMenu";
+import LabelModal from "./LabelModal";
+import LabelContent from "./LabelContent";
 
 export default {
   Footer,
@@ -24,4 +27,7 @@ export default {
   IssueMenu,
   IssueContent,
   LabelNavigation,
+  LabelMenu,
+  LabelModal,
+  LabelContent,
 };
