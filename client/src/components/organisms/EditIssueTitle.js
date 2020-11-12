@@ -7,6 +7,7 @@ const StyledTitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.5rem;
 `;
 
 const StyledButtonWrapper = styled.div`

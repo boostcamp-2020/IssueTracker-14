@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
 import A from "./../atoms/index";
+import calculateTime from "../../utils/calculateTime";
 
 const StyledIssueData = styled.div`
   position: relative;
@@ -57,28 +58,6 @@ const StyledAssignee = styled.div`
   align-items: center;
 `;
 
-const calculateTime = (timeString) => {
-  const now = new Date();
-  const timeObject = new Date(timeString);
-  const timeDifference = (now - timeObject) / 1000;
-  if (timeDifference < 60) {
-    return `${timeDifference} seconds ago`;
-  }
-  if (timeDifference < 3600) {
-    return `${Math.floor(timeDifference / 60)} minutes ago`;
-  }
-  if (timeDifference < 216000) {
-    return `${Math.floor(timeDifference / 3600)} hours ago`;
-  }
-  const todayDate = now.getDate();
-  const timeDate = timeObject.getDate();
-  const dateDifference = todayDate - timeDate;
-  if (timeDifference > 216000 && dateDifference === 1) {
-    return "yesterday";
-  }
-  return `${Math.floor(timeDifference / 216000)} days ago`;
-};
-
 const IssueData = ({
   issue,
   selected,
@@ -106,25 +85,27 @@ const IssueData = ({
       return setTotalSelected(false);
     } else {
       setSelected([...selected, issue.id]);
-      if (selected.length===issueState.issues.length) {
+      if (selected.length === issueState.issues.length) {
         return setTotalSelected(true);
-      };
+      }
     }
   };
 
   const issueState = useIssueState();
 
-    useEffect(()=>{
-      if (totalSelected===true) {
-        handleCheckbox(true);
-        setSelected(issueState.issues.map(el => el.id));
-      }
-      if (totalSelected===false && issueState.issues.length===selected.length) {
-        handleCheckbox(false);
-        return setSelected([]);
-      };
-      
-    }, [totalSelected])
+  useEffect(() => {
+    if (totalSelected === true) {
+      handleCheckbox(true);
+      setSelected(issueState.issues.map((el) => el.id));
+    }
+    if (
+      totalSelected === false &&
+      issueState.issues.length === selected.length
+    ) {
+      handleCheckbox(false);
+      return setSelected([]);
+    }
+  }, [totalSelected]);
 
   return (
     <StyledIssueData>
