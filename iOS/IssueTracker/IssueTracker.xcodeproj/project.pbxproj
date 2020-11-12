@@ -29,6 +29,9 @@
 		449CE3292559332100A56AEB /* IssueCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CE3282559332100A56AEB /* IssueCreateViewController.swift */; };
 		44ABCDE12558D95F0023457B /* UseCaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ABCDE02558D95F0023457B /* UseCaseError.swift */; };
 		44D51A55255D4BF200780FD4 /* KeyboardObservableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D51A54255D4BF200780FD4 /* KeyboardObservableViewController.swift */; };
+		44D51A5D255D647B00780FD4 /* LabelListUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D51A5C255D647B00780FD4 /* LabelListUseCaseTests.swift */; };
+		44D51A61255D659E00780FD4 /* Label+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D51A60255D659E00780FD4 /* Label+Encodable.swift */; };
+		44D51A6B255D6E0600780FD4 /* LabelUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D51A6A255D6E0600780FD4 /* LabelUseCaseTests.swift */; };
 		44E910A3254ACEC7000949A1 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */; };
 		44E910A6254ACF2A000949A1 /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A5254ACF2A000949A1 /* SignUpInfo.swift */; };
 		44E910A9254AD1C7000949A1 /* SignUpEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */; };
@@ -136,6 +139,9 @@
 		449CE3282559332100A56AEB /* IssueCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCreateViewController.swift; sourceTree = "<group>"; };
 		44ABCDE02558D95F0023457B /* UseCaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseError.swift; sourceTree = "<group>"; };
 		44D51A54255D4BF200780FD4 /* KeyboardObservableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObservableViewController.swift; sourceTree = "<group>"; };
+		44D51A5C255D647B00780FD4 /* LabelListUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelListUseCaseTests.swift; sourceTree = "<group>"; };
+		44D51A60255D659E00780FD4 /* Label+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Encodable.swift"; sourceTree = "<group>"; };
+		44D51A6A255D6E0600780FD4 /* LabelUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUseCaseTests.swift; sourceTree = "<group>"; };
 		44E910A2254ACEC7000949A1 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		44E910A5254ACF2A000949A1 /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		44E910A8254AD1C7000949A1 /* SignUpEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpEndPoint.swift; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 			children = (
 				B9013E942554057200B98C10 /* Issue+Encodable.swift */,
 				B9013E982554059000B98C10 /* MileStone+Encodable.swift */,
+				44D51A60255D659E00780FD4 /* Label+Encodable.swift */,
 				B9013E9E255405E100B98C10 /* IssueResponse+Encodable.swift */,
 				B9013EA62554061100B98C10 /* LoginResponse+Encodable.swift */,
 				B9013EAA2554062200B98C10 /* UseCaseError+Equtable.swift */,
@@ -377,6 +384,8 @@
 				B9013E5C2554038300B98C10 /* PatternCheckerTests.swift */,
 				B9013E552554035800B98C10 /* LoginUseCaseTests.swift */,
 				B90C76AF25530ABC00134AEE /* IssueListUseCaseTests.swift */,
+				44D51A5C255D647B00780FD4 /* LabelListUseCaseTests.swift */,
+				44D51A6A255D6E0600780FD4 /* LabelUseCaseTests.swift */,
 				B90C76B125530ABC00134AEE /* Info.plist */,
 			);
 			path = IssueTrackerUnitTests;
@@ -664,11 +673,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D51A6B255D6E0600780FD4 /* LabelUseCaseTests.swift in Sources */,
 				B9013E5D2554038300B98C10 /* PatternCheckerTests.swift in Sources */,
+				44D51A5D255D647B00780FD4 /* LabelListUseCaseTests.swift in Sources */,
 				B9013E64255403A600B98C10 /* SignUpUseCaseTests.swift in Sources */,
 				B9013E86255404BA00B98C10 /* MockNetworkService.swift in Sources */,
 				B9013EAB2554062200B98C10 /* UseCaseError+Equtable.swift in Sources */,
 				B90C76B025530ABC00134AEE /* IssueListUseCaseTests.swift in Sources */,
+				44D51A61255D659E00780FD4 /* Label+Encodable.swift in Sources */,
 				B9013EB325540B2100B98C10 /* NetworkServiceError+Equtable.swift in Sources */,
 				B9013E9F255405E100B98C10 /* IssueResponse+Encodable.swift in Sources */,
 				B9013E992554059000B98C10 /* MileStone+Encodable.swift in Sources */,
