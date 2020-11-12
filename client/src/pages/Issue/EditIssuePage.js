@@ -2,34 +2,44 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Header from "../../components/organisms/Header";
 import O from "../../components/organisms/index";
+import A from "../../components/atoms/index";
 import myAxios from "../../utils/myAxios";
+import { useIssueState, useIssueDispatch } from "../../stores/issue";
 
-const EditIssuePageWrapper = styled.div`
+const StyledEditIssuePageWrapper = styled.div`
   position: relative;
   top: 6rem;
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
   padding: 3rem;
+  width: 60vw;
 `;
 
-const EditIssuePage = ({ match }) => {
-  const { issueId } = match.params;
+const StyledEditIssueMain = styled.div`
+  display: flex;
+`;
 
-  const [issue, setIssue] = useState(undefined);
+const EditIssuePage = ({ match, location }) => {
+  const { issueId } = match.params;
+  const { issue } = location.state;
+  console.log(issue);
 
   useEffect(() => {
-    myAxios
-      .get(`/issues/${issueId}`)
-      .then((response) => setIssue(response.data.issue))
-      .catch((err) => alert(err));
+    // myAxios
+    //   .get(`/issues/${issueId}`)
+    //   .then((response) => setIssue(response.data.issue))
+    //   .catch((err) => alert(err));
   }, []);
 
   return (
     <>
       <Header />
-      <EditIssuePageWrapper>
-        <O.EditIssueForm issue={issue} />
-      </EditIssuePageWrapper>
+      <StyledEditIssuePageWrapper>
+        <O.EditIssueHeader issue={issue} />
+        <StyledEditIssueMain>
+          <A.Image imageUrl={issue.user.imageUrl} padding={"0 0.5rem"} />
+          <O.EditIssueForm issue={issue} />
+        </StyledEditIssueMain>
+      </StyledEditIssuePageWrapper>
     </>
   );
 };

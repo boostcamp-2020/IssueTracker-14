@@ -121,7 +121,7 @@ const IssueData = ({
       <StyledImportant>
         <A.Text fontSize={"1.25rem"} fontWeight={"bold"}>
           <Link
-            to={`issue/${issue.id}`}
+            to={{ pathname: `issue/${issue.id}`, state: { issue } }}
             style={{ textDecoration: "none", color: "inherit" }}
           >
             {issue.title}
