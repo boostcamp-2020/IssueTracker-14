@@ -15,9 +15,11 @@ const StyledLabelModal = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  border: ${({ editMode }) => editMode ?  "none" : "1px solid transparent"};
-  border-top: ${({ editMode }) => editMode ? `1px solid ${colors["lightGrey"]}` : "none"};
-  background-color: ${({ editMode }) => editMode ? colors["white"] : colors["lightGrey"]};
+  border: ${({ editMode }) => (editMode ? "none" : "1px solid transparent")};
+  border-top: ${({ editMode }) =>
+    editMode ? `1px solid ${colors["lightGrey"]}` : "none"};
+  background-color: ${({ editMode }) =>
+    editMode ? colors["white"] : colors["lightGrey"]};
   border-radius: 0.25rem;
   margin-top: 2rem;
   min-width: 50rem;
@@ -144,34 +146,15 @@ const LabelModal = ({
         });
         await fetchTargetData("label", labelDispatch);
 
-
-    const createLabel = async () => {
-      if (inputName!==""&&inputColor!=="#"){
-        const body = {
-          title: inputName,
-          description: inputDescription,
-          color: inputColor
-        }
-        try {
-          await labelDispatch({
-            type: "CREATE_NEW_LABEL",
-            body
-          })
-          await fetchTargetData("label", labelDispatch);
-
-          setInputName("");
-          setLabelName("Label preview");
-          setInputDescription("");
-          const randomColor = makeRandomColor();
-          setInputColor(randomColor);
-          setLabelColor(randomColor);
-
-        } catch (err) {
-          console.log(err);
-        }
+        setInputName("");
+        setLabelName("Label preview");
+        setInputDescription("");
+        const randomColor = makeRandomColor();
+        setInputColor(randomColor);
+        setLabelColor(randomColor);
+      } catch (err) {
+        console.log(err);
       }
-    } else {
-      alert("제대로 된 값을 입력해주세요.");
     }
   };
 
@@ -264,12 +247,41 @@ const LabelModal = ({
           </StyledColor>
         </StyledFormDiv>
         <StyledLabelInputButtons>
-          <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={editMode ? turnOffEditMode : toggleCreateMode} >Cancel</A.Button>
-          {editMode ? 
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} disabled={inputName.length===0} >Edit Mode</A.Button>
-          :
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={createLabel} disabled={inputName.length===0} >Create label</A.Button>
-        }
+          <A.Button
+            width={"5rem"}
+            height={"2.25rem"}
+            margin={"0.2rem"}
+            backgroundColor={"ivory"}
+            border={true}
+            onClick={editMode ? turnOffEditMode : toggleCreateMode}
+          >
+            Cancel
+          </A.Button>
+          {editMode ? (
+            <A.Button
+              width={"7rem"}
+              height={"2.25rem"}
+              margin={"0.2rem 0rem 0.2rem 0.2rem"}
+              backgroundColor={"green"}
+              color={"white"}
+              onClick={updateLabel}
+              disabled={inputName.length === 0}
+            >
+              Edit Mode
+            </A.Button>
+          ) : (
+            <A.Button
+              width={"7rem"}
+              height={"2.25rem"}
+              margin={"0.2rem 0rem 0.2rem 0.2rem"}
+              backgroundColor={"green"}
+              color={"white"}
+              onClick={createLabel}
+              disabled={inputName.length === 0}
+            >
+              Create label
+            </A.Button>
+          )}
         </StyledLabelInputButtons>
       </StyledLabelInput>
     </StyledLabelModal>
