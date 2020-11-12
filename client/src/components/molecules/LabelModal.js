@@ -145,6 +145,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
             body
           });
           await fetchTargetData("label", labelDispatch);
+          turnOffEditMode();
         } catch (err) {
           console.log(err);
         }

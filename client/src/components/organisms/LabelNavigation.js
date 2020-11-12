@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import M from "../molecules/index";
 import O from "../organisms/index";
@@ -19,6 +19,11 @@ const StyledLabelButtons = styled.div`
 `;
 
 const LabelNavigation = () => {
+  const [createMode, setCreateMode] = useState(false);
+  const toggleCreateMode = () => {
+    setCreateMode(!createMode);
+  }
+
   return (
   <StyledLabelNavigationWrapper>
     <StyledLabelButtons>
@@ -31,9 +36,10 @@ const LabelNavigation = () => {
               fontSize={"small"}
               hover={false}
               border={true}
+              onClick={toggleCreateMode}
         >New Label</M.ButtonDiv>
     </StyledLabelButtons>
-    <M.LabelModal editMode={false} />
+    {createMode ? "" : <M.LabelModal editMode={false} toggleCreateMode={toggleCreateMode} />}
   </StyledLabelNavigationWrapper>
 )};
 

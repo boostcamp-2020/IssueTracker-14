@@ -13,6 +13,7 @@ const StyledLabelContent = styled.div`
 `;
 
 const LabelContent = ({ labels }) => {
+  
   return (
     <StyledLabelContent>
       {labels.map((label) => (
