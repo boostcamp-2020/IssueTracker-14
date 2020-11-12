@@ -3,6 +3,7 @@ const colors = {
   transparentHover: "transparent",
   white: "#fff",
   middleWhite: "#fafbfc",
+  lightBlue: "#2b89ff",
   whiteHover: "#f6f8fa",
   darkGrey: "#808080",
   grey: "#d1d5da",
