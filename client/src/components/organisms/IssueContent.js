@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import A from "./../atoms/index";
 import M from "./../molecules/index";
-import O from "./../organisms/index";
 
 const StyledIssueContent = styled.div`
   position: relative;
@@ -10,15 +8,6 @@ const StyledIssueContent = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-`;
-
-const StyledIssueContentEmpty = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 20rem;
 `;
 
 const IssueContent = ({
@@ -42,13 +31,7 @@ const IssueContent = ({
           />
         ))
       ) : (
-        <StyledIssueContentEmpty>
-          <A.Text fontSize={"2rem"} color={"darkGrey"}>
-            <A.Icon name={"alert"} color={"darkGrey"}></A.Icon>
-          </A.Text>
-          <A.Text></A.Text>
-          <A.Text fontSize={"2rem"}>No results matched your search.</A.Text>
-        </StyledIssueContentEmpty>
+        <M.ContentEmpty />
       )}
     </StyledIssueContent>
   );

@@ -14,6 +14,7 @@ import Tabs from "./Tabs";
 import Overlay from "./Overlay";
 import DropdownItem from "./DropdownItem";
 import MilestoneCard from "./MilestoneCard";
+import ContentEmpty from "./ContentEmpty";
 
 export default {
   ButtonDiv,
@@ -32,4 +33,5 @@ export default {
   Overlay,
   DropdownItem,
   MilestoneCard,
+  ContentEmpty,
 };
