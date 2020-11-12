@@ -101,6 +101,7 @@ extension LabelEditingView: UITextFieldDelegate {
 
 private extension LabelEditingView {
     func configure() {
+        saveButton.isEnabled = false
         guard let contentView = loadNib() else { return }
         addContentView(contentView)
     }

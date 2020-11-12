@@ -11,6 +11,11 @@ class AnimatableButton: UIButton {
     
     private let animator: UIViewPropertyAnimator = UIViewPropertyAnimator(duration: 0.15, curve: .easeInOut)
     private var isClicked: Bool = false
+    override var isEnabled: Bool {
+        didSet {
+            toggleActivation(isEnabled: isEnabled)
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +33,14 @@ class AnimatableButton: UIButton {
         addTarget(self, action: #selector(animate(_:)), for: .touchUpOutside)
         titleLabel?.minimumScaleFactor = 0.1
         titleLabel?.adjustsFontSizeToFitWidth = true
+    }
+    
+    private func toggleActivation(isEnabled: Bool) {
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut) { [weak self] in
+            self?.backgroundColor = isEnabled ?
+                self?.backgroundColor?.withAlphaComponent(1) :
+                self?.backgroundColor?.withAlphaComponent(0.3)
+        }.startAnimation()
     }
     
     private func scaleUp(_ sender: UIButton) {
