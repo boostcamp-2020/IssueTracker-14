@@ -81,7 +81,7 @@ const App = () => {
                 <LabelProvider>
                   <MilestoneProvider>
                     <QueryProvider>
-                      <Route exact path="/" component={MilestonePage} />
+                      <Route exact path="/" component={IssuesPage} />
                     </QueryProvider>
                     <Route exact path="/labels" component={LabelPage} />
                     <Route exact path="/milestones" component={MilestonePage} />
