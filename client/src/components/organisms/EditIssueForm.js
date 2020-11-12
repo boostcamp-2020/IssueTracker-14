@@ -43,6 +43,11 @@ const EditIssueForm = ({ issue }) => {
   };
 
   const onClickEditButton = () => {
+    if (isEditing && issueState.newIssue.title.length === 0) {
+      alert("제목 길이는 1자 이상이어야 합니다.");
+      return;
+    }
+
     if (isEditing) {
       issueDispatch({
         type: "EDIT_ISSUE",
@@ -67,7 +72,7 @@ const EditIssueForm = ({ issue }) => {
             rounded={true}
             width={"80%"}
             height={"auto"}
-            defaultValue={issue.title}
+            defaultValue={newTitle}
             onChange={onChangeTitle}
           />
         ) : (
