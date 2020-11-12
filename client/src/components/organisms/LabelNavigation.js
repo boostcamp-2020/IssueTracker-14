@@ -33,7 +33,7 @@ const LabelNavigation = () => {
               border={true}
         >New Label</M.ButtonDiv>
     </StyledLabelButtons>
-    <O.LabelModal editMode={false} />
+    <M.LabelModal editMode={false} />
   </StyledLabelNavigationWrapper>
 )};
 

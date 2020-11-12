@@ -16,7 +16,7 @@ const LabelContent = ({ labels }) => {
   return (
     <StyledLabelContent>
       {labels.map((label) => (
-        <M.LabelCard
+        <O.LabelCard
           key={label.id}
           label={label}
         />

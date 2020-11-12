@@ -71,7 +71,7 @@ const LabelCard = ({ label }) => {
   return (
     <>
       {editMode ?
-      <O.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} deleteLabel={deleteLabel} labelId={label.id} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
+      <M.LabelModal editMode={true} turnOffEditMode={turnOffEditMode} deleteLabel={deleteLabel} labelId={label.id} givenTitle={label.title} givenColor={label.color} givenDescription={label.description} />
       :
       <StyledWrapper>
         <StyledLabelCard>
