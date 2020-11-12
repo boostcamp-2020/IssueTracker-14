@@ -8,7 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelEditingView" customModule="IssueTracker" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabelEditingView" customModule="IssueTracker" customModuleProvider="target">
+            <connections>
+                <outlet property="colorTextField" destination="s22-UE-QbD" id="ehU-yA-yfQ"/>
+                <outlet property="colorView" destination="1iW-uv-Ewr" id="ddW-Xl-gCt"/>
+                <outlet property="descriptionTextField" destination="5yK-BS-nkd" id="akx-pz-X1h"/>
+                <outlet property="titleTextField" destination="Sc3-A2-u9a" id="gnq-eg-09j"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="300" height="210"/>
@@ -36,6 +43,9 @@
                                             <rect key="frame" x="62" y="28.5" width="238" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="5Pn-pn-iTs"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </stackView>
@@ -67,6 +77,9 @@
                                             <rect key="frame" x="62" y="28" width="238" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="ZNG-bP-qHV"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </stackView>
@@ -98,8 +111,11 @@
                                             <rect key="frame" x="62" y="28.5" width="99" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="nHg-xz-kOm"/>
+                                            </connections>
                                         </textField>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iW-uv-Ewr" customClass="ShadowButton" customModule="IssueTracker" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iW-uv-Ewr" customClass="ShadowView" customModule="IssueTracker" customModuleProvider="target">
                                             <rect key="frame" x="177" y="20.5" width="74" height="30"/>
                                             <color key="backgroundColor" systemColor="systemTealColor"/>
                                             <constraints>
@@ -128,6 +144,9 @@
                                                     <real key="value" value="16.5"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="generateColorButtonDidTouchUp:" destination="-1" eventType="touchUpInside" id="tKM-z2-qB4"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>
@@ -158,9 +177,6 @@
     <designables>
         <designable name="050-1b-GGT">
             <size key="intrinsicContentSize" width="20" height="22"/>
-        </designable>
-        <designable name="1iW-uv-Ewr">
-            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
     </designables>
     <resources>

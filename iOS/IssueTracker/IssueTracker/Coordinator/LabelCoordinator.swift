@@ -33,8 +33,22 @@ final class LabelCoordinator: NavigationCoordinator {
 }
 
 extension LabelCoordinator {
-    func showEdit() {
-        let viewController = LabelEditViewController()
+    func showEdit(label: Label, _ delegate: LabelEditViewControllerDelegate) {
+        let viewController = LabelEditViewController(
+            useCase: LabelEditUseCase(networkService: networkService),
+            label: label
+        )
+        viewController.delegate = delegate
+        viewController.modalPresentationStyle = .overFullScreen
+        navigationController?.present(viewController, animated: true)
+    }
+    
+    func showCreate(label: Label, _ delegate: LabelEditViewControllerDelegate) {
+        let viewController = LabelEditViewController(
+            useCase: LabelCreateUseCase(networkService: networkService),
+            label: label
+        )
+        viewController.delegate = delegate
         viewController.modalPresentationStyle = .overFullScreen
         navigationController?.present(viewController, animated: true)
     }

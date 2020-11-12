@@ -25,6 +25,14 @@ final class LabelCollectionViewCell: UICollectionViewListCell {
         configure()
     }
     
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        super.updateConfiguration(using: state)
+        guard state.isSelected || state.isHighlighted else { return }
+        backgroundConfiguration?.backgroundColor = .clear
+    }
+}
+
+extension LabelCollectionViewCell {
     func update(with label: Label) {
         labelLabel.text = label.title
         descriptionLabel.text = label.description

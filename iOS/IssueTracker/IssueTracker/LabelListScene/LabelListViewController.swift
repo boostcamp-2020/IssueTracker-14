@@ -38,15 +38,45 @@ final class LabelListViewController: UIViewController {
     }
 }
 
-private extension LabelListViewController {
-    @objc func addButtonDidTouchUp() {
-        coordinator?.showEdit()
+extension LabelListViewController: LabelEditViewControllerDelegate {
+    func labelChanged(_ labelEditViewController: LabelEditViewController) {
+        loadList()
+    }
+}
+
+extension LabelListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedLabel = dataSource.itemIdentifier(for: indexPath) else { return }
+        useCase.loadLabel(for: selectedLabel.id) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(label):
+                    self.coordinator?.showEdit(label: label, self)
+                case let .failure(error):
+                    self.alert(message: error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
 private extension LabelListViewController {
     func labelCollectionViewLayout() -> UICollectionViewCompositionalLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+        configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
+            let closeAction = UIContextualAction(
+                style: .destructive,
+                title: "Delete",
+                handler: { [weak self] _, _, _ in
+                    guard let self = self,
+                          let label = self.dataSource.itemIdentifier(for: indexPath) else { return }
+                    self.remove(with: label.id)
+                    self.labels.remove(at: indexPath.item)
+                }
+            )
+            return UISwipeActionsConfiguration(actions: [closeAction])
+        }
         return UICollectionViewCompositionalLayout.list(using: configuration)
     }
 }
@@ -96,6 +126,24 @@ private extension LabelListViewController {
             }
         }
     }
+    
+    func remove(with id: Int) {
+        useCase.removeLabel(for: id) { [weak self] error in
+            guard let error = error else {
+                self?.loadList()
+                return
+            }
+            self?.alert(message: error.localizedDescription)
+        }
+    }
+    
+    @objc func addButtonDidTouchUp() {
+        let newLabel = Label(id: 0,
+                             title: "",
+                             color: RandomHexColorGenerator.generate(),
+                             description: nil)
+        coordinator?.showCreate(label: newLabel, self)
+    }
 }
 
 private extension LabelListViewController {
@@ -113,8 +161,8 @@ private extension LabelListViewController {
     }
     
     func configureCollectionView() {
+        labelCollectionView.delegate = self
         labelCollectionView.dataSource = dataSource
         labelCollectionView.setCollectionViewLayout(labelCollectionViewLayout(), animated: true)
-        labelCollectionView.allowsSelection = false
     }
 }

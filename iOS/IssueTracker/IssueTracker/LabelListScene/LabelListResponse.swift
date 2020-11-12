@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct LabelResponse: Decodable {
+struct LabelListResponse: Decodable {
     let labels: [Label]
+}
+
+struct LabelResponse: Decodable {
+    let label: Label
 }
