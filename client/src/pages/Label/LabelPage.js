@@ -39,23 +39,13 @@ const StyledLabelContentWrapper = styled.div`
 const LabelsPage = () => {
   const history = useHistory();
 
-  /*
   const labelState = useLabelState();
   const labelDispatch = useLabelDispatch();
   
   useEffect(() => {
     fetchTargetData("label", labelDispatch);
-    console.log(labelState.labels)
   }, []);
-  */
-
-  const labelState = { labels: [{"id":2,"title":"test","color":"#7BEA8D","description":"testtest"},
-  {"id":3,"title":"2323","color":"#0E9E27","description":"test"},
-  {"id":19,"title":"Fix","color":"#4F0078","description":null},
-  {"id":21,"title":"bug","color":"#EF98A7","description":"bug!!!!!"},
-  {"id":22,"title":"확인","color":"#888888","description":"hello?"},
-  {"id":23,"title":"pairProgramming","color":"#9FE59C","description":"god DH"}]}
-
+  
   return (
     <>
       <O.Header />
