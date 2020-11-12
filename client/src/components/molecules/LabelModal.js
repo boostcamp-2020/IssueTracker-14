@@ -135,8 +135,6 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, give
         } catch (err) {
           console.log(err);
         }
-      } else {
-        alert("제대로 된 값을 입력해주세요.")
       }
     }
 
@@ -194,9 +192,9 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, toggleCreateMode, give
         <StyledLabelInputButtons>
           <A.Button width={"5rem"} height={"2.25rem"} margin={"0.2rem"} backgroundColor={"ivory"} border={true} onClick={editMode ? turnOffEditMode : toggleCreateMode} >Cancel</A.Button>
           {editMode ? 
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} >Edit Mode</A.Button>
+          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={updateLabel} disabled={inputName.length===0} >Edit Mode</A.Button>
           :
-          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={createLabel} >Create label</A.Button>
+          <A.Button width={"7rem"} height={"2.25rem"} margin={"0.2rem 0rem 0.2rem 0.2rem"} backgroundColor={"green"} color={"white"} onClick={createLabel} disabled={inputName.length===0} >Create label</A.Button>
         }
         </StyledLabelInputButtons>
       </StyledLabelInput>
