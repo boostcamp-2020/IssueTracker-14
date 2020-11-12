@@ -41,7 +41,7 @@ class EditingView: UIView {
         button.addTarget(self, action: #selector(resetButtonDidTouchUp), for: .touchUpInside)
         return button
     }()
-    private let saveButton: AnimatableButton = {
+    let saveButton: AnimatableButton = {
         let button = AnimatableButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("저장", for: .normal)

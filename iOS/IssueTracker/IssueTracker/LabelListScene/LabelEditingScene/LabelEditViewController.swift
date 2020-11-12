@@ -17,6 +17,7 @@ final class LabelEditViewController: DimmedViewController {
     private let useCase: LabelUseCaseType
     private var label: Label {
         didSet {
+            editingView.saveButton.isEnabled = !label.title.isEmpty
             guard oldValue.color != label.color else { return }
             editingView.update(with: label)
         }
