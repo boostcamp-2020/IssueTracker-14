@@ -6,12 +6,12 @@ import O from "../../components/organisms/index";
 
 const IssuesPageWrapper = styled.div`
   position: relative;
-  top: 4rem;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 3rem auto;
-  width: 80%;
+  width: 70%;
   height: auto;
 `;
 

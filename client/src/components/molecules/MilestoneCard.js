@@ -13,6 +13,7 @@ const StyledMilestoneCard = styled.div`
 `;
 
 const MilestoneCard = ({ milestone }) => {
+  console.log(milestone);
   return (
     <StyledMilestoneCard>
       <Link

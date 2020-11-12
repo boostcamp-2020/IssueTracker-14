@@ -11,11 +11,12 @@ const StyledText = styled.p`
   font-weight: ${({ fontWeight }) => fontWeight === "bold" && "bold"};
   font-size: ${({ fontSize }) => fontSize};
   cursor: ${({ cursor }) => cursor};
-  margin: 0.3rem;
+  margin: ${({ margin }) => margin};
   padding: ${({ padding }) => padding};
   &:hover {
     color: ${({ hover }) => hover && colors.blue};
   }
+  border-radius: ${({ rounded }) => (rounded ? 8 : 0)}px;
   display: ${({ display }) => display};
   background-color: ${({ backgroundColor }) => colors[backgroundColor]};
   border: ${({ border }) => border};
@@ -40,6 +41,7 @@ Text.defaultProps = {
   cursor: "pointer",
   align: "center",
   padding: 0,
+  margin: "0.3rem",
 };
 
 export default Text;

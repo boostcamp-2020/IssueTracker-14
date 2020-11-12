@@ -61,14 +61,15 @@ const milestoneReducer = (state, action) => {
       };
 
     case "CREATE_NEW_MILESTONE":
+      console.log(state.newMilestone);
       try {
         const createMilestone = async () => {
           const {
             data: { message },
           } = await myAxios.post("/milestone", {
-            title: state.editMilestone.title,
-            duedate: state?.editMilestone?.duedate,
-            description: state?.editMilestone?.description,
+            title: state.newMilestone.title,
+            duedate: state?.newMilestone?.duedate,
+            description: state?.newMilestone?.description,
           });
           if (message === "success") {
             alert("정상적으로 Milestone이 생성되었습니다.");
