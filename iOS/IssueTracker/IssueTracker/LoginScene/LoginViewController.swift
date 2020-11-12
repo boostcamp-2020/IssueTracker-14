@@ -13,8 +13,8 @@ final class LoginViewController: UIViewController {
     static var identifier: String {
         return String(describing: Self.self)
     }
-    @IBOutlet private weak var passwordInputView: InputView!
     @IBOutlet private weak var emailInputView: InputView!
+    @IBOutlet private weak var passwordInputView: InputView!
     @IBOutlet private weak var localLoginButton: UIButton!
     @IBOutlet private weak var githubLoginButton: UIButton!
     private let appleLoginButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton()
@@ -134,6 +134,19 @@ extension LoginViewController: UITextFieldDelegate {
     private func configureInputViews() {
         passwordInputView.textField.delegate = self
         emailInputView.textField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailInputView.textField:
+            emailInputView.textField.resignFirstResponder()
+            passwordInputView.textField.becomeFirstResponder()
+        case passwordInputView.textField:
+            passwordInputView.textField.resignFirstResponder()
+        default:
+            break
+        }
+        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
