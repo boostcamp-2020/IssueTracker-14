@@ -9,17 +9,12 @@ import UIKit
 
 final class FilterTableViewController: UITableViewController {
     
-    private enum Constant {
-        static let firstSectionHeaderTitle: String = "다음 중에 조건을 고르세요"
-        static let SecondSectionHeaderTitle: String = "세부 조건"
-    }
-    
     static var identifier: String {
         return String(describing: Self.self)
     }
     @IBOutlet private var conditions: [UITableViewCell]!
     @IBOutlet private var detailConditions: [UITableViewCell]!
-    private var seletedRowInFirstSection = 0
+    private var seletedRowInFirstSection: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,32 +23,6 @@ final class FilterTableViewController: UITableViewController {
 }
 
 extension FilterTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 5 : 4
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 50 : 38
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let header = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: FilterTableViewHeaderFooterView.identifier) as?
-            FilterTableViewHeaderFooterView {
-            return header
-        }
-        return nil
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let view = view as? FilterTableViewHeaderFooterView else { return }
-        view.textLabel?.text = section == 0 ? Constant.firstSectionHeaderTitle : Constant.SecondSectionHeaderTitle
-
-    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 0 else { return }
         let cell = tableView.cellForRow(at: indexPath)
@@ -104,9 +73,6 @@ private extension FilterTableViewController {
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
         }
-        tableView.register(
-            FilterTableViewHeaderFooterView.self,
-            forHeaderFooterViewReuseIdentifier: FilterTableViewHeaderFooterView.identifier)
     }
 }
 
