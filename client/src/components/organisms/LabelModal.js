@@ -113,7 +113,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
       if (inputName!==""&&inputColor!=="#"){
         const body = {
           title: inputName,
-          dsecription: inputDescription,
+          description: inputDescription,
           color: inputColor
         }
         try {
@@ -133,7 +133,7 @@ const LabelModal = ({ editMode, labelId, turnOffEditMode, givenTitle, givenDescr
       if (inputName!==""&&inputColor!=="#"){
         const body = {
           title: inputName,
-          dsecription: inputDescription,
+          description: inputDescription,
           color: inputColor
         }
         try {
