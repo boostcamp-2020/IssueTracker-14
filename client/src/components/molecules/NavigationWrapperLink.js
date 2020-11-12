@@ -22,7 +22,7 @@ const StyledContentWrapper = styled.div`
   width: 100%;
 `;
 
-const StyledCountDiv = styled.div`
+const StyledCountDiv = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,8 +34,6 @@ const StyledCountDiv = styled.div`
   margin-left: 4px;
   color: "white";
 `;
-
-// TODO: span tag div로 바꾸기
 const NavigationWrapperLink = ({ location }) => {
   const labelState = useLabelState();
   const milestoneState = useMilestoneState();
@@ -47,7 +45,9 @@ const NavigationWrapperLink = ({ location }) => {
           rounded={false}
           width={"8rem"}
           height={"2rem"}
-          buttonColor={location === "label" ? colors.blue : colors.white}
+          rounded
+          borderColor={"#d1d5da"}
+          backgroundColor={location === "label" ? colors.blue : colors.white}
         >
           <StyledContentWrapper>
             <A.Icon
@@ -62,7 +62,15 @@ const NavigationWrapperLink = ({ location }) => {
               Label
             </A.Text>
             {!location && (
-              <StyledCountDiv> {labelState?.labels?.length}</StyledCountDiv>
+              <A.Text
+                backgroundColor={"grey"}
+                fontSize={"small"}
+                rounded
+                margin={"0"}
+                padding={"2px 5px"}
+              >
+                {labelState?.labels?.length}
+              </A.Text>
             )}
           </StyledContentWrapper>
         </A.Button>
@@ -73,6 +81,8 @@ const NavigationWrapperLink = ({ location }) => {
           rounded={false}
           width={"8rem"}
           height={"2rem"}
+          borderColor={"#d1d5da"}
+          rounded
           backgroundColor={
             location === "milestone" ? colors.blue : colors.white
           }
@@ -90,9 +100,15 @@ const NavigationWrapperLink = ({ location }) => {
               Milestone
             </A.Text>
             {!location && (
-              <StyledCountDiv>
+              <A.Text
+                backgroundColor={"grey"}
+                fontSize={"small"}
+                rounded
+                margin={"0"}
+                padding={"2px 5px"}
+              >
                 {milestoneState?.milestones?.length}
-              </StyledCountDiv>
+              </A.Text>
             )}
           </StyledContentWrapper>
         </A.Button>

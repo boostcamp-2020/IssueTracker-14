@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-// TODO: file upload api 만들기
-
 const issueController = require("../../controllers/issue_controller");
 const commentController = require("../../controllers/issue_item_controller/issue_comment_controller");
 const assigneeController = require("../../controllers/issue_item_controller/issue_assignee_controller");

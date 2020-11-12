@@ -24,7 +24,7 @@ const Image = ({
     <StyledImage
       position={position}
       right={right}
-      src={imageUrl || "https://avatars1.githubusercontent.com/u/52521323?v=4"}
+      src={imageUrl}
       size={size}
       padding={padding}
       cursor={cursor}

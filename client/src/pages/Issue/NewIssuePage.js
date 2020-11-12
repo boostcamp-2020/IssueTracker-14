@@ -17,6 +17,7 @@ const NewIssuePage = () => {
     localStorage.getItem("userImage") === null
       ? "https://avatars1.githubusercontent.com/u/52521323?v=4"
       : localStorage.getItem("userImage");
+  console.log(imageUrl);
   return (
     <>
       <Header />
