@@ -18,6 +18,19 @@
 
 <br>
 
+<br>
+
+## 기술 스택
+
+|  Part     | Tech stack                                                   |
+|  -------- | ------------------------------------------------------------ |
+|  Backend  | ![image](https://user-images.githubusercontent.com/26531678/99025842-1feb0d00-25ad-11eb-9544-7c0c6d19bb39.png) ![image](https://user-images.githubusercontent.com/26531678/99026182-c505e580-25ad-11eb-972d-231c1820f5ec.png)|
+|  Frontend |  ![image](https://user-images.githubusercontent.com/26531678/99025889-36916400-25ad-11eb-9f0d-a917062bfca7.png) |
+|  Infra    | ![image](https://user-images.githubusercontent.com/26531678/99025916-4610ad00-25ad-11eb-824b-9934efbe9b71.png) ![image](https://user-images.githubusercontent.com/26531678/99026094-9daf1880-25ad-11eb-8958-1295ca4a97e3.png) ![image](https://user-images.githubusercontent.com/26531678/99026294-026a7300-25ae-11eb-9fce-b754b76c2812.png)|
+|  DB       | ![image](https://user-images.githubusercontent.com/26531678/99025948-56288c80-25ad-11eb-8ae1-1f6a9128db7e.png)| 
+
+<br>
+
 ## 팀원
 
   
