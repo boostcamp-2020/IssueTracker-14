@@ -37,7 +37,3 @@ extension SettingViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
-
-extension SettingViewController {
-    
-}

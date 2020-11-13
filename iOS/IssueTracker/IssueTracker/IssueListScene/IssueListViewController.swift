@@ -106,11 +106,11 @@ extension IssueListViewController: UICollectionViewDelegate {
 private extension IssueListViewController {
     func issueCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
+        configuration.trailingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             let closeAction = UIContextualAction(
                 style: .destructive,
                 title: Constant.closeActionTitle,
-                handler: { [weak self] _, _, _ in
+                handler: { _, _, _ in
                     guard let self = self,
                           let issue = self.dataSource.itemIdentifier(for: indexPath) else { return }
                     self.closeIssue(with: issue.id)
