@@ -64,11 +64,11 @@ extension LabelListViewController: UICollectionViewDelegate {
 private extension LabelListViewController {
     func labelCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
-        configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
+        configuration.trailingSwipeActionsConfigurationProvider = { [weak self] indexPath in
             let closeAction = UIContextualAction(
                 style: .destructive,
                 title: "Delete",
-                handler: { [weak self] _, _, _ in
+                handler: { _, _, _ in
                     guard let self = self,
                           let label = self.dataSource.itemIdentifier(for: indexPath) else { return }
                     self.remove(with: label.id)
