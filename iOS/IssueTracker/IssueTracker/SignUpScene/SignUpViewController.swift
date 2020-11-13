@@ -35,6 +35,11 @@ final class SignUpViewController: KeyboardObservableViewController {
         configureInputViews()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     @IBAction private func completeButtonTouchUp(_ sender: UIButton) {
         signUpUseCase.signUp(with: patternChecker.info) { [weak self] error in
             DispatchQueue.main.async {
