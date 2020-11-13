@@ -19,7 +19,7 @@ final class MileStoneEditViewController: DimmedViewController {
     private var mileStone: MileStone {
         didSet {
             editingView.update(with: mileStone)
-            editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(milestone: mileStone)
+            editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(mileStone: mileStone)
             editingView.saveButton.alpha = editingView.saveButton.isEnabled ? 1 : 0.2
         }
     }
@@ -42,7 +42,7 @@ final class MileStoneEditViewController: DimmedViewController {
         addContentView(editingView)
         editingView.update(with: mileStone)
         mileStone.duedate = mileStone.customDuedate(format: "yyyy-MM-dd")
-        editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(milestone: mileStone)
+        editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(mileStone: mileStone)
     }
 }
 

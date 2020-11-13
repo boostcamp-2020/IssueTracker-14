@@ -13,14 +13,14 @@ enum MileStoneEditingPatternError: Error {
 
 final class MileStoneEditingPatternChecker {
     
-    func isComplete(milestone: MileStone) -> Bool {
-        guard let duedate = milestone.duedate else { return false }
+    func isComplete(mileStone: MileStone) -> Bool {
+        guard let duedate = mileStone.duedate else { return false }
         let result = isValid(duedate: duedate)
         switch result {
         case .failure:
             return false
         case .success:
-            return !milestone.title.isEmpty
+            return !mileStone.title.isEmpty
         }
     }
     

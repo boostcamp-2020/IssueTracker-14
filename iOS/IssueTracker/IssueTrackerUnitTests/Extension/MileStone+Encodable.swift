@@ -8,6 +8,21 @@
 import Foundation
 @testable import IssueTracker
 
+extension MileStoneListResponse: Encodable {
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(mileStones, forKey: .mileStones)
+    }
+}
+
+extension MileStoneResponse: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(mileStone, forKey: .mileStone)
+    }
+}
+
 extension MileStone: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
