@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 import A from "../atoms/index";
 import M from "./index";
+import { useIssueDispatch } from "../../stores/issue";
 
 const StyledDropDownWithText = styled.div`
   padding: 1rem 0;
@@ -27,6 +28,8 @@ const DropDownWithText = ({
   fetchData,
   ...rest
 }) => {
+  const issueDispatch = useIssueDispatch();
+
   return (
     <StyledDropDownWithText>
       <M.Dropdown
@@ -46,7 +49,20 @@ const DropDownWithText = ({
       ></M.Dropdown>
       {/* TODO: assign yourself 구현 */}
       {!selected || selected.length === 0 ? (
-        <A.Text hover={false} fontSize={fontSize} align={"left"}>
+        <A.Text
+          hover={false}
+          fontSize={fontSize}
+          align={"left"}
+          onClick={
+            optionId === 0
+              ? () =>
+                  issueDispatch({
+                    type: "ADD_ASSIGNEE",
+                    data: Number(localStorage.getItem("userId")),
+                  })
+              : null
+          }
+        >
           {defaultText}
         </A.Text>
       ) : (
@@ -66,14 +82,11 @@ const DropDownWithText = ({
             return (
               <Fragment key={el.id}>
                 <StyledFlex>
-                  <A.Label backgroundHexaColor={el.color}></A.Label>
+                  <A.Label backgroundHexaColor={el.color}>{el.title}</A.Label>
                   <A.Text hover={false} fontSize={fontSize}>
-                    {el.title}
+                    {el.description}
                   </A.Text>
                 </StyledFlex>
-                <A.Text hover={false} fontSize={fontSize}>
-                  {el.description}
-                </A.Text>
               </Fragment>
             );
           }

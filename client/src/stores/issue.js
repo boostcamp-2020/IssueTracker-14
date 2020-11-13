@@ -135,6 +135,17 @@ const issueReducer = (state, action) => {
         };
       }
 
+    case "CLEAR_OPTIONS":
+      return {
+        ...state,
+        newIssue: {
+          ...state.newIssue,
+          assigneeIdList: [],
+          labelIdList: [],
+          milestoneid: null,
+        },
+      };
+
     case "CREATE_NEW_ISSUE":
       try {
         const createIssue = async () => {
