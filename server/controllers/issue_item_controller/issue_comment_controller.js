@@ -22,7 +22,7 @@ const readComments = async (req, res) => {
       include: [
         {
           model: CommentModel,
-          attributes: ["id", "createdAt", "updatedAt"],
+          attributes: ["id", "content", "createdAt", "updatedAt"],
           include: [
             { model: UserModel, attributes: ["id", "nickname", "imageurl"] },
           ],

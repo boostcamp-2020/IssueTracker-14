@@ -27,18 +27,19 @@ const JWTVerify = async (jwt_payload, done) => {
   }
 };
 
+const serverURL =
+  process.env.NODE_ENV === "development"
+    ? process.env.SERVER_DEVELOP
+    : process.env.SERVER_PRODUCTION;
+
 const githubConfig = {
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL:
-    process.env.NODE_ENV === "development"
-      ? "http://127.0.0.1:3000/api/user/oauth/github/callback"
-      : "http://115.85.183.106:3000/api/user/oauth/github/callback",
+  callbackURL: `${serverURL}/api/user/oauth/github/callback`,
 };
 
 const githubLoginVerify = async (accessToken, refreshToken, profile, done) => {
   try {
-    console.log(profile);
     const {
       _json: { node_id, id, login, avatar_url },
     } = profile;

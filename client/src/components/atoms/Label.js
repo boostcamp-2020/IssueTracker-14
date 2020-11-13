@@ -1,29 +1,52 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import decideFontColorFromHexa from "../../utils/decideFontColorFromHexa";
 
-const StyledLabel = styled.label`
-  box-sizing: border-box;
-  outline: none;
+const StyledLabel = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-size: ${props => (props.size==="big" ? 16 : props.size==="medium" ? 12 : 8)}px;
-  height: ${props => (props.size==="big" ? 48 : props.size==="medium" ? 24 : 12)}px;
-  padding: 0 ${props => props.size==="big" ? 40 : props.size==="medium" ? 20 : 10}px;
-  color: #000000;
-  font-weight: bold;
+  border: 1px solid transparent;
+  height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  width: ${({ children }) => (children ? children.length - 1 : 0) * 0.8 + 1.2}rem;
+  padding: ${({ padding }) => padding};
+  margin: ${({ margin }) => margin};
+  border-radius: 2em;
+  color: ${({ backgroundHexaColor }) => decideFontColorFromHexa(backgroundHexaColor)};
+  background-color: ${({ backgroundHexaColor }) => backgroundHexaColor};
+  cursor: ${({ cursor }) => cursor};
 `;
 
-const Label = props => (
+const Label = ({
+  children,
+  padding,
+  margin,
+  backgroundHexaColor,
+  cursor,
+  onClick,
+  ...rest
+}) => (
   <StyledLabel
-    htmlFor={props.for}
-    size={props.size}>
-    <div>{props.label}</div>
+    padding={padding}
+    margin={margin}
+    backgroundHexaColor={backgroundHexaColor}
+    cursor={cursor}
+    onClick={onClick}
+    children={children}
+    {...rest}
+  >
+    {children}
   </StyledLabel>
 );
 
 Label.defaultProps = {
-  size: "medium",
-  label: "기본 라벨"
+  padding: "0rem",
+  margin: "0rem",
+  backgroundHexaColor: "#959da5",
+  cursor: "pointer",
+  children: null,
 };
 
 export default Label;

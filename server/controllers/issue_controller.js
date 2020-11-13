@@ -6,20 +6,63 @@ const { label: LabelModel } = require("../db/models");
 const { label_has_issue: LabelHasIssueModel } = require("../db/models");
 const { assignee: AssigneeModel } = require("../db/models");
 
+const db = require("../db/models/index");
 const { Op } = require("sequelize");
 
 const createIssue = async (req, res) => {
+  const t = await db.sequelize.transaction();
   try {
-    const { title, description } = req.body;
-    const { id: authorid } = req.user;
-    await IssueModel.create({
+    const {
       title,
-      description,
-      authorid,
-      status: "open",
-    });
-    return res.status(200).json({ message: "success" });
+      milestoneid,
+      assigneeIdList,
+      labelIdList,
+      commentContent,
+    } = req.body;
+    const { id: authorid } = req.user;
+
+    const AssigneeIdList = JSON.parse(assigneeIdList);
+    const LabelIdList = JSON.parse(labelIdList);
+
+    const { id: issueid } = await IssueModel.create(
+      {
+        title,
+        authorid,
+        milestoneid,
+        status: "open",
+      },
+      { transaction: t }
+    );
+
+    await CommentModel.create(
+      { issueid, content: commentContent, userid: authorid },
+      { transaction: t }
+    );
+
+    console.log(AssigneeIdList, LabelIdList);
+
+    if (Array.isArray(AssigneeIdList)) {
+      await AssigneeModel.bulkCreate(
+        AssigneeIdList.map((userid) => {
+          return { issueid, userid };
+        }),
+        { transaction: t }
+      );
+    }
+
+    if (Array.isArray(LabelIdList)) {
+      await LabelHasIssueModel.bulkCreate(
+        LabelIdList.map((labelid) => {
+          return { issueid, labelid };
+        }),
+        { transaction: t }
+      );
+    }
+
+    await t.commit();
+    return res.status(200).json({ message: "success", issueid });
   } catch (error) {
+    await t.rollback();
     return res.status(400).json({ message: "fail", error: error.message });
   }
 };
@@ -78,8 +121,9 @@ const readIssues = async (req, res) => {
         "updatedAt",
         "description",
       ],
+      order: [["createdAt", "DESC"]],
     });
-    //TODO: Comment count
+
     const issueCount = { open: 0, closed: 0 };
 
     const filteredIssues = issues.filter((issue) => {
@@ -116,4 +160,35 @@ const updateIssue = async (req, res) => {
   }
 };
 
-module.exports = { createIssue, readIssues, updateIssue };
+const updateIssues = async (req, res) => {
+  try {
+    const { issueIdList, status } = req.body;
+    const issues = await IssueModel.findAll();
+    const issueList = issues
+      .map((issue) => {
+        if (issueIdList.includes(issue.id)) {
+          return {
+            id: issue.id,
+            title: issue.title,
+            status: status,
+            description: issue.description,
+            authorid: issue.authorid,
+            milestoneid: issue.milestoneid,
+          };
+        }
+        return;
+      })
+      .filter((issue) => issue !== undefined);
+    await IssueModel.bulkCreate(issueList, { updateOnDuplicate: ["status"] });
+    return res.status(200).json({ message: "success" });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
+module.exports = {
+  createIssue,
+  readIssues,
+  updateIssue,
+  updateIssues,
+};

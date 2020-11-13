@@ -1,42 +1,27 @@
 import React, { useReducer, useCallback } from "react";
+import colors from "./../../constants/colors";
 import styled from "styled-components";
-import Title from "../../components/organisms/Title";
-import LoginForm from "../../components/organisms/LoginForm";
-import myAxios from "../../utils/myAxios";
-import {useUserState, useUserDispatch} from '../../stores/user';
+import A from "../../components/atoms/index";
+import M from "../../components/molecules/index";
+import O from "../../components/organisms/index";
 
 const LoginPageWrapper = styled.div`
   display: flex;
+  background-color: ${colors.lightGrey};
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 930px;
+  height: 100vh;
+  font-size: 62.5%;
+  min-width: 50rem;
 `;
 
 const LoginPage = () => {
-  const state = useUserState();
-  const dispatch = useUserDispatch();
-
-  const onChange = useCallback((e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: "CHANGE_INPUT",
-      name,
-      value,
-    });
-  }, []);
-
-  const onClick = useCallback(() => {
-    dispatch({
-      type: "POST_USER",
-    });
-  }, []);
-
   return (
     <LoginPageWrapper>
-      <Title />
-      <LoginForm onChange={onChange} onClick={onClick} />
+      <M.Title>이슈트래커</M.Title>
+      <O.LoginForm />
     </LoginPageWrapper>
   );
 };

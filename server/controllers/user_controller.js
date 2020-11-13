@@ -1,6 +1,7 @@
 const { user: UserModel } = require("../db/models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt-nodejs");
+require("dotenv").config();
 
 const signup = async (req, res) => {
   try {
@@ -20,6 +21,8 @@ const signup = async (req, res) => {
           nickname,
           password: bcryptPassword,
           provider: "local",
+          imageurl:
+            "https://user-images.githubusercontent.com/63051473/98755346-b1bb1480-240b-11eb-9cb2-f404cbe0b388.png",
         });
         return res.status(201).json({ message: "success" });
       } catch (error) {
@@ -72,11 +75,16 @@ const localLogin = async (req, res) => {
   }
 };
 
+const frontURL =
+  process.env.NODE_ENV === "development"
+    ? process.env.FRONT_DOMAIN_DEVELOP
+    : process.env.FRONT_DOMAIN_PRODUCTION;
+
 const githubLogin = (req, res) => {
   try {
     const { email, nickname, id } = req.user;
     const jwtoken = getToken({ id, email, nickname });
-    return res.status(200).json({ message: "success", token: jwtoken });
+    return res.status(200).redirect(`${frontURL}?access_token=${jwtoken}`);
   } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
@@ -92,6 +100,8 @@ const appleLogin = async (req, res) => {
         password: hashcode,
         nickname: name,
         provider: "apple",
+        imageurl:
+          "https://user-images.githubusercontent.com/63051473/98754424-0493cc80-240a-11eb-972b-eb846bb33c02.png",
       },
     });
     const jwtoken = getToken({
@@ -114,4 +124,15 @@ const getToken = ({ id, nickname, email }) => {
   return jwt.sign(payloadObj, process.env.JWT_SECRET_KEY);
 };
 
-module.exports = { signup, localLogin, githubLogin, appleLogin };
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await UserModel.findAll({
+      attributes: ["id", "nickname", "imageurl"],
+    });
+    return res.status(200).json({ message: "success", users });
+  } catch (error) {
+    return res.status(400).json({ message: "fail", error: error.message });
+  }
+};
+
+module.exports = { signup, localLogin, githubLogin, appleLogin, getAllUsers };
