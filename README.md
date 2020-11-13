@@ -55,6 +55,10 @@
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075238-7f243e00-25fc-11eb-9b8b-36636ef6d3ed.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075245-80ee0180-25fc-11eb-9ae0-61f63f7c8e35.gif" width="250"></kbd>
 </p>
+<p align=“center”>
+  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077177-ad574d00-25ff-11eb-94b8-cd5251214c1f.gif" width="250"></kbd>
+  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077171-aa5c5c80-25ff-11eb-9be1-d39aff7a7b77.gif" width="250"></kbd>
+</p>
 
 # [위키 Home](https://github.com/boostcamp-2020/IssueTracker-14/wiki)
 
