@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
-import colors from "../../constants/colors";
 import styled from "styled-components";
-import A from "../atoms/index";
-import M from "../molecules/index";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import colors from "../../../constants/colors";
 import { Link } from "react-router-dom";
-import Store from "../../stores/index";
+import Store from "../../../stores/index";
 
 const StyledLoginForm = styled.div`
   display: flex;

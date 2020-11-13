@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useLabelDispatch } from "../../stores/label";
-import fetchTargetData from "../../utils/fetchData";
 import styled from "styled-components";
-import colors from "../../constants/colors";
-import A from "./../atoms/index";
-import M from "./../molecules/index";
+import { useLabelDispatch } from "../../../stores/label";
+import fetchTargetData from "../../../utils/fetchData";
+import colors from "../../../constants/colors";
+import A from "./../../atoms/index";
+import M from "./../../molecules/index";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -56,14 +56,16 @@ const LabelCard = ({ label }) => {
   };
 
   const deleteLabel = async () => {
-    try {
-      labelDispatch({
-        type: "DELETE_LABEL",
-        labelId: label.id,
-      });
-      await fetchTargetData("label", labelDispatch);
-    } catch (err) {
-      console.log(err);
+    if (confirm("정말 삭제하시겠습니까?")){
+      try {
+        labelDispatch({
+          type: "DELETE_LABEL",
+          labelId: label.id,
+        });
+        await fetchTargetData("label", labelDispatch);
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 

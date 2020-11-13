@@ -82,7 +82,7 @@ const IssuesPage = () => {
       <Header />
       <IssuesPageWrapper>
         <StyledNavigationWrapper>
-          <O.NavigationWrapperInput />
+          <O.IssueFilterAndSearch />
           <M.NavigationWrapperLink />
           <Link to={"/issues/new"} style={{ textDecoration: "none" }}>
             <M.ButtonDiv

@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import M from "../molecules/index";
+import M from "../../molecules/index";
 import {
   useMilestoneState,
   useMilestoneDispatch,
-} from "../../stores/milestone";
-import { useLabelState, useLabelDispatch } from "../../stores/label";
-import { useAssigneeState, useAssigneeDispatch } from "../../stores/assignee";
-import { useIssueState, useIssueDispatch } from "../../stores/issue";
+} from "../../../stores/milestone";
+import { useLabelState, useLabelDispatch } from "../../../stores/label";
+import { useAssigneeState, useAssigneeDispatch } from "../../../stores/assignee";
+import { useIssueState, useIssueDispatch } from "../../../stores/issue";
 
-import fetchTargetData from "../../utils/fetchData";
+import fetchTargetData from "../../../utils/fetchData";
 
 const StyledNewIssueOptions = styled.div`
   width: 20vw;

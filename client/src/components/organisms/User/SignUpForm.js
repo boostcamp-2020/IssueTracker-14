@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import M from "../molecules/index";
 import styled from "styled-components";
-import { useUserDispatch } from "../../stores/user";
+import M from "../../molecules/index";
+import { useUserDispatch } from "../../../stores/user";
 
 const StyledSignUpForm = styled.div`
   display: flex;

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useHistory } from "react-router-dom";
-import A from "../atoms/index";
-import M from "../molecules/index";
-import colors from "../../constants/colors";
-import myAxios from "../../utils/myAxios";
-import { useIssueDispatch, useIssueState } from "../../stores/issue";
+import { Link } from "react-router-dom";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import colors from "../../../constants/colors";
+import myAxios from "../../../utils/myAxios";
+import { useIssueDispatch } from "../../../stores/issue";
 
 import marked from "marked";
 
