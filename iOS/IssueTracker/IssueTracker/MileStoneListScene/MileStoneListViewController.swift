@@ -13,6 +13,7 @@ final class MileStoneListViewController: UIViewController {
         return String(describing: Self.self)
     }
     @IBOutlet private weak var mileStoneCollectionView: UICollectionView!
+    private let refeshControl: UIRefreshControl = UIRefreshControl()
     weak var coordinator: MileStoneCoordinator?
     private let useCase: MileStoneListUseCaseType
     private var mileStones: [MileStone] = [] {
@@ -130,9 +131,19 @@ private extension MileStoneListViewController {
     }
     
     func configureCollectionView() {
+        mileStoneCollectionView.refreshControl = refeshControl
+        refeshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         mileStoneCollectionView.dataSource = dataSource
         mileStoneCollectionView.setCollectionViewLayout(mileStoneCollectionViewLayout(), animated: true)
         mileStoneCollectionView.delegate = self
+    }
+    
+    @objc func reloadData() {
+        loadList { [weak self] in
+            DispatchQueue.main.async {
+                self?.refeshControl.endRefreshing()
+            }
+        }
     }
 }
 
@@ -143,7 +154,7 @@ extension MileStoneListViewController: MileStoneEditViewControllerDelegate {
 }
 
 private extension MileStoneListViewController {
-    func loadList() {
+    func loadList(completion: (() -> Void)? = nil) {
         useCase.loadList {[weak self] result in
             switch result {
             case let .success(mileStones):
@@ -153,6 +164,7 @@ private extension MileStoneListViewController {
                     self?.alert(message: error.localizedDescription)
                 }
             }
+            completion?()
         }
     }
     
