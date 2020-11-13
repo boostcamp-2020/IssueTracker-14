@@ -21,9 +21,10 @@ const StyledHidden = styled.div`
       ? `-${parseFloat(dropdownWidth) - parseFloat(buttonWidth)}rem`
       : "0rem"};
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 2;
   border-radius: 4px;
-  border: 1px solid #959da5;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
 `;
 
 const Dropdown = ({
