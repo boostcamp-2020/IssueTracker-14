@@ -14,7 +14,7 @@ final class NetworkServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "NetworkTaskExpectation")
         defer { wait(for: [expectation], timeout: 5.0)}
         let networkService = NetworkService()
-        let request = IssueListEndPoint(path: .issues, method: .get)
+        let request = IssueEndPoint(path: .issues, method: .get)
         networkService.userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJBQGIuYyIsIm5pY2tuYW1lIjoiQXNkZiIsImlhdCI6MTYwNDQ3ODg2N30.v0ZSPVEW3IyNMVVHPn2mHGUPGw7VeNpMJ3aechf62k4"
         
         networkService.request(requestType: request) { result in
@@ -33,7 +33,7 @@ final class NetworkServiceTests: XCTestCase {
         let expectation = XCTestExpectation(description: "NetworkTaskExpectation")
         defer { wait(for: [expectation], timeout: 5.0)}
         let networkService = NetworkService()
-        let request = IssueListEndPoint(path: .issues, method: .get)
+        let request = IssueEndPoint(path: .issues, method: .get)
         networkService.userToken = "fake"
         networkService.request(requestType: request) { result in
             switch result {

@@ -89,13 +89,20 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hF-6f-ldc">
+                                <rect key="frame" x="-25" y="33" width="20" height="22"/>
+                                <state key="normal" image="circle" catalog="system"/>
+                                <state key="selected" image="checkmark.circle.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="AIq-Gz-P4o" firstAttribute="leading" secondItem="kPg-PM-5FH" secondAttribute="leading" constant="16" id="1TB-W7-8z2"/>
                             <constraint firstAttribute="bottom" secondItem="AIq-Gz-P4o" secondAttribute="bottom" constant="12" id="2pY-MB-mlZ"/>
+                            <constraint firstItem="0hF-6f-ldc" firstAttribute="centerY" secondItem="kPg-PM-5FH" secondAttribute="centerY" id="Dkk-b8-4Pc"/>
                             <constraint firstItem="djl-zW-Mfo" firstAttribute="top" secondItem="kPg-PM-5FH" secondAttribute="top" constant="11" id="FI8-1Y-9lJ"/>
                             <constraint firstItem="djl-zW-Mfo" firstAttribute="top" secondItem="kPg-PM-5FH" secondAttribute="top" constant="11" id="K2h-66-zcx"/>
+                            <constraint firstItem="0hF-6f-ldc" firstAttribute="leading" secondItem="kPg-PM-5FH" secondAttribute="leading" constant="-25" id="Suq-jw-SoL"/>
                             <constraint firstAttribute="bottom" secondItem="djl-zW-Mfo" secondAttribute="bottom" constant="11" id="W3W-de-4d0"/>
                             <constraint firstItem="AIq-Gz-P4o" firstAttribute="top" secondItem="kPg-PM-5FH" secondAttribute="top" constant="10" id="mfH-LD-I3f"/>
                             <constraint firstItem="djl-zW-Mfo" firstAttribute="leading" secondItem="AIq-Gz-P4o" secondAttribute="trailing" id="p1x-7r-I9x"/>
@@ -117,9 +124,10 @@
                 <outlet property="descriptionLabel" destination="p0N-gE-GKr" id="gER-HF-NfS"/>
                 <outlet property="labelLabel" destination="7j7-hY-Ccz" id="sWz-DN-WzH"/>
                 <outlet property="mileStoneLabel" destination="6aS-B2-bTY" id="ldP-Zt-eVL"/>
+                <outlet property="selectButton" destination="0hF-6f-ldc" id="Wj8-uT-atL"/>
                 <outlet property="titleLabel" destination="V5W-qT-XOL" id="d3Y-IA-8sd"/>
             </connections>
-            <point key="canvasLocation" x="297.82608695652175" y="137.27678571428569"/>
+            <point key="canvasLocation" x="297.82608695652175" y="136.60714285714286"/>
         </collectionViewCell>
     </objects>
     <designables>
@@ -131,6 +139,8 @@
         </designable>
     </designables>
     <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
