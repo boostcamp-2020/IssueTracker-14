@@ -10,6 +10,7 @@ module.exports = {
   mode: isDevelopment ? "development" : "production",
   entry: ["@babel/polyfill", "./src/index.js"],
   resolve: {
+    extensions: [".js", ".jsx"],
     alias: {
       '@utils': path.resolve(__dirname, 'src/utils'),
       "@atoms": path.resolve(__dirname, "src/components/atoms"),
@@ -20,7 +21,6 @@ module.exports = {
       "@stores": path.resolve(__dirname, "src/stores"),
       "@utils": path.resolve(__dirname, "src/utils"),
     },
-    extensions: [".js", ".jsx"],
   },
   devtool: "eval-cheap-source-map",
   devServer: {
