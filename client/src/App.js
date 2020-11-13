@@ -23,6 +23,9 @@ import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
 import EditMilestonePage from "./pages/Milestone/EditMilestonePage";
 
 const StyledRootContainer = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+  font-family: 'Open Sans', sans-serif;
+
   position: absolute;
   top: 0px;
   left: 0px;
