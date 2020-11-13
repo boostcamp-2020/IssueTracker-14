@@ -13,6 +13,7 @@ final class LabelListViewController: UIViewController {
         return String(describing: Self.self)
     }
     @IBOutlet private weak var labelCollectionView: UICollectionView!
+    private let refeshControl: UIRefreshControl = UIRefreshControl()
     weak var coordinator: LabelCoordinator?
     private let useCase: LabelListUseCaseType
     private var labels: [Label] = [] {
@@ -114,7 +115,7 @@ private extension LabelListViewController {
 }
 
 private extension LabelListViewController {
-    func loadList() {
+    func loadList(completion: (() -> Void)? = nil) {
         useCase.loadList {[weak self] result in
             switch result {
             case let .success(labels):
@@ -124,6 +125,7 @@ private extension LabelListViewController {
                     self?.alert(message: error.localizedDescription)
                 }
             }
+            completion?()
         }
     }
     
@@ -161,8 +163,18 @@ private extension LabelListViewController {
     }
     
     func configureCollectionView() {
+        labelCollectionView.refreshControl = refeshControl
+        refeshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         labelCollectionView.delegate = self
         labelCollectionView.dataSource = dataSource
         labelCollectionView.setCollectionViewLayout(labelCollectionViewLayout(), animated: true)
+    }
+    
+    @objc func reloadData() {
+        loadList { [weak self] in
+            DispatchQueue.main.async {
+                self?.refeshControl.endRefreshing()
+            }
+        }
     }
 }

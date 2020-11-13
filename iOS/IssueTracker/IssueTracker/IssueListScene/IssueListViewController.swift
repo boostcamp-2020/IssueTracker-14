@@ -22,7 +22,8 @@ final class IssueListViewController: UIViewController {
         return String(describing: Self.self)
     }
     @IBOutlet private weak var issueCollectionView: UICollectionView!
-    var coordinator: IssueCoordinator?
+    private let refeshControl: UIRefreshControl = UIRefreshControl()
+    weak var coordinator: IssueCoordinator?
     private let useCase: IssueListUseCaseType
     private var issueListViewEditTabBar: IssueListViewEditTabBar!
     private var selectedCellsCount: Int =  0 {
@@ -156,7 +157,7 @@ private extension IssueListViewController {
 }
 
 private extension IssueListViewController {
-    func loadList() {
+    func loadList(completion: (() -> Void)? = nil) {
         useCase.loadList {[weak self] result in
             switch result {
             case let .success(issues):
@@ -166,6 +167,7 @@ private extension IssueListViewController {
                     self?.alert(message: error.localizedDescription)
                 }
             }
+            completion?()
         }
     }
     
@@ -235,6 +237,8 @@ private extension IssueListViewController {
     }
     
     func configureCollectionView() {
+        issueCollectionView.refreshControl = refeshControl
+        refeshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
         let cellNib = UINib(nibName: IssueCollectionViewCell.identifier, bundle: .main)
         issueCollectionView.register(cellNib, forCellWithReuseIdentifier: IssueCollectionViewCell.identifier)
         issueCollectionView.dataSource = dataSource
@@ -261,6 +265,14 @@ private extension IssueListViewController {
             let rightBarbuttonFont = UIFont.systemFont(ofSize: 17)
             navigationItem.rightBarButtonItem?.setTitleTextAttributes([.font: rightBarbuttonFont],
                                                                       for: .normal)
+        }
+    }
+    
+    @objc func reloadData() {
+        loadList { [weak self] in
+            DispatchQueue.main.async {
+                self?.refeshControl.endRefreshing()
+            }
         }
     }
 }
