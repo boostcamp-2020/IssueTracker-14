@@ -203,7 +203,9 @@ private extension IssueListViewController {
         }
         if selectedCellsCount == issues.count {
             deselectAllItems()
+            navigationItem.leftBarButtonItem?.title = "SelectAll"
         } else {
+            navigationItem.leftBarButtonItem?.title = "DeselectAll"
             (0..<issues.count).forEach { item in
                 let indexPath = IndexPath(item: item, section: 0)
                 issueCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .init())
