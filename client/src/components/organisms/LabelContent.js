@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import M from "./../molecules/index";
 import O from "./../organisms/index";
 
 const StyledLabelContent = styled.div`
@@ -14,12 +15,17 @@ const LabelContent = ({ labels }) => {
   
   return (
     <StyledLabelContent>
-      {labels.map((label) => (
-        <O.LabelCard
-          key={label.id}
-          label={label}
-        />
-      ))}
+      {labels.length !==0 ? (
+        labels.map((label) => (
+          <O.LabelCard
+            key={label.id}
+            label={label}
+          />
+        ))
+      ) : (
+        <M.ContentEmpty />
+      )}
+      
     </StyledLabelContent>
   );
 };
