@@ -18,8 +18,9 @@ final class MileStoneEditViewController: DimmedViewController {
     private let mileStoneEditingPatternChecker: MileStoneEditingPatternChecker = MileStoneEditingPatternChecker()
     private var mileStone: MileStone {
         didSet {
-            editingView.update(with: mileStone)
             editingView.saveButton.isEnabled =  mileStoneEditingPatternChecker.isComplete(mileStone: mileStone)
+            guard oldValue.duedate != mileStone.duedate else { return }
+            editingView.update(with: mileStone)
         }
     }
     weak var delegate: MileStoneEditViewControllerDelegate?
@@ -51,13 +52,9 @@ extension MileStoneEditViewController: EditingViewDelegate {
     }
     
     func resetButtonDidTouchUp(_ editingView: EditingView) {
-//        guard let editingView = editingView as? MileStoneEditingView else { return }
         mileStone.title = ""
         mileStone.duedate = ""
         mileStone.description = ""
-//        editingView.titleTextField.text = ""
-//        editingView.duedateTextField.text = nil
-//        editingView.descriptionTextField.text = nil
     }
     
     func saveButtonDidTouchUp(_ editingView: EditingView) {
