@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import A from "./../atoms/index";
-import M from "./../molecules/index";
 import O from "./../organisms/index";
 
 const StyledLabelContent = styled.div`
@@ -13,6 +11,7 @@ const StyledLabelContent = styled.div`
 `;
 
 const LabelContent = ({ labels }) => {
+  
   return (
     <StyledLabelContent>
       {labels.map((label) => (

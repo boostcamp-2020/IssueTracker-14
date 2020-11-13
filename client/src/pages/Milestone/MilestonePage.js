@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-import {
-  useMilestoneState,
-  useMilestoneDispatch,
-} from "../../stores/milestone";
+import { Link } from "react-router-dom";
+import Store from "../../stores/index";
 import fetchData from "../../utils/fetchData";
-import colors from "../../constants/colors";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 
 const IssuesPageWrapper = styled.div`
   position: relative;
-  top: 4rem;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 3rem auto;
-  width: 80%;
+  width: 70%;
   height: auto;
+  min-width: 50rem;
 `;
 
 const StyledNewMilestoneHeader = styled.div`
@@ -38,16 +35,11 @@ const StyledNavigationWrapper = styled.div`
 
 const MilestonePage = () => {
   const [status, setStatus] = useState("open");
-  const history = useHistory();
 
-  const milestoneDispatch = useMilestoneDispatch();
-
-  const onClickNewMilestone = () => {
-    history.push("/milestones/new");
-  };
+  const milestoneDispatch = Store.useMilestoneDispatch();
 
   useEffect(() => {
-    fetchData("milestone", milestoneDispatch);
+    return fetchData("milestone", milestoneDispatch);
   }, []);
 
   return (
@@ -57,18 +49,19 @@ const MilestonePage = () => {
         <StyledNewMilestoneHeader>
           <StyledNavigationWrapper>
             <M.NavigationWrapperLink location={"milestone"} />
-            <M.ButtonDiv
-              buttonColor={"green"}
-              width={"8rem"}
-              height={"2rem"}
-              textColor={"white"}
-              fontSize={"small"}
-              hover={false}
-              border={true}
-              onClick={onClickNewMilestone}
-            >
-              New Milestone
-            </M.ButtonDiv>
+            <Link to={"/milestones/new"} style={{ textDecoration: "none" }}>
+              <M.ButtonDiv
+                buttonColor={"green"}
+                width={"8rem"}
+                height={"2rem"}
+                textColor={"white"}
+                fontSize={"small"}
+                hover={false}
+                border={true}
+              >
+                New Milestone
+              </M.ButtonDiv>
+            </Link>
           </StyledNavigationWrapper>
         </StyledNewMilestoneHeader>
         <M.Container

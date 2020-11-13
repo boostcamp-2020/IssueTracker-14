@@ -39,79 +39,30 @@ const createIssue = async (req, res) => {
       { transaction: t }
     );
 
-    Array.isArray(AssigneeIdList) &&
-      (await AssigneeModel.bulkCreate(
-        AssigneeIdList.map((userid) => {
+    console.log(AssigneeIdList, LabelIdList);
+
+    if (Array.isArray(assigneeIdList)) {
+      await AssigneeModel.bulkCreate(
+        assigneeIdList.map((userid) => {
           return { issueid, userid };
         }),
         { transaction: t }
-      ));
+      );
+    }
 
-    Array.isArray(LabelIdList) &&
-      (await LabelHasIssueModel.bulkCreate(
-        LabelIdList.map((labelid) => {
+    if (Array.isArray(labelIdList)) {
+      await LabelHasIssueModel.bulkCreate(
+        labelIdList.map((labelid) => {
           return { issueid, labelid };
         }),
         { transaction: t }
-      ));
+      );
+    }
 
     await t.commit();
-    return res.status(200).json({ message: "success" });
+    return res.status(200).json({ message: "success", issueid });
   } catch (error) {
     await t.rollback();
-    return res.status(400).json({ message: "fail", error: error.message });
-  }
-};
-
-const readIssue = async (req, res) => {
-  try {
-    const { issueid: id } = req.params;
-    const issue = await IssueModel.findOne({
-      include: [
-        {
-          model: UserModel,
-          attributes: ["id", "nickname"],
-        },
-        {
-          model: MilestoneModel,
-          attributes: ["id", "title"],
-        },
-        {
-          model: AssigneeModel,
-          include: [
-            {
-              model: UserModel,
-              attributes: ["id", "nickname", "imageurl"],
-            },
-          ],
-          attributes: ["id"],
-        },
-        {
-          model: CommentModel,
-        },
-        {
-          model: LabelHasIssueModel,
-          include: [
-            {
-              model: LabelModel,
-              attributes: ["id", "title", "color", "description"],
-            },
-          ],
-          attributes: ["id"],
-        },
-      ],
-      attributes: [
-        "id",
-        "title",
-        "status",
-        "createdAt",
-        "updatedAt",
-        "description",
-      ],
-      where: { id },
-    });
-    return res.status(200).json({ message: "success", issue });
-  } catch (error) {
     return res.status(400).json({ message: "fail", error: error.message });
   }
 };
@@ -170,6 +121,7 @@ const readIssues = async (req, res) => {
         "updatedAt",
         "description",
       ],
+      order: [["createdAt", "DESC"]],
     });
 
     const issueCount = { open: 0, closed: 0 };
@@ -236,7 +188,6 @@ const updateIssues = async (req, res) => {
 
 module.exports = {
   createIssue,
-  readIssue,
   readIssues,
   updateIssue,
   updateIssues,

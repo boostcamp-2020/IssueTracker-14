@@ -4,7 +4,7 @@ import styled from "styled-components";
 import A from "../atoms/index";
 import M from "../molecules/index";
 import { Link } from "react-router-dom";
-import { useUserDispatch } from "../../stores/user";
+import Store from "../../stores/index";
 
 const StyledLoginForm = styled.div`
   display: flex;
@@ -28,12 +28,12 @@ const StyledLoginFormDivWrapper = styled.div`
   align-items: center;
 `;
 
-const LoginForm = ({ size }) => {
-  const dispatch = useUserDispatch();
+const LoginForm = () => {
+  const userDispatch = Store.useUserDispatch();
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
-    dispatch({
+    userDispatch({
       type: "CHANGE_LOGIN_INPUT",
       name,
       value,
@@ -41,7 +41,7 @@ const LoginForm = ({ size }) => {
   }, []);
 
   const onClickLocalLogin = useCallback(() => {
-    dispatch({
+    userDispatch({
       type: "POST_USER",
     });
   }, []);
@@ -50,22 +50,25 @@ const LoginForm = ({ size }) => {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/api/user/oauth/github"
       : "http://115.85.183.106:3000/api/user/oauth/github";
+
   return (
     <StyledLoginForm>
       <StyledLoginFormDivWrapper>
         <M.FormDiv
-          label="아이디"
-          for="input-id"
-          type="email"
+          label={"아이디"}
+          for={"input-id"}
+          type={"text"}
           onChange={onChange}
           name={"nickname"}
+          rounded
         />
         <M.FormDiv
-          label="비밀번호"
-          for="input-pw"
-          type="password"
+          label={"비밀번호"}
+          for={"input-pw"}
+          type={"password"}
           onChange={onChange}
           name={"password"}
+          rounded
         />
         <M.ButtonDiv
           buttonColor={colors.grey}

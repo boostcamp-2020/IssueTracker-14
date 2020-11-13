@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "../../constants/colors";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -8,6 +9,7 @@ const StyledContainer = styled.div`
   align-items: center;
   margin: 0.5rem 0rem 1.5rem 0rem;
   width: 100%;
+  min-width: 50rem;
 `;
 
 const StyledMenuWrapper = styled.div`
@@ -17,11 +19,12 @@ const StyledMenuWrapper = styled.div`
   box-sizing: border-box;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border: 1px solid #000000;
-  border-bottom: ${({ empty }) => (empty ? "1px solid #000000" : "none")};
+  border: 1px solid #d1d5da;
+  border-bottom: ${({ empty }) => (empty ? "1px solid #d1d5da" : "none")};
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  background-color: ${colors["lightGrey"]};
 `;
 
 const StyledContentWrapper = styled.div`
@@ -30,14 +33,13 @@ const StyledContentWrapper = styled.div`
   box-sizing: border-box;
   width: 100%;
   min-height: ${({ empty }) => (empty ? "20rem" : "0rem")};
-  border: 1px solid #000000;
+  border: 1px solid #d1d5da;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-top: none;
   justify-content: center;
   align-items: ${({ empty }) => (empty ? "center" : "start")};
 `;
-// TODO: Empty일 경우 처리
 
 const Container = ({ menu, content, empty }) => (
   <StyledContainer>

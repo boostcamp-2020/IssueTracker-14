@@ -11,6 +11,7 @@ const NewIssuePageWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 3rem;
+  min-width: 50rem;
 `;
 
 const NewIssuePage = () => {

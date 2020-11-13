@@ -11,6 +11,7 @@ const StyledMilestoneCountWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 15rem;
+  margin-left: 1.3rem;
 `;
 
 const StyledContentWrapper = styled.div`
@@ -43,11 +44,11 @@ const MilestoneMenu = ({ status, setStatus }) => {
         <StyledContentWrapper>
           <A.Text
             fontSize={"medium"}
-            color={status === "open" ? "black" : "grey"}
+            color={status === "open" ? "black" : "darkGrey"}
           >
             <A.Icon
               name={"milestone"}
-              color={status === "open" ? "black" : "grey"}
+              color={status === "open" ? "black" : "darkGrey"}
             ></A.Icon>{" "}
             {openMilestone} Open
           </A.Text>
@@ -61,12 +62,12 @@ const MilestoneMenu = ({ status, setStatus }) => {
         <StyledContentWrapper>
           <A.Text
             fontSize={"medium"}
-            color={status === "closed" ? "black" : "grey"}
+            color={status === "closed" ? "black" : "darkGrey"}
           >
             <A.Icon
               name={"checkDouble"}
-              color={status === "closed" ? "black" : "grey"}
-            ></A.Icon>{" "}
+              color={status === "closed" ? "black" : "darkGrey"}
+            ></A.Icon>
             {closedMilestone} Closed
           </A.Text>
         </StyledContentWrapper>

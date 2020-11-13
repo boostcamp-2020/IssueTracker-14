@@ -4,14 +4,18 @@ import { useIssueState } from "../../stores/issue";
 import styled from "styled-components";
 import A from "./../atoms/index";
 import calculateTime from "../../utils/calculateTime";
+import { useQueryDispatch } from "../../stores/query";
 
 const StyledIssueCard = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  border-top: 1px solid #000000;
   width: 100%;
+  border-top: 1px solid #d1d5da;
+  &:hover {
+    background-color: #e3e3e4;
+  }
 `;
 
 const StyledCheckbox = styled.div`
@@ -78,6 +82,8 @@ const IssueCard = ({
   const commentsLength = issue.comments.length;
   const assigneesLength = issue.assignees.length;
 
+  const queryDispatch = useQueryDispatch();
+
   const mouseOnImage = () => {
     setImageHover(true);
   };
@@ -135,18 +141,24 @@ const IssueCard = ({
             >
               {issue.title}
             </Link>
-            {issue["label_has_issues"].map((el, idx) => {
-              return (
-                <A.Label
-                  key={idx}
-                  backgroundHexaColor={el.label?.color}
-                  margin={"0rem 0rem 0rem 0.3rem"}
-                >
-                  {el.label?.title}
-                </A.Label>
-              );
-            })}
           </A.Text>
+          {issue["label_has_issues"].map((el, idx) => {
+            return (
+              <A.Label
+                key={idx}
+                backgroundHexaColor={el.label?.color}
+                margin={"0rem 0rem 0rem 0.3rem"}
+              >
+                {el.label?.title !== undefined ? (
+                  el.label.title
+                ) : (
+                  <A.Text fontSize={"small"} color={"white"} hover={false}>
+                    라벨 삭제됨.
+                  </A.Text>
+                )}
+              </A.Label>
+            );
+          })}
         </StyledTextWithLabel>
         <A.Text fontSize={"0.75rem"}>
           #{issue.id} opened {calculateTime(issue.createdAt)} by{" "}
@@ -164,15 +176,13 @@ const IssueCard = ({
                     size={"1.5rem"}
                     imageUrl={el.user.imageurl}
                     position={"absolute"}
-                    right={`${
-                      6.2 +
-                      assigneesLength +
-                      (imageHover ? assigneesLength - idx - 1 : 0) -
-                      0.7 * (idx + 1)
-                    }rem`}
+                    right={`${2.5 +(assigneesLength - 1 - idx) * (imageHover ? 1.65 : 1)}rem`}
                     cursor={"pointer"}
                     onClick={() => {
-                      alert(el.id);
+                      queryDispatch({
+                        type: "CHANGE_ASSIGNEE",
+                        data: el.user.nickname,
+                      });
                     }}
                     onMouseEnter={mouseOnImage}
                   />

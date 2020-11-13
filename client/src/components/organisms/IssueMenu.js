@@ -133,7 +133,7 @@ const IssueMenu = ({
       buttonText: "Sort",
       labelText: "Sort by",
       buttonWidth: "5rem",
-      search: true,
+      search: false,
     },
   ];
 
@@ -203,12 +203,14 @@ const IssueMenu = ({
               <StyledContentWrapper>
                 <A.Text
                   fontSize={"medium"}
-                  color={queryState.query.status === "open" ? "black" : "grey"}
+                  color={
+                    queryState.query.status === "open" ? "black" : "darkGrey"
+                  }
                 >
                   <A.Icon
                     name={"alert"}
                     color={
-                      queryState.query.status === "open" ? "green" : "grey"
+                      queryState.query.status === "open" ? "green" : "darkGrey"
                     }
                   />
                   {issueState.issueCount?.open} Open
@@ -220,13 +222,13 @@ const IssueMenu = ({
                 <A.Text
                   fontSize={"medium"}
                   color={
-                    queryState.query.status === "closed" ? "black" : "grey"
+                    queryState.query.status === "closed" ? "black" : "darkGrey"
                   }
                 >
                   <A.Icon
                     name={"alert"}
                     color={
-                      queryState.query.status === "closed" ? "red" : "grey"
+                      queryState.query.status === "closed" ? "red" : "darkGrey"
                     }
                   />
                   {issueState.issueCount?.closed} Closed

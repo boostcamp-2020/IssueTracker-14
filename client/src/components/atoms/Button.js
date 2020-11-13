@@ -20,7 +20,8 @@ const StyledButton = styled.button`
     hexa ? backgroundColor : colors[backgroundColor]};
   cursor: ${(cursor) => cursor};
   text-align: ${({ textAlign }) => textAlign};
-
+  disabled: ${({ disabled }) => disabled};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   display: ${({ display }) => display};
   justify-content: ${({ justifyContent }) => justifyContent || undefined};
   align-items: ${({ alignItems }) => alignItems};
@@ -79,7 +80,7 @@ Button.defaultProps = {
   rounded: true,
   icon: undefined,
   color: "black",
-  backgroundColor: "white",
+  backgroundColor: "transparent",
   label: "기본 버튼",
   textAlign: "center",
   cursor: "pointer",

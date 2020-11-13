@@ -7,7 +7,7 @@ import A from "../../components/atoms/index";
 import M from "../../components/molecules/index";
 import O from "../../components/organisms/index";
 
-const LabelsPageWrapper = styled.div`
+const StyledLabelsPageWrapper = styled.div`
   position: relative;
   top: 6rem;
   display: flex;
@@ -15,6 +15,7 @@ const LabelsPageWrapper = styled.div`
   align-items: center;
   margin: 3rem auto;
   width: 70%;
+  height: auto;
 `;
 
 const StyledLabelNavigationWrapper = styled.div`
@@ -23,7 +24,7 @@ const StyledLabelNavigationWrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 1.5rem 0rem 0.5rem 0rem;
+  margin: 20px 0;
 `;
 
 const StyledLabelContentWrapper = styled.div`
@@ -31,32 +32,31 @@ const StyledLabelContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.5rem 0rem 1.5rem 0rem;
   width: 100%;
 `;
 
 const LabelsPage = () => {
   const labelState = useLabelState();
   const labelDispatch = useLabelDispatch();
-  
+
   useEffect(() => {
-    fetchTargetData("label", labelDispatch);
-  }, []);
-  
+    return () => {fetchTargetData("label", labelDispatch)};
+  }, [labelState.labels]);
+
   return (
     <>
       <O.Header />
-      <LabelsPageWrapper>
+      <StyledLabelsPageWrapper>
         <StyledLabelNavigationWrapper>
-            <O.LabelNavigation />
+          <O.LabelNavigation />
         </StyledLabelNavigationWrapper>
         <StyledLabelContentWrapper>
-            <M.Container
-                menu={<O.LabelMenu labels={labelState.labels} />}
-                content={<O.LabelContent labels={labelState.labels} />}
-            />
+          <M.Container
+            menu={<O.LabelMenu labels={labelState.labels} />}
+            content={<O.LabelContent labels={labelState.labels} />}
+          />
         </StyledLabelContentWrapper>
-      </LabelsPageWrapper>
+      </StyledLabelsPageWrapper>
     </>
   );
 };
