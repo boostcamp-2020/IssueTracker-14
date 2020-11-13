@@ -7,7 +7,7 @@ const StyledOverlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 0;
+  z-index: 1;
   display: ${({ hidden }) => (hidden ? "none" : "block")};
 `;
 
