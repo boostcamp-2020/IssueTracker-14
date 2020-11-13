@@ -46,18 +46,18 @@
 ## 앱 실행 화면
 
 <p align=“center”>
+  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077177-ad574d00-25ff-11eb-94b8-cd5251214c1f.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075136-500dcc80-25fc-11eb-8357-65632e3f19cb.gif" width="250"></kbd>
-  <kbd><img src="https://user-images.githubusercontent.com/54564170/99075176-62880600-25fc-11eb-8827-a40789028f83.gif" width="250"></kbd>
+  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077171-aa5c5c80-25ff-11eb-9be1-d39aff7a7b77.gif" width="250"></kbd>
+</p>
+<p align=“center”>
+   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075176-62880600-25fc-11eb-8827-a40789028f83.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075226-7895c680-25fc-11eb-829b-1f796e54ed56.gif" width="250"></kbd>
 </p>
 <p align=“center”>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075232-7cc1e400-25fc-11eb-873b-b52daa62ef92.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075238-7f243e00-25fc-11eb-9b8b-36636ef6d3ed.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075245-80ee0180-25fc-11eb-9ae0-61f63f7c8e35.gif" width="250"></kbd>
-</p>
-<p align=“center”>
-  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077177-ad574d00-25ff-11eb-94b8-cd5251214c1f.gif" width="250"></kbd>
-  <kbd><img src="https://user-images.githubusercontent.com/54564170/99077171-aa5c5c80-25ff-11eb-9be1-d39aff7a7b77.gif" width="250"></kbd>
 </p>
 
 # [위키 Home](https://github.com/boostcamp-2020/IssueTracker-14/wiki)
