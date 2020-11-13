@@ -101,7 +101,7 @@ const NewIssueForm = () => {
         bgColor={"middleWhite"}
         rounded={true}
         height={"auto"}
-        width={"80%"}
+        width={"100%"}
         onChange={onChangeTitle}
       />
       <M.Tabs tabList={["Write", "Priview"]} onClick={onClickTab} />

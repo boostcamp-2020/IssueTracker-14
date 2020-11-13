@@ -154,14 +154,12 @@ const issueReducer = (state, action) => {
           } = await myAxios.post("/issues", {
             title: state.newIssue.title,
             milestoneid: state.newIssue.milestoneid,
-            labelIdList: state.newIssue.labelIdList,
-            assigneeIdList: state.newIssue.assigneeIdList,
+            labelIdList: JSON.stringify(state.newIssue.labelIdList),
+            assigneeIdList: JSON.stringify(state.newIssue.assigneeIdList),
             commentContent: state.newIssue.commentContent,
           });
-          console.log(state.newIssue);
           if (message === "success") {
-            alert("정상적으로 이슈가 생성되었습니다.");
-            return state;
+            location.href = "/";
           }
         };
         createIssue();
