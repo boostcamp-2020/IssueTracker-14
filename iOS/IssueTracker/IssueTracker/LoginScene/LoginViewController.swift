@@ -53,6 +53,11 @@ final class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     @IBAction private func githubLoginButtonDidTouchUp(_ sender: UIButton) {
         coordinator?.showGithubLogin(delegate: self)
     }
@@ -104,10 +109,10 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithAuthorization authorization: ASAuthorization) {
         let credential = authorization.credential as? ASAuthorizationAppleIDCredential
-        guard let email = credential?.email,
-              let familyName = credential?.fullName?.familyName,
-              let givenName = credential?.fullName?.givenName,
-              let hashcode = credential?.user else { return }
+        let email = credential?.email ?? ""
+        let familyName = credential?.fullName?.familyName ?? ""
+        let givenName = credential?.fullName?.givenName ?? ""
+        guard let hashcode = credential?.user else { return }
         let info = AppleLoginInfo(email: email, name: familyName + givenName, hashcode: hashcode)
         loginUseCase.login(with: info) { [weak self] result in
             DispatchQueue.main.async {
