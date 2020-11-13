@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import A from "../atoms/index";
-import M from "../molecules/index";
-import { useQueryState, useQueryDispatch } from "../../stores/query";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import { useQueryState, useQueryDispatch } from "../../../stores/query";
 
-const StyledNavigationWrapperInput = styled.div`
+const StyledIssueFilterAndSearch = styled.div`
   position: relative;
   display: flex;
   width: 100%;
@@ -48,7 +48,7 @@ const queryParser = (inputValue) => {
   return changedQueryState;
 };
 
-const NavigationWrapperInput = () => {
+const IssueFilterAndSearch = () => {
   const queryState = useQueryState();
   const queryDispatch = useQueryDispatch();
 
@@ -111,7 +111,7 @@ const NavigationWrapperInput = () => {
   ];
 
   return (
-    <StyledNavigationWrapperInput>
+    <StyledIssueFilterAndSearch>
       <M.Dropdown
         buttonData={inputFilterButtons}
         buttonText={"Filters"}
@@ -133,8 +133,8 @@ const NavigationWrapperInput = () => {
         onKeyDown={onKeyDownHandler}
         placeholder={"Search all issues"}
       />
-    </StyledNavigationWrapperInput>
+    </StyledIssueFilterAndSearch>
   );
 };
 
-export default NavigationWrapperInput;
+export default IssueFilterAndSearch;

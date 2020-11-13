@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import A from "../atoms/index";
-import { useIssueDispatch, useIssueState } from "../../stores/issue";
+import A from "../../atoms/index";
+import { useIssueDispatch } from "../../../stores/issue";
 
 const StyledTitleWrapper = styled.div`
   display: flex;

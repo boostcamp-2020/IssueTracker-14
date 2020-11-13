@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import M from "../molecules/index";
-import Store from "../../stores/index";
+import M from "../../molecules/index";
+import Store from "../../../stores/index";
 
 const StyledMilestoneContent = styled.div`
   position: relative;

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useLabelDispatch } from "../../stores/label";
-import fetchTargetData from "../../utils/fetchData";
 import styled from "styled-components";
-import colors from "../../constants/colors";
-import A from "./../atoms/index";
-import M from "./../molecules/index";
+import { useLabelDispatch } from "../../../stores/label";
+import fetchTargetData from "../../../utils/fetchData";
+import colors from "../../../constants/colors";
+import A from "./../../atoms/index";
+import M from "./../../molecules/index";
 
 const StyledWrapper = styled.div`
   display: flex;

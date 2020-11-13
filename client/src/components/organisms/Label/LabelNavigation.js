@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import M from "../molecules/index";
+import M from "../../molecules/index";
 
 const StyledLabelNavigationWrapper = styled.div`
   display: flex;

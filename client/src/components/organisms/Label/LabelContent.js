@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import M from "./../molecules/index";
-import O from "./../organisms/index";
+import M from "./../../molecules/index";
+import O from "./../../organisms/index";
 
 const StyledLabelContent = styled.div`
   position: relative;

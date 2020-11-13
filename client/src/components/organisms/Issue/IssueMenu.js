@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import A from "./../atoms/index";
-import M from "./../molecules/index";
-import O from "./../organisms/index";
-import Store from "../../stores/index";
-import fetchTargetData from "../../utils/fetchData";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import Store from "../../../stores/index";
+import fetchTargetData from "../../../utils/fetchData";
 
 const StyledIssueMenuWrapper = styled.div`
   position: relative;
@@ -27,6 +26,11 @@ const StyledButtonWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   width: 15rem;
+`;
+
+const StyledDropdownCluster = styled.div`
+  position: relative;
+  display: flex;
 `;
 
 const IssueMenu = ({
@@ -241,7 +245,11 @@ const IssueMenu = ({
       {selected.length !== 0 ? (
         <M.Dropdown {...oneDropdownOption} />
       ) : (
-        <O.DropdownCluster dropdownOptions={issueDropdownOptions} />
+        <StyledDropdownCluster>
+          {issueDropdownOptions.map((el, idx) => (
+            <M.Dropdown key={idx} {...el} />
+          ))}
+        </StyledDropdownCluster>
       )}
     </StyledIssueMenuWrapper>
   );

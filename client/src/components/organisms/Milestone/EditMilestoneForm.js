@@ -1,10 +1,11 @@
 import React, { useCallback, useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import A from "../atoms/index";
-import M from "../molecules/index";
-import { useMilestoneDispatch } from "../../stores/milestone";
-import fetchData from "../../utils/fetchData";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import { useMilestoneDispatch } from "../../../stores/milestone";
+import fetchData from "../../../utils/fetchData";
+
 const StyledEditMilestoneForm = styled.div`
   display: flex;
   flex-direction: column;

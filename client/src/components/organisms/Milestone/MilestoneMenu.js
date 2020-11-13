@@ -1,10 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import A from "./../atoms/index";
-import M from "./../molecules/index";
-import O from "./../organisms/index";
+import A from "./../../atoms/index";
 
-import Store from "../../stores/index";
+import Store from "../../../stores/index";
 
 const StyledMilestoneCountWrapper = styled.div`
   display: flex;

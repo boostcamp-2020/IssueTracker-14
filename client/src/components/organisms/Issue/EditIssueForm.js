@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import A from "../atoms/index";
-import M from "../molecules/index";
-import { useCommentDispatch } from "../../stores/comment";
-import calculateTime from "../../utils/calculateTime";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import { useCommentDispatch } from "../../../stores/comment";
+import calculateTime from "../../../utils/calculateTime";
 
 const StyledEditIsssueForm = styled.section`
   width: 60vw;

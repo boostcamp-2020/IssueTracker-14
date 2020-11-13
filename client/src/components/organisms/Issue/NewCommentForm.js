@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import A from "../atoms/index";
-import M from "../molecules/index";
-import { useIssueDispatch } from "../../stores/issue";
-import { useCommentDispatch } from "../../stores/comment";
-import fetchTargetData from "../../utils/fetchData";
+import A from "../../atoms/index";
+import M from "../../molecules/index";
+import { useIssueDispatch } from "../../../stores/issue";
+import { useCommentDispatch } from "../../../stores/comment";
+import fetchTargetData from "../../../utils/fetchData";
 
 const StyledNewCommentFormWrapper = styled.div`
   display: flex;

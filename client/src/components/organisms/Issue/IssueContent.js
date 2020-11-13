@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import M from "./../molecules/index";
+import M from "../../molecules/index";
 
 const StyledIssueContent = styled.div`
   position: relative;
