@@ -122,5 +122,3 @@
 
 - [기술 공유](https://github.com/boostcamp-2020/IssueTracker-14/wiki/%EA%B8%B0%EC%88%A0-%EA%B3%B5%EC%9C%A0-%EB%82%B4%EC%9A%A9)
 </details>
-=======
-
