@@ -52,10 +52,10 @@
 </p>
 <p align=“center”>
    <kbd><img src="https://user-images.githubusercontent.com/54564170/99075176-62880600-25fc-11eb-8827-a40789028f83.gif" width="250"></kbd>
+  <kbd><img src="https://user-images.githubusercontent.com/54564170/99075232-7cc1e400-25fc-11eb-873b-b52daa62ef92.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075226-7895c680-25fc-11eb-829b-1f796e54ed56.gif" width="250"></kbd>
 </p>
 <p align=“center”>
-  <kbd><img src="https://user-images.githubusercontent.com/54564170/99075232-7cc1e400-25fc-11eb-873b-b52daa62ef92.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075238-7f243e00-25fc-11eb-9b8b-36636ef6d3ed.gif" width="250"></kbd>
   <kbd><img src="https://user-images.githubusercontent.com/54564170/99075245-80ee0180-25fc-11eb-9ae0-61f63f7c8e35.gif" width="250"></kbd>
 </p>
