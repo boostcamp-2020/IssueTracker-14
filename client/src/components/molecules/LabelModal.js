@@ -19,9 +19,9 @@ const StyledLabelModal = styled.div`
   border-top: ${({ editMode }) =>
     editMode ? `1px solid ${colors["lightGrey"]}` : "none"};
   background-color: ${({ editMode }) =>
-    editMode ? colors["white"] : colors["lightGrey"]};
+    editMode ? "transparent" : colors["lightGrey"]};
   border-radius: 0.25rem;
-  margin-top: 2rem;
+  margin-top: ${({ editMode }) => (editMode ? "0rem" : "1.4rem")};
   min-width: 50rem;
   width: 100%;
 `;
