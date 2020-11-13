@@ -47,7 +47,6 @@ const DropDownWithText = ({
         selected={selected}
         search={false}
       ></M.Dropdown>
-      {/* TODO: assign yourself 구현 */}
       {!selected || selected.length === 0 ? (
         <A.Text
           hover={false}
