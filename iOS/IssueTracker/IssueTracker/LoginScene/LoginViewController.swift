@@ -44,6 +44,8 @@ final class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        passwordInputView.textField.text = ""
+        emailInputView.textField.text = ""
     }
     
     override func viewWillDisappear(_ animated: Bool) {

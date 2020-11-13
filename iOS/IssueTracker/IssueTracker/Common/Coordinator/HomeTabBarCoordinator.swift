@@ -65,3 +65,9 @@ final class HomeTabBarCoordinator: TabBarCoordinator {
         settingCoordinator.start()
     }
 }
+
+extension HomeTabBarCoordinator {
+    func showLogin() {
+        parentCoordinator?.showLogin()
+    }
+}

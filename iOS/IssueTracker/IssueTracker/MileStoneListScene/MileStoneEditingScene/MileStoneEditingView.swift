@@ -16,10 +16,10 @@ protocol MileStoneEditingViewDelegate: class {
 
 final class MileStoneEditingView: EditingView, XibLoadable {
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var duedateTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var descriptionTextField: UITextField!
+    @IBOutlet private weak var duedateTextField: UITextField!
+    @IBOutlet private weak var errorLabel: UILabel!
     weak var mileStoneEditingDelegate: MileStoneEditingViewDelegate?
     
     override init(frame: CGRect) {
@@ -123,5 +123,10 @@ extension MileStoneEditingView {
         titleTextField.text = mileStone.title
         descriptionTextField.text = mileStone.description
         duedateTextField.text = mileStone.duedate
+    }
+    
+    func update(error: String?) {
+        errorLabel.text = error
+        errorLabel.isHidden = error == nil
     }
 }
