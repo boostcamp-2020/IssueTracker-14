@@ -41,18 +41,18 @@ const createIssue = async (req, res) => {
 
     console.log(AssigneeIdList, LabelIdList);
 
-    if (Array.isArray(assigneeIdList)) {
+    if (Array.isArray(AssigneeIdList)) {
       await AssigneeModel.bulkCreate(
-        assigneeIdList.map((userid) => {
+        AssigneeIdList.map((userid) => {
           return { issueid, userid };
         }),
         { transaction: t }
       );
     }
 
-    if (Array.isArray(labelIdList)) {
+    if (Array.isArray(LabelIdList)) {
       await LabelHasIssueModel.bulkCreate(
-        labelIdList.map((labelid) => {
+        LabelIdList.map((labelid) => {
           return { issueid, labelid };
         }),
         { transaction: t }
