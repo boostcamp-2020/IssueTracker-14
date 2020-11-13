@@ -55,7 +55,6 @@ extension IssueCoordinator {
     func showFilter() {
         let filterViewController = storyboard
             .instantiateViewController(identifier: FilterViewController.identifier)
-        
         navigationController?.present(filterViewController, animated: true)
     }
 }

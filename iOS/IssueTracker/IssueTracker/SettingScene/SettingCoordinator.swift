@@ -19,11 +19,18 @@ final class SettingCoordinator: NavigationCoordinator {
         self.networkService = networkService
         
     }
-    
+
     func start() {
         let viewContoller = storyboard.instantiateViewController(
             identifier: SettingViewController.identifier) as SettingViewController
         viewContoller.coordinator = self
         navigationController?.pushViewController(viewContoller, animated: true)
+    }
+    
+}
+
+extension SettingCoordinator {
+    func showLogin() {
+        parentCoordinator?.showLogin()
     }
 }

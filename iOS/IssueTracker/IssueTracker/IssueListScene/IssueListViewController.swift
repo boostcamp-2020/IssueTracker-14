@@ -22,7 +22,7 @@ final class IssueListViewController: UIViewController {
         return String(describing: Self.self)
     }
     @IBOutlet private weak var issueCollectionView: UICollectionView!
-    weak var coordinator: IssueCoordinator?
+    var coordinator: IssueCoordinator?
     private let useCase: IssueListUseCaseType
     private var issueListViewEditTabBar: IssueListViewEditTabBar!
     private var selectedCellsCount: Int =  0 {
@@ -37,7 +37,6 @@ final class IssueListViewController: UIViewController {
         }
     }
     private lazy var dataSource: IssueCollectionViewDataSource = issueDataSource()
-    
     init?(coder: NSCoder, useCase: IssueListUseCaseType) {
         self.useCase = useCase
         super.init(coder: coder)

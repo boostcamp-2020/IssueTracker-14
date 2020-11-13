@@ -60,4 +60,17 @@ extension LoginCoordinator {
         childCoordinator.start()
         childCoordinator.parentCoordinator = self
     }
+    
+    func showLogin() {
+        let viewContoller = storyboard.instantiateViewController(
+            identifier: LoginViewController.identifier,
+            creator: { [unowned self] coder -> LoginViewController? in
+                return LoginViewController(coder: coder, useCase: LoginUseCase(networkService: self.networkService))
+            }
+        )
+        viewContoller.coordinator = self
+        navigationController?.setViewControllers([viewContoller], animated: false)
+        networkService.userToken = nil
+        childCoordinator = nil
+    }
 }
