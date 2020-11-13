@@ -24,6 +24,7 @@ const TextArea = ({
   name,
   filePath,
   value,
+  defaultValue,
   ...rest
 }) => {
   return (
@@ -34,6 +35,7 @@ const TextArea = ({
       width={width}
       height={height}
       value={value}
+      defaultValue={defaultValue}
       {...rest}
     />
   );

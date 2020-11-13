@@ -12,7 +12,6 @@ import IssueContent from "./IssueContent";
 import EditIssueForm from "./EditIssueForm";
 import EditIssueTitle from "./EditIssueTitle";
 import EditIssueHeader from "./EditIssueHeader";
-import EditIssueOptions from "./EditIssueOptions";
 import LabelNavigation from "./LabelNavigation";
 import LabelMenu from "./LabelMenu";
 import LabelCard from "./LabelCard";
@@ -20,6 +19,7 @@ import LabelContent from "./LabelContent";
 import MilestoneMenu from "./MilestoneMenu";
 import MilestoneContent from "./MilestoneContent";
 import EditMilestoneForm from "./EditMilestoneForm";
+import NewCommentForm from "./NewCommentForm";
 
 export default {
   EditMilestoneForm,
@@ -31,13 +31,13 @@ export default {
   NewIssueForm,
   NewIssueOptions,
   NewMilestoneForm,
+  NewCommentForm,
   SignUpForm,
   IssueMenu,
   IssueContent,
   EditIssueForm,
   EditIssueTitle,
   EditIssueHeader,
-  EditIssueOptions,
   LabelNavigation,
   LabelMenu,
   LabelCard,
