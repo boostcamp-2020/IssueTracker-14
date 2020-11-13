@@ -10,16 +10,17 @@ module.exports = {
   mode: isDevelopment ? "development" : "production",
   entry: ["@babel/polyfill", "./src/index.js"],
   resolve: {
-    extensions: [".js", ".jsx"],
     alias: {
-      "@atoms": path.resolve(___dirname, "src/components/atoms"),
-      "@molecules": path.resolve(___dirname, "src/components/molecules"),
-      "@organisms": path.resolve(___dirname, "src/components/organisms"),
-      "@constants": path.resolve(___dirname, "src/constants"),
-      "@pages": path.resolve(___dirname, "src/pages"),
-      "@stores": path.resolve(___dirname, "src/stores"),
-      "@utils": path.resolve(___dirname, "src/utils"),
-    }
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      "@atoms": path.resolve(__dirname, "src/components/atoms"),
+      "@molecules": path.resolve(__dirname, "src/components/molecules"),
+      "@organisms": path.resolve(__dirname, "src/components/organisms"),
+      "@constants": path.resolve(__dirname, "src/constants"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      "@stores": path.resolve(__dirname, "src/stores"),
+      "@utils": path.resolve(__dirname, "src/utils"),
+    },
+    extensions: [".js", ".jsx"],
   },
   devtool: "eval-cheap-source-map",
   devServer: {
