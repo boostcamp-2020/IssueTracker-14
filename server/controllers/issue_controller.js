@@ -39,8 +39,6 @@ const createIssue = async (req, res) => {
       { transaction: t }
     );
 
-    console.log(AssigneeIdList, LabelIdList);
-
     if (Array.isArray(assigneeIdList)) {
       await AssigneeModel.bulkCreate(
         assigneeIdList.map((userid) => {

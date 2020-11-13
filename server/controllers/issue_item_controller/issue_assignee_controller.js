@@ -40,7 +40,6 @@ const readAssignees = async (req, res) => {
 const deleteAssignee = async (req, res) => {
   try {
     const { issueid, assineeid } = req.params;
-    console.log(issueid, assineeid);
     await AssigneeModel.destroy({ where: { issueid, assineeid } });
     return res.status(200).json({ message: "success" });
   } catch (error) {

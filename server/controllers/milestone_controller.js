@@ -65,8 +65,6 @@ const updateMilestone = async (req, res) => {
   try {
     const { milestoneid: id } = req.params;
     const { title, duedate, description, status } = req.body;
-    console.log(req.params);
-    console.log(req.body);
     if (Date.now() > new Date(duedate) && duedate !== null) {
       return res.status(400).json({ message: "fail" });
     }
