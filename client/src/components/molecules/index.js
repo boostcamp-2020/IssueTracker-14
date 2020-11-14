@@ -1,20 +1,17 @@
-import ButtonDiv from "./ButtonDiv";
-import Container from "./Container";
-import ClearIssueFilter from "./ClearIssueFilter";
-import Dropdown from "./Dropdown";
-import DropdownWithText from "./DropdownWithText";
-import FormDiv from "./FormDiv";
-import FormTextArea from "./FormTextArea";
-import NavigationWrapperLink from "./NavigationWrapperLink";
-import IssueCard from "./IssueCard";
-import LabelModal from "./LabelModal";
-import FileInput from "./FileInput";
-import Title from "./Title";
-import Tabs from "./Tabs";
-import Overlay from "./Overlay";
-import DropdownItem from "./DropdownItem";
-import MilestoneCard from "./MilestoneCard";
-import ContentEmpty from "./ContentEmpty";
+import ButtonDiv from "@molecules/ButtonDiv/ButtonDiv";
+import Container from "@molecules/Container/Container";
+import ClearIssueFilter from "@molecules/ClearIssueFilter/ClearIssueFilter";
+import Dropdown from "@molecules/Dropdown/Dropdown";
+import DropdownWithText from "@molecules/DropdownWithText/DropdownWithText";
+import FormDiv from "@molecules/FormDiv/FormDiv";
+import FormTextArea from "@molecules/FormTextArea/FormTextArea";
+import NavigationWrapperLink from "@molecules/NavigationWrapperLink/NavigationWrapperLink";
+import FileInput from "@molecules/FileInput/FileInput";
+import Title from "@molecules/Title/Title";
+import Tabs from "@molecules/Tabs/Tabs";
+import Overlay from "@molecules/Overlay/Overlay";
+import DropdownItem from "@molecules/DropdownItem/DropdownItem";
+import ContentEmpty from "@molecules/ContentEmpty/ContentEmpty";
 
 export default {
   ButtonDiv,
@@ -25,13 +22,10 @@ export default {
   FormDiv,
   FormTextArea,
   NavigationWrapperLink,
-  IssueCard,
-  LabelModal,
   FileInput,
   Title,
   Tabs,
   Overlay,
   DropdownItem,
-  MilestoneCard,
   ContentEmpty,
 };

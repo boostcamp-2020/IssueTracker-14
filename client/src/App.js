@@ -1,39 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
-import styled from "styled-components";
+import myAxios from "@utils/myAxios";
+import Styled from "./App.style";
 
-import myAxios from "./utils/myAxios";
-import { AuthContext } from "./stores/auth";
-import { UserProvider } from "./stores/user";
-import { MilestoneProvider } from "./stores/milestone";
-import { LabelProvider } from "./stores/label";
-import { AssigneeProvider } from "./stores/assignee";
-import { IssueProvider } from "./stores/issue";
-import { QueryProvider } from "./stores/query";
-import { CommentProvider } from "./stores/comment";
+import { AuthContext } from "@stores/auth/auth";
+import { UserProvider } from "@stores/user/user";
+import { MilestoneProvider } from "@stores/milestone/milestone";
+import { LabelProvider } from "@stores/label/label";
+import { AssigneeProvider } from "@stores/assignee/assignee";
+import { IssueProvider } from "@stores/issue/issue";
+import { QueryProvider } from "@stores/query/query";
+import { CommentProvider } from "@stores/comment/comment";
 
-import LoginPage from "./pages/User/LoginPage";
-import SignUpPage from "./pages/User/SignUpPage";
-import IssuesPage from "./pages/Issue/IssuesPage";
-import LabelPage from "./pages/Label/LabelPage";
-import NewIssuePage from "./pages/Issue/NewIssuePage";
-import EditIssuePage from "./pages/Issue/EditIssuePage";
-import MilestonePage from "./pages/Milestone/MilestonePage";
-import NewMilestonePage from "./pages/Milestone/NewMilestonePage";
-import EditMilestonePage from "./pages/Milestone/EditMilestonePage";
-
-const StyledRootContainer = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-  font-family: 'Open Sans', sans-serif;
-
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-size: 62.5%;
-`;
+import LoginPage from "@pages/User/LoginPage/LoginPage";
+import SignUpPage from "@pages/User/SignUpPage/SignUpPage";
+import IssuesPage from "@pages/Issue/IssuesPage/IssuesPage";
+import LabelPage from "@pages/Label/LabelPage";
+import NewIssuePage from "@pages/Issue/NewIssuePage/NewIssuePage";
+import EditIssuePage from "@pages/Issue/EditIssuePage/EditIssuePage";
+import MilestonePage from "@pages/Milestone/MilestonePage/MilestonePage";
+import NewMilestonePage from "@pages/Milestone/NewMilestonePage/NewMilestonePage";
+import EditMilestonePage from "@pages/Milestone/EditMilestonePage/EditMilestonePage";
 
 const App = () => {
   const token = localStorage.getItem("token");
@@ -76,7 +63,7 @@ const App = () => {
 
   return (
     <AuthContext.Provider value={isAuth}>
-      <StyledRootContainer>
+      <Styled.RootContainer>
         <Switch>
           <UserProvider>
             <IssueProvider>
@@ -113,12 +100,7 @@ const App = () => {
             </IssueProvider>
           </UserProvider>
         </Switch>
-        {/*
-        <Route exact path="/issues/new" component={LoginForm} />
-        <Route exact path="/issues/:issueid" component={LoginForm} />
-        <Route exact path="/labels" component={LoginForm} />
-      */}
-      </StyledRootContainer>
+      </Styled.RootContainer>
     </AuthContext.Provider>
   );
 };

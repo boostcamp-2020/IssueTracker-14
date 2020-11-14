@@ -1,7 +1,7 @@
-import colors from "../../../constants/colors";
+import colors from "@constants/colors";
 import styled from "styled-components";
 
-const StyledHeader = styled.div`
+const Header = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ const StyledHeader = styled.div`
   font-size: 185%;
 `;
 
-const StyledLogoutWrapper = styled.div`
+const LogoutWrapper = styled.div`
   position: absolute;
   right: 2rem;
   top: 0;
@@ -23,4 +23,4 @@ const StyledLogoutWrapper = styled.div`
   align-items: center;
 `;
 
-export default { StyledHeader, StyledLogoutWrapper };
+export default { Header, LogoutWrapper };

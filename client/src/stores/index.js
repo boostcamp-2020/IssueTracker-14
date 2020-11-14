@@ -2,21 +2,21 @@ import {
   AssigneeProvider,
   useAssigneeState,
   useAssigneeDispatch,
-} from "./assignee";
-import { IssueProvider, useIssueState, useIssueDispatch } from "./issue";
-import { LabelProvider, useLabelState, useLabelDispatch } from "./label";
+} from "./assignee/assignee";
+import { IssueProvider, useIssueState, useIssueDispatch } from "./issue/issue";
+import { LabelProvider, useLabelState, useLabelDispatch } from "./label/label";
 import {
   MilestoneProvider,
   useMilestoneState,
   useMilestoneDispatch,
-} from "./milestone";
-import { QueryProvider, useQueryState, useQueryDispatch } from "./query";
-import { UserProvider, useUserState, useUserDispatch } from "./user";
+} from "./milestone/milestone";
+import { QueryProvider, useQueryState, useQueryDispatch } from "./query/query";
+import { UserProvider, useUserState, useUserDispatch } from "./user/user";
 import {
   CommentProvider,
   useCommentState,
   useCommentDispatch,
-} from "./comment";
+} from "./comment/comment";
 
 export default {
   AssigneeProvider,

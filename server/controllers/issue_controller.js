@@ -21,9 +21,6 @@ const createIssue = async (req, res) => {
     } = req.body;
     const { id: authorid } = req.user;
 
-    const AssigneeIdList = JSON.parse(assigneeIdList);
-    const LabelIdList = JSON.parse(labelIdList);
-
     const { id: issueid } = await IssueModel.create(
       {
         title,

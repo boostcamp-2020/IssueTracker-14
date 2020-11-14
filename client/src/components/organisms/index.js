@@ -1,30 +1,36 @@
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "@organisms/Footer/Footer";
+import Header from "@organisms/Header/Header";
 
-import SignUpForm from "./User/SignUpForm";
-import LoginForm from "./User/LoginForm";
+import SignUpForm from "@organisms/User/SignUpForm/SignUpForm";
+import LoginForm from "@organisms/User/LoginForm/LoginForm";
 
-import IssueFilterAndSearch from "./Issue/IssueFilterAndSearch";
-import NewCommentForm from "./Issue/NewCommentForm";
-import NewIssueForm from "./Issue/NewIssueForm";
-import NewIssueOptions from "./Issue/NewIssueOptions";
-import IssueMenu from "./Issue/IssueMenu";
-import IssueContent from "./Issue/IssueContent";
-import EditIssueForm from "./Issue/EditIssueForm";
-import EditIssueTitle from "./Issue/EditIssueTitle";
-import EditIssueHeader from "./Issue/EditIssueHeader";
+import IssueFilterAndSearch from "@organisms/Issue/IssueFilterAndSearch/IssueFilterAndSearch";
+import NewCommentForm from "@organisms/Issue/NewCommentForm/NewCommentForm";
+import NewIssueForm from "@organisms/Issue/NewIssueForm/NewIssueForm";
+import NewIssueOptions from "@organisms/Issue/NewIssueOptions/NewIssueOptions";
+import IssueMenu from "@organisms/Issue/IssueMenu/IssueMenu";
+import IssueContent from "@organisms/Issue/IssueContent/IssueContent";
+import EditIssueForm from "@organisms/Issue/EditIssueForm/EditIssueForm";
+import EditIssueTitle from "@organisms/Issue/EditIssueTitle/EditIssueTitle";
+import EditIssueHeader from "@organisms/Issue/EditIssueHeader/EditIssueHeader";
+import IssueCard from "@organisms/Issue/IssueCard/IssueCard";
 
-import LabelMenu from "./Label/LabelMenu";
-import LabelNavigation from "./Label/LabelNavigation";
-import LabelCard from "./Label/LabelCard";
-import LabelContent from "./Label/LabelContent";
+import LabelMenu from "@organisms/Label/LabelMenu/LabelMenu";
+import LabelNavigation from "@organisms/Label/LabelNavigation/LabelNavigation";
+import LabelCard from "@organisms/Label/LabelCard/LabelCard";
+import LabelContent from "@organisms/Label/LabelContent/LabelContent";
+import LabelModal from "@organisms/Label/LabelModal/LabelModal";
 
-import NewMilestoneForm from "./Milestone/NewMilestoneForm";
-import MilestoneMenu from "./Milestone/MilestoneMenu";
-import MilestoneContent from "./Milestone/MilestoneContent";
-import EditMilestoneForm from "./Milestone/EditMilestoneForm";
+import NewMilestoneForm from "@organisms/Milestone/NewMilestoneForm/NewMilestoneForm";
+import MilestoneMenu from "@organisms/Milestone/MilestoneMenu/MilestoneMenu";
+import MilestoneContent from "@organisms/Milestone/MilestoneContent/MilestoneContent";
+import EditMilestoneForm from "@organisms/Milestone/EditMilestoneForm/EditMilestoneForm";
+import MilestoneCard from "@organisms/Milestone/MilestoneCard/MilestoneCard";
 
 export default {
+  IssueCard,
+  MilestoneCard,
+  LabelModal,
   EditMilestoneForm,
   Footer,
   Header,

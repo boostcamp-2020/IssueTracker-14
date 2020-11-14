@@ -1,6 +1,6 @@
 import React from "react";
-import A from "../../atoms/index";
-import { StyledHeader, StyledLogoutWrapper } from "./Header.style";
+import A from "@atoms/index";
+import Styled from "./Header.style";
 
 const Header = () => {
   const logout = () => {
@@ -13,17 +13,17 @@ const Header = () => {
 
   return (
     <>
-      <StyledHeader>
+      <Styled.Header>
         <A.Text hover color={"white"} onClick={() => (location.href = "/")}>
           <A.Icon name={"book"} cursor={"text"} />
           IssueTracker-Team14
         </A.Text>
-      </StyledHeader>
-      <StyledLogoutWrapper>
+      </Styled.Header>
+      <Styled.LogoutWrapper>
         <A.Button width="auto" onClick={logout} backgroundColor={"black"}>
           <A.Text color={"white"}>Logout</A.Text>
         </A.Button>
-      </StyledLogoutWrapper>
+      </Styled.LogoutWrapper>
     </>
   );
 };

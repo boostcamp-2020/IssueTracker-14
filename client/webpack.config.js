@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -10,8 +10,9 @@ module.exports = {
   mode: isDevelopment ? "development" : "production",
   entry: ["@babel/polyfill", "./src/index.js"],
   resolve: {
+    extensions: [".js", ".jsx"],
     alias: {
-      '@utils': path.resolve(__dirname, 'src/utils'),
+      "@utils": path.resolve(__dirname, "src/utils"),
       "@atoms": path.resolve(__dirname, "src/components/atoms"),
       "@molecules": path.resolve(__dirname, "src/components/molecules"),
       "@organisms": path.resolve(__dirname, "src/components/organisms"),
@@ -20,7 +21,6 @@ module.exports = {
       "@stores": path.resolve(__dirname, "src/stores"),
       "@utils": path.resolve(__dirname, "src/utils"),
     },
-    extensions: [".js", ".jsx"],
   },
   devtool: "eval-cheap-source-map",
   devServer: {

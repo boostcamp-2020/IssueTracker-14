@@ -1,4 +1,4 @@
-import myAxios from "../utils/myAxios";
+import myAxios from "@utils/myAxios";
 
 const fetchTargetData = async (url, dispatch) => {
   dispatch({ type: "READ_LOADING" });
